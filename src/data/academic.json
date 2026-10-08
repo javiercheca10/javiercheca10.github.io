@@ -416,6 +416,7 @@
             "code": "IA",
             "name": "Inteligencia Artificial",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/inteligencia-artificial/guia-docente",
+            "apuntes": "/apuntes/ia",
             "description": "Prácticas de la asignatura centradas en el diseño e implementación en C++ de un agente autónomo deliberativo sobre un simulador de exploración y supervivencia: percepción por sensores de cuadrícula (P1) y algoritmos avanzados de búsqueda en espacios de estados (Anchura / BFS y A* heurístico con optimización de coste energético) y toma de decisiones (P2).",
             "resources": [
               {
