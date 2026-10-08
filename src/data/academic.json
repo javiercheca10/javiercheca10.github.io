@@ -188,7 +188,40 @@
             "code": "ALGO",
             "name": "Algorítmica",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algoritmica/guia-docente",
-            "description": ""
+            "apuntes": "/apuntes/algo",
+            "description": "Apuntes completos y problemas organizados en 6 bloques temáticos: Notación asintótica y recurrencias, Divide y Vencerás, Greedy (Mochila, Dijkstra, Kruskal, Prim), Algoritmo Húngaro paso a paso, Programación Dinámica y Backtracking.",
+            "resources": [
+              {
+                "name": "Bloque 1: Eficiencia y Ecuaciones de Recurrencia",
+                "file": "/subjects/ALGO/bloque1_eficiencia_recurrencias.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Bloque 2: Divide y Vencerás y Umbral Óptimo",
+                "file": "/subjects/ALGO/bloque2_divide_y_venceras.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Bloque 3: Estrategia Voraz (Greedy), Grafos y Dijkstra",
+                "file": "/subjects/ALGO/bloque3_algoritmos_voraces.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Bloque 4: Algoritmo Húngaro (Asignación Óptima)",
+                "file": "/subjects/ALGO/bloque4_algoritmo_hungaro.md",
+                "tipo": "EJERCICIOS"
+              },
+              {
+                "name": "Bloque 5: Programación Dinámica y Cambio de Moneda",
+                "file": "/subjects/ALGO/bloque5_programacion_dinamica.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Bloque 6: Backtracking (Búsqueda con Retroceso)",
+                "file": "/subjects/ALGO/bloque6_backtracking.md",
+                "tipo": "APUNTES"
+              }
+            ]
           },
           {
             "code": "AC",

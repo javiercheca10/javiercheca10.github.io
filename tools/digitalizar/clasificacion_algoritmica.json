@@ -1,0 +1,121 @@
+{
+  "examenes": [],
+  "bloques_apuntes": [
+    {
+      "nombre_bloque": "Bloque 1: Introducción, Eficiencia y Ecuaciones de Recurrencia",
+      "descripcion": "Conceptos fundamentales de la algorítmica, análisis de la eficiencia mediante notación asintótica y métodos matemáticos para resolver ecuaciones de recurrencia homogéneas, no homogéneas y por cambio de variable.",
+      "archivos": [
+        "IMG_1005.HEIC",
+        "IMG_1006.HEIC",
+        "IMG_1007.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 2: Divide y Vencerás",
+      "descripcion": "Esquema general del diseño de algoritmos basados en Divide y Vencerás, planteamiento de sus ecuaciones de recurrencia asociadas y cálculo del umbral de recursividad óptimo.",
+      "archivos": [
+        "IMG_1008.HEIC",
+        "IMG_1017.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 3: Algoritmos Voraces (Greedy) y Optimización",
+      "descripcion": "Estudio de la estrategia voraz, sus elementos constitutivos (candidatos, selección, viabilidad, función objetivo) y aplicaciones clásicas como la mochila, coloreado de grafos, TSP, Kruskal, Prim, Dijkstra y el Algoritmo Húngaro para asignación.",
+      "archivos": [
+        "IMG_1009.HEIC",
+        "IMG_1010.HEIC",
+        "IMG_1011.HEIC",
+        "IMG_1012.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 4: Programación Dinámica",
+      "descripcion": "Introducción al paradigma de Programación Dinámica, comparación con Divide y Vencerás, el Principio de Optimalidad de Bellman y el diseño del algoritmo para el problema del cambio de moneda.",
+      "archivos": [
+        "IMG_1013.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 5: Backtracking (Búsqueda con Retroceso)",
+      "descripcion": "Conceptos de exploración sistemática del espacio de soluciones mediante árboles de decisión, representación de soluciones en tuplas de tamaño variable o fijo, y el uso de restricciones explícitas e implícitas para realizar podas.",
+      "archivos": [
+        "IMG_1015.HEIC",
+        "IMG_1016.HEIC"
+      ]
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1005.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Introducción y Notación Asintótica",
+      "resumen_contenido": "Definición formal de algoritmo y sus características esenciales (finitud, especificidad, efectividad). Introducción a las cotas de complejidad asintótica: O (cota superior), Omega (cota inferior) y Theta (cota ajustada)."
+    },
+    {
+      "archivo": "IMG_1006.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Resolución de Ecuaciones de Recurrencia",
+      "resumen_contenido": "Método de resolución de recurrencias lineales homogéneas mediante la ecuación característica y sistemas de ecuaciones para hallar las constantes. Introducción al planteamiento de recurrencias no homogéneas."
+    },
+    {
+      "archivo": "IMG_1007.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Resolución de Ecuaciones de Recurrencia",
+      "resumen_contenido": "Continuación de la resolución de recurrencias no homogéneas identificando la forma de la parte no homogénea. Explicación del método de resolución por cambio de variable con un ejemplo práctico."
+    },
+    {
+      "archivo": "IMG_1008.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Divide y Vencerás",
+      "resumen_contenido": "Ecuación de recurrencia general de Divide y Vencerás. Concepto de umbral de recursividad y resolución de un ejercicio práctico para determinar el umbral óptimo (n0) igualando las expresiones del caso básico y el caso recursivo."
+    },
+    {
+      "archivo": "IMG_1009.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Algoritmos Voraces (Greedy)",
+      "resumen_contenido": "Definición y características de la estrategia voraz (conjunto de candidatos, función de selección, criterio de viabilidad, función objetivo). Procedimiento general de diseño e introducción al problema de la mochila booleana."
+    },
+    {
+      "archivo": "IMG_1010.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Algoritmos Voraces (Greedy)",
+      "resumen_contenido": "Estrategia voraz aplicada a la mochila booleana y fraccional. Algoritmo para el problema del coloreado de grafos, definición del problema del viajante de comercio (TSP) e introducción a los árboles generadores mínimos."
+    },
+    {
+      "archivo": "IMG_1011.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Algoritmos Voraces (Greedy)",
+      "resumen_contenido": "Pasos de los algoritmos de Kruskal y Prim para la obtención del árbol generador mínimo. Traza detallada paso a paso del algoritmo de Dijkstra para caminos mínimos sobre un grafo valorado de ejemplo."
+    },
+    {
+      "archivo": "IMG_1012.HEIC",
+      "tipo": "EJERCICIOS",
+      "tema": "Algoritmo Húngaro (Optimización)",
+      "resumen_contenido": "Resolución práctica y detallada de un problema de asignación óptima de tareas mediante el Algoritmo Húngaro, mostrando las reducciones de filas/columnas, el trazado de líneas de cobertura y la asignación final sobre una matriz de costes de 4x4."
+    },
+    {
+      "archivo": "IMG_1013.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Programación Dinámica",
+      "resumen_contenido": "Concepto de Programación Dinámica y comparación directa con Divide y Vencerás. Explicación del Principio de Optimalidad de Bellman y planteamiento inicial del problema del cambio de moneda."
+    },
+    {
+      "archivo": "IMG_1015.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Backtracking",
+      "resumen_contenido": "Introducción teórica al esquema de búsqueda con retroceso (Backtracking). Representación de soluciones mediante tuplas, exploración en profundidad del árbol de espacio de soluciones y concepto de poda de ramas no prometedoras."
+    },
+    {
+      "archivo": "IMG_1016.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Backtracking",
+      "resumen_contenido": "Continuación del tema de Backtracking. Clasificación y definición detallada de las restricciones explícitas (límites directos de las variables) e implícitas (relaciones entre variables que definen el camino de la solución)."
+    },
+    {
+      "archivo": "IMG_1017.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Divide y Vencerás",
+      "resumen_contenido": "Esquema metodológico formal de Divide y Vencerás (dividir, resolver, combinar). Explicación de la fórmula de recurrencia general y definición conceptual del umbral de recursividad."
+    }
+  ]
+}
