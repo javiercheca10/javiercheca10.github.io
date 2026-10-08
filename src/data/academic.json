@@ -134,7 +134,20 @@
             "code": "ED",
             "name": "Estructura de Datos",
             "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/2161125.pdf",
-            "description": ""
+            "description": "TDAs lineales (listas, pilas, colas), árboles (ABB, AVL, APO), tablas hash, grafos y STL de C++.",
+            "apuntes": "/apuntes/ed",
+            "recursos": [
+              {
+                "name": "Examen Convocatoria Ordinaria (Enero 2023)",
+                "file": "/subjects/ED/examenes/examen_ordinaria_enero_2023.md",
+                "tipo": "EXAMEN"
+              },
+              {
+                "name": "Examen Convocatoria Extraordinaria (Febrero 2023)",
+                "file": "/subjects/ED/examenes/examen_extraordinaria_febrero_2023.md",
+                "tipo": "EXAMEN"
+              }
+            ]
           },
           {
             "code": "IOF",

@@ -1,0 +1,278 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "ordinaria-2023",
+    titulo: "Convocatoria Ordinaria (Enero 2023)",
+    tipo: "EXAMEN",
+    path: "public/subjects/ED/examenes/examen_ordinaria_enero_2023.md",
+    downloadUrl: "/subjects/ED/examenes/examen_ordinaria_enero_2023.md",
+    resumen: "3 problemas oficiales: eficiencia en ABB/AVL/APO, hashing abierto y cerrado con hashing doble, TDA Traductor con iterador y algoritmo en std::list."
+  },
+  {
+    id: "extraordinaria-2023",
+    titulo: "Convocatoria Extraordinaria (Febrero 2023)",
+    tipo: "EXAMEN",
+    path: "public/subjects/ED/examenes/examen_extraordinaria_febrero_2023.md",
+    downloadUrl: "/subjects/ED/examenes/examen_extraordinaria_febrero_2023.md",
+    resumen: "Examen completo (6 problemas en 2 páginas): rotaciones AVL, iterador sobre unordered_map<T, bintree<int>>, permutas en listas, promedio por niveles, subset-sum y tablas hash con doble hashing."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  const fullPath = path.join(process.cwd(), doc.path);
+  const raw = fs.readFileSync(fullPath, 'utf-8');
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="Exámenes · Estructura de Datos (ED) | Javier Checa"
+  description="Enunciados oficiales digitalizados de exámenes de Estructura de Datos (UGR): Ordinaria Enero 2023 y Extraordinaria Febrero 2023."
+>
+  <Header activeTab="universidad" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan y cabecera técnica -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>2º CURSO</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">ED · ESTRUCTURA DE DATOS</span>
+      </div>
+
+      <a
+        href="/universidad#stage-2-curso"
+        class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold w-fit"
+      >
+        ← Volver a Asignaturas
+      </a>
+    </div>
+
+    <!-- Título de la Asignatura -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+        <span>[ ARCHIVO DIGITALIZADO ]</span>
+        <span>//</span>
+        <span>2 EXÁMENES OFICIALES DE TEORÍA & C++</span>
+      </div>
+      <h1 class="text-3xl font-extrabold uppercase tracking-tight text-[#09090b]">
+        Estructura de Datos · Exámenes Oficiales
+      </h1>
+      <p class="text-xs sm:text-sm text-[#52525b] mt-2">
+        Enunciados transcritos con preguntas teóricas de eficiencia, algoritmos en C++ (STL) y estructuras arbóreas / tablas hash.
+      </p>
+    </div>
+
+    <!-- Selector de Exámenes (Pestañas) -->
+    <div class="border border-[#18181b] bg-[#f4f4f5] p-2 mb-8 flex flex-wrap gap-1.5 font-mono text-xs" id="doc-tabs">
+      {renderedDocs.map((doc, idx) => (
+        <button
+          data-doc-id={doc.id}
+          class={`doc-tab px-3 py-2 text-left font-bold border transition-colors flex items-center justify-between gap-3 ${idx === 0 ? 'bg-[#18181b] text-white border-[#18181b]' : 'bg-white text-[#52525b] hover:text-black border-[#d4d4d8] hover:border-[#18181b]'}`}
+        >
+          <span>📝 {doc.titulo}</span>
+          <span class="text-[10px] px-1.5 py-0.2 bg-amber-100 text-amber-900 border border-amber-300">
+            {doc.tipo}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenedores de cada Examen -->
+    {renderedDocs.map((doc, idx) => (
+      <div id={`container-${doc.id}`} class={`doc-container ${idx === 0 ? 'block' : 'hidden'}`}>
+        <!-- Metadatos del examen activo -->
+        <div class="border border-[#18181b] bg-white p-4 sm:p-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-[#18181b] text-white font-bold text-[11px]">
+                {doc.tipo}
+              </span>
+              <h2 class="font-bold text-[#09090b] text-sm sm:text-base">
+                {doc.titulo}
+              </h2>
+            </div>
+            <p class="text-[#52525b] mt-1 font-sans text-xs max-w-2xl">
+              {doc.resumen}
+            </p>
+          </div>
+
+          <a
+            href={doc.downloadUrl}
+            download
+            class="px-3.5 py-2 border border-[#18181b] bg-[#f4f4f5] hover:bg-[#18181b] hover:text-white transition-colors font-bold whitespace-nowrap flex items-center gap-1.5 self-start sm:self-auto"
+          >
+            <span>Descargar .md</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <!-- Artículo renderizado con estilos industriales -->
+        <article
+          class="math-article prose-custom border border-[#18181b] bg-white p-6 sm:p-10 text-[#09090b] leading-relaxed"
+          set:html={doc.html}
+        />
+      </div>
+    ))}
+
+    <div class="mt-8 pt-4 border-t border-[#18181b] flex items-center justify-between font-mono text-xs text-[#52525b]">
+      <span>Transcripción fiel de exámenes oficiales de la UGR con código C++ formateado.</span>
+      <a href="/universidad#stage-2-curso" class="hover:text-black font-bold">
+        ← Volver a 2º Curso
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  const tabs = document.querySelectorAll('.doc-tab');
+  const containers = document.querySelectorAll('.doc-container');
+
+  function renderKaTeX() {
+    if (window.renderMathInElement) {
+      document.querySelectorAll('.math-article').forEach(el => {
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      });
+    } else {
+      setTimeout(renderKaTeX, 50);
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const docId = tab.dataset.docId;
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+        t.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]');
+      });
+      tab.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+      tab.classList.remove('bg-white', 'text-[#52525b]');
+
+      containers.forEach(c => {
+        c.classList.add('hidden');
+        c.classList.remove('block');
+      });
+
+      const activeContainer = document.getElementById(`container-${docId}`);
+      if (activeContainer) {
+        activeContainer.classList.remove('hidden');
+        activeContainer.classList.add('block');
+      }
+
+      renderKaTeX();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', renderKaTeX);
+  window.addEventListener('load', renderKaTeX);
+</script>
+
+<style is:global>
+  .prose-custom h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #18181b;
+  }
+  .prose-custom h2, .prose-custom h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .prose-custom p {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #27272a;
+  }
+  .prose-custom hr {
+    border: 0;
+    border-top: 1px dashed #d4d4d8;
+    margin: 1.75rem 0;
+  }
+  .prose-custom ul, .prose-custom ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .prose-custom ol {
+    list-style-type: decimal;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+  }
+  .prose-custom li {
+    margin-bottom: 0.35rem;
+  }
+  .prose-custom blockquote {
+    border-left: 3px solid #18181b;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    background-color: #f4f4f5;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-style: italic;
+  }
+  /* Bloques de código C++ */
+  .prose-custom pre {
+    background-color: #18181b;
+    color: #f4f4f5;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+    border: 1px solid #27272a;
+  }
+  .prose-custom code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88em;
+  }
+  .prose-custom :not(pre) > code {
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    padding: 0.15rem 0.35rem;
+    border-radius: 3px;
+    color: #09090b;
+    font-weight: 600;
+  }
+</style>
