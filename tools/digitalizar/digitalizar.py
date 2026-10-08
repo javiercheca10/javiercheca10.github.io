@@ -3,13 +3,14 @@
 # dependencies = [
 #     "google-genai",
 #     "pillow",
+#     "pillow-heif",
 #     "python-dotenv",
 # ]
 # ///
 
 """
 Script de digitalización automática de apuntes manuscritos a LaTeX / Markdown.
-Acepta tanto una carpeta llena de fotos (JPG, PNG...) como un archivo PDF escaneado.
+Acepta carpetas con fotos (JPG, PNG, HEIC de iPhone...) o archivos PDF escaneados.
 
 Uso:
     uv run digitalizar.py /ruta/a/carpeta_con_fotos/ --asignatura CAL --tema "Tema 1: Límites y Continuidad"
@@ -31,7 +32,7 @@ def natural_sort_key(path: Path):
 
 def get_images_from_input(input_path: Path) -> list[Path]:
     """Obtiene y ordena la lista de imágenes a procesar."""
-    valid_exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+    valid_exts = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".heic", ".heif"}
     
     if input_path.is_dir():
         images = [p for p in input_path.iterdir() if p.suffix.lower() in valid_exts]
@@ -130,13 +131,16 @@ def main():
     if context_info:
         contents.append("INFORMACIÓN DEL DOCUMENTO:\n" + "\n".join(context_info))
 
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+
     print("\n⏳ Subiendo y procesando páginas con Gemini...")
     for idx, img_path in enumerate(images, 1):
         if img_path.suffix.lower() == ".pdf":
             uploaded_file = client.files.upload(file=str(img_path))
             contents.append(uploaded_file)
         else:
-            img = Image.open(img_path)
+            img = Image.open(img_path).convert("RGB")
             contents.append(f"--- [PÁGINA {idx}] ---")
             contents.append(img)
 
@@ -144,7 +148,7 @@ def main():
 
     try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-flash-latest",
             contents=contents,
             config=types.GenerateContentConfig(
                 temperature=0.2,
