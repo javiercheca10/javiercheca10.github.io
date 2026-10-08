@@ -1,14 +1,14 @@
 [
   {
-    "id": "reparto-radiologia",
-    "title": "Planificador de Radiología (CP-SAT)",
-    "subtitle": "Optimización combinatoria hospitalaria & App de escritorio",
-    "description": "Sistema de asignación de turnos y puestos para personal de radiodiagnóstico mediante programación por restricciones (Google OR-Tools CP-SAT), equilibrado equitativo de esfuerzo, interfaz Qt moderna y persistencia SQLite.",
-    "tags": ["Python", "OR-Tools CP-SAT", "PySide / Qt", "SQLite", "Optimización"],
+    "id": "reparto-personal",
+    "title": "RepartoPersonal (CP-SAT)",
+    "subtitle": "Planificación, optimización y asignación mensual de turnos y personal",
+    "description": "Sistema de asignación de turnos y puestos para organizaciones con restricciones operativas complejas mediante programación por restricciones en 3 fases (Google OR-Tools CP-SAT): viabilidad y cobertura obligatoria, equidad de esfuerzo minimax y maximización de preferencias individuales. Incluye interfaz PySide6, gestión de bajas/vetos, auditoría de vacantes y exportación automática a Excel (.xlsx) y PDF imprimible (.pdf) mediante ReportLab.",
+    "tags": ["Python", "OR-Tools CP-SAT", "PySide6 / Qt", "ReportLab", "OpenPyXL", "Optimización"],
     "badge": "En producción",
     "icon": "activity",
     "featured": true,
-    "github": "https://github.com/javiercheca10/SoftwarePapa",
+    "github": "https://github.com/javiercheca10/RepartoPersonal",
     "demo": null
   },
   {
