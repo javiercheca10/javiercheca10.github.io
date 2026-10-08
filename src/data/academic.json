@@ -245,7 +245,40 @@
             "code": "LMD",
             "name": "Lógica y Métodos Discretos",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/logica-y-metodos-discretos/guia-docente",
-            "description": ""
+            "apuntes": "/apuntes/lmd",
+            "description": "Cuaderno digitalizado y clasificado por posición física de clips: Formulario maestro, Teoría completa (Tema 1: Proposicional, Tema 2: Primer Orden, Tema 3: Métodos de Demostración y Davis-Putnam), Colección de ejercicios resueltos de examen (Recurrencias, Grafos) y Examen Oficial de Junio 2023.",
+            "resources": [
+              {
+                "name": "Examen Oficial (Junio 2023)",
+                "file": "/subjects/LMD/examenes/examen_ordinaria_junio_2023.md",
+                "tipo": "EXAMEN"
+              },
+              {
+                "name": "Formulario Maestro & Resumen de Reglas",
+                "file": "/subjects/LMD/formulario_resumen_reglas.md",
+                "tipo": "FORMULARIO"
+              },
+              {
+                "name": "Tema 1: Lógica Proposicional",
+                "file": "/subjects/LMD/tema1_logica_proposicional.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Tema 2: Lógica de Primer Orden",
+                "file": "/subjects/LMD/tema2_logica_primer_orden.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Tema 3: Métodos de Demostración (Davis-Putnam)",
+                "file": "/subjects/LMD/tema3_metodos_demostracion.md",
+                "tipo": "APUNTES"
+              },
+              {
+                "name": "Ejercicios Resueltos de Examen",
+                "file": "/subjects/LMD/ejercicios_resueltos_examen.md",
+                "tipo": "EJERCICIOS"
+              }
+            ]
           },
           {
             "code": "TC2",

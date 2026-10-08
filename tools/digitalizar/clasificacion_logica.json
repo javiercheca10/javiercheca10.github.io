@@ -1,0 +1,270 @@
+{
+  "grupos": [
+    {
+      "id": "formulario",
+      "nombre": "Formulario y Resumen de Reglas",
+      "posicion_clip": "SIN CLIP",
+      "archivos": [
+        "IMG_1028.HEIC",
+        "IMG_1029.HEIC",
+        "IMG_1034.HEIC",
+        "IMG_1035.HEIC",
+        "IMG_1043.HEIC",
+        "IMG_1044.HEIC"
+      ],
+      "descripcion": "Hojas resumen con tablas de verdad, operaciones booleanas, mapas de Karnaugh, algoritmo Quine-McCluskey, reglas de simplificación, forma clausulada y métodos matemáticos complementarios como clasificación de cuadráticas y derivadas parciales."
+    },
+    {
+      "id": "tema-1",
+      "nombre": "Tema 1: Lógica Proposicional",
+      "posicion_clip": "SIN CLIP",
+      "archivos": [
+        "IMG_1030.HEIC",
+        "IMG_1031.HEIC",
+        "IMG_1032.HEIC",
+        "IMG_1033.HEIC"
+      ],
+      "descripcion": "Apuntes de teoría de la lógica proposicional, árboles de formación, subfórmulas, clasificaciones de fórmulas, equivalencia lógica y consecuencia lógica."
+    },
+    {
+      "id": "tema-2",
+      "nombre": "Tema 2: Lógica de Primer Orden",
+      "posicion_clip": "CLIP ARRIBA A LA IZQUIERDA",
+      "archivos": [
+        "IMG_1036.HEIC",
+        "IMG_1037.HEIC",
+        "IMG_1038.HEIC",
+        "IMG_1039.HEIC",
+        "IMG_1040.HEIC",
+        "IMG_1041.HEIC",
+        "IMG_1042.HEIC"
+      ],
+      "descripcion": "Apuntes completos sobre lenguajes de primer orden, términos, fórmulas atómicas, cuantificadores, variables ligadas y libres, estructuras, valoraciones, semántica formal, y formas normales prenexas y de Skolem."
+    },
+    {
+      "id": "tema-3",
+      "nombre": "Tema 3: Métodos de Demostración y Resolución",
+      "posicion_clip": "CLIP ABAJO A LA IZQUIERDA",
+      "archivos": [
+        "IMG_1023.HEIC",
+        "IMG_1024.HEIC"
+      ],
+      "descripcion": "Apuntes metodológicos sobre el algoritmo de Davis-Putnam y técnicas de inducción matemática para comprobación de implicaciones semánticas."
+    },
+    {
+      "id": "ejercicios-examen",
+      "nombre": "Ejercicios Resueltos de Examen",
+      "posicion_clip": "CLIP ARRIBA A LA DERECHA",
+      "archivos": [
+        "IMG_1019.HEIC",
+        "IMG_1020.HEIC",
+        "IMG_1021.HEIC",
+        "IMG_1022.HEIC",
+        "IMG_1025.HEIC",
+        "IMG_1026.HEIC",
+        "IMG_1027.HEIC"
+      ],
+      "descripcion": "Colección detallada de ejercicios prácticos resueltos de examen, abarcando funciones booleanas, recurrencias homogéneas y no homogéneas, algoritmos de grafos (Hakimi, Kruskal, Prim, Prüfer) y resolución formal mediante Davis-Putnam."
+    },
+    {
+      "id": "examen",
+      "nombre": "Examen Oficial",
+      "posicion_clip": "SIN CLIP",
+      "archivos": [
+        "IMG_1018.HEIC"
+      ],
+      "descripcion": "Enunciado oficial del examen de Lógica y Métodos Discretos de la ETSIIT UGR de fecha 19 de junio de 2023."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1018.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "examen",
+      "titulo_pagina": "Lógica y Métodos Discretos - 19 de Junio de 2023",
+      "resumen": "Examen oficial con tres ejercicios principales sobre funciones booleanas, lógica de proposiciones/satisfacibilidad y teoría de modelos y semántica de primer orden."
+    },
+    {
+      "archivo": "IMG_1019.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Ejercicios Examen Lógica",
+      "resumen": "Esquemas iniciales para resolución de funciones booleanas y planteamiento de recurrencias homogéneas."
+    },
+    {
+      "archivo": "IMG_1020.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Tema 5: Recurrencias homogéneas y no homogéneas",
+      "resumen": "Resolución paso a paso de recurrencias lineales homogéneas y no homogéneas con cálculo de polinomios característicos y raíces múltiples."
+    },
+    {
+      "archivo": "IMG_1021.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Tema 5 y Tema 6: Recurrencias y Algoritmo Hakimi",
+      "resumen": "Continuación de resolución de recurrencias no homogéneas y precondiciones/procedimiento del algoritmo de Hakimi para grafos."
+    },
+    {
+      "archivo": "IMG_1022.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Grafos: Algoritmos de Kruskal, Prim y Prüfer",
+      "resumen": "Guías prácticas y pasos para aplicar Kruskal, Prim y el códec de Prüfer en árboles."
+    },
+    {
+      "archivo": "IMG_1023.HEIC",
+      "clip_detectado": "abajo-izquierda",
+      "clasificacion": "tema-3",
+      "titulo_pagina": "Satisfacibilidad: Davis-Putnam",
+      "resumen": "Esquema teórico y jerarquía de selección para el algoritmo de Davis-Putnam aplicado a implicaciones semánticas."
+    },
+    {
+      "archivo": "IMG_1024.HEIC",
+      "clip_detectado": "abajo-izquierda",
+      "clasificacion": "tema-3",
+      "titulo_pagina": "Tema 5: Inducción",
+      "resumen": "Esquema de resolución para demostraciones por inducción matemática (caso base, hipótesis y paso inductivo)."
+    },
+    {
+      "archivo": "IMG_1025.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Ejercicios Examen Lógica - Tema 2",
+      "resumen": "Demostración de tautologías mediante transformación a problemas de insatisfacibilidad y cálculo de formas clausuladas."
+    },
+    {
+      "archivo": "IMG_1026.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Paso 3 (Davis-Putnam)",
+      "resumen": "Aplicación práctica del método de Davis-Putnam mediante árbol de refutación de cláusulas."
+    },
+    {
+      "archivo": "IMG_1027.HEIC",
+      "clip_detectado": "arriba-derecha",
+      "clasificacion": "ejercicios-examen",
+      "titulo_pagina": "Ejemplo de implicación semántica y formalización clausulada",
+      "resumen": "Desarrollo completo de un ejercicio complejo de deducción mediante transformación a conjunto insatisfacible."
+    },
+    {
+      "archivo": "IMG_1028.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Tema 1: Álgebra de Boole y Mapas de Karnaugh",
+      "resumen": "Tablas de verdad para OR y AND, leyes de NOT, y minimización de funciones mediante mapas de Karnaugh."
+    },
+    {
+      "archivo": "IMG_1029.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Método Quine-McCluskey y Conversión NAND/NOR",
+      "resumen": "Ejemplo práctico de agrupación por minterms y conversión algebraica de operadores lógicos a NAND y NOR."
+    },
+    {
+      "archivo": "IMG_1030.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "tema-1",
+      "titulo_pagina": "Tema 2: Lógica Proposicional - Conectivas",
+      "resumen": "Definición de conectivas lógicas (disyunción, conjunción, implicación, equivalencia, negación), árboles de formación y funciones de interpretación."
+    },
+    {
+      "archivo": "IMG_1031.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "tema-1",
+      "titulo_pagina": "Clasificación de fórmulas y Tablas de verdad",
+      "resumen": "Definiciones formales de tautología, satisfactibilidad, refutabilidad, contradicción, contingencia y equivalencia lógica."
+    },
+    {
+      "archivo": "IMG_1032.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "tema-1",
+      "titulo_pagina": "Equivalencias notables y Consecuencia Lógica",
+      "resumen": "Listado de equivalencias a memorizar, conjuntos satisfacibles e insatisfacibles, e implicación semántica."
+    },
+    {
+      "archivo": "IMG_1033.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "tema-1",
+      "titulo_pagina": "Ejemplo de demostración de consecuencia lógica y Teorema de la Deducción",
+      "resumen": "Demostración práctica de consecuencia lógica usando refutación y el teorema de la deducción."
+    },
+    {
+      "archivo": "IMG_1034.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Forma Clausulada de una Fórmula",
+      "resumen": "Definiciones de literal, cláusula, cláusula vacía y los cinco pasos estándar para transformar fórmulas lógicas a forma clausulada."
+    },
+    {
+      "archivo": "IMG_1035.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Reglas de Simplificación y Algoritmo Davis-Putnam",
+      "resumen": "Reglas algebraicas de simplificación conjuntiva y disyuntiva junto con la especificación formal de los pasos del algoritmo de Davis-Putnam."
+    },
+    {
+      "archivo": "IMG_1036.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Tema 3: Lenguajes de Primer Orden",
+      "resumen": "Tipos de sujetos (constantes, variables, funciones), predicados, fórmulas atómicas y sintaxis general de lenguajes de primer orden."
+    },
+    {
+      "archivo": "IMG_1037.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Radio de acción, Variables ligadas y Estructura",
+      "resumen": "Definiciones de radio de acción de cuantificadores, variables libres/ligadas, oraciones y definición detallada de una estructura de ejemplo."
+    },
+    {
+      "archivo": "IMG_1038.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Valoraciones e Interpretación en Primer Orden",
+      "resumen": "Evaluación de términos mediante valoraciones, definición formal de interpretación y modificación de valoraciones."
+    },
+    {
+      "archivo": "IMG_1039.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Interpretaciones de conectivas y cuantificadores",
+      "resumen": "Cálculo formal de valores de verdad para conectivas y cuantificadores universal y existencial, junto con la definición de modelo."
+    },
+    {
+      "archivo": "IMG_1040.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Clasificación semántica de fórmulas y conjuntos",
+      "resumen": "Criterios semánticos para fórmulas satisfactibles, refutables, válidas, universalmente válidas y contradicciones en estructuras."
+    },
+    {
+      "archivo": "IMG_1041.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Teorema de la deducción y Formas Normales Prenexas",
+      "resumen": "Equivalencias entre consecuencia lógica e insatisfacibilidad, Teorema de la deducción, y definición de la forma normal prenexa."
+    },
+    {
+      "archivo": "IMG_1042.HEIC",
+      "clip_detectado": "arriba-izquierda",
+      "clasificacion": "tema-2",
+      "titulo_pagina": "Forma Normal de Skolem",
+      "resumen": "Definición y paso a forma normal de Skolem eliminando cuantificadores existenciales."
+    },
+    {
+      "archivo": "IMG_1043.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Clasificación de cuadráticas y Derivadas Parciales",
+      "resumen": "Criterios de Sylvester para matrices hessianas, métodos gráficos de optimización, derivadas parciales y teorema de Euler y Schwarz."
+    },
+    {
+      "archivo": "IMG_1044.HEIC",
+      "clip_detectado": "ninguno",
+      "clasificacion": "formulario",
+      "titulo_pagina": "Fórmula de Taylor y Criterios de puntos críticos",
+      "resumen": "Desarrollo de Taylor de orden 2 para varias variables, clasificación de puntos críticos según definitud de la hessiana y fórmulas de elasticidad."
+    }
+  ]
+}
