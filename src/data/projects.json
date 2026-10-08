@@ -44,5 +44,19 @@
     "featured": true,
     "github": "https://github.com/MatthewHN/PDOO",
     "demo": null
+  },
+  {
+    "id": "internet-technologies-mytelecom",
+    "category": "universidad",
+    "categoryLabel": "Universidad (Erasmus)",
+    "title": "MyTelecom · Plataforma Web & Prácticas (Internet Technologies)",
+    "subtitle": "Portal corporativo multicomponente, arquitectura cliente-servidor en PHP y MySQL",
+    "description": "Suite de desarrollo web para la asignatura Internet Technologies (Erasmus+ Atenas). Culmina en MyTelecom, un portal corporativo para una compañía de telecomunicaciones griega que integra maquetación semántica HTML5/CSS3, validación de formularios mediante expresiones regulares y manipulación avanzada del DOM, reto algorítmico interactivo, simulador de facturación telefónica con persistencia asíncrona vía fetch(), y arquitectura backend completa en PHP con base de datos relacional MySQL (company_db).",
+    "tags": ["HTML5", "CSS3", "JavaScript (ES6+)", "PHP", "MySQL", "Arquitectura Cliente-Servidor", "Erasmus+ Atenas"],
+    "badge": "Erasmus+",
+    "icon": "globe",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/Internet-Technologies",
+    "demo": null
   }
 ]

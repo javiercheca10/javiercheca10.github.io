@@ -509,6 +509,30 @@
                 "tipo": "PDF"
               }
             ]
+          },
+          {
+            "code": "IT",
+            "name": "Internet Technologies",
+            "guia": "https://github.com/javiercheca10/Internet-Technologies",
+            "description": "Desarrollo web cliente-servidor: HTML5 semántico, CSS3 responsivo con animaciones, validación DOM con expresiones regulares, tarificación asíncrona mediante fetch(), endpoints PHP y persistencia en MySQL.",
+            "apuntes": "/apuntes/it",
+            "recursos": [
+              {
+                "name": "Repositorio GitHub · MyTelecom & Labs 1-6",
+                "file": "https://github.com/javiercheca10/Internet-Technologies",
+                "tipo": "GITHUB"
+              },
+              {
+                "name": "Memoria Técnica & Estructura de Laboratorios",
+                "file": "/subjects/IT/memoria_internet_technologies.md",
+                "tipo": "PROYECTO"
+              },
+              {
+                "name": "Esquema Relacional de Base de Datos (SQL)",
+                "file": "/subjects/IT/scriptSQL.sql",
+                "tipo": "SQL"
+              }
+            ]
           }
         ]
       }
