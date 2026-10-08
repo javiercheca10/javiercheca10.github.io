@@ -1,0 +1,315 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+// Configurar marked
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "bloque1",
+    titulo: "Bloque 1: Números Reales e Inducción",
+    tipo: "APUNTES",
+    path: "public/subjects/CAL/bloque1_reales_induccion.md",
+    downloadUrl: "/subjects/CAL/bloque1_reales_induccion.md",
+    resumen: "Conjuntos numéricos, axiomas de cuerpo y orden, valor absoluto e inducción matemática (9 páginas)."
+  },
+  {
+    id: "bloque2",
+    titulo: "Bloque 2: Sucesiones y Series Numéricas",
+    tipo: "APUNTES",
+    path: "public/subjects/CAL/bloque2_sucesiones_series.md",
+    downloadUrl: "/subjects/CAL/bloque2_sucesiones_series.md",
+    resumen: "Convergencia de sucesiones (Stolz, criterio de la raíz) y series (criterio del cociente y raíz) (5 páginas)."
+  },
+  {
+    id: "bloque3",
+    titulo: "Bloque 3: Límites y Polinomio de Taylor",
+    tipo: "APUNTES",
+    path: "public/subjects/CAL/bloque3_limites_taylor.md",
+    downloadUrl: "/subjects/CAL/bloque3_limites_taylor.md",
+    resumen: "Esquema de dominios, extremos relativos, regla del número e y fórmula de Taylor con resto de Lagrange."
+  },
+  {
+    id: "examen-parcial",
+    titulo: "Examen 1er Parcial (Noviembre 2023)",
+    tipo: "EXAMEN",
+    path: "public/subjects/CAL/examenes/examen_parcial_noviembre_2023.md",
+    downloadUrl: "/subjects/CAL/examenes/examen_parcial_noviembre_2023.md",
+    resumen: "Enunciado oficial de 4 problemas: recurrencias, límites de sucesiones y convergencia de series."
+  },
+  {
+    id: "examen-ordinaria",
+    titulo: "Examen Convocatoria Ordinaria (Enero 2024)",
+    tipo: "EXAMEN",
+    path: "public/subjects/CAL/examenes/examen_ordinaria_enero_2024.md",
+    downloadUrl: "/subjects/CAL/examenes/examen_ordinaria_enero_2024.md",
+    resumen: "Enunciado oficial de 5 problemas: desigualdades, series numéricas, integrales y optimización."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  const fullPath = path.join(process.cwd(), doc.path);
+  const raw = fs.readFileSync(fullPath, 'utf-8');
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="Recursos · Cálculo (CAL) | Javier Checa"
+  description="Apuntes y exámenes de Cálculo para el Doble Grado GIIADE UGR: Números Reales, Sucesiones, Series, Límites, Parcial 2023 y Ordinaria 2024."
+>
+  <Header activeTab="universidad" />
+
+  <!-- Dependencias de KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan y cabecera técnica -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>1º CURSO</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">CAL · CÁLCULO</span>
+      </div>
+
+      <a
+        href="/universidad#stage-1-curso"
+        class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold w-fit"
+      >
+        ← Volver a Asignaturas
+      </a>
+    </div>
+
+    <!-- Título de la Asignatura -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+        <span>[ ARCHIVO DIGITALIZADO ]</span>
+        <span>//</span>
+        <span>3 BLOQUES DE APUNTES + 2 EXÁMENES OFICIALES</span>
+      </div>
+      <h1 class="text-3xl font-extrabold uppercase tracking-tight text-[#09090b]">
+        Cálculo · Apuntes & Exámenes
+      </h1>
+      <p class="text-xs sm:text-sm text-[#52525b] mt-2">
+        Material clasificado y separado en bloques temáticos independientes. Selecciona cualquier bloque o examen para visualizar su contenido matemático o descargarlo.
+      </p>
+    </div>
+
+    <!-- Selector de Documento (Pestañas Industriales) -->
+    <div class="border border-[#18181b] bg-[#f4f4f5] p-2 mb-8 flex flex-wrap gap-1.5 font-mono text-xs" id="doc-tabs">
+      {renderedDocs.map((doc, idx) => (
+        <button
+          data-doc-id={doc.id}
+          class={`doc-tab px-3 py-2 text-left font-bold border transition-colors flex items-center justify-between gap-3 ${idx === 0 ? 'bg-[#18181b] text-white border-[#18181b]' : 'bg-white text-[#52525b] hover:text-black border-[#d4d4d8] hover:border-[#18181b]'}`}
+        >
+          <span>{doc.tipo === 'EXAMEN' ? '📝' : '📖'} {doc.titulo}</span>
+          <span class={`text-[10px] px-1.5 py-0.2 ${doc.tipo === 'EXAMEN' ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-slate-100 text-slate-800'}`}>
+            {doc.tipo}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenedores de cada Documento -->
+    {renderedDocs.map((doc, idx) => (
+      <div id={`container-${doc.id}`} class={`doc-container ${idx === 0 ? 'block' : 'hidden'}`}>
+        <!-- Metadatos del documento activo -->
+        <div class="border border-[#18181b] bg-white p-4 sm:p-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 bg-[#18181b] text-white font-bold text-[11px]">
+                {doc.tipo}
+              </span>
+              <h2 class="font-bold text-[#09090b] text-sm sm:text-base">
+                {doc.titulo}
+              </h2>
+            </div>
+            <p class="text-[#52525b] mt-1 font-sans text-xs">
+              {doc.resumen}
+            </p>
+          </div>
+
+          <a
+            href={doc.downloadUrl}
+            download
+            class="px-3.5 py-2 border border-[#18181b] bg-[#f4f4f5] hover:bg-[#18181b] hover:text-white transition-colors font-bold whitespace-nowrap flex items-center gap-1.5 self-start sm:self-auto"
+          >
+            <span>Descargar .md</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <!-- Artículo renderizado con estilos industriales -->
+        <article
+          class="math-article prose-custom border border-[#18181b] bg-white p-6 sm:p-10 text-[#09090b] leading-relaxed"
+          set:html={doc.html}
+        />
+      </div>
+    ))}
+
+    <div class="mt-8 pt-4 border-t border-[#18181b] flex items-center justify-between font-mono text-xs text-[#52525b]">
+      <span>Documentos digitalizados mediante modelo multimodal y transcripción a LaTeX.</span>
+      <a href="/universidad" class="hover:text-black font-bold">
+        ← Volver a Asignaturas
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  // Conmutador de pestañas de documentos
+  const tabs = document.querySelectorAll('.doc-tab');
+  const containers = document.querySelectorAll('.doc-container');
+
+  function renderKaTeX() {
+    if (window.renderMathInElement) {
+      document.querySelectorAll('.math-article').forEach(el => {
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      });
+    } else {
+      setTimeout(renderKaTeX, 50);
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const docId = tab.dataset.docId;
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+        t.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]');
+      });
+      tab.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+      tab.classList.remove('bg-white', 'text-[#52525b]');
+
+      containers.forEach(c => {
+        c.classList.add('hidden');
+        c.classList.remove('block');
+      });
+
+      const activeContainer = document.getElementById(`container-${docId}`);
+      if (activeContainer) {
+        activeContainer.classList.remove('hidden');
+        activeContainer.classList.add('block');
+      }
+
+      renderKaTeX();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', renderKaTeX);
+  window.addEventListener('load', renderKaTeX);
+</script>
+
+<style is:global>
+  .prose-custom h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #18181b;
+  }
+  .prose-custom h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .prose-custom h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #18181b;
+  }
+  .prose-custom h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #27272a;
+  }
+  .prose-custom p {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #27272a;
+  }
+  .prose-custom hr {
+    border: 0;
+    border-top: 1px dashed #d4d4d8;
+    margin: 1.75rem 0;
+  }
+  .prose-custom ul, .prose-custom ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .prose-custom ol {
+    list-style-type: decimal;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+  }
+  .prose-custom li {
+    margin-bottom: 0.35rem;
+  }
+  .prose-custom blockquote {
+    border-left: 3px solid #18181b;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    background-color: #f4f4f5;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-style: italic;
+  }
+  .prose-custom table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .prose-custom th, .prose-custom td {
+    border: 1px solid #18181b;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .prose-custom th {
+    background-color: #f4f4f5;
+    font-weight: 700;
+  }
+  .prose-custom tr:nth-child(even) td {
+    background-color: #fafafa;
+  }
+</style>

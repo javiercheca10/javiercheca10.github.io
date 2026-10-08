@@ -1,0 +1,153 @@
+{
+  "examenes": [
+    {
+      "archivo": "IMG_0998.HEIC",
+      "titulo": "Primer Parcial de Teoría (2 de Noviembre de 2023)",
+      "descripcion": "Examen parcial oficial de la asignatura Métodos Matemáticos / Cálculo para el Doble Grado GIIADE de la Universidad de Granada. Contiene 4 preguntas sobre sucesiones (convergencia, crecimiento) y convergencia de series numéricas."
+    },
+    {
+      "archivo": "IMG_0999.HEIC",
+      "titulo": "Examen de Convocatoria Ordinaria (Teoría) - Curso 2023/2024",
+      "descripcion": "Examen final oficial de teoría de Cálculo (GII y GIIADE) de la Universidad de Granada, fechado el 24 de enero de 2024. Consta de 5 preguntas que abarcan desigualdades, sucesiones recurrentes, convergencia de series, cálculo de límites con integrales (Teorema Fundamental del Cálculo) y optimización/geometría (punto más cercano a una gráfica y recta tangente)."
+    }
+  ],
+  "bloques_apuntes": [
+    {
+      "nombre_bloque": "Bloque 1: Números Reales, Desigualdades e Inducción",
+      "descripcion": "Apuntes introductorios sobre los conjuntos numéricos (naturales, enteros, racionales y reales), axiomas de orden y completitud, resolución de inecuaciones con valor absoluto y el principio de inducción matemática.",
+      "archivos": [
+        "IMG_0983.HEIC",
+        "IMG_0984.HEIC",
+        "IMG_0985.HEIC",
+        "IMG_0986.HEIC",
+        "IMG_0987.HEIC",
+        "IMG_0988.HEIC",
+        "IMG_0989.HEIC",
+        "IMG_0990.HEIC",
+        "IMG_0993.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 2: Sucesiones y Series Numéricas",
+      "descripcion": "Estudio de la convergencia de sucesiones reales (monotonía, acotación, criterios de Stolz y de la raíz) y de series numéricas (series geométricas, criterios de convergencia de la raíz y del cociente).",
+      "archivos": [
+        "IMG_0992.HEIC",
+        "IMG_0994.HEIC",
+        "IMG_0995.HEIC",
+        "IMG_0996.HEIC",
+        "IMG_0997.HEIC"
+      ]
+    },
+    {
+      "nombre_bloque": "Bloque 3: Funciones, Límites y Polinomio de Taylor",
+      "descripcion": "Esquemas y resúmenes sobre el cálculo de dominios e imágenes de funciones, extremos relativos, límites funcionales indeterminados y la fórmula del Polinomio de Taylor con su término de error.",
+      "archivos": [
+        "IMG_0991.HEIC"
+      ]
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_0983.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Tema 1: Conjuntos Numéricos (Naturales y Enteros)",
+      "resumen_contenido": "Introducción a la lógica matemática (definiciones, teoremas, corolarios). Identidades elementales y propiedades algebraicas de los números Naturales (N) y Enteros (Z)."
+    },
+    {
+      "archivo": "IMG_0984.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Tema 1: Conjuntos Numéricos (Racionales y Reales)",
+      "resumen_contenido": "Propiedades de los números Racionales (Q) como estructura de cuerpo. Introducción a los números Reales (R) y sus restricciones operacionales básicas (división por cero, logaritmos negativos, etc.)."
+    },
+    {
+      "archivo": "IMG_0985.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Propiedades de los Números Reales (Suma y Producto)",
+      "resumen_contenido": "Definición formal del conjunto de los números reales y axiomas de las operaciones de suma y producto (asociativa, conmutativa, elemento neutro y opuesto/recíproco)."
+    },
+    {
+      "archivo": "IMG_0986.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Relación de Orden en los Números Reales",
+      "resumen_contenido": "Propiedades del orden en R (reflexiva, antisimétrica, transitiva) y compatibilidad del orden con la suma y la multiplicación."
+    },
+    {
+      "archivo": "IMG_0987.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Axioma de Completitud e Intervalos",
+      "resumen_contenido": "Propiedades deducidas del orden, axioma del supremo (completitud), definición de subconjuntos notables de R e introducción al concepto de intervalo."
+    },
+    {
+      "archivo": "IMG_0988.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Tipos de Intervalos y Valor Absoluto",
+      "resumen_contenido": "Clasificación de intervalos en la recta real. Definición formal de valor absoluto, distancia métrica y sus propiedades fundamentales (desigualdad triangular)."
+    },
+    {
+      "archivo": "IMG_0989.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Resolución de Inecuaciones con Valor Absoluto",
+      "resumen_contenido": "Ejercicio práctico resuelto paso a paso de una inecuación racional con valor absoluto: |(x+1)/(x-1)| < 2, analizando los casos según el signo del denominador."
+    },
+    {
+      "archivo": "IMG_0990.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Principio de Inducción Matemática",
+      "resumen_contenido": "Enunciado formal del teorema del principio de inducción matemática para la demostración de propiedades sobre números naturales."
+    },
+    {
+      "archivo": "IMG_0991.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Esquema de Funciones, Límites y Polinomio de Taylor",
+      "resumen_contenido": "Resumen rápido de conceptos: cálculo de dominios e imágenes, monotonía y extremos de funciones, límites indeterminados (regla del número e) y la fórmula del Polinomio de Taylor con el resto de Lagrange."
+    },
+    {
+      "archivo": "IMG_0992.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Resumen de Sucesiones y Series",
+      "resumen_contenido": "Fórmulas y criterios clave para sucesiones (monotonía, convergencia, Stolz, criterio de la raíz) y series (series geométricas, criterios de la raíz y del cociente)."
+    },
+    {
+      "archivo": "IMG_0993.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Demostración por Inducción (Ejercicio Práctico)",
+      "resumen_contenido": "Resolución detallada de la suma de los cuadrados de los primeros 'n' números naturales mediante el principio de inducción matemática (marcado como material para el 1er Parcial)."
+    },
+    {
+      "archivo": "IMG_0994.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Convergencia de Sucesiones y Criterio de Stolz",
+      "resumen_contenido": "Metodología para probar la convergencia de sucesiones recurrentes (inducción para monotonía y acotación) y enunciado formal del Criterio de Stolz."
+    },
+    {
+      "archivo": "IMG_0995.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Ejercicios de Sucesiones (Stolz y Criterio de la Raíz)",
+      "resumen_contenido": "Ejercicios resueltos aplicando el criterio de Stolz para límites indeterminados de sucesiones y el criterio de la raíz (o de Cauchy-D'Alembert) para límites con raíces n-ésimas."
+    },
+    {
+      "archivo": "IMG_0996.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Límites de Sucesiones (Número e) y Series Geométricas",
+      "resumen_contenido": "Aplicación de la regla del número e para sucesiones. Introducción a las series numéricas, fórmula de la suma de la serie geométrica y criterio de la raíz para series."
+    },
+    {
+      "archivo": "IMG_0997.HEIC",
+      "tipo": "APUNTES",
+      "tema": "Criterio del Cociente para Series y Límites Funcionales",
+      "resumen_contenido": "Definición del criterio del cociente (D'Alembert) para la convergencia de series. Extensión de la regla del número e para límites de funciones reales."
+    },
+    {
+      "archivo": "IMG_0998.HEIC",
+      "tipo": "EXAMEN",
+      "tema": "Examen Primer Parcial de Teoría - Noviembre 2023",
+      "resumen_contenido": "Enunciado impreso del examen parcial de la UGR. Contiene problemas de inducción/sucesiones recurrentes, límites de sucesiones y criterios de convergencia de series."
+    },
+    {
+      "archivo": "IMG_0999.HEIC",
+      "tipo": "EXAMEN",
+      "tema": "Examen Convocatoria Ordinaria de Teoría - Enero 2024",
+      "resumen_contenido": "Enunciado impreso del examen final de Cálculo de la UGR. Incluye demostraciones de desigualdades, límites con integrales definidas, convergencia de series y problemas de optimización geométrica."
+    }
+  ]
+}

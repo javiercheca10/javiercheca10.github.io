@@ -14,7 +14,15 @@
             "code": "CAL",
             "name": "Cálculo",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/calculo/guia-docente",
-            "description": ""
+            "description": "Números reales, sucesiones, series numéricas, límites, cálculo diferencial e integral.",
+            "apuntes": "/apuntes/cal",
+            "recursos": [
+              { "name": "Bloque 1: Números Reales e Inducción", "file": "/subjects/CAL/bloque1_reales_induccion.md", "tipo": "APUNTES" },
+              { "name": "Bloque 2: Sucesiones y Series Numéricas", "file": "/subjects/CAL/bloque2_sucesiones_series.md", "tipo": "APUNTES" },
+              { "name": "Bloque 3: Límites y Polinomio de Taylor", "file": "/subjects/CAL/bloque3_limites_taylor.md", "tipo": "APUNTES" },
+              { "name": "Examen 1er Parcial (Noviembre 2023)", "file": "/subjects/CAL/examenes/examen_parcial_noviembre_2023.md", "tipo": "EXAMEN" },
+              { "name": "Examen Ordinaria Teoría (Enero 2024)", "file": "/subjects/CAL/examenes/examen_ordinaria_enero_2024.md", "tipo": "EXAMEN" }
+            ]
           },
           {
             "code": "EP",
