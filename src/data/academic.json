@@ -482,48 +482,7 @@
     "location": "Atenas, Grecia",
     "tag": "Erasmus+",
     "description": "Año de intercambio académico internacional en Atenas, cursando materias de informática y gestión en entorno multicultural.",
-    "groups": [
-      {
-        "name": "Primer Semestre (Winter Semester)",
-        "subjects": [
-          {
-            "code": "ERAS-1",
-            "name": "Information Systems & Enterprise Architecture",
-            "guia": null,
-            "description": "Sistemas de información empresarial y arquitectura tecnológica."
-          },
-          {
-            "code": "ERAS-2",
-            "name": "Operations Research & Decision Theory",
-            "guia": null,
-            "description": "Investigación operativa y optimización aplicada a la toma de decisiones."
-          },
-          {
-            "code": "ERAS-3",
-            "name": "International Business Strategy",
-            "guia": null,
-            "description": "Estrategia internacional de mercados y modelos de negocio europeos."
-          }
-        ]
-      },
-      {
-        "name": "Segundo Semestre (Spring Semester)",
-        "subjects": [
-          {
-            "code": "ERAS-4",
-            "name": "Software Engineering & Cloud Computing",
-            "guia": null,
-            "description": "Metodologías ágiles, microservicios y despliegue en la nube."
-          },
-          {
-            "code": "ERAS-5",
-            "name": "Financial Technology & Data Analytics",
-            "guia": null,
-            "description": "Fintech, análisis cuantitativo de mercados y ciencia de datos."
-          }
-        ]
-      }
-    ]
+    "groups": []
   },
   {
     "id": "sicue-valencia",

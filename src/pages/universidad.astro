@@ -87,77 +87,84 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
 
           <!-- Grupos / Semestres -->
           <div class="p-4 sm:p-6 space-y-8">
-            {stage.groups.map(group => (
-              <div>
-                <div class="flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#52525b] pb-2 border-b border-[#e4e4e7] mb-4">
-                  <span>//</span>
-                  <span>{group.name}</span>
-                </div>
+            {stage.groups.length === 0 || stage.groups.every(g => g.subjects.length === 0) ? (
+              <div class="py-8 text-center font-mono text-xs text-[#71717a] border border-dashed border-[#d4d4d8] bg-[#fafafa]">
+                <p class="font-bold text-[#18181b]">[ ETAPA PENDIENTE DE ASIGNATURAS ]</p>
+                <p class="mt-1">Las materias cursadas en esta etapa se irán incorporando progresivamente.</p>
+              </div>
+            ) : (
+              stage.groups.map(group => (
+                <div>
+                  <div class="flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#52525b] pb-2 border-b border-[#e4e4e7] mb-4">
+                    <span>//</span>
+                    <span>{group.name}</span>
+                  </div>
 
-                <!-- Tabla de Asignaturas -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {group.subjects.map(subject => (
-                    <div
-                      class="subject-entry p-3.5 border border-[#e4e4e7] hover:border-[#18181b] bg-white transition-colors flex flex-col justify-between"
-                      data-code={subject.code.toLowerCase()}
-                      data-name={subject.name.toLowerCase()}
-                      data-stage={stage.id}
-                    >
-                      <div>
-                        <div class="flex items-center justify-between font-mono text-xs mb-1.5">
-                          <span class="font-bold text-[#09090b] px-1.5 py-0.2 bg-[#f4f4f5] border border-[#d4d4d8]">
-                            {subject.code}
-                          </span>
-                          <span class="text-[11px] text-[#71717a]">
-                            {stage.num} · {stage.tag}
-                          </span>
+                  <!-- Tabla de Asignaturas -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {group.subjects.map(subject => (
+                      <div
+                        class="subject-entry p-3.5 border border-[#e4e4e7] hover:border-[#18181b] bg-white transition-colors flex flex-col justify-between"
+                        data-code={subject.code.toLowerCase()}
+                        data-name={subject.name.toLowerCase()}
+                        data-stage={stage.id}
+                      >
+                        <div>
+                          <div class="flex items-center justify-between font-mono text-xs mb-1.5">
+                            <span class="font-bold text-[#09090b] px-1.5 py-0.2 bg-[#f4f4f5] border border-[#d4d4d8]">
+                              {subject.code}
+                            </span>
+                            <span class="text-[11px] text-[#71717a]">
+                              {stage.num} · {stage.tag}
+                            </span>
+                          </div>
+
+                          <h3 class="text-sm font-bold text-[#09090b] leading-snug">
+                            {subject.name}
+                          </h3>
+
+                          {subject.description && (
+                            <p class="text-xs text-[#52525b] mt-1.5 leading-relaxed">
+                              {subject.description}
+                            </p>
+                          )}
                         </div>
 
-                        <h3 class="text-sm font-bold text-[#09090b] leading-snug">
-                          {subject.name}
-                        </h3>
+                        <div class="mt-3 pt-2.5 border-t border-[#f4f4f5] flex items-center justify-between text-xs font-mono">
+                          {subject.guia ? (
+                            <a
+                              href={subject.guia}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+                            >
+                              <span>Guía Docente UGR</span>
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          ) : (
+                            <span class="text-[#a1a1aa] text-[11px]">Guía oficial</span>
+                          )}
 
-                        {subject.description && (
-                          <p class="text-xs text-[#52525b] mt-1.5 leading-relaxed">
-                            {subject.description}
-                          </p>
-                        )}
+                          {subject.apuntes ? (
+                            <a
+                              href={subject.apuntes}
+                              class="px-2 py-0.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1 text-[11px]"
+                            >
+                              <span>APUNTES ({subject.recursos?.length || 1})</span>
+                              <span aria-hidden="true">→</span>
+                            </a>
+                          ) : (
+                            <span class="text-[11px] text-[#a1a1aa]">
+                              Sin apuntes
+                            </span>
+                          )}
+                        </div>
                       </div>
-
-                      <div class="mt-3 pt-2.5 border-t border-[#f4f4f5] flex items-center justify-between text-xs font-mono">
-                        {subject.guia ? (
-                          <a
-                            href={subject.guia}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
-                          >
-                            <span>Guía Docente UGR</span>
-                            <span aria-hidden="true">↗</span>
-                          </a>
-                        ) : (
-                          <span class="text-[#a1a1aa] text-[11px]">Guía oficial</span>
-                        )}
-
-                        {subject.apuntes ? (
-                          <a
-                            href={subject.apuntes}
-                            class="px-2 py-0.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1 text-[11px]"
-                          >
-                            <span>APUNTES ({subject.recursos?.length || 1})</span>
-                            <span aria-hidden="true">→</span>
-                          </a>
-                        ) : (
-                          <span class="text-[11px] text-[#a1a1aa]">
-                            Sin apuntes
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </section>
       ))}
@@ -212,7 +219,7 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
         }
       });
 
-      if (stageCount > 0) {
+      if (stageCount > 0 || (!query && cards.length === 0)) {
         stage.style.display = 'block';
       } else {
         stage.style.display = 'none';
@@ -220,7 +227,7 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
     });
 
     if (noResults) {
-      if (totalVisible === 0) {
+      if (totalVisible === 0 && query) {
         noResults.classList.remove('hidden');
       } else {
         noResults.classList.add('hidden');
