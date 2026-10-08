@@ -91,7 +91,15 @@
             "code": "ALG",
             "name": "Álgebra Lineal y Estructuras Matemáticas",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algebra-lineal-y-estructuras-matematicas/guia-docente",
-            "description": ""
+            "description": "Aritmética modular, congruencias, diofánticas, espacios vectoriales y matrices.",
+            "apuntes": "/apuntes/alg",
+            "recursos": [
+              {
+                "name": "Tipos de ejercicios (AEE, Diofánticas, Congruencias, Hermite)",
+                "file": "/subjects/ALG/apuntes_algebra.md",
+                "tipo": "MARKDOWN"
+              }
+            ]
           }
         ]
       }

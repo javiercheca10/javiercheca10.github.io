@@ -139,9 +139,19 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
                           <span class="text-[#a1a1aa] text-[11px]">Guía oficial</span>
                         )}
 
-                        <span class="text-[11px] text-[#71717a]">
-                          Recursos
-                        </span>
+                        {subject.apuntes ? (
+                          <a
+                            href={subject.apuntes}
+                            class="px-2 py-0.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1 text-[11px]"
+                          >
+                            <span>APUNTES ({subject.recursos?.length || 1})</span>
+                            <span aria-hidden="true">→</span>
+                          </a>
+                        ) : (
+                          <span class="text-[11px] text-[#a1a1aa]">
+                            Sin apuntes
+                          </span>
+                        )}
                       </div>
                     </div>
                   ))}

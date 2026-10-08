@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+// Leer archivo de apuntes
+const filePath = path.join(process.cwd(), 'public/subjects/ALG/apuntes_algebra.md');
+const markdownContent = fs.readFileSync(filePath, 'utf-8');
+
+// Configurar marked para tablas y saltos de línea
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const htmlContent = marked.parse(markdownContent);
+---
+
+<Layout
+  title="Apuntes · ALG (Álgebra Lineal) | Javier Checa"
+  description="Apuntes digitalizados de Álgebra Lineal y Estructuras Matemáticas: ejercicios tipo, algoritmo de Euclides, congruencias y ecuaciones diofánticas."
+>
+  <Header activeTab="universidad" />
+
+  <!-- Dependencias de KaTeX para renderizado de fórmulas matemáticas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Barra superior técnica de navegación / breadcrumbs -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>1º CURSO</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">ALG · ÁLGEBRA LINEAL</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="/subjects/ALG/apuntes_algebra.md"
+          download="apuntes_algebra.md"
+          class="px-3 py-1.5 border border-[#18181b] bg-white hover:bg-[#18181b] hover:text-white transition-colors font-bold flex items-center gap-1.5"
+        >
+          <span>Descargar .md</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+        <a
+          href="/universidad#stage-1-curso"
+          class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold"
+        >
+          ← Volver
+        </a>
+      </div>
+    </div>
+
+    <!-- Metadatos del documento -->
+    <div class="border border-[#18181b] bg-[#f4f4f5] p-4 sm:p-5 mb-8 font-mono text-xs flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <span class="text-[#71717a] block text-[10px] uppercase">// ASIGNATURA & TEMA</span>
+        <span class="font-bold text-[#09090b] text-sm">ALG · Ejercicios Tipo & Algoritmos</span>
+      </div>
+      <div>
+        <span class="text-[#71717a] block text-[10px] uppercase">// ESTADO</span>
+        <span class="px-2 py-0.5 bg-[#18181b] text-white text-[11px] font-bold">DIGITALIZADO DE FOLIOS</span>
+      </div>
+      <div>
+        <span class="text-[#71717a] block text-[10px] uppercase">// FORMATO</span>
+        <span class="font-semibold text-[#09090b]">Markdown + LaTeX KaTeX</span>
+      </div>
+    </div>
+
+    <!-- Contenedor del documento renderizado con estilos industriales -->
+    <article
+      id="math-content"
+      class="prose-custom border border-[#18181b] bg-white p-6 sm:p-10 text-[#09090b] leading-relaxed"
+      set:html={htmlContent}
+    />
+
+    <!-- Pie de página de los apuntes -->
+    <div class="mt-8 pt-4 border-t border-[#18181b] flex items-center justify-between font-mono text-xs text-[#52525b]">
+      <span>Documento generado con transcripción asistida por IA.</span>
+      <a href="/universidad" class="hover:text-black font-bold">
+        ← Volver a Asignaturas
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  // Renderizar matemáticas con KaTeX en cuanto el script cargue
+  function renderMath() {
+    if (window.renderMathInElement) {
+      window.renderMathInElement(document.getElementById('math-content'), {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ],
+        throwOnError: false
+      });
+    } else {
+      setTimeout(renderMath, 50);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', renderMath);
+  window.addEventListener('load', renderMath);
+</script>
+
+<style is:global>
+  /* Estilos tipográficos industriales para el contenido Markdown de los apuntes */
+  .prose-custom h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #18181b;
+  }
+  .prose-custom h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .prose-custom h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #18181b;
+  }
+  .prose-custom h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #27272a;
+  }
+  .prose-custom p {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #27272a;
+  }
+  .prose-custom hr {
+    border: 0;
+    border-top: 1px dashed #d4d4d8;
+    margin: 1.75rem 0;
+  }
+  .prose-custom ul, .prose-custom ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .prose-custom ol {
+    list-style-type: decimal;
+  }
+  .prose-custom ul {
+    list-style-type: disc;
+  }
+  .prose-custom li {
+    margin-bottom: 0.35rem;
+  }
+  .prose-custom blockquote {
+    border-left: 3px solid #18181b;
+    padding-left: 1rem;
+    margin: 1rem 0;
+    background-color: #f4f4f5;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-style: italic;
+  }
+  /* Tablas técnicas */
+  .prose-custom table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .prose-custom th, .prose-custom td {
+    border: 1px solid #18181b;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .prose-custom th {
+    background-color: #f4f4f5;
+    font-weight: 700;
+  }
+  .prose-custom tr:nth-child(even) td {
+    background-color: #fafafa;
+  }
+</style>
