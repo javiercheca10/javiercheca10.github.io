@@ -1,0 +1,82 @@
+{
+  "documentos": [
+    {
+      "id": "tema_1_constitucion_sociedades_teoria",
+      "titulo": "Tema 1: Constitución de Sociedades - Marco Teórico y Formas Jurídicas",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1119.HEIC",
+        "IMG_1120.HEIC",
+        "IMG_1121.HEIC"
+      ],
+      "resumen": "Estudio conceptual y jurídico de las formas empresariales según el ordenamiento español, distinguiendo entre sociedades civiles y mercantiles (personalistas y capitalistas). Se detalla exhaustivamente el proceso de constitución (fases simultánea y sucesiva), el tratamiento de las aportaciones dinerarias y no dinerarias, la emisión de acciones a la par o sobre la par, la prima de emisión, el principio de integridad y el desglose de los asientos contables típicos asociados a la fundación (cuentas del PGC como 190, 194, 100, 110, 103, 558, entre otras)."
+    },
+    {
+      "id": "tema_1_ejercicios_practicos",
+      "titulo": "Ejercicios Prácticos del Tema 1: Constitución de Sociedades",
+      "tipo": "EJERCICIOS",
+      "archivos": [
+        "IMG_1122.HEIC",
+        "IMG_1123.HEIC",
+        "IMG_1124.HEIC",
+        "IMG_1125.HEIC",
+        "IMG_1126.HEIC",
+        "IMG_1127.HEIC",
+        "IMG_1128.HEIC"
+      ],
+      "resumen": "Resolución completa y detallada de supuestos prácticos de constitución de sociedades anónimas/limitadas (Ejercicios 1, 2, 3 y 8). Incluye el desarrollo cronológico y contable completo según el Plan General de Contabilidad (PGC): emisión de acciones, suscripción, desembolsos iniciales y diferidos (dividendos pasivos), inscripción en el Registro Mercantil (RM), contabilización de gastos de constitución y su efecto impositivo (impuesto diferido con cuentas 6301 y 113), aportaciones de promotores, y reclasificación de dividendos pasivos."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1119.HEIC",
+      "tema": "Tema 1: Constitución de Sociedades - Clasificación y Formas Jurídicas",
+      "resumen": "Esquema conceptual de la empresa y sujeto jurídico. Clasificación en sociedades civiles y mercantiles (personalistas y capitalistas). Requisitos legales de constitución, principio de integridad y mención a la personalidad jurídica."
+    },
+    {
+      "archivo": "IMG_1120.HEIC",
+      "tema": "Tema 1: Aportaciones, Prima de Emisión y Fundación Simultánea/Sucesiva",
+      "resumen": "Definición de aportaciones, emisión a la par y sobre la par, prima de emisión. Fases de la fundación simultánea y sucesiva. Inicio del desarrollo de los asientos contables del proceso de fundación y capital emitido pendiente de inscripción."
+    },
+    {
+      "archivo": "IMG_1121.HEIC",
+      "tema": "Tema 1: Asientos Contables de Exigibilidad y Desembolso de Dividendos Pasivos y Aportaciones No Dinerarias",
+      "resumen": "Esquematización formal en T de los asientos contables relativos a la exigencia y desembolso de dividendos pasivos, así como el tratamiento contable de las aportaciones no dinerarias."
+    },
+    {
+      "archivo": "IMG_1122.HEIC",
+      "tema": "Ejercicio 1 (Simultánea): Enunciado y Asientos 1 a 4",
+      "resumen": "Planteamiento del Ejercicio 1 (Fundación simultánea, 30.000 acciones, Vn=10, P. emisión=120%, mín. legal=25%). Contabilización de la emisión, suscripción, desembolso, inscripción en el RM y reclasificación de dividendos pasivos."
+    },
+    {
+      "archivo": "IMG_1123.HEIC",
+      "tema": "Ejercicio 1 (Continuación): Gastos, Efecto Impositivo y Dividendos",
+      "resumen": "Contabilización de los gastos de constitución (servicios exteriores, retención IRPF, IVA soportado), el efecto impositivo de dichos gastos (impuesto diferido) y la exigencia/desembolso del primer dividendo."
+    },
+    {
+      "archivo": "IMG_1124.HEIC",
+      "tema": "Ejercicio 2 (Sucesiva): Enunciado y Asientos 1 a 5",
+      "resumen": "Planteamiento del Ejercicio 2 (Fundación sucesiva, 10.000 títulos, Vn=20, P. emisión=120%). Asientos de emisión, suscripción, desembolso, gastos de intermediario y efecto impositivo correspondiente."
+    },
+    {
+      "archivo": "IMG_1125.HEIC",
+      "tema": "Ejercicio 2 (Continuación): Asientos 6 a 11",
+      "resumen": "Inscripción en el RM, reasignación de dividendos pasivos, gastos ocasionados con su efecto impositivo, pago a promotores y exigencia de nuevo dividendo pasivo."
+    },
+    {
+      "archivo": "IMG_1126.HEIC",
+      "tema": "Ejercicio 3 (Sucesiva): Enunciado y Asientos 1 a 6",
+      "resumen": "Planteamiento del Ejercicio 3 (Fundación sucesiva, 600.000 acciones, Vn=10, 130%, mín.=30%). Registro de aportaciones de promotores, emisión, suscripción, desembolso, gastos y efecto impositivo."
+    },
+    {
+      "archivo": "IMG_1127.HEIC",
+      "tema": "Ejercicio 3 (Fin) y Ejercicio 8 (Simultánea): Inicio",
+      "resumen": "Inscripción en el RM y reasignación de dividendos pasivos del Ejercicio 3. Planteamiento inicial del Ejercicio 8 (fundación simultánea, 30.000 acciones, Vn=20, 110%) con los asientos de emisión y suscripción/desembolso."
+    },
+    {
+      "archivo": "IMG_1128.HEIC",
+      "tema": "Ejercicio 8 (Fin): Inscripción y Reclasificación",
+      "resumen": "Asiento de inscripción en el Registro Mercantil y reclasificación de los dividendos pasivos correspondientes al Ejercicio 8."
+    }
+  ]
+}

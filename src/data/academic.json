@@ -534,36 +534,31 @@
     "description": "Programa de movilidad nacional en Valencia para especialización técnica y de empresa.",
     "groups": [
       {
-        "name": "Primer Semestre",
+        "name": "Asignaturas SICUE",
         "subjects": [
           {
-            "code": "VAL-1",
-            "name": "Desarrollo de Aplicaciones Distribuidas",
+            "code": "CFS",
+            "name": "Contabilidad Financiera y de Sociedades",
             "guia": null,
-            "description": "Sistemas de gran escala, concurrencia y arquitectura de backend."
-          },
-          {
-            "code": "VAL-2",
-            "name": "Dirección y Gestión de Proyectos Tecnológicos",
-            "guia": null,
-            "description": "Planificación de recursos, estimación y liderazgo de equipos de ingeniería."
-          }
-        ]
-      },
-      {
-        "name": "Segundo Semestre",
-        "subjects": [
-          {
-            "code": "VAL-3",
-            "name": "Auditoría Informática y Seguridad",
-            "guia": null,
-            "description": "Cumplimiento normativo, riesgos operacionales y seguridad de sistemas."
-          },
-          {
-            "code": "VAL-4",
-            "name": "Estrategia de Operaciones y Logística",
-            "guia": null,
-            "description": "Optimización de cadenas de suministro y procesos productivos."
+            "description": "Constitución de sociedades mercantiles (SA y SL), régimen de aportaciones dinerarias y no dinerarias, ampliación y reducción de capital, emisión de obligaciones, distribución de resultados y Plan General de Contabilidad.",
+            "apuntes": "/apuntes/cfs",
+            "recursos": [
+              {
+                "name": "Tema 1: Constitución de Sociedades (Marco Teórico PGC)",
+                "file": "/subjects/CFS/tema1_constitucion_sociedades_teoria.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Supuestos Prácticos Resueltos de Constitución (Ejercicios 1, 2, 3 y 8)",
+                "file": "/subjects/CFS/tema1_ejercicios_constitucion_resueltos.md",
+                "tipo": "EJERCICIOS"
+              },
+              {
+                "name": "Manual Completo de Contabilidad de Sociedades (PDF 89 Páginas)",
+                "file": "/subjects/CFS/manual_completo_contabilidad_sociedades.pdf",
+                "tipo": "PDF"
+              }
+            ]
           }
         ]
       }
