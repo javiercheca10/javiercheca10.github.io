@@ -334,7 +334,30 @@
             "code": "PDOO",
             "name": "Programación y Diseño Orientado a Objetos",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/programacion-y-diseno-orientado-objetos/guia-docente",
-            "description": ""
+            "apuntes": "/apuntes/pdoo",
+            "description": "Apuntes de teoría de fundamentos de orientación a objetos (cuestionarios tipo examen, taxonomía de clases UML y diseño en Java y Ruby) junto con el proyecto práctico 'Irrgarten': juego de exploración por turnos y combate en laberinto bajo arquitectura MVC.",
+            "resources": [
+              {
+                "name": "Proyecto Práctico: Videojuego Irrgarten (Java / Ruby)",
+                "file": "https://github.com/MatthewHN/PDOO",
+                "tipo": "PRÁCTICA / GITHUB"
+              },
+              {
+                "name": "Cuestionario de Teoría y Fundamentos de PDOO",
+                "file": "/subjects/PDOO/cuestionario_teoria_pdoo.md",
+                "tipo": "TEORÍA / TEST"
+              },
+              {
+                "name": "Resumen: Atributos, Encapsulamiento y Constructores",
+                "file": "/subjects/PDOO/resumen_conceptos_clave.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Jerarquía y Taxonomía de Clases en Java (UML)",
+                "file": "/subjects/PDOO/jerarquia_clases_java_uml.md",
+                "tipo": "DIAGRAMAS UML"
+              }
+            ]
           },
           {
             "code": "ECO",

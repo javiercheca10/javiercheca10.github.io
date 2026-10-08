@@ -1,0 +1,54 @@
+{
+  "documentos": [
+    {
+      "id": "teoria_pdoo_cuestionario_apuntes",
+      "titulo": "Cuestionario de Teoría de PDOO",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1078.HEIC",
+        "IMG_1079.HEIC"
+      ],
+      "resumen": "Apuntes en forma de cuestionario con preguntas de verdadero/falso y explicaciones sobre conceptos fundamentales de Programación y Diseño Orientado a Objetos (PDOO), incluyendo identidad de objetos, variables de clase, instanciación, constructores, modificadores de visibilidad (private, public, package), métodos de clase frente a métodos de instancia, y peculiaridades de lenguajes como Java y Ruby."
+    },
+    {
+      "id": "resumen_conceptos_clave_pdoo",
+      "titulo": "Resumen de Conceptos Clave de PDOO",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1080.HEIC"
+      ],
+      "resumen": "Notas organizadas por temas clave: Atributos (modifiers como final, private, acceso desde clase e instancia, uso de this), Ocultación de información (paquetes en Java, módulos en Ruby), Acceso a atributos y constructores, comparando la sintaxis y comportamiento entre Java y Ruby."
+    },
+    {
+      "id": "jerarquia_clases_uml_pdoo",
+      "titulo": "Jerarquía de Clases y Taxonomía en Java",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1081.HEIC"
+      ],
+      "resumen": "Diagrama de clases UML que muestra una jerarquía de herencia con Clases Abstractas, Clases Concretas, Clases Hoja y Clases No Hoja, acompañado de definiciones formales de cada tipo de clase en el contexto de Java."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1078.HEIC",
+      "titulo": "Cuestionario de Teoría PDOO (Parte 1)",
+      "resumen": "Contiene el encabezado 'Teoría PDOO Cuestionario' y preguntas evaluadas como Verdadero (V) o Falso (F) sobre relaciones de objetos, identidad basada en dirección de memoria, variables de clase, constructores y encapsulación en Java y Ruby."
+    },
+    {
+      "archivo": "IMG_1079.HEIC",
+      "titulo": "Cuestionario de Teoría PDOO (Parte 2)",
+      "resumen": "Continuación del cuestionario con cuestiones sobre visibilidad de atributos, especificidad del modificador package en Java, invocación de métodos de clase sin instancias previas y el uso de paquetes."
+    },
+    {
+      "archivo": "IMG_1080.HEIC",
+      "titulo": "Resumen Temático: Atributos, Ocultación y Constructores",
+      "resumen": "Apuntes esquemáticos que detallan el comportamiento de atributos final, privado, de clase, el uso de 'this', la ocultación de información mediante paquetes (Java) y módulos (Ruby), así como el acceso a atributos y sobreescritura de constructores (initialize en Ruby)."
+    },
+    {
+      "archivo": "IMG_1081.HEIC",
+      "titulo": "Diagrama de Jerarquía de Clases y Definiciones",
+      "resumen": "Incluye un diagrama de clases estructurado con herencia ('Clase', 'Clase Abstracta', 'Clase Concreta', 'Clase Hoja', 'Clase No Hoja') firmado por Checa Casas, Francisco Javier, junto con definiciones detalladas de cada concepto en Java."
+    }
+  ]
+}

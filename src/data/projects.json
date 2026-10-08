@@ -46,5 +46,17 @@
     "featured": false,
     "github": null,
     "demo": null
+  },
+  {
+    "id": "irrgarten-pdoo",
+    "title": "Irrgarten · Juego de Laberinto (PDOO)",
+    "subtitle": "Diseño y arquitectura orientada a objetos en Java y Ruby",
+    "description": "Videojuego por turnos de exploración y combate en laberinto desarrollado para la asignatura PDOO (ETSIIT UGR). Aplica principios avanzados de diseño orientado a objetos: jerarquías de herencia polimórfica (LabyrinthCharacter, Player, Monster, FuzzyPlayer), gestión dinámica de inventario de combate (armas y escudos con durabilidad finita mediante barajas de cartas), arquitectura Modelo-Vista-Controlador (MVC) desacoplada con soporte para interfaz en consola (TextUI) e interfaz gráfica (Swing/GraphicUI), y reglas de movimiento probabilístico con dados aleatorios.",
+    "tags": ["Java", "Ruby", "POO / OOP", "Patrón MVC", "Herencia & Polimorfismo", "Swing GUI"],
+    "badge": "Práctica UGR",
+    "icon": "gamepad",
+    "featured": true,
+    "github": "https://github.com/MatthewHN/PDOO",
+    "demo": null
   }
 ]
