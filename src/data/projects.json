@@ -5,7 +5,7 @@
     "subtitle": "Planificación, optimización y asignación mensual de turnos y personal",
     "description": "Sistema de asignación de turnos y puestos para organizaciones con restricciones operativas complejas mediante programación por restricciones en 3 fases (Google OR-Tools CP-SAT): viabilidad y cobertura obligatoria, equidad de esfuerzo minimax y maximización de preferencias individuales. Incluye interfaz PySide6, gestión de bajas/vetos, auditoría de vacantes y exportación automática a Excel (.xlsx) y PDF imprimible (.pdf) mediante ReportLab.",
     "tags": ["Python", "OR-Tools CP-SAT", "PySide6 / Qt", "ReportLab", "OpenPyXL", "Optimización"],
-    "badge": "En producción",
+    "badge": "Completado",
     "icon": "activity",
     "featured": true,
     "github": "https://github.com/javiercheca10/RepartoPersonal",
