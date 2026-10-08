@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# memorias y notas locales de trabajo
+MEMORIA_SESION.md
+
