@@ -1,6 +1,8 @@
 [
   {
     "id": "reparto-personal",
+    "category": "personal",
+    "categoryLabel": "Otros Proyectos",
     "title": "RepartoPersonal (CP-SAT)",
     "subtitle": "Planificación, optimización y asignación mensual de turnos y personal",
     "description": "Sistema de asignación de turnos y puestos para organizaciones con restricciones operativas complejas mediante programación por restricciones en 3 fases (Google OR-Tools CP-SAT): viabilidad y cobertura obligatoria, equidad de esfuerzo minimax y maximización de preferencias individuales. Incluye interfaz PySide6, gestión de bajas/vetos, auditoría de vacantes y exportación automática a Excel (.xlsx) y PDF imprimible (.pdf) mediante ReportLab.",
@@ -12,7 +14,27 @@
     "demo": null
   },
   {
+    "id": "agente-deliberativo-ia",
+    "category": "universidad",
+    "categoryLabel": "Universidad (UGR)",
+    "title": "Agente Autónomo Deliberativo & Búsqueda Heurística (IA)",
+    "subtitle": "Simulador de navegación y supervivencia sobre mapa de cuadrícula en C++",
+    "description": "Desarrollo integral de un agente inteligente autónomo en C++ para el entorno de simulación de Inteligencia Artificial (ETSIIT UGR). Combina la percepción del entorno mediante sensores de visión y batería/salud, modelado del estado del mundo con orientación y gestión de inventario (zapatillas/bikini según el terreno), con algoritmos avanzados de búsqueda en grafos y espacios de estados: búsqueda en anchura (BFS) y búsqueda heurística informada A* (A-Estrella) optimizando el consumo energético en terrenos complejos (agua, bosque, precipicio, asfalto), además de interacción colaborativa y resolución multi-agente.",
+    "tags": ["C++", "Inteligencia Artificial", "Algoritmo A*", "Búsqueda Heurística", "BFS / Grafos", "Simulación Multi-Agente"],
+    "badge": "Práctica UGR",
+    "icon": "cpu",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/Practica-2-IA",
+    "githubExtra": {
+      "label": "Práctica 1 (Percepción & Reactivo)",
+      "url": "https://github.com/javiercheca10/Practica-1-IA"
+    },
+    "demo": null
+  },
+  {
     "id": "irrgarten-pdoo",
+    "category": "universidad",
+    "categoryLabel": "Universidad (UGR)",
     "title": "Irrgarten · Juego de Laberinto (PDOO)",
     "subtitle": "Diseño y arquitectura orientada a objetos en Java y Ruby",
     "description": "Videojuego por turnos de exploración y combate en laberinto desarrollado para la asignatura PDOO (ETSIIT UGR). Aplica principios avanzados de diseño orientado a objetos: jerarquías de herencia polimórfica (LabyrinthCharacter, Player, Monster, FuzzyPlayer), gestión dinámica de inventario de combate (armas y escudos con durabilidad finita mediante barajas de cartas), arquitectura Modelo-Vista-Controlador (MVC) desacoplada con soporte para interfaz en consola (TextUI) e interfaz gráfica (Swing/GraphicUI), y reglas de movimiento probabilístico con dados aleatorios.",

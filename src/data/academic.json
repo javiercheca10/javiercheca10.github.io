@@ -416,7 +416,19 @@
             "code": "IA",
             "name": "Inteligencia Artificial",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/inteligencia-artificial/guia-docente",
-            "description": ""
+            "description": "Prácticas de la asignatura centradas en el diseño e implementación en C++ de un agente autónomo deliberativo sobre un simulador de exploración y supervivencia: percepción por sensores de cuadrícula (P1) y algoritmos avanzados de búsqueda en espacios de estados (Anchura / BFS y A* heurístico con optimización de coste energético) y toma de decisiones (P2).",
+            "resources": [
+              {
+                "name": "Práctica 2: Búsqueda Heurística A* y Deliberativo (C++)",
+                "file": "https://github.com/javiercheca10/Practica-2-IA",
+                "tipo": "PRÁCTICA / GITHUB"
+              },
+              {
+                "name": "Práctica 1: Percepción Sensorial y Agente Reactivo (C++)",
+                "file": "https://github.com/javiercheca10/Practica-1-IA",
+                "tipo": "PRÁCTICA / GITHUB"
+              }
+            ]
           },
           {
             "code": "ISE",
