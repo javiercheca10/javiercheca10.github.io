@@ -1,0 +1,236 @@
+{
+  "bloques": [
+    {
+      "id": "bloque_1",
+      "titulo": "Introducción a los Sistemas Operativos y Estructura de Computadores",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1045.HEIC",
+        "IMG_1046.HEIC",
+        "IMG_1047.HEIC",
+        "IMG_1048.HEIC",
+        "IMG_1075.HEIC",
+        "IMG_1076.HEIC",
+        "IMG_1077.HEIC"
+      ],
+      "descripcion": "Conceptos fundamentales de los sistemas operativos, estructuras de SO, arquitecturas (monolítica, capas, micronúcleo, máquinas virtuales, multicomputadores, red, multiprocesadores), registros, ciclo de instrucciones, comunicación de E/S (programada, por interrupciones, DMA) y el S.O. como interfaz de usuario y administrador de recursos."
+    },
+    {
+      "id": "bloque_2",
+      "titulo": "Gestión de Memoria y Memoria Virtual",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1049.HEIC",
+        "IMG_1050.HEIC",
+        "IMG_1051.HEIC",
+        "IMG_1052.HEIC",
+        "IMG_1053.HEIC",
+        "IMG_1054.HEIC",
+        "IMG_1055.HEIC",
+        "IMG_1056.HEIC",
+        "IMG_1057.HEIC"
+      ],
+      "descripcion": "Jerarquía de memoria, espacios de direcciones lógicas y físicas, intercambio (swapping), paginación simple y multinivel, segmentación, segmentación paginada, algoritmos de sustitución de páginas (Óptimo, FIFO, LRU, Reloj), conjunto de trabajo, hiperpaginación y algoritmos de asignación."
+    },
+    {
+      "id": "bloque_3",
+      "titulo": "Gestión de Memoria en Linux y Cachés de Páginas",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1058.HEIC",
+        "IMG_1059.HEIC",
+        "IMG_1060.HEIC",
+        "IMG_1061.HEIC",
+        "IMG_1062.HEIC"
+      ],
+      "descripcion": "Gestión de memoria a bajo nivel en Linux (struct-page, GFP flags), cachés de bloques (slab layer), espacio de direcciones de proceso, descriptor de memoria (mm_struct), áreas de memoria (vm_area_struct), tablas de páginas multinivel (PGD, PMD, PTE) y desalojo de la caché de páginas con listas pseudo-LRU."
+    },
+    {
+      "id": "bloque_4",
+      "titulo": "Gestión de Archivos y Sistemas de Archivos",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1063.HEIC",
+        "IMG_1064.HEIC",
+        "IMG_1065.HEIC",
+        "IMG_1066.HEIC",
+        "IMG_1067.HEIC",
+        "IMG_1068.HEIC",
+        "IMG_1069.HEIC",
+        "IMG_1070.HEIC",
+        "IMG_1071.HEIC",
+        "IMG_1072.HEIC",
+        "IMG_1073.HEIC",
+        "IMG_1074.HEIC"
+      ],
+      "descripcion": "Interfaz de los sistemas de archivos, atributos, operaciones, estructuras de directorios (árbol, grafo), protección, semánticas de consistencia, métodos de asignación de espacio (contiguo, enlazado, indexado), gestión del espacio libre, implementación en Linux, i-nodos, VFS (Virtual File System) y características detalladas de Ext2."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1045.HEIC",
+      "tema_identificado": "Tema 1: Estructuras de SO",
+      "resumen": "Características de una buena arquitectura de SO, estructura monolítica, arquitectura de capas y arquitectura micronúcleo."
+    },
+    {
+      "archivo": "IMG_1046.HEIC",
+      "tema_identificado": "Tema 1: Estructuras de SO (Continuación)",
+      "resumen": "Funciones del núcleo, ventajas de micronúcleos, máquinas virtuales (Hipervisor / VMM Tipo 1 y Tipo 2) y problemas asociados."
+    },
+    {
+      "archivo": "IMG_1047.HEIC",
+      "tema_identificado": "Tema 1: Estructuras de SO - Sistemas de Tiempo Real y Red",
+      "resumen": "Sistemas operativos de tiempo real (deadline duro y suave), periodicidad, arquitectura multicomputadores y SO de red."
+    },
+    {
+      "archivo": "IMG_1048.HEIC",
+      "tema_identificado": "Tema 1: Arquitecturas con más de una CPU",
+      "resumen": "Sistemas multiprocesadores (simétricos y asimétricos) y sistemas distribuidos débilmente acoplados."
+    },
+    {
+      "archivo": "IMG_1049.HEIC",
+      "tema_identificado": "Tema 3: Gestión de Memoria",
+      "resumen": "Jerarquía de memoria, conceptos sobre caché, mapeo de memoria de un proceso, objetivos de la gestión y memoria virtual."
+    },
+    {
+      "archivo": "IMG_1050.HEIC",
+      "tema_identificado": "Tema 3: Paginación",
+      "resumen": "Concepto de paginación, marcos de página, direcciones lógicas y físicas, y contenido de la tabla de páginas."
+    },
+    {
+      "archivo": "IMG_1051.HEIC",
+      "tema_identificado": "Tema 3: Esquema de Traducción y Falta de Página",
+      "resumen": "Diagrama de traducción en paginación con RBTP, pasos detallados para resolver una falta de página e implementación."
+    },
+    {
+      "archivo": "IMG_1052.HEIC",
+      "tema_identificado": "Tema 3: Tamaño de Tabla de Páginas y Paginación Multinivel",
+      "resumen": "Ejemplos de cálculo de tamaño de tabla de páginas, paginación multinivel a dos niveles y páginas compartidas."
+    },
+    {
+      "archivo": "IMG_1053.HEIC",
+      "tema_identificado": "Tema 3: Segmentación",
+      "resumen": "Esquema de organización por segmentos, tabla de segmentos, RBTS, STLR y diagrama de traducción de direcciones virtuales segmentadas."
+    },
+    {
+      "archivo": "IMG_1054.HEIC",
+      "tema_identificado": "Tema 3: Segmentación Paginada y Resumen de Gestión",
+      "resumen": "Combinación de segmentación y paginación, esquema de traducción y políticas de asignación, búsqueda y sustitución."
+    },
+    {
+      "archivo": "IMG_1055.HEIC",
+      "tema_identificado": "Tema 3: Algoritmos de Sustitución",
+      "resumen": "Páginas limpias frente a sucias, influencia del tamaño de página y algoritmos de sustitución (Óptimo, FIFO, LRU)."
+    },
+    {
+      "archivo": "IMG_1056.HEIC",
+      "tema_identificado": "Tema 3: Algoritmo del Reloj y Propiedad de Localidad",
+      "resumen": "Funcionamiento del algoritmo del reloj, comportamiento de los programas, localidad temporal y espacial, y conjunto de trabajo."
+    },
+    {
+      "archivo": "IMG_1057.HEIC",
+      "tema_identificado": "Tema 3: Hiperpaginación",
+      "resumen": "Observaciones sobre conjuntos de trabajo, teoría del conjunto de trabajo, hiperpaginación, causas y formas de evitarla."
+    },
+    {
+      "archivo": "IMG_1058.HEIC",
+      "tema_identificado": "Tema 3.4: Gestión de Memoria en Linux",
+      "resumen": "Gestión de memoria a bajo nivel en Linux, struct-page, interfaces de asignación de memoria (kmalloc/kfree) y zonas de memoria (GFP flags)."
+    },
+    {
+      "archivo": "IMG_1059.HEIC",
+      "tema_identificado": "Tema 3.4: Cachés de Bloques (Slab Layer) en Linux",
+      "resumen": "Organización y funcionamiento de la capa slab en Linux, y gestión del espacio de direcciones de proceso (virtual memory)."
+    },
+    {
+      "archivo": "IMG_1060.HEIC",
+      "tema_identificado": "Tema 3.4: Descriptores de Memoria en Linux",
+      "resumen": "Contenido del mapa de memoria, struct mm_struct, asignación y liberación mediante fork y clone-vm, y manejo de VMAs."
+    },
+    {
+      "archivo": "IMG_1061.HEIC",
+      "tema_identificado": "Tema 3.4: Tablas de Páginas Multinivel en Linux y Caché de Páginas",
+      "resumen": "Conversión de direcciones virtuales mediante PGD, PMD y PTE, y conceptos básicos de la caché de páginas en Linux."
+    },
+    {
+      "archivo": "IMG_1062.HEIC",
+      "tema_identificado": "Tema 3.4: Desalojo de la Caché de Páginas",
+      "resumen": "Proceso de desalojo de la caché de páginas en Linux, selección de víctimas (LRU) y solución de listas duales (active/inactive list)."
+    },
+    {
+      "archivo": "IMG_1063.HEIC",
+      "tema_identificado": "Tema 4: Gestión de Archivos",
+      "resumen": "Interfaz de los sistemas de archivos, concepto de archivo, estructura interna, tipos, formas de acceso, atributos y estructura de directorios."
+    },
+    {
+      "archivo": "IMG_1064.HEIC",
+      "tema_identificado": "Tema 4: Protección y Semánticas de Consistencia",
+      "resumen": "Organización de directorios en árbol y grafo, protección, listas de acceso, clases de usuario, semánticas de consistencia (Unix, Andrew, inmutables)."
+    },
+    {
+      "archivo": "IMG_1065.HEIC",
+      "tema_identificado": "Tema 4: Funciones Básicas y Diseño de Software",
+      "resumen": "Funciones básicas del sistema de archivos, problemas de diseño y organización en capas (desde programas de aplicación hasta controladores de E/S)."
+    },
+    {
+      "archivo": "IMG_1066.HEIC",
+      "tema_identificado": "Tema 4: Métodos de Asignación de Espacio",
+      "resumen": "Asignación contigua y no contigua enlazada, ventajas, desventajas, cálculo de direcciones lógicas a físicas y FAT."
+    },
+    {
+      "archivo": "IMG_1067.HEIC",
+      "tema_identificado": "Tema 4: Asignación Indexada y Espacio Libre",
+      "resumen": "Asignación indexada no contigua (bloques índice, multinivel, esquema combinado Unix) y gestión del espacio libre (mapa de bits, listas enlazadas)."
+    },
+    {
+      "archivo": "IMG_1068.HEIC",
+      "tema_identificado": "Tema 4: Implementación de Directorios y Archivos Compartidos",
+      "resumen": "Estructuras de entradas de directorio (MS-DOS, UNIX), apertura de archivos, enlaces simbólicos y enlaces absolutos (hard links)."
+    },
+    {
+      "archivo": "IMG_1069.HEIC",
+      "tema_identificado": "Tema 4: Distribución y Recuperación del Sistema de Archivos",
+      "resumen": "Particiones de disco, formateo físico y lógico, bloque de arranque, manejo de bloques dañados y métodos de recuperación (consistencia y backups)."
+    },
+    {
+      "archivo": "IMG_1070.HEIC",
+      "tema_identificado": "Tema 4.3: Implementación de la Gestión de Archivos en Linux",
+      "resumen": "i-nodos en Linux, apertura de archivos, sistema de archivos virtual (VFS) y flujo de la llamada write() desde user-space hasta el medio físico."
+    },
+    {
+      "archivo": "IMG_1071.HEIC",
+      "tema_identificado": "Tema 4: Tipos de Sistemas de Archivos y Modelo Común",
+      "resumen": "Clasificación general de SA (disk-based, virtuales, red), modelo de archivo común en programas de usuario y contenido de un inodo."
+    },
+    {
+      "archivo": "IMG_1072.HEIC",
+      "tema_identificado": "Tema 4: Estructura VFS en Linux",
+      "resumen": "Acceso a archivos, orientación a objetos de VFS (super_block, inode, dentry, file), vectores de operaciones y estructuras fs_struct y file_struct."
+    },
+    {
+      "archivo": "IMG_1073.HEIC",
+      "tema_identificado": "Tema 4: Bloques de un Archivo y Montaje en Linux",
+      "resumen": "Asignación de bloques no contiguos en Linux usando inodos con punteros directos e indirectos, y llamada al sistema mount/unmount."
+    },
+    {
+      "archivo": "IMG_1074.HEIC",
+      "tema_identificado": "Tema 4: Sistema de Archivos Ext2",
+      "resumen": "Estructura interna de Ext2, grupo de bloques, boot sector, superbloque, descriptores de grupo, mapas de bits y tablas de inodos."
+    },
+    {
+      "archivo": "IMG_1075.HEIC",
+      "tema_identificado": "Tema 1: Sistemas de Cómputo - Registros y Ciclo",
+      "resumen": "Registros visibles para el usuario (índice, segmento, pila), registros de control y estado (PC, IR), y ciclo de ejecución de instrucciones."
+    },
+    {
+      "archivo": "IMG_1076.HEIC",
+      "tema_identificado": "Tema 1: Comunicaciones de E/S y Objetivos del SO",
+      "resumen": "E/S programada, E/S dirigida por interrupciones, Acceso Directo a Memoria (DMA), y objetivos del sistema operativo (facilidad de uso, eficiencia, evolución)."
+    },
+    {
+      "archivo": "IMG_1077.HEIC",
+      "tema_identificado": "Tema 1: El SO como Interfaz y Administrador de Recursos",
+      "resumen": "Servicios del SO como interfaz de usuario (desarrollo de programas, E/S, errores) y como administrador de recursos de proceso y memoria."
+    }
+  ]
+}

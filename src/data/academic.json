@@ -171,7 +171,30 @@
             "code": "SO",
             "name": "Sistemas Operativos",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/sistemas-operativos/guia-docente",
-            "description": ""
+            "apuntes": "/apuntes/so",
+            "description": "Cuaderno técnico completo organizado en 4 bloques temáticos fundamentales: Arquitectura de computadores y estructuras de S.O., Gestión de memoria principal y virtual (paginación/segmentación), Gestión de memoria a bajo nivel en Linux (SLAB/VFS/VMAs) y Sistemas de archivos con estructura interna de Ext2.",
+            "resources": [
+              {
+                "name": "Tema 1: Arquitectura y Estructuras del Sistema Operativo",
+                "file": "/subjects/SO/bloque1_arquitectura_y_estructuras_so.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Tema 2: Gestión de Memoria y Memoria Virtual",
+                "file": "/subjects/SO/bloque2_gestion_memoria_virtual.md",
+                "tipo": "TEORÍA / ALGORITMOS"
+              },
+              {
+                "name": "Tema 3: Gestión de Memoria a Bajo Nivel en Linux",
+                "file": "/subjects/SO/bloque3_memoria_kernel_linux.md",
+                "tipo": "KERNEL INTERNALS"
+              },
+              {
+                "name": "Tema 4: Sistemas de Archivos, VFS y Ext2",
+                "file": "/subjects/SO/bloque4_sistemas_archivos_y_ext2.md",
+                "tipo": "TEORÍA / ESTRUCTURAS"
+              }
+            ]
           },
           {
             "code": "TC1",
