@@ -8,42 +8,52 @@ interface Props {
 const { activeTab = 'home' } = Astro.props;
 ---
 
-<header class="w-full border-b border-[#eaeaea] bg-white sticky top-0 z-50">
-  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <!-- Identidad izquierda -->
-    <a href="/" class="flex items-center gap-3 group">
-      <span class="font-semibold text-sm tracking-tight text-[#111113] group-hover:text-black">
-        Javier Checa
+<header class="w-full border-b border-[#18181b] bg-white sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <!-- Brand técnico -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <span class="px-1.5 py-0.5 bg-[#18181b] text-white text-xs font-mono font-bold tracking-wider">
+        GIIADE
       </span>
-      <span class="text-xs text-[#8a8a93] font-mono hidden sm:inline">
-        / Informática & ADE
+      <span class="font-bold text-xs sm:text-sm tracking-tight text-[#09090b] group-hover:underline">
+        Recursos & Software · UGR
       </span>
     </a>
 
-    <!-- Las dos subdivisiones solicitadas -->
-    <nav class="flex items-center gap-6 text-xs sm:text-sm font-medium">
+    <!-- Enlaces de navegación industrial -->
+    <nav class="flex items-center gap-4 sm:gap-6 text-xs font-mono">
       <a
         href="/universidad"
-        class={`transition-colors py-1 ${activeTab === 'universidad' ? 'text-black border-b border-black font-semibold' : 'text-[#6e6e76] hover:text-black'}`}
+        class={`transition-colors py-1 ${activeTab === 'universidad' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
       >
-        Grado Universitario
+        [01] Universidad
       </a>
       <a
         href="/proyectos"
-        class={`transition-colors py-1 ${activeTab === 'proyectos' ? 'text-black border-b border-black font-semibold' : 'text-[#6e6e76] hover:text-black'}`}
+        class={`transition-colors py-1 ${activeTab === 'proyectos' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
       >
-        Proyectos Personales
+        [02] Proyectos
+      </a>
+      <a
+        href="/#sobre-mi"
+        class="text-[#52525b] hover:text-black hidden md:inline py-1"
+      >
+        [03] Sobre mí
+      </a>
+      <a
+        href="/#contacto"
+        class="text-[#52525b] hover:text-black hidden sm:inline py-1"
+      >
+        [04] Contacto
       </a>
       <a
         href={profile.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-[#6e6e76] hover:text-black hidden sm:flex items-center gap-1.5 font-mono text-xs"
+        class="px-2.5 py-1 border border-[#18181b] bg-white hover:bg-[#18181b] hover:text-white text-[#09090b] text-[11px] font-bold transition-colors flex items-center gap-1.5"
       >
         <span>GitHub</span>
-        <svg class="w-3 h-3 text-[#9696a0]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
+        <span aria-hidden="true">↗</span>
       </a>
     </nav>
   </div>

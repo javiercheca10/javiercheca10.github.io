@@ -12,114 +12,320 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
 <Layout>
   <Header activeTab="home" />
 
-  <main class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 pb-12">
-    <!-- Hero Editorial estilo Daniel Sun -->
-    <section class="max-w-3xl">
-      <div class="inline-flex items-center gap-2 text-xs font-mono text-[#6e6e76] mb-6">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-        <span>UGR · Doble Grado en Informática & ADE</span>
+  <main class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- HERO PRINCIPAL INDUSTRIAL -->
+    <section class="py-12 sm:py-16 border-b border-[#18181b]">
+      <div class="max-w-4xl">
+        <!-- Kicker técnico -->
+        <div class="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#52525b] mb-4">
+          <span class="inline-block w-2 h-2 bg-[#18181b]"></span>
+          <span>UNIVERSIDAD DE GRANADA · ETSIIT & FCEE · GIIADE</span>
+        </div>
+
+        <!-- TÍTULO PRINCIPAL: Centrado en lo que hace -->
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#09090b] uppercase leading-[1.1]">
+          Ingeniería del Software, Optimización y Recursos Académicos
+        </h1>
+
+        <!-- Resumen Lead -->
+        <p class="mt-5 text-sm sm:text-base text-[#52525b] leading-relaxed max-w-3xl">
+          Plataforma técnica del Doble Grado en Ingeniería Informática y ADE. Recoge el itinerario curricular a lo largo de seis etapas (Granada, Atenas y Valencia), guías docentes, utilidades y proyectos de software. Administrado y mantenido por <strong class="text-[#09090b]">Javier Checa</strong>.
+        </p>
+
+        <!-- Botones de acción industriales -->
+        <div class="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs">
+          <a
+            href="/universidad"
+            class="px-5 py-2.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-2 border border-[#18181b]"
+          >
+            <span>[01] EXPLORAR ASIGNATURAS</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="/proyectos"
+            class="px-5 py-2.5 bg-white text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors border border-[#18181b] flex items-center gap-2"
+          >
+            <span>[02] VER PROYECTOS</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="#sobre-mi"
+            class="px-4 py-2.5 text-[#52525b] hover:text-[#09090b] transition-colors"
+          >
+            // Sobre mí
+          </a>
+        </div>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-medium tracking-tight text-[#111113] leading-[1.25]">
-        Hola, soy Javier Checa. Estudio <span class="font-serif-italic font-normal text-[1.12em] tracking-normal">Ingeniería Informática</span> y <span class="font-serif-italic font-normal text-[1.12em] tracking-normal">ADE</span> en Granada, combinando desarrollo de software, optimización y visión estratégica.
-      </h1>
-
-      <p class="mt-8 text-base sm:text-lg text-[#6e6e76] leading-relaxed max-w-2xl">
-        Este espacio funciona como mi portfolio personal y biblioteca abierta: aquí documento tanto mi trayectoria y recursos universitarios como el código de mis proyectos personales.
-      </p>
+      <!-- Fila de estadísticas industriales -->
+      <div class="mt-12 pt-8 border-t border-[#e4e4e7] grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-xs">
+        <div class="border-l-2 border-[#18181b] pl-3 py-1">
+          <div class="text-2xl font-bold text-[#09090b]">06</div>
+          <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Etapas Académicas</div>
+        </div>
+        <div class="border-l-2 border-[#18181b] pl-3 py-1">
+          <div class="text-2xl font-bold text-[#09090b]">{totalSubjects}</div>
+          <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Asignaturas en Plan</div>
+        </div>
+        <div class="border-l-2 border-[#18181b] pl-3 py-1">
+          <div class="text-2xl font-bold text-[#09090b]">03</div>
+          <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Sedes (UGR · Atenas · VLC)</div>
+        </div>
+        <div class="border-l-2 border-[#18181b] pl-3 py-1">
+          <div class="text-2xl font-bold text-[#09090b]">100%</div>
+          <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Código Abierto</div>
+        </div>
+      </div>
     </section>
 
-    <!-- Las Dos Subdivisiones Principales -->
-    <section class="mt-20 pt-12 border-t border-[#eaeaea]">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- CINTA TÉCNICA / MARQUEE ESTILO INDUSTRIAL -->
+    <div class="py-2.5 border-b border-[#18181b] bg-[#f4f4f5] overflow-hidden whitespace-nowrap text-[11px] font-mono text-[#52525b]">
+      <div class="flex gap-6 animate-none font-bold">
+        <span>// INGENIERÍA DEL SOFTWARE</span>
+        <span>// GOOGLE OR-TOOLS CP-SAT</span>
+        <span>// PYSIDE & QT</span>
+        <span>// UGR GRANADA</span>
+        <span>// ERASMUS ATENAS</span>
+        <span>// SICUE VALENCIA</span>
+        <span>// DIRECCIÓN ESTRATÉGICA</span>
+        <span>// GUÍAS DOCENTES OFICIALES</span>
+        <span>// APUNTES & RECURSOS</span>
+      </div>
+    </div>
 
-        <!-- SUBDIVISIÓN 1: GRADO UNIVERSITARIO -->
+    <!-- SECCIÓN 01: SOBRE MÍ -->
+    <section id="sobre-mi" class="py-12 border-b border-[#18181b]">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-2">
+        <span>[01]</span>
+        <span class="uppercase">Perfil Técnico & Trayectoria</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-6">
+        Sobre Mí
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+        <div class="md:col-span-2 space-y-4 text-[#52525b] leading-relaxed">
+          <p>
+            Me llamo <strong class="text-[#09090b]">Javier Checa</strong> y curso el Doble Grado en Ingeniería Informática y Administración y Dirección de Empresas en la Universidad de Granada (UGR).
+          </p>
+          <p>
+            Mi trabajo se centra en el punto de encuentro entre la computación rigurosa y las decisiones organizativas: desarrollo de software, modelado mediante programación con restricciones (CP-SAT), análisis cuantitativo y dirección de operaciones.
+          </p>
+          <p>
+            Esta web reúne el trabajo de estos años: las asignaturas cursadas entre Granada, Atenas y Valencia, materiales organizados y las herramientas de código que voy construyendo.
+          </p>
+        </div>
+
+        <!-- Matriz técnica de competencias -->
+        <div class="border border-[#18181b] p-5 bg-white font-mono text-xs">
+          <div class="font-bold uppercase pb-2 border-b border-[#e4e4e7] mb-3 text-[#09090b]">
+            Competencias Clave
+          </div>
+          <div class="space-y-3">
+            <div>
+              <span class="text-[#71717a] block text-[10px] uppercase">Runtimes & Lenguajes</span>
+              <span class="font-semibold text-[#09090b]">Python, C/C++, Java, TypeScript, SQL</span>
+            </div>
+            <div>
+              <span class="text-[#71717a] block text-[10px] uppercase">Optimización & Algoritmia</span>
+              <span class="font-semibold text-[#09090b]">Google OR-Tools (CP-SAT), Qt/PySide</span>
+            </div>
+            <div>
+              <span class="text-[#71717a] block text-[10px] uppercase">Gestión & Empresa (ADE)</span>
+              <span class="font-semibold text-[#09090b]">Dirección Estratégica, Operaciones, Finanzas</span>
+            </div>
+            <div>
+              <span class="text-[#71717a] block text-[10px] uppercase">Entorno Operativo</span>
+              <span class="font-semibold text-[#09090b]">Linux (Arch/Omarchy), Git, SQLite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 02: UNIVERSIDAD (GIIADE) -->
+    <section id="universidad" class="py-12 border-b border-[#18181b]">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+          <span>[02]</span>
+          <span class="uppercase">Plan de Estudios Oficial</span>
+        </div>
         <a
           href="/universidad"
-          class="group block p-8 rounded-2xl border border-[#eaeaea] hover:border-black bg-white hover:bg-[#fafafc] transition-all duration-200"
+          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
         >
-          <div class="flex items-center justify-between text-xs font-mono text-[#8a8a93] mb-6">
-            <span>01 / ACADÉMICO</span>
-            <span class="text-[#111113] font-semibold">6 Etapas · {totalSubjects} Asignaturas</span>
-          </div>
-
-          <h2 class="text-2xl font-semibold text-[#111113] group-hover:text-black tracking-tight">
-            Grado <span class="font-serif-italic font-normal text-[1.1em]">Universitario</span>
-          </h2>
-
-          <p class="mt-3 text-sm text-[#6e6e76] leading-relaxed">
-            Plan de estudios estructurado en 6 etapas: 1º, 2º y 3º en la UGR, año Erasmus en Atenas, año SICUE en Valencia y 6º curso de finalización. Incluye guías docentes oficiales y recursos.
-          </p>
-
-          <!-- Timeline mini resumen -->
-          <div class="mt-6 pt-5 border-t border-[#f0f0f2] flex flex-wrap gap-2 text-[11px] font-mono text-[#6e6e76]">
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">1º UGR</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">2º UGR</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">3º UGR</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">Erasmus Atenas</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">SICUE Valencia</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">6º Final</span>
-          </div>
-
-          <div class="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#111113] group-hover:translate-x-1 transition-transform">
-            <span>Acceder al plan de estudios y apuntes</span>
-            <span aria-hidden="true">→</span>
-          </div>
+          <span>VER CATÁLOGO COMPLETO</span>
+          <span aria-hidden="true">→</span>
         </a>
+      </div>
 
-        <!-- SUBDIVISIÓN 2: PROYECTOS PERSONALES -->
-        <a
-          href="/proyectos"
-          class="group block p-8 rounded-2xl border border-[#eaeaea] hover:border-black bg-white hover:bg-[#fafafc] transition-all duration-200"
-        >
-          <div class="flex items-center justify-between text-xs font-mono text-[#8a8a93] mb-6">
-            <span>02 / SOFTWARE</span>
-            <span class="text-[#111113] font-semibold">{projects.length} Proyectos catalogados</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-4">
+        Grado Universitario (GIIADE)
+      </h2>
+      <p class="text-sm text-[#52525b] max-w-2xl mb-8 leading-relaxed">
+        Itinerario académico completo del Doble Grado estructurado en seis fases de formación entre la Universidad de Granada, estancia internacional Erasmus en Atenas y movilidad SICUE en Valencia.
+      </p>
+
+      <!-- Tabla técnica de etapas académicas -->
+      <div class="border border-[#18181b] bg-white divide-y divide-[#18181b]">
+        {academic.map(stage => (
+          <div class="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-[#fafafa] transition-colors">
+            <div class="flex items-start sm:items-center gap-4">
+              <span class="font-mono text-sm font-bold bg-[#18181b] text-white px-2 py-0.5">
+                {stage.num}
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-bold text-base text-[#09090b] tracking-tight">
+                    {stage.name}
+                  </h3>
+                  <span class="font-mono text-[11px] px-2 py-0.2 border border-[#d4d4d8] text-[#52525b]">
+                    {stage.tag}
+                  </span>
+                </div>
+                <p class="text-xs text-[#52525b] mt-0.5">
+                  {stage.description}
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between md:justify-end gap-6 font-mono text-xs text-[#71717a] pt-2 md:pt-0 border-t md:border-t-0 border-[#f4f4f5]">
+              <span>{stage.groups.reduce((acc, g) => acc + g.subjects.length, 0)} asignaturas</span>
+              <a
+                href={`/universidad#stage-${stage.id}`}
+                class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+              >
+                <span>Consultar</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
-
-          <h2 class="text-2xl font-semibold text-[#111113] group-hover:text-black tracking-tight">
-            Proyectos <span class="font-serif-italic font-normal text-[1.1em]">Personales</span>
-          </h2>
-
-          <p class="mt-3 text-sm text-[#6e6e76] leading-relaxed">
-            Desarrollo de software, algoritmos de optimización con Google OR-Tools CP-SAT, aplicaciones de escritorio en Qt, simuladores interactivos de estrategia y análisis cuantitativo.
-          </p>
-
-          <!-- Tags destacados -->
-          <div class="mt-6 pt-5 border-t border-[#f0f0f2] flex flex-wrap gap-2 text-[11px] font-mono text-[#6e6e76]">
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">Planificador Hospitalario</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">CP-SAT</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">PySide / Qt</span>
-            <span class="px-2 py-0.5 rounded bg-[#f5f5f7]">Estrategia ADE</span>
-          </div>
-
-          <div class="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#111113] group-hover:translate-x-1 transition-transform">
-            <span>Ver listado de proyectos</span>
-            <span aria-hidden="true">→</span>
-          </div>
-        </a>
-
+        ))}
       </div>
     </section>
 
-    <!-- Breve Nota de Contacto estilo Daniel Sun -->
-    <section class="mt-20 pt-12 border-t border-[#eaeaea] flex flex-col sm:flex-row sm:items-baseline justify-between gap-6">
-      <div>
-        <h3 class="text-base font-semibold text-[#111113]">
-          Contacto & Colaboración
-        </h3>
-        <p class="mt-1 text-xs sm:text-sm text-[#6e6e76]">
-          Abierto a intercambiar ideas sobre software, optimización o el doble grado.
-        </p>
+    <!-- SECCIÓN 03: PROYECTOS PERSONALES -->
+    <section id="proyectos" class="py-12 border-b border-[#18181b]">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+          <span>[03]</span>
+          <span class="uppercase">Desarrollo & Herramientas</span>
+        </div>
+        <a
+          href="/proyectos"
+          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
+        >
+          <span>VER TODOS LOS PROYECTOS</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
 
-      <div class="flex items-center gap-6 text-xs sm:text-sm font-medium">
-        <a href={profile.links.email} class="text-[#111113] hover:underline">
-          javicheca2003@gmail.com
-        </a>
-        <a href={profile.links.github} target="_blank" rel="noopener noreferrer" class="text-[#6e6e76] hover:text-black">
-          github.com/{profile.handle}
-        </a>
+      <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-4">
+        Proyectos Personales
+      </h2>
+      <p class="text-sm text-[#52525b] max-w-2xl mb-8 leading-relaxed">
+        Soluciones prácticas desarrolladas combinando ingeniería de sistemas, modelos matemáticos de optimización y gestión empresarial.
+      </p>
+
+      <!-- Lista técnica de proyectos -->
+      <div class="border border-[#18181b] bg-white divide-y divide-[#18181b]">
+        {projects.map((proj, idx) => (
+          <div class="p-5 sm:p-6 hover:bg-[#fafafa] transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-2">
+              <div class="flex items-baseline gap-3">
+                <span class="font-mono text-xs text-[#71717a]">0{idx + 1}</span>
+                <h3 class="font-bold text-lg text-[#09090b] tracking-tight">
+                  {proj.title}
+                </h3>
+              </div>
+              <span class="font-mono text-xs px-2 py-0.5 bg-[#f4f4f5] border border-[#e4e4e7] text-[#52525b] w-fit">
+                {proj.badge}
+              </span>
+            </div>
+
+            <p class="text-xs font-semibold text-[#18181b] mt-1">
+              {proj.subtitle}
+            </p>
+
+            <p class="text-xs sm:text-sm text-[#52525b] mt-2 leading-relaxed">
+              {proj.description}
+            </p>
+
+            <div class="mt-4 pt-3 border-t border-[#f4f4f5] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+              <div class="flex flex-wrap gap-1.5">
+                {proj.tags.map(t => (
+                  <span class="px-2 py-0.5 bg-[#f4f4f5] text-[#3f3f46] text-[11px]">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div class="flex items-center gap-4">
+                {proj.github && (
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+                  >
+                    <span>Código GitHub</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                {proj.demo && (
+                  <a
+                    href={proj.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+                  >
+                    <span>Enlace Web</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECCIÓN 04: CONTACTO -->
+    <section id="contacto" class="py-12">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-2">
+        <span>[04]</span>
+        <span class="uppercase">Comunicación Directa</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-4">
+        Contacto
+      </h2>
+
+      <div class="border border-[#18181b] p-6 sm:p-8 bg-white flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <p class="text-sm text-[#52525b] leading-relaxed max-w-xl">
+            Disponible para colaborar en proyectos de desarrollo de software, algoritmos de optimización, resolución de casos de estudio o consultas sobre el Doble Grado.
+          </p>
+          <div class="mt-4 font-mono text-xs text-[#71717a]">
+            Residencia actual: Granada, España · UGR
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 font-mono text-xs">
+          <a
+            href={profile.links.email}
+            class="px-5 py-3 bg-[#18181b] text-white text-center font-bold hover:bg-black transition-colors"
+          >
+            javicheca2003@gmail.com
+          </a>
+          <a
+            href={profile.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-3 border border-[#18181b] text-[#09090b] text-center font-bold hover:bg-[#f4f4f5] transition-colors"
+          >
+            github.com/{profile.handle}
+          </a>
+        </div>
       </div>
     </section>
   </main>

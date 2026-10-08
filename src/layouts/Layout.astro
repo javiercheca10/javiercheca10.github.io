@@ -7,13 +7,13 @@ interface Props {
 }
 
 const {
-  title = "Javier Checa — Informática & ADE",
-  description = "Portfolio personal y recursos del Doble Grado en Ingeniería Informática y ADE (UGR). Proyectos de software, optimización y trayectoria académica."
+  title = "Recursos & Software · Doble Grado en Informática y ADE | UGR",
+  description = "Plataforma de recursos académicos, guías docentes, software de optimización y proyectos del Doble Grado en Informática y ADE (UGR)."
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth bg-white text-[#111113]">
+<html lang="es" class="scroll-smooth bg-[#fbfbfb] text-[#09090b]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,12 +30,12 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     
-    <!-- Tipografías editoriales estilo Daniel Sun: Inter + EB Garamond Italic + Geist Mono -->
+    <!-- Tipografías técnicas e industriales: Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400;1,500;1,600&family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class="min-h-screen bg-white text-[#111113] font-['Inter',sans-serif] antialiased">
+  <body class="min-h-screen bg-[#fbfbfb] text-[#09090b] font-['Inter',sans-serif] antialiased">
     <slot />
   </body>
 </html>

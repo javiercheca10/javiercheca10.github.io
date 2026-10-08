@@ -2,19 +2,20 @@
 import profile from '../data/profile.json';
 ---
 
-<footer class="w-full border-t border-[#eaeaea] mt-24 py-12 bg-white">
-  <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#8a8a93]">
+<footer class="w-full border-t border-[#18181b] bg-white mt-16 font-mono text-xs text-[#52525b]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2">
-      <span class="text-[#111113] font-medium">Javier Checa</span>
-      <span>—</span>
-      <span>Doble Grado en Ingeniería Informática y ADE (UGR)</span>
+      <span class="font-bold text-[#09090b]">[GIIADE · UGR]</span>
+      <span>Javier Checa</span>
+      <span>//</span>
+      <span>Granada · España</span>
     </div>
 
     <div class="flex items-center gap-6">
-      <a href="/universidad" class="hover:text-black transition-colors">Grado</a>
-      <a href="/proyectos" class="hover:text-black transition-colors">Proyectos</a>
+      <a href="/universidad" class="hover:text-black transition-colors">[01] Grado</a>
+      <a href="/proyectos" class="hover:text-black transition-colors">[02] Proyectos</a>
       <a href={profile.links.github} target="_blank" rel="noopener noreferrer" class="hover:text-black transition-colors">GitHub</a>
-      <a href={profile.links.email} class="hover:text-black transition-colors">Contacto</a>
+      <a href={profile.links.email} class="hover:text-black transition-colors">Email</a>
     </div>
   </div>
 </footer>

@@ -2,41 +2,53 @@
 
 @layer base {
   :root {
-    --bg-main: #ffffff;
-    --bg-subtle: #f9f9fb;
-    --text-main: #111113;
-    --text-muted: #6b6b76;
-    --text-subtle: #9696a0;
-    --border-color: #eaeaea;
-    --border-hover: #111113;
+    --bg-page: #fbfbfb;
+    --bg-surface: #ffffff;
+    --bg-muted: #f3f3f5;
+    --border-main: #18181b;
+    --border-light: #e4e4e7;
+    --text-main: #09090b;
+    --text-muted: #52525b;
+    --text-dim: #71717a;
+    --accent: #09090b;
   }
 
   body {
-    background-color: var(--bg-main);
+    background-color: var(--bg-page);
     color: var(--text-main);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Serif itálica editorial como Daniel Sun */
-  .font-serif-italic {
-    font-family: 'EB Garamond', Georgia, serif;
-    font-style: italic;
-    font-weight: 400;
+  /* Tipografía técnica / mono */
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', 'Geist Mono', monospace;
+    font-feature-settings: "zero" 1;
   }
 
-  .font-mono-code {
-    font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+  /* Encabezados industriales */
+  h1, h2, h3, h4 {
+    letter-spacing: -0.03em;
   }
 }
 
-/* Efecto hover suave en enlaces */
-a {
-  transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+/* Scrollbar industrial minimalista */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
 }
 
 ::selection {
-  background-color: #111113;
+  background-color: #09090b;
   color: #ffffff;
 }
