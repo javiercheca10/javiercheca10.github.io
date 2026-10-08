@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #ffffff;
+    --bg-subtle: #f9f9fb;
+    --text-main: #111113;
+    --text-muted: #6b6b76;
+    --text-subtle: #9696a0;
+    --border-color: #eaeaea;
+    --border-hover: #111113;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Serif itálica editorial como Daniel Sun */
+  .font-serif-italic {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .font-mono-code {
+    font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+  }
+}
+
+/* Efecto hover suave en enlaces */
+a {
+  transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+::selection {
+  background-color: #111113;
+  color: #ffffff;
+}

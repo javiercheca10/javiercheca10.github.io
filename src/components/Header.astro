@@ -1,99 +1,50 @@
 ---
 import profile from '../data/profile.json';
+
+interface Props {
+  activeTab?: 'home' | 'universidad' | 'proyectos';
+}
+
+const { activeTab = 'home' } = Astro.props;
 ---
 
-<header class="sticky top-4 z-50 max-w-6xl mx-auto px-4 mb-6">
-  <nav class="backdrop-blur-xl bg-white/75 dark:bg-[#0c121e]/80 border border-slate-200/80 dark:border-slate-800/80 shadow-lg shadow-black/5 dark:shadow-black/20 rounded-2xl px-5 py-3.5 flex items-center justify-between transition-all">
-    <!-- Brand / Identidad -->
+<header class="w-full border-b border-[#eaeaea] bg-white sticky top-0 z-50">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Identidad izquierda -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-indigo-500 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-sm">
-        <div class="w-full h-full bg-white dark:bg-[#090e17] rounded-[10px] flex items-center justify-center">
-          <span class="font-bold text-sm tracking-tight text-slate-800 dark:text-white font-['JetBrains_Mono',monospace]">JC</span>
-        </div>
-      </div>
-      <div class="flex flex-col">
-        <span class="font-bold text-sm tracking-tight text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
-          Javier Checa
-        </span>
-        <span class="text-xs text-slate-700 dark:text-slate-300 font-mono">
-          GIIADE · UGR
-        </span>
-      </div>
+      <span class="font-semibold text-sm tracking-tight text-[#111113] group-hover:text-black">
+        Javier Checa
+      </span>
+      <span class="text-xs text-[#8a8a93] font-mono hidden sm:inline">
+        / Informática & ADE
+      </span>
     </a>
 
-    <!-- Enlaces de navegación desktop -->
-    <div class="hidden md:flex items-center gap-1 text-sm font-medium">
-      <a href="/" class="px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
-        Inicio
-      </a>
-      <a href="/universidad" class="px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors flex items-center gap-1.5">
-        <span>Universidad</span>
-        <span class="px-1.5 py-0.2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold rounded-md border border-emerald-500/20">60</span>
-      </a>
-      <a href="/proyectos" class="px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
-        Proyectos
-      </a>
-      <a href="/#skills" class="px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">
-        Habilidades
-      </a>
-    </div>
-
-    <!-- Botones de acción derecha -->
-    <div class="flex items-center gap-2.5">
-      <!-- Conmutador de tema claro / oscuro -->
-      <button
-        id="theme-toggle"
-        type="button"
-        aria-label="Cambiar tema de color"
-        class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-800/50 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+    <!-- Las dos subdivisiones solicitadas -->
+    <nav class="flex items-center gap-6 text-xs sm:text-sm font-medium">
+      <a
+        href="/universidad"
+        class={`transition-colors py-1 ${activeTab === 'universidad' ? 'text-black border-b border-black font-semibold' : 'text-[#6e6e76] hover:text-black'}`}
       >
-        <!-- Sol (se muestra en tema oscuro) -->
-        <svg class="w-4 h-4 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-        <!-- Luna (se muestra en tema claro) -->
-        <svg class="w-4 h-4 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
-
-      <!-- Botón GitHub con enlace al perfil -->
+        Grado Universitario
+      </a>
+      <a
+        href="/proyectos"
+        class={`transition-colors py-1 ${activeTab === 'proyectos' ? 'text-black border-b border-black font-semibold' : 'text-[#6e6e76] hover:text-black'}`}
+      >
+        Proyectos Personales
+      </a>
       <a
         href={profile.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Ver perfil en GitHub"
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/70 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200 text-xs font-semibold hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all shadow-sm"
+        class="text-[#6e6e76] hover:text-black hidden sm:flex items-center gap-1.5 font-mono text-xs"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        <span>GitHub</span>
+        <svg class="w-3 h-3 text-[#9696a0]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
-        <span class="hidden sm:inline">github.com/{profile.handle}</span>
       </a>
-    </div>
-  </nav>
-
-  <!-- Navegación móvil rápida -->
-  <div class="flex md:hidden items-center justify-around mt-2 px-3 py-2 backdrop-blur-md bg-white/60 dark:bg-[#0c121e]/70 border border-slate-200/80 dark:border-slate-800/80 rounded-xl text-xs font-medium">
-    <a href="/" class="text-slate-600 dark:text-slate-300 hover:text-emerald-500">Inicio</a>
-    <a href="/universidad" class="text-slate-600 dark:text-slate-300 hover:text-emerald-500">Universidad (60)</a>
-    <a href="/proyectos" class="text-slate-600 dark:text-slate-300 hover:text-emerald-500">Proyectos</a>
-    <a href="/#skills" class="text-slate-600 dark:text-slate-300 hover:text-emerald-500">Skills</a>
+    </nav>
   </div>
 </header>
-
-<script is:inline>
-  const toggleBtn = document.getElementById('theme-toggle');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      if (isDark) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-  }
-</script>

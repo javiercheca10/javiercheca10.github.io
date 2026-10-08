@@ -1,0 +1,440 @@
+[
+  {
+    "id": "1-curso",
+    "num": "01",
+    "name": "1º Curso",
+    "location": "Universidad de Granada (UGR)",
+    "tag": "Granada",
+    "description": "Fundamentos de computación, matemáticas y bases de gestión de empresas.",
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "CAL",
+            "name": "Cálculo",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/calculo/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "EP",
+            "name": "Economía Política",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/economia-politica/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FFT",
+            "name": "Fundamentos Físicos y Tecnológicos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-fisicos-y-tecnologicos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FDAE",
+            "name": "Fundamentos de Dirección y Administración de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-direccion-y-administracion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FP",
+            "name": "Fundamentos de Programación",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-programacion/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TOC",
+            "name": "Tecnología y Organización de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnologia-y-organizacion-computadores/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "FS",
+            "name": "Fundamentos del Software",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-del-software/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "HDM",
+            "name": "Historia del Desarrollo Económico Mundial Contemporáneo",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/historia-del-desarrollo-economico-mundial-contemporaneo/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ID",
+            "name": "Introducción al Derecho",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-al-derecho/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ME",
+            "name": "Matemáticas Empresariales",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/matematicas-empresariales/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MP",
+            "name": "Metodología de la Programación",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216111B.pdf",
+            "description": ""
+          },
+          {
+            "code": "MIC",
+            "name": "Microeconomía",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/microeconomia/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ALG",
+            "name": "Álgebra Lineal y Estructuras Matemáticas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algebra-lineal-y-estructuras-matematicas/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2-curso",
+    "num": "02",
+    "name": "2º Curso",
+    "location": "Universidad de Granada (UGR)",
+    "tag": "Granada",
+    "description": "Estructuras de datos, arquitectura de computadores, contabilidad y macroeconomía.",
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "EC",
+            "name": "Estructura de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/estructura-computadores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ED",
+            "name": "Estructura de Datos",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/2161125.pdf",
+            "description": ""
+          },
+          {
+            "code": "IOF",
+            "name": "Introducción a las Operaciones Financieras",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-las-operaciones-financieras/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "IM",
+            "name": "Introducción al Márketing",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-al-marketing/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MACRO",
+            "name": "Macroeconomía",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/macroeconomia/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "SO",
+            "name": "Sistemas Operativos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/sistemas-operativos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TC1",
+            "name": "Técnicas Cuantitativas I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnicas-cuantitativas-i/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "ALGO",
+            "name": "Algorítmica",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algoritmica/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "AC",
+            "name": "Arquitectura de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/arquitectura-computadores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "CGRAL",
+            "name": "Contabilidad General",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-general/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DC",
+            "name": "Dirección Comercial",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-comercial/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "LMD",
+            "name": "Lógica y Métodos Discretos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/logica-y-metodos-discretos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TC2",
+            "name": "Técnicas Cuantitativas II",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnicas-cuantitativas-ii/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3-curso",
+    "num": "03",
+    "name": "3º Curso",
+    "location": "Universidad de Granada (UGR)",
+    "tag": "Granada",
+    "description": "Sistemas concurrentes, programación orientada a objetos, bases de datos e inteligencia artificial.",
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "FR",
+            "name": "Fundamentos de Redes",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-redes/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "PDOO",
+            "name": "Programación y Diseño Orientado a Objetos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/programacion-y-diseno-orientado-objetos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ECO",
+            "name": "Econometría",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/econometria/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "CF1",
+            "name": "Contabilidad Financiera I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-financiera-i/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DAE",
+            "name": "Dirección y Administración de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-y-administracion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "SCD",
+            "name": "Sistemas Concurrentes y Distribuidos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/sistemas-concurrentes-y-distribuidos/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "CF2",
+            "name": "Contabilidad Financiera II",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-financiera-ii/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "AOF",
+            "name": "Análisis de Operaciones Financieras",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/analisis-las-operaciones-financieras/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FBD",
+            "name": "Fundamentos de Base de Datos",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216113D.pdf",
+            "description": ""
+          },
+          {
+            "code": "FIS",
+            "name": "Fundamentos de Ingeniería del Software",
+            "guia": "/Subjects/Third/FIS/Teoria/Ejercicios-Controles/Controles/Guia_Control2/GuiaCompletaC2-FIS.pdf",
+            "description": ""
+          },
+          {
+            "code": "IA",
+            "name": "Inteligencia Artificial",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/inteligencia-artificial/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ISE",
+            "name": "Ingeniería de Servidores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/ingenieria-servidores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MC",
+            "name": "Métodos Cuantitativos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/metodos-cuantitativos/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "erasmus-atenas",
+    "num": "04",
+    "name": "Erasmus · Atenas",
+    "location": "Atenas, Grecia",
+    "tag": "Erasmus+",
+    "description": "Año de intercambio académico internacional en Atenas, cursando materias de informática y gestión en entorno multicultural.",
+    "groups": [
+      {
+        "name": "Primer Semestre (Winter Semester)",
+        "subjects": [
+          {
+            "code": "ERAS-1",
+            "name": "Information Systems & Enterprise Architecture",
+            "guia": null,
+            "description": "Sistemas de información empresarial y arquitectura tecnológica."
+          },
+          {
+            "code": "ERAS-2",
+            "name": "Operations Research & Decision Theory",
+            "guia": null,
+            "description": "Investigación operativa y optimización aplicada a la toma de decisiones."
+          },
+          {
+            "code": "ERAS-3",
+            "name": "International Business Strategy",
+            "guia": null,
+            "description": "Estrategia internacional de mercados y modelos de negocio europeos."
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre (Spring Semester)",
+        "subjects": [
+          {
+            "code": "ERAS-4",
+            "name": "Software Engineering & Cloud Computing",
+            "guia": null,
+            "description": "Metodologías ágiles, microservicios y despliegue en la nube."
+          },
+          {
+            "code": "ERAS-5",
+            "name": "Financial Technology & Data Analytics",
+            "guia": null,
+            "description": "Fintech, análisis cuantitativo de mercados y ciencia de datos."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sicue-valencia",
+    "num": "05",
+    "name": "SICUE · Valencia",
+    "location": "Valencia, España",
+    "tag": "SICUE",
+    "description": "Programa de movilidad nacional en Valencia para especialización técnica y de empresa.",
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "VAL-1",
+            "name": "Desarrollo de Aplicaciones Distribuidas",
+            "guia": null,
+            "description": "Sistemas de gran escala, concurrencia y arquitectura de backend."
+          },
+          {
+            "code": "VAL-2",
+            "name": "Dirección y Gestión de Proyectos Tecnológicos",
+            "guia": null,
+            "description": "Planificación de recursos, estimación y liderazgo de equipos de ingeniería."
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "VAL-3",
+            "name": "Auditoría Informática y Seguridad",
+            "guia": null,
+            "description": "Cumplimiento normativo, riesgos operacionales y seguridad de sistemas."
+          },
+          {
+            "code": "VAL-4",
+            "name": "Estrategia de Operaciones y Logística",
+            "guia": null,
+            "description": "Optimización de cadenas de suministro y procesos productivos."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6-curso",
+    "num": "06",
+    "name": "6º Curso",
+    "location": "Universidad de Granada (UGR)",
+    "tag": "Finalización UGR",
+    "description": "Cierre del Doble Grado, Trabajo de Fin de Grado (TFG) de Informática y ADE, prácticas externas y asignaturas finales.",
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "EDO",
+            "name": "Estrategia y Dirección de Operaciones",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios",
+            "description": "Dirección estratégica de la empresa, operaciones y casos de estudio."
+          },
+          {
+            "code": "DSI",
+            "name": "Desarrollo de Sistemas de Información",
+            "guia": null,
+            "description": "Ciclo de vida completo del software empresarial y gobernanza TI."
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "TFG-INF",
+            "name": "Trabajo Fin de Grado · Ingeniería Informática",
+            "guia": null,
+            "description": "Proyecto fin de grado en ingeniería del software y sistemas computacionales."
+          },
+          {
+            "code": "TFG-ADE",
+            "name": "Trabajo Fin de Grado · ADE",
+            "guia": null,
+            "description": "Proyecto fin de grado en administración, dirección estratégica o finanzas."
+          },
+          {
+            "code": "PE",
+            "name": "Prácticas Externas Curriculares",
+            "guia": null,
+            "description": "Estancia en empresa u organización aplicando informática y gestión."
+          }
+        ]
+      }
+    ]
+  }
+]
