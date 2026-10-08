@@ -12,42 +12,6 @@
     "demo": null
   },
   {
-    "id": "hub-giiade",
-    "title": "Portal Académico & Recursos GIIADE UGR",
-    "subtitle": "Repositorio académico y plataforma de recursos abierta",
-    "description": "Plataforma web técnica que cataloga las asignaturas del Doble Grado en Informática y ADE en la UGR, con acceso a guías docentes, temarios, recursos de estudio y proyectos.",
-    "tags": ["Astro", "Tailwind CSS", "TypeScript", "GitHub Pages"],
-    "badge": "Web",
-    "icon": "book-open",
-    "featured": true,
-    "github": "https://github.com/javiercheca10/javiercheca.github.io",
-    "demo": "https://javiercheca.github.io"
-  },
-  {
-    "id": "edo-estrategia",
-    "title": "Hub Interactivo de Dirección Estratégica",
-    "subtitle": "Análisis de casos empresariales & juegos de repaso",
-    "description": "Módulo de estudio y gamificación para Dirección Estratégica y de Operaciones, que incluye resolución estructurada de casos reales (Virgin, Enron, Red Bull) y cuestionarios de validación conceptual.",
-    "tags": ["Estrategia", "ADE", "JavaScript", "Modelado de Negocio"],
-    "badge": "Académico",
-    "icon": "briefcase",
-    "featured": true,
-    "github": null,
-    "demo": null
-  },
-  {
-    "id": "modelado-econometrico",
-    "title": "Modelado y Análisis Econométrico",
-    "subtitle": "Series temporales y variables macroeconómicas",
-    "description": "Análisis empírico cuantitativo de series temporales del mercado español y modelización de indicadores macroeconómicos mediante técnicas estadísticas y econométricas.",
-    "tags": ["Python", "Econometría", "Estadística", "Data Analysis"],
-    "badge": "Investigación",
-    "icon": "trending-up",
-    "featured": false,
-    "github": null,
-    "demo": null
-  },
-  {
     "id": "irrgarten-pdoo",
     "title": "Irrgarten · Juego de Laberinto (PDOO)",
     "subtitle": "Diseño y arquitectura orientada a objetos en Java y Ruby",
