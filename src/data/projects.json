@@ -14,14 +14,14 @@
   {
     "id": "hub-giiade",
     "title": "Portal Académico & Recursos GIIADE UGR",
-    "subtitle": "Portfolio personal y base de conocimiento abierta",
-    "description": "Plataforma web con estética Bento Grid que cataloga las 60 asignaturas del Doble Grado en Informática y ADE en la UGR, con acceso a guías docentes, temarios, recursos de estudio y proyectos.",
+    "subtitle": "Repositorio académico y plataforma de recursos abierta",
+    "description": "Plataforma web técnica que cataloga las asignaturas del Doble Grado en Informática y ADE en la UGR, con acceso a guías docentes, temarios, recursos de estudio y proyectos.",
     "tags": ["Astro", "Tailwind CSS", "TypeScript", "GitHub Pages"],
     "badge": "Web",
     "icon": "book-open",
     "featured": true,
-    "github": "https://github.com/javiercheca10/javiercheca10.github.io",
-    "demo": "https://javiercheca10.github.io"
+    "github": "https://github.com/javiercheca10/javiercheca.github.io",
+    "demo": "https://javiercheca.github.io"
   },
   {
     "id": "edo-estrategia",
