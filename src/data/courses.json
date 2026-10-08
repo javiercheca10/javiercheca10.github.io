@@ -1,0 +1,467 @@
+[
+  {
+    "year": 1,
+    "name": "1º Curso",
+    "slug": "primero",
+    "meta": [
+      "Grado en Ingeniería Informática · ADE",
+      "13 asignaturas · 2 semestres"
+    ],
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "CAL",
+            "name": "Cálculo",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/calculo/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "EP",
+            "name": "Economía Política",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/economia-politica/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FFT",
+            "name": "Fundamentos Físicos y Tecnológicos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-fisicos-y-tecnologicos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FDAE",
+            "name": "Fundamentos de Dirección y Administración de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-direccion-y-administracion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FP",
+            "name": "Fundamentos de Programación",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-programacion/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TOC",
+            "name": "Tecnología y Organización de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnologia-y-organizacion-computadores/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "FS",
+            "name": "Fundamentos del Software",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-del-software/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "HDM",
+            "name": "Historia del Desarrollo Económico Mundial Contemporáneo",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/historia-del-desarrollo-economico-mundial-contemporaneo/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ID",
+            "name": "Introducción al Derecho",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-al-derecho/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ME",
+            "name": "Matemáticas Empresariales",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/matematicas-empresariales/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MP",
+            "name": "Metodología de la Programación",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216111B.pdf",
+            "description": ""
+          },
+          {
+            "code": "MIC",
+            "name": "Microeconomía",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/microeconomia/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ALG",
+            "name": "Álgebra Lineal y Estructuras Matemáticas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algebra-lineal-y-estructuras-matematicas/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2,
+    "name": "2º Curso",
+    "slug": "segundo",
+    "meta": [
+      "Grado en Ingeniería Informática · ADE",
+      "13 asignaturas · 2 semestres"
+    ],
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "EC",
+            "name": "Estructura de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/estructura-computadores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ED",
+            "name": "Estructura de Datos",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/2161125.pdf",
+            "description": ""
+          },
+          {
+            "code": "IOF",
+            "name": "Introducción a las Operaciones Financieras",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-las-operaciones-financieras/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "IM",
+            "name": "Introducción al Márketing",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-al-marketing/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MACRO",
+            "name": "Macroeconomía",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/macroeconomia/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "SO",
+            "name": "Sistemas Operativos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/sistemas-operativos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TC1",
+            "name": "Técnicas Cuantitativas I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnicas-cuantitativas-i/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "ALGO",
+            "name": "Algorítmica",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/algoritmica/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "AC",
+            "name": "Arquitectura de Computadores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/arquitectura-computadores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "CGRAL",
+            "name": "Contabilidad General",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-general/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DC",
+            "name": "Dirección Comercial",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-comercial/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "LMD",
+            "name": "Lógica y Métodos Discretos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/logica-y-metodos-discretos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TC2",
+            "name": "Técnicas Cuantitativas II",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnicas-cuantitativas-ii/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 3,
+    "name": "3º Curso",
+    "slug": "tercero",
+    "meta": [
+      "Grado en Ingeniería Informática · ADE",
+      "13 asignaturas · 2 semestres"
+    ],
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "FR",
+            "name": "Fundamentos de Redes",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-redes/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "PDOO",
+            "name": "Programación y Diseño Orientado a Objetos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/programacion-y-diseno-orientado-objetos/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ECO",
+            "name": "Econometría",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/econometria/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "CF1",
+            "name": "Contabilidad Financiera I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-financiera-i/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DAE",
+            "name": "Dirección y Administración de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-y-administracion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "SCD",
+            "name": "Sistemas Concurrentes y Distribuidos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/sistemas-concurrentes-y-distribuidos/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "CF2",
+            "name": "Contabilidad Financiera II",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-financiera-ii/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "AOF",
+            "name": "Análisis de Operaciones Financieras",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/analisis-las-operaciones-financieras/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "FBD",
+            "name": "Fundamentos de Base de Datos",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216113D.pdf",
+            "description": ""
+          },
+          {
+            "code": "FIS",
+            "name": "Fundamentos de Ingeniería del Software",
+            "guia": "/Subjects/Third/FIS/Teoria/Ejercicios-Controles/Controles/Guia_Control2/GuiaCompletaC2-FIS.pdf",
+            "description": ""
+          },
+          {
+            "code": "IA",
+            "name": "Inteligencia Artificial",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/inteligencia-artificial/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "ISE",
+            "name": "Ingeniería de Servidores",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/ingenieria-servidores/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MC",
+            "name": "Métodos Cuantitativos",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/metodos-cuantitativos/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 4,
+    "name": "4º Curso",
+    "slug": "cuarto",
+    "meta": [
+      "Grado en Ingeniería Informática · ADE",
+      "13 asignaturas · 2 semestres"
+    ],
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "CG",
+            "name": "Contabilidad de Gestión",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/contabilidad-gestion/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DO1",
+            "name": "Dirección de Operaciones I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-operaciones-i/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DDSI",
+            "name": "Diseño y Desarrollo de Sistemas de Información",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/diseno-y-desarrollo-sistemas-informacion/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "EM",
+            "name": "Economía Mundial",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/economia-mundial/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "IG",
+            "name": "Informática Gráfica",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/informatica-grafica/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MC",
+            "name": "Modelos de Computación",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/modelos-computacion/guia-docente",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "AEF",
+            "name": "Análisis de los Estados Financieros",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/analisis-los-estados-financieros/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DRH1",
+            "name": "Dirección de Recursos Humanos I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-recursos-humanos-i/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "EE",
+            "name": "Economía Española",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/economia-espanola/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "OE",
+            "name": "Organización de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/organizacion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "AA",
+            "name": "Aprendizaje Automático",
+            "guia": "https://grados.ugr.es/informatica/docencia/plan-estudios/aprendizaje-automatico-especialidad-computacion-y-sistemas-inteligentes/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "MAC",
+            "name": "Modelos Avanzados de Computación",
+            "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/296113D.pdf",
+            "description": ""
+          },
+          {
+            "code": "MH",
+            "name": "Metaheurísticas",
+            "guia": "https://grados.ugr.es/informatica/docencia/plan-estudios/metaheuristicas-especialidad-computacion-y-sistemas-inteligentes/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 5,
+    "name": "5º Curso",
+    "slug": "quinto",
+    "meta": [
+      "Grado en Ingeniería Informática · ADE",
+      "7 asignaturas · 2 semestres"
+    ],
+    "groups": [
+      {
+        "name": "Primer Semestre",
+        "subjects": [
+          {
+            "code": "CE",
+            "name": "Creación de Empresas",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/creacion-empresas/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DF",
+            "name": "Derecho Fiscal",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/derecho-fiscal/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DEE1",
+            "name": "Dirección Estratégica de la Empresa I",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-estrategica-la-empresa-i/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "DFIN",
+            "name": "Dirección Financiera",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-financiera/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "VC",
+            "name": "Visión por Computador",
+            "guia": "https://grados.ugr.es/informatica/pages/docencia/guias-docentes",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name": "Segundo Semestre",
+        "subjects": [
+          {
+            "code": "DEE2",
+            "name": "Dirección Estratégica de la Empresa II",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-estrategica-la-empresa-ii/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "PFG",
+            "name": "Proyecto Fin de Grado",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/proyecto-fin-grado/guia-docente",
+            "description": ""
+          },
+          {
+            "code": "TFG",
+            "name": "Trabajo Fin de Grado",
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/trabajo-fin-grado/guia-docente",
+            "description": ""
+          }
+        ]
+      }
+    ]
+  }
+]

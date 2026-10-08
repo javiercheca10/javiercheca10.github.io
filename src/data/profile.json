@@ -1,0 +1,18 @@
+{
+  "name": "Javier Checa",
+  "handle": "javiercheca10",
+  "title": "Ingeniería Informática & ADE",
+  "university": "Universidad de Granada (UGR)",
+  "degree": "Doble Grado en Ingeniería Informática y Administración y Dirección de Empresas",
+  "bio": "Estudiante de GIIADE en la UGR combinando ingeniería de software, algoritmia y visión estratégica empresarial. Enfocado en optimización combinatoria, desarrollo de software y análisis de datos.",
+  "location": "Granada, España",
+  "status": "Cursando Doble Grado · Abierto a proyectos y colaboraciones",
+  "links": {
+    "github": "https://github.com/javiercheca10",
+    "email": "mailto:javicheca2003@gmail.com"
+  },
+  "skills": {
+    "dev": ["Python", "C / C++", "Java", "TypeScript", "SQL / SQLite", "Linux / Bash", "Git", "Google OR-Tools", "Astro", "Tailwind CSS"],
+    "business": ["Dirección Estratégica", "Dirección de Operaciones", "Finanzas Corporativas", "Contabilidad de Costes", "Econometría", "Modelado de Procesos"]
+  }
+}

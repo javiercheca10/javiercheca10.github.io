@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import courses from '../data/courses.json';
+
+const totalSubjects = courses.reduce((acc, c) => acc + c.groups.reduce((gAcc, g) => gAcc + g.subjects.length, 0), 0);
+---
+
+<Layout
+  title="Universidad · Asignaturas GIIADE UGR | Javier Checa"
+  description="Catálogo de asignaturas, guías docentes y recursos del Doble Grado en Ingeniería Informática y ADE en la Universidad de Granada."
+>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Header de la sección -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-3">
+        Doble Grado GIIADE · Universidad de Granada
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        Plan de Estudios & Recursos Académicos
+      </h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl">
+        Las {totalSubjects} asignaturas de los 5 cursos del Doble Grado organizadas por semestre. Accede directamente a las guías docentes oficiales de la UGR, guías de estudio y recursos.
+      </p>
+    </div>
+
+    <!-- Barra de control: Buscador y Filtro de cursos -->
+    <div class="backdrop-blur-xl bg-white/70 dark:bg-[#0c121e]/80 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-4 mb-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Buscador en tiempo real -->
+      <div class="relative w-full md:w-96">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700 dark:text-slate-300">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="subject-search"
+          placeholder="Buscar por nombre o código (ej. CAL, FP, EDO, Contabilidad)..."
+          class="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-slate-100/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/80 rounded-xl text-slate-900 dark:text-white placeholder-slate-700 dark:placeholder-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all"
+        />
+      </div>
+
+      <!-- Selector de Curso (Filtros Bento) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0" id="course-filter-buttons">
+        <button
+          data-filter="all"
+          class="filter-btn active px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 text-white shadow-sm transition-all"
+        >
+          Todos ({totalSubjects})
+        </button>
+        {courses.map(c => (
+          <button
+            data-filter={c.year}
+            class="filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200/60 dark:border-slate-700/60 transition-all whitespace-nowrap"
+          >
+            {c.year}º Curso
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Contenedor de Cursos y Asignaturas -->
+    <div class="space-y-12" id="courses-container">
+      {courses.map(course => (
+        <section class="course-section" data-year={course.year}>
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm font-mono">
+              {course.year}º
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                {course.name}
+              </h2>
+              <span class="text-xs text-slate-700 dark:text-slate-300 font-mono">
+                {course.groups.reduce((acc, g) => acc + g.subjects.length, 0)} asignaturas catalogadas
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            {course.groups.map(group => (
+              <div>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  {group.name}
+                </h3>
+
+                <!-- Rejilla Bento de Asignaturas -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {group.subjects.map(subject => (
+                    <article
+                      class="subject-card backdrop-blur-md bg-white/80 dark:bg-[#0c121e]/85 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:border-emerald-500/40 hover:shadow-md transition-all group"
+                      data-code={subject.code.toLowerCase()}
+                      data-name={subject.name.toLowerCase()}
+                      data-year={course.year}
+                    >
+                      <div>
+                        <!-- Código y Estado -->
+                        <div class="flex items-center justify-between mb-2">
+                          <span class="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/80 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-bold">
+                            {subject.code}
+                          </span>
+                          <span class="text-[11px] text-slate-700 dark:text-slate-300 font-mono">
+                            {course.year}º Curso
+                          </span>
+                        </div>
+
+                        <!-- Nombre de la asignatura -->
+                        <h4 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors leading-snug">
+                          {subject.name}
+                        </h4>
+                      </div>
+
+                      <!-- Enlaces y Recursos -->
+                      <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-xs">
+                        {subject.guia ? (
+                          <a
+                            href={subject.guia}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 font-semibold transition-colors"
+                          >
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            Guía Docente UGR
+                          </a>
+                        ) : (
+                          <span class="text-slate-700 dark:text-slate-300 italic text-[11px]">Guía oficial UGR</span>
+                        )}
+
+                        <span class="inline-flex items-center gap-1 text-[11px] text-slate-700 dark:text-slate-300 font-mono">
+                          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600"></span>
+                          Apuntes
+                        </span>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Mensaje cuando la búsqueda no da resultados -->
+    <div id="no-results" class="hidden text-center py-16">
+      <p class="text-base font-semibold text-slate-700 dark:text-slate-300">
+        No se encontraron asignaturas que coincidan con la búsqueda.
+      </p>
+      <p class="text-xs text-slate-700 dark:text-slate-300 mt-1">
+        Prueba a buscar por código abreviado (ej: CAL, FP, EDO) o parte del nombre.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  // Filtros interactivos en cliente
+  const searchInput = document.getElementById('subject-search');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const courseSections = document.querySelectorAll('.course-section');
+  const subjectCards = document.querySelectorAll('.subject-card');
+  const noResults = document.getElementById('no-results');
+
+  let currentYear = 'all';
+
+  // Leer parámetro URL ?curso=X si existe
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialCourse = urlParams.get('curso');
+  if (initialCourse) {
+    currentYear = initialCourse;
+    filterButtons.forEach(btn => {
+      if (btn.dataset.filter === initialCourse) {
+        btn.classList.add('bg-emerald-500', 'text-white');
+        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800/60', 'text-slate-600', 'dark:text-slate-300');
+      } else {
+        btn.classList.remove('bg-emerald-500', 'text-white');
+        btn.classList.add('bg-slate-100', 'dark:bg-slate-800/60', 'text-slate-600', 'dark:text-slate-300');
+      }
+    });
+  }
+
+  function filterSubjects() {
+    const query = (searchInput?.value || '').toLowerCase().trim();
+    let totalVisible = 0;
+
+    courseSections.forEach(section => {
+      const year = section.dataset.year;
+      const isYearMatch = currentYear === 'all' || currentYear === year;
+
+      if (!isYearMatch) {
+        section.style.display = 'none';
+        return;
+      }
+
+      let sectionVisibleCount = 0;
+      const cards = section.querySelectorAll('.subject-card');
+
+      cards.forEach(card => {
+        const code = card.dataset.code || '';
+        const name = card.dataset.name || '';
+        const matchesQuery = !query || code.includes(query) || name.includes(query);
+
+        if (matchesQuery) {
+          card.style.display = 'flex';
+          sectionVisibleCount++;
+          totalVisible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (sectionVisibleCount > 0) {
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      if (totalVisible === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+  }
+
+  // Event listener para buscador
+  if (searchInput) {
+    searchInput.addEventListener('input', filterSubjects);
+  }
+
+  // Event listeners para botones de filtro
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('bg-emerald-500', 'text-white');
+        b.classList.add('bg-slate-100', 'dark:bg-slate-800/60', 'text-slate-600', 'dark:text-slate-300');
+      });
+      btn.classList.add('bg-emerald-500', 'text-white');
+      btn.classList.remove('bg-slate-100', 'dark:bg-slate-800/60', 'text-slate-600', 'dark:text-slate-300');
+
+      currentYear = btn.dataset.filter || 'all';
+      filterSubjects();
+    });
+  });
+
+  // Ejecutar filtro inicial
+  filterSubjects();
+</script>

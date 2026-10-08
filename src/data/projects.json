@@ -1,0 +1,50 @@
+[
+  {
+    "id": "reparto-radiologia",
+    "title": "Planificador de Radiología (CP-SAT)",
+    "subtitle": "Optimización combinatoria hospitalaria & App de escritorio",
+    "description": "Sistema de asignación de turnos y puestos para personal de radiodiagnóstico mediante programación por restricciones (Google OR-Tools CP-SAT), equilibrado equitativo de esfuerzo, interfaz Qt moderna y persistencia SQLite.",
+    "tags": ["Python", "OR-Tools CP-SAT", "PySide / Qt", "SQLite", "Optimización"],
+    "badge": "En producción",
+    "icon": "activity",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/SoftwarePapa",
+    "demo": null
+  },
+  {
+    "id": "hub-giiade",
+    "title": "Portal Académico & Recursos GIIADE UGR",
+    "subtitle": "Portfolio personal y base de conocimiento abierta",
+    "description": "Plataforma web con estética Bento Grid que cataloga las 60 asignaturas del Doble Grado en Informática y ADE en la UGR, con acceso a guías docentes, temarios, recursos de estudio y proyectos.",
+    "tags": ["Astro", "Tailwind CSS", "TypeScript", "GitHub Pages"],
+    "badge": "Web",
+    "icon": "book-open",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/javiercheca10.github.io",
+    "demo": "https://javiercheca10.github.io"
+  },
+  {
+    "id": "edo-estrategia",
+    "title": "Hub Interactivo de Dirección Estratégica",
+    "subtitle": "Análisis de casos empresariales & juegos de repaso",
+    "description": "Módulo de estudio y gamificación para Dirección Estratégica y de Operaciones, que incluye resolución estructurada de casos reales (Virgin, Enron, Red Bull) y cuestionarios de validación conceptual.",
+    "tags": ["Estrategia", "ADE", "JavaScript", "Modelado de Negocio"],
+    "badge": "Académico",
+    "icon": "briefcase",
+    "featured": true,
+    "github": null,
+    "demo": null
+  },
+  {
+    "id": "modelado-econometrico",
+    "title": "Modelado y Análisis Econométrico",
+    "subtitle": "Series temporales y variables macroeconómicas",
+    "description": "Análisis empírico cuantitativo de series temporales del mercado español y modelización de indicadores macroeconómicos mediante técnicas estadísticas y econométricas.",
+    "tags": ["Python", "Econometría", "Estadística", "Data Analysis"],
+    "badge": "Investigación",
+    "icon": "trending-up",
+    "featured": false,
+    "github": null,
+    "demo": null
+  }
+]
