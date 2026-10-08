@@ -1,0 +1,275 @@
+{
+  "bloques": [
+    {
+      "id": "tema_1_introduccion",
+      "titulo": "Tema 1: Introducción y definiciones iniciales",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1086.HEIC",
+        "IMG_1087.HEIC",
+        "IMG_1088.HEIC",
+        "IMG_1089.HEIC",
+        "IMG_1090.HEIC",
+        "IMG_1108.HEIC",
+        "IMG_1109.HEIC",
+        "IMG_1110.HEIC"
+      ],
+      "tiene_formulario": true,
+      "resumen": "Concepto intuitivo de base de datos, problemas de los sistemas de archivos tradicionales, solución con SGBD, definición formal, elementos involucrados (datos, hardware, software, usuarios), dato operativo, independencia de datos, objetivos y ventajas del uso de un SGBD."
+    },
+    {
+      "id": "tema_2_arquitectura",
+      "titulo": "Tema 2: Arquitectura de un SGBD",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1091.HEIC",
+        "IMG_1111.HEIC",
+        "IMG_1112.HEIC",
+        "IMG_1113.HEIC",
+        "IMG_1114.HEIC"
+      ],
+      "tiene_formulario": true,
+      "resumen": "Arquitectura de 3 niveles ANSI/SPARC (Externo, Conceptual, Interno), correspondencias entre niveles, lenguajes de una BD (DDL, DML, DCL), enfoques arquitectónicos, acoplamiento y papel del administrador de la BD."
+    },
+    {
+      "id": "tema_sql",
+      "titulo": "SQL: Creación, Consultas y Modificación",
+      "tipo": "FORMULARIO",
+      "archivos": [
+        "IMG_1092.HEIC",
+        "IMG_1093.HEIC",
+        "IMG_1094.HEIC",
+        "IMG_1095.HEIC",
+        "IMG_1096.HEIC"
+      ],
+      "tiene_formulario": true,
+      "resumen": "Sintaxis SQL para creación de tablas (CREATE TABLE, tipos y modificadores como PRIMARY KEY, UNIQUE, NOT NULL, CHECK, FOREIGN KEY, DEFAULT), eliminación (DROP), modificación (ALTER TABLE), consultas (SELECT, DISTINCT, WHERE, operadores), ordenación (ORDER BY), inserciones, producto cartesiano, consultas múltiples (UNION, INTERSECT, MINUS), JOINs, agrupación (GROUP BY), actualización, borrado, división en SQL y vistas."
+    },
+    {
+      "id": "tema_nivel_interno",
+      "titulo": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1097.HEIC",
+        "IMG_1098.HEIC",
+        "IMG_1099.HEIC",
+        "IMG_1100.HEIC",
+        "IMG_1101.HEIC",
+        "IMG_1102.HEIC",
+        "IMG_1103.HEIC",
+        "IMG_1104.HEIC",
+        "IMG_1105.HEIC",
+        "IMG_1106.HEIC",
+        "IMG_1107.HEIC"
+      ],
+      "tiene_formulario": true,
+      "resumen": "Unidades mínimas de almacenamiento, dispositivos (memoria principal, discos duros), medidas de rendimiento (tiempo medio de acceso, búsqueda, latencia), gestor de disco del SO y de archivos del SGBD, representación interna, organización secuencial, indexación (índices primarios, secundarios, densos y no densos), árboles B+, árboles B-, acceso directo, hashing básico y hashing dinámico."
+    },
+    {
+      "id": "tema_algebra_relacional",
+      "titulo": "Álgebra Relacional",
+      "tipo": "FORMULARIO",
+      "archivos": [
+        "IMG_1115.HEIC",
+        "IMG_1116.HEIC",
+        "IMG_1117.HEIC"
+      ],
+      "tiene_formulario": true,
+      "resumen": "Chuletario y resumen de operaciones del Álgebra Relacional: Selección, Proyección, Renombrar, Producto cartesiano, Unión, Intersección, Diferencia, Agrupación, Funciones de agregación (SUM, MIN, MAX, AVG, COUNT), División relacional, vistas y restricciones (PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, NOT NULL)."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1086.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Concepto intuitivo de Base de Datos, problemas con sistemas de archivos y solución con SGBD."
+    },
+    {
+      "archivo": "IMG_1087.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Sistema Gestor de Base de Datos, operaciones CRUD y elementos de una base de datos."
+    },
+    {
+      "archivo": "IMG_1088.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Concepto de independencia, independencia física e independencia lógica, objetivos de un SGBD."
+    },
+    {
+      "archivo": "IMG_1089.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Centralización, no redundancia, consistencia, integridad, fiabilidad y ventajas de usar SGBD para usuario y sistema."
+    },
+    {
+      "archivo": "IMG_1090.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Niveles de abstracción: Nivel externo, nivel conceptual y nivel interno."
+    },
+    {
+      "archivo": "IMG_1091.HEIC",
+      "tema": "Tema 2: Arquitectura de un SGBD",
+      "es_formulario": false,
+      "resumen": "Arquitectura de 3 niveles, por qué niveles y esquema gráfico."
+    },
+    {
+      "archivo": "IMG_1092.HEIC",
+      "tema": "SQL: Creación, Consultas y Modificación",
+      "es_formulario": true,
+      "resumen": "Sintaxis CREATE TABLE y tipos de modificadores (PRIMARY KEY, UNIQUE, NOT NULL, CHECK, FOREIGN KEY, DEFAULT)."
+    },
+    {
+      "archivo": "IMG_1093.HEIC",
+      "tema": "SQL: Creación, Consultas y Modificación",
+      "es_formulario": true,
+      "resumen": "DROP TABLE, ALTER TABLE (ADD, DROP CONSTRAINT) y consultas básicas SELECT."
+    },
+    {
+      "archivo": "IMG_1094.HEIC",
+      "tema": "SQL: Creación, Consultas y Modificación",
+      "es_formulario": true,
+      "resumen": "ORDER BY, inserciones (INSERT INTO), producto cartesiano y consultas múltiples (UNION, INTERSECT, MINUS)."
+    },
+    {
+      "archivo": "IMG_1095.HEIC",
+      "tema": "SQL: Creación, Consultas y Modificación",
+      "es_formulario": true,
+      "resumen": "Combinaciones (INNER JOIN, RIGHT JOIN, LEFT JOIN, FULL OUTER JOIN) y agrupaciones (GROUP BY)."
+    },
+    {
+      "archivo": "IMG_1096.HEIC",
+      "tema": "SQL: Creación, Consultas y Modificación",
+      "es_formulario": true,
+      "resumen": "UPDATE, DELETE, División en SQL y vistas (CREATE VIEW)."
+    },
+    {
+      "archivo": "IMG_1097.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Nivel interno, nivel físico y dispositivos de almacenamiento (memoria principal y discos duros)."
+    },
+    {
+      "archivo": "IMG_1098.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Medidas de rendimiento (tiempo medio de acceso, búsqueda, latencia), métodos de acceso y gestor de disco del SO."
+    },
+    {
+      "archivo": "IMG_1099.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Funciones del gestor de disco del SO y del gestor de archivos del SGBD (añadir, recuperar, eliminar registros)."
+    },
+    {
+      "archivo": "IMG_1100.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Representación de la BD en nivel interno, agrupamiento (intra-archivo e inter-archivo) y organización secuencial."
+    },
+    {
+      "archivo": "IMG_1101.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Búsqueda secuencial, inserción, borrado y conceptos iniciales de indexación."
+    },
+    {
+      "archivo": "IMG_1102.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Proceso de consulta por valor o rango con índices, borrado y conclusión de índices, índices no densos."
+    },
+    {
+      "archivo": "IMG_1103.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Diferencias en índices no densos, índices jerárquicos y árboles B+."
+    },
+    {
+      "archivo": "IMG_1104.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Nodos hoja en árboles B+, restricciones, proceso de consulta, árboles B- y uso de árboles B+ en BD."
+    },
+    {
+      "archivo": "IMG_1105.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Tablas organizadas por índice (IOT), índices por clave invertida, índices bitmap y acceso directo."
+    },
+    {
+      "archivo": "IMG_1106.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Problemas de acceso directo, hashing básico, parámetros, inserción y búsqueda."
+    },
+    {
+      "archivo": "IMG_1107.HEIC",
+      "tema": "Tema 4: Nivel Interno, Almacenamiento y Métodos de Acceso",
+      "es_formulario": false,
+      "resumen": "Hashing dinámico, técnica, algoritmo e inconvenientes."
+    },
+    {
+      "archivo": "IMG_1108.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Resumen recapitulativo del Tema 1: necesidad de aplicación, problemas de archivos y definición de BD y SGBD."
+    },
+    {
+      "archivo": "IMG_1109.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Operaciones CRUD, elementos involucrados en una BD y concepto de dato operativo."
+    },
+    {
+      "archivo": "IMG_1110.HEIC",
+      "tema": "Tema 1: Introducción y definiciones iniciales",
+      "es_formulario": false,
+      "resumen": "Resumen de independencia, objetivos de un SGBD y ventajas para el usuario y el sistema."
+    },
+    {
+      "archivo": "IMG_1111.HEIC",
+      "tema": "Tema 2: Arquitectura de un SGBD",
+      "es_formulario": false,
+      "resumen": "Resumen de los niveles interno, conceptual y externo con analogías y correspondencias."
+    },
+    {
+      "archivo": "IMG_1112.HEIC",
+      "tema": "Tema 2: Arquitectura de un SGBD",
+      "es_formulario": false,
+      "resumen": "Correspondencia entre niveles, lenguajes de una BD (DDL, DML, DCL) y estándares ANSI/SPARC."
+    },
+    {
+      "archivo": "IMG_1113.HEIC",
+      "tema": "Tema 2: Arquitectura de un SGBD",
+      "es_formulario": false,
+      "resumen": "Acoplamiento, enfoques históricos para la arquitectura de un SGBD y arquitectura actual de 3 niveles."
+    },
+    {
+      "archivo": "IMG_1114.HEIC",
+      "tema": "Tema 2: Arquitectura de un SGBD",
+      "es_formulario": false,
+      "resumen": "Nivel de cliente, ventajas/inconvenientes y funciones del administrador de la BD."
+    },
+    {
+      "archivo": "IMG_1115.HEIC",
+      "tema": "Álgebra Relacional",
+      "es_formulario": true,
+      "resumen": "Operaciones básicas del álgebra relacional: Selección, Proyección, Renombrar, Producto cartesiano, Unión e Intersección."
+    },
+    {
+      "archivo": "IMG_1116.HEIC",
+      "tema": "Álgebra Relacional",
+      "es_formulario": true,
+      "resumen": "Operaciones de Diferencia, Agrupación, funciones (SUM, MIN, MAX, AVG, COUNT) y División Relacional."
+    },
+    {
+      "archivo": "IMG_1117.HEIC",
+      "tema": "Álgebra Relacional",
+      "es_formulario": true,
+      "resumen": "Resumen y chuletario de Vistas y Restricciones (PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, NOT NULL) en formato algebraico/relacional."
+    }
+  ]
+}

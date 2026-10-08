@@ -404,7 +404,35 @@
             "code": "FBD",
             "name": "Fundamentos de Base de Datos",
             "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216113D.pdf",
-            "description": ""
+            "apuntes": "/apuntes/fbd",
+            "description": "Apuntes completos organizados por temas con formularios de resumen y sintaxis rápida al final de cada bloque: Conceptos y objetivos de los SGBD, Arquitectura ANSI/SPARC de 3 niveles, Formulario maestro de SQL (DDL, DML, consultas complejas), Nivel interno (almacenamiento, árboles B+ e índices) y Álgebra Relacional formal.",
+            "resources": [
+              {
+                "name": "Tema 1: Introducción a las Bases de Datos y SGBD",
+                "file": "/subjects/FBD/tema1_introduccion_sgbd.md",
+                "tipo": "TEORÍA & RESUMEN"
+              },
+              {
+                "name": "Tema 2: Arquitectura de 3 Niveles ANSI/SPARC",
+                "file": "/subjects/FBD/tema2_arquitectura_sgbd.md",
+                "tipo": "TEORÍA & RESUMEN"
+              },
+              {
+                "name": "Tema 3: Formulario Maestro de SQL (DDL, DML, Vistas)",
+                "file": "/subjects/FBD/tema3_formulario_sql.md",
+                "tipo": "FORMULARIO SQL"
+              },
+              {
+                "name": "Tema 4: Nivel Interno, Índices B+ y Hashing",
+                "file": "/subjects/FBD/tema4_nivel_interno_almacenamiento.md",
+                "tipo": "TEORÍA & ESTRUCTURAS"
+              },
+              {
+                "name": "Tema 5: Formulario de Álgebra Relacional",
+                "file": "/subjects/FBD/tema5_algebra_relacional.md",
+                "tipo": "FORMULARIO ÁLGEBRA"
+              }
+            ]
           },
           {
             "code": "FIS",
