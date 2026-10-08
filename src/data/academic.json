@@ -482,7 +482,37 @@
     "location": "Atenas, Grecia",
     "tag": "Erasmus+",
     "description": "Año de intercambio académico internacional en Atenas, cursando materias de informática y gestión en entorno multicultural.",
-    "groups": []
+    "groups": [
+      {
+        "name": "Asignaturas Erasmus",
+        "subjects": [
+          {
+            "code": "AA",
+            "name": "Applied Algebra",
+            "guia": null,
+            "description": "Álgebra lineal aplicada y métodos computacionales (VMLS): espacios vectoriales, normas, ortonormalidad, matrices dispersas, transformaciones lineales, inversas y ajuste por mínimos cuadrados (Least Squares).",
+            "apuntes": "/apuntes/aa",
+            "recursos": [
+              {
+                "name": "Bloque 1: Vectores, Funciones Lineales e Independencia (Cap. 1-5)",
+                "file": "/subjects/AA/bloque1_vectores_normas_independencia.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Bloque 2: Álgebra Matricial, Inversas y Mínimos Cuadrados (Cap. 6-13)",
+                "file": "/subjects/AA/bloque2_matrices_inversas_minimos_cuadrados.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Portafolio Completo Erasmus (PDF 25 Páginas)",
+                "file": "/subjects/AA/applied_algebra_erasmus_checa.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "sicue-valencia",
