@@ -1,8 +1,22 @@
 [
   {
+    "id": "torrent-stream-web",
+    "category": "personal",
+    "categoryLabel": "Servidor Casero",
+    "title": "Torrent Stream Web",
+    "subtitle": "Sistema privado de streaming de vídeo bajo demanda (VOD) en red local con Telegram Bot y Docker",
+    "description": "Infraestructura multimedia self-hosted desplegada en servidor doméstico para streaming secuencial de vídeo a partir de archivos .torrent, permitiendo la reproducción inmediata en Smart TV, Kodi o VLC sin esperar a la descarga completa. Integra un bot interactivo de Telegram (long-polling con teclado inline) para envío y control de reproducciones, gestión de buffer en dos fases (buffer inicial de 512 MB y prefetching en segundo plano de hasta 50 GB) sobre TorrServer y FastAPI con soporte completo de peticiones por rangos HTTP (Range Requests). Incluye dashboard web en tiempo real ('Cine en casa'), ciclo de vida con TTLs automáticos de inactividad, control de presión de disco con purga de huérfanos y despliegue contenerizado securizado en Docker Compose (ejecución sin privilegios root 1000:1000, cap_drop ALL, read_only y secretos cifrados).",
+    "tags": ["Python", "FastAPI", "Docker / Compose", "Telegram Bot API", "TorrServer", "HTTP Range Streaming", "Self-Hosted / Home Server"],
+    "badge": "En Producción",
+    "icon": "server",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/Torrent_stream_web",
+    "demo": null
+  },
+  {
     "id": "reparto-personal",
     "category": "personal",
-    "categoryLabel": "Otros Proyectos",
+    "categoryLabel": "Proyecto Personal",
     "title": "RepartoPersonal (CP-SAT)",
     "subtitle": "Planificación, optimización y asignación mensual de turnos y personal",
     "description": "Sistema de asignación de turnos y puestos para organizaciones con restricciones operativas complejas mediante programación por restricciones en 3 fases (Google OR-Tools CP-SAT): viabilidad y cobertura obligatoria, equidad de esfuerzo minimax y maximización de preferencias individuales. Incluye interfaz PySide6, gestión de bajas/vetos, auditoría de vacantes y exportación automática a Excel (.xlsx) y PDF imprimible (.pdf) mediante ReportLab.",
