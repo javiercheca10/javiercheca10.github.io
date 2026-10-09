@@ -90,13 +90,13 @@ import profile from '../data/profile.json';
         </div>
 
         <!-- MÓDULO DE DESCARGA DE CV -->
-        <div class="border border-[#18181b] bg-white p-5 sm:p-6 space-y-4">
+        <div class="border border-[#18181b] bg-white p-5 sm:p-6 space-y-4 shadow-sm">
           <div class="flex items-center justify-between pb-3 border-b border-[#18181b]">
             <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-2">
               <span class="w-2 h-2 bg-[#18181b] inline-block"></span>
               <span>Curriculum Vitae</span>
             </div>
-            <span class="font-mono text-[10px] px-2 py-0.5 bg-[#f4f4f5] border border-[#e4e4e7] text-[#52525b]">
+            <span class="font-mono text-[10px] px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-300 font-bold">
               PDF OFICIAL
             </span>
           </div>
@@ -110,26 +110,61 @@ import profile from '../data/profile.json';
               href="/docs/CV_Javier_Checa_ES.pdf"
               target="_blank"
               download="CV_Javier_Checa_ES.pdf"
-              class="w-full px-4 py-2.5 bg-[#18181b] text-white text-xs font-mono font-bold hover:bg-black transition-colors flex items-center justify-between group"
+              class="w-full px-4 py-2.5 bg-[#18181b] text-white text-xs font-mono font-bold hover:bg-black transition-colors flex items-center justify-between group shadow-sm"
+              title="Descargar Curriculum Vitae en Español"
             >
-              <span>Descargar CV (Español)</span>
-              <span class="group-hover:translate-y-0.5 transition-transform" aria-hidden="true">↓ PDF</span>
+              <span class="flex items-center gap-2">
+                <span>🇪🇸</span>
+                <span>Descargar CV (Español)</span>
+              </span>
+              <span class="group-hover:translate-y-0.5 transition-transform font-bold" aria-hidden="true">↓ PDF</span>
             </a>
 
             <a
               href="/docs/CV_Javier_Checa_EN.pdf"
               target="_blank"
               download="CV_Javier_Checa_EN.pdf"
-              class="w-full px-4 py-2.5 border border-[#18181b] bg-white text-[#09090b] text-xs font-mono font-bold hover:bg-[#f4f4f5] transition-colors flex items-center justify-between group"
+              class="w-full px-4 py-2.5 border border-[#18181b] bg-white text-[#09090b] text-xs font-mono font-bold hover:bg-[#f4f4f5] transition-colors flex items-center justify-between group shadow-sm"
+              title="Download Curriculum Vitae in English"
             >
-              <span>Download CV (English)</span>
-              <span class="group-hover:translate-y-0.5 transition-transform" aria-hidden="true">↓ PDF</span>
+              <span class="flex items-center gap-2">
+                <span>🇬🇧</span>
+                <span>Download CV (English)</span>
+              </span>
+              <span class="group-hover:translate-y-0.5 transition-transform font-bold" aria-hidden="true">↓ PDF</span>
             </a>
           </div>
 
-          <div class="pt-2 text-[11px] font-mono text-[#71717a] flex items-center gap-1.5">
-            <span>●</span>
-            <span>Disponible para colaboraciones técnicas y proyectos de desarrollo.</span>
+          <!-- Enlaces para abrir en pestaña -->
+          <div class="flex items-center gap-2 pt-1 font-mono text-[11px]">
+            <a
+              href="/docs/CV_Javier_Checa_ES.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 py-1.5 px-2 bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-center font-bold border border-[#d4d4d8] transition-colors flex items-center justify-center gap-1"
+            >
+              <span>Ver Online (ES)</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="/docs/CV_Javier_Checa_EN.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 py-1.5 px-2 bg-[#f4f4f5] hover:bg-[#e4e4e7] text-[#09090b] text-center font-bold border border-[#d4d4d8] transition-colors flex items-center justify-center gap-1"
+            >
+              <span>View Online (EN)</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="pt-2 text-[11px] font-mono text-[#71717a] flex items-center justify-between">
+            <span class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+              <span>Actualizado Oct 2026</span>
+            </span>
+            <a href="#cv-interactive-viewer" class="text-black font-bold hover:underline">
+              Visor embebido ↓
+            </a>
           </div>
         </div>
       </aside>
@@ -296,11 +331,86 @@ import profile from '../data/profile.json';
           </div>
         </section>
 
-        <!-- BLOQUE 05: SECCIÓN MODULAR (EN DESARROLLO / PRÓXIMAS IMPLEMENTACIONES) -->
+        <!-- BLOQUE 05: VISOR OFICIAL DE CURRICULUM VITAE (ES / EN) -->
+        <section class="border border-[#18181b] bg-white p-6 sm:p-8 space-y-5 shadow-sm scroll-mt-20" id="cv-interactive-viewer">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#18181b] pb-4">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+                <span>[05]</span>
+                <span class="uppercase">Curriculum Vitae Oficial</span>
+              </div>
+              <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+                Visor Interactivo de CV
+              </h2>
+            </div>
+
+            <!-- Selector de Idioma -->
+            <div class="flex items-center gap-2 font-mono text-xs">
+              <button
+                id="btn-cv-es"
+                type="button"
+                class="px-3.5 py-1.5 bg-[#18181b] text-white font-bold border border-[#18181b] transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+              >
+                <span>🇪🇸</span>
+                <span>Español (ES)</span>
+              </button>
+              <button
+                id="btn-cv-en"
+                type="button"
+                class="px-3.5 py-1.5 bg-white text-[#52525b] hover:text-black font-medium border border-[#d4d4d8] hover:border-black transition-all cursor-pointer flex items-center gap-1.5"
+              >
+                <span>🇬🇧</span>
+                <span>English (EN)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Barra de Control y Descarga Activa -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#f4f4f5] p-3.5 border border-[#e4e4e7] font-mono text-xs">
+            <div class="flex items-center gap-2 text-[#52525b]">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+              <span id="cv-status-label">Archivo activo: <strong>CV_Javier_Checa_ES.pdf</strong> (1 página · Formato A4)</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <a
+                id="cv-download-btn"
+                href="/docs/CV_Javier_Checa_ES.pdf"
+                download="CV_Javier_Checa_ES.pdf"
+                class="px-3.5 py-1.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1.5 shadow-sm"
+              >
+                <span id="cv-download-text">Descargar PDF</span>
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a
+                id="cv-open-btn"
+                href="/docs/CV_Javier_Checa_ES.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3.5 py-1.5 bg-white border border-[#18181b] text-[#09090b] font-bold hover:bg-[#fafafa] transition-colors flex items-center gap-1.5"
+              >
+                <span>Abrir en nueva pestaña</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Marco iframe del visor -->
+          <div class="w-full h-[850px] border border-zinc-300 rounded bg-zinc-100 overflow-hidden shadow-inner">
+            <iframe
+              id="cv-iframe"
+              src="/docs/CV_Javier_Checa_ES.pdf"
+              class="w-full h-full border-0"
+              title="Curriculum Vitae de Javier Checa"
+            />
+          </div>
+        </section>
+
+        <!-- BLOQUE 06: SECCIÓN MODULAR (EN DESARROLLO / PRÓXIMAS IMPLEMENTACIONES) -->
         <section class="border border-dashed border-[#18181b] bg-[#fafafa] p-6 sm:p-8 space-y-4">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
-              <span>[05]</span>
+              <span>[06]</span>
               <span class="uppercase">Módulos en Construcción</span>
             </div>
             <span class="font-mono text-[10px] px-2 py-0.5 bg-white border border-[#18181b] text-[#09090b] font-bold">
@@ -326,3 +436,47 @@ import profile from '../data/profile.json';
 
   <Footer />
 </Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnEs = document.getElementById('btn-cv-es');
+    const btnEn = document.getElementById('btn-cv-en');
+    const iframe = document.getElementById('cv-iframe');
+    const downloadBtn = document.getElementById('cv-download-btn');
+    const downloadText = document.getElementById('cv-download-text');
+    const openBtn = document.getElementById('cv-open-btn');
+    const statusLabel = document.getElementById('cv-status-label');
+
+    if (btnEs && btnEn && iframe && downloadBtn && openBtn && statusLabel) {
+      btnEs.addEventListener('click', () => {
+        iframe.src = '/docs/CV_Javier_Checa_ES.pdf';
+        downloadBtn.href = '/docs/CV_Javier_Checa_ES.pdf';
+        downloadBtn.setAttribute('download', 'CV_Javier_Checa_ES.pdf');
+        if (downloadText) downloadText.textContent = 'Descargar PDF (ES)';
+        openBtn.href = '/docs/CV_Javier_Checa_ES.pdf';
+        statusLabel.innerHTML = 'Archivo activo: <strong>CV_Javier_Checa_ES.pdf</strong> (1 página · Formato A4)';
+
+        btnEs.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
+        btnEs.classList.remove('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
+
+        btnEn.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
+        btnEn.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
+      });
+
+      btnEn.addEventListener('click', () => {
+        iframe.src = '/docs/CV_Javier_Checa_EN.pdf';
+        downloadBtn.href = '/docs/CV_Javier_Checa_EN.pdf';
+        downloadBtn.setAttribute('download', 'CV_Javier_Checa_EN.pdf');
+        if (downloadText) downloadText.textContent = 'Download PDF (EN)';
+        openBtn.href = '/docs/CV_Javier_Checa_EN.pdf';
+        statusLabel.innerHTML = 'Active file: <strong>CV_Javier_Checa_EN.pdf</strong> (1 page · A4 Format)';
+
+        btnEn.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
+        btnEn.classList.remove('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
+
+        btnEs.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
+        btnEs.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
+      });
+    }
+  });
+</script>
