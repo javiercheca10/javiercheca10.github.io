@@ -138,11 +138,13 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
                               rel="noopener noreferrer"
                               class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
                             >
-                              <span>Guía Docente UGR</span>
+                              <span>{subject.guiaLabel || (subject.guia.includes('github.com') ? 'Código Fuente en GitHub' : 'Guía Docente UGR')}</span>
                               <span aria-hidden="true">↗</span>
                             </a>
                           ) : (
-                            <span class="text-[#a1a1aa] text-[11px]">Guía oficial</span>
+                            <span class="text-[#a1a1aa] text-[11px]">
+                              {stage.id.includes('erasmus') || stage.id.includes('sicue') ? 'Sin guía oficial' : 'Guía oficial'}
+                            </span>
                           )}
 
                           {subject.apuntes ? (

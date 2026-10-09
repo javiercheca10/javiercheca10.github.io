@@ -514,6 +514,7 @@
             "code": "IT",
             "name": "Internet Technologies",
             "guia": "https://github.com/javiercheca10/Internet-Technologies",
+            "guiaLabel": "Código Fuente en GitHub",
             "description": "Desarrollo web cliente-servidor: HTML5 semántico, CSS3 responsivo con animaciones, validación DOM con expresiones regulares, tarificación asíncrona mediante fetch(), endpoints PHP y persistencia en MySQL.",
             "apuntes": "/apuntes/it",
             "recursos": [
