@@ -572,6 +572,35 @@
                 "tipo": "PDF"
               }
             ]
+          },
+          {
+            "code": "GFE",
+            "name": "Gestión Fiscal de la Empresa",
+            "guia": null,
+            "description": "Sistema tributario español (LGT), Impuesto sobre Sociedades (LIS Ley 27/2014) con amortizaciones fiscales y ajustes extracontables, exámenes de liquidación resueltos (gran empresa vs ERD), régimen de IVA (prorratas e inversiones) e IRPF.",
+            "apuntes": "/apuntes/gfe",
+            "recursos": [
+              {
+                "name": "Tema 1: Sistema Tributario y Elementos de la Deuda Tributaria",
+                "file": "/subjects/GFE/tema1_sistema_tributario_elementos.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Tema 2: Impuesto sobre Sociedades (IS) - Marco Teórico y Amortizaciones",
+                "file": "/subjects/GFE/tema2_impuesto_sociedades_teoria_liquidacion.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Casos Prácticos de Examen: Liquidación Modelos A y B con Asientos Contables",
+                "file": "/subjects/GFE/tema2_casos_practicos_examen_octubre2023.md",
+                "tipo": "EXAMEN"
+              },
+              {
+                "name": "Cuaderno Completo de Apuntes (PDF 63 Páginas)",
+                "file": "/subjects/GFE/cuaderno_completo_gestion_fiscal.pdf",
+                "tipo": "PDF"
+              }
+            ]
           }
         ]
       }

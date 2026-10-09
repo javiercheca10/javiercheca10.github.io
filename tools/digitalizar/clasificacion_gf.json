@@ -1,0 +1,116 @@
+{
+  "asignatura": "Gestión Fiscal de la Empresa",
+  "codigo_sugerido": "GFE",
+  "documentos": [
+    {
+      "id": "tema-1-sistema-tributario-elementos",
+      "titulo": "Tema 1: El Sistema Tributario Español y Elementos del Tributo",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1129.HEIC",
+        "IMG_1130.HEIC"
+      ],
+      "resumen": "Introducción al ordenamiento tributario español de acuerdo con la Constitución y la Ley General Tributaria (LGT). Define los principios del sistema (justicia, generalidad, igualdad, progresividad, no confiscatoriedad) y las clases de tributos: tasas, contribuciones especiales e impuestos (directos e indirectos). Analiza detalladamente la estructura y elementos cuantitativos de la obligación tributaria: hecho imponible, devengo, sujeto pasivo y contribuyente, base imponible (métodos de estimación directa, objetiva e indirecta), cuota íntegra, cuota líquida, cuota diferencial y componentes de la deuda tributaria. Introduce brevemente el concepto de Responsabilidad Fiscal Corporativa."
+    },
+    {
+      "id": "impuesto-sociedades-teoria-liquidacion",
+      "titulo": "Impuesto sobre Sociedades (IS): Marco Teórico, Amortizaciones y Determinación de la Base Imponible",
+      "tipo": "TEORÍA",
+      "archivos": [
+        "IMG_1131.HEIC",
+        "IMG_1132.HEIC",
+        "IMG_1133.HEIC",
+        "IMG_1134.HEIC",
+        "IMG_1135.HEIC",
+        "IMG_1136.HEIC",
+        "IMG_1137.HEIC",
+        "IMG_1138.HEIC"
+      ],
+      "resumen": "Estudio exhaustivo del Impuesto sobre Sociedades (Ley 27/2014 LIS) que regula la imposición directa sobre la renta de las personas jurídicas. Detalla las reglas fiscales de amortización: límites temporales para grandes empresas (ejercicios 2013-2014), regímenes de libertad de amortización, deducción por deterioro de fondos de comercio y marcas (límite general 1/20), y los métodos de amortización aceptados (lineal o tablas, degressivos de porcentaje constante y suma de dígitos). Define la fórmula de la base imponible a partir del resultado contable corregido mediante ajustes extracontables (diferencias permanentes y temporarias). Describe las tarifas de gravamen aplicables (general del 25%, tipos reducidos de ERD, cooperativas, entidades sin fines lucrativos), exenciones de dividendos y plusvalías (exención del 95%), deducciones por doble imposición, incentivos fiscales como la reserva de capitalización, y las reglas de compensación de bases imponibles negativas."
+    },
+    {
+      "id": "casos-practicos-liquidacion-is",
+      "titulo": "Casos Prácticos de Liquidación del Impuesto sobre Sociedades (Modelos A y B - Octubre 2023)",
+      "tipo": "PRÁCTICA",
+      "archivos": [
+        "IMG_1139.HEIC",
+        "IMG_1140.HEIC",
+        "IMG_1141.HEIC",
+        "IMG_1142.HEIC"
+      ],
+      "resumen": "Ejercicios prácticos completos de exámenes parciales correspondientes a la convocatoria de octubre de 2023. El Modelo A analiza el cálculo tributario para una entidad 'No ERD' (gran empresa), requiriendo ajustes extracontables por amortización de inmuebles adquiridos en 2009/2010 con mantenimiento de plantilla, plusvalías por operaciones a plazos (criterio de caja), dotación de provisiones no deducibles, pérdidas por deterioro de créditos frente a entidades públicas, y gastos de representación de clientes con límite del 1% del importe neto de la cifra de negocios. El Modelo B desarrolla el mismo supuesto bajo el régimen de ERD (Entidades de Reducida Dimensión), aplicando las ventajas de libertad de amortización, amortización acelerada (multiplicador x2) y estimación de deterioro global del 1%. Ambos modelos resuelven el proceso completo de liquidación hasta la cuota líquida e ingreso/devolución final, incluyendo los asientos contables de registro del impuesto (cuentas de activos y pasivos por diferencias temporarias 4740, 479, 6300, 6301)."
+    }
+  ],
+  "detalle_por_archivo": [
+    {
+      "archivo": "IMG_1129.HEIC",
+      "tema": "Tema 1: El sistema Tributario Español y la Responsabilidad Fiscal",
+      "resumen": "Define las bases de la LGT, los principios constitucionales tributarios y clasifica los tributos en tasas, contribuciones especiales e impuestos (directos e indirectos)."
+    },
+    {
+      "archivo": "IMG_1130.HEIC",
+      "tema": "Elementos del tributo & Responsabilidad Fiscal",
+      "resumen": "Desglose técnico de los conceptos cuantitativos de la obligación tributaria (bases, cuotas e ingresos) y una breve mención de la responsabilidad fiscal en la RSC."
+    },
+    {
+      "archivo": "IMG_1131.HEIC",
+      "tema": "Límites a la deducibilidad de la amortización e incentivos de libertad de amortización",
+      "resumen": "Describe las restricciones transitorias de amortización aplicadas a empresas medianas y grandes en 2013/2014, junto con los supuestos elegibles para libertad de amortización."
+    },
+    {
+      "archivo": "IMG_1132.HEIC",
+      "tema": "Amortización de inmovilizado intangible y Fondo de Comercio",
+      "resumen": "Analiza la deducibilidad de activos con vida útil definida y las particularidades de la amortización fiscal del fondo de comercio con el límite del 5% anual (1/20)."
+    },
+    {
+      "archivo": "IMG_1133.HEIC",
+      "tema": "Determinación de la Base Imponible y Ajustes Generales",
+      "resumen": "Esquematiza la obtención de la BI a través del resultado contable y clasifica los tipos de diferencias extracontables (temporarias vs permanentes) para el examen."
+    },
+    {
+      "archivo": "IMG_1134.HEIC",
+      "tema": "Amortizaciones deducibles y Sistemas de Amortización",
+      "resumen": "Describe los requisitos de efectividad de las amortizaciones y analiza el método lineal (tablas), los degressivos (porcentaje constante) y la suma de dígitos."
+    },
+    {
+      "archivo": "IMG_1135.HEIC",
+      "tema": "Operaciones a plazos, gastos no deducibles y Tipos de gravamen",
+      "resumen": "Detalla las reglas de imputación temporal (criterio de caja) y ofrece un listado sistemático de tipos impositivos del IS (25%, escala ERD, cooperativas, etc.)."
+    },
+    {
+      "archivo": "IMG_1136.HEIC",
+      "tema": "Exenciones, Reducciones e Imputación Temporal",
+      "resumen": "Regula la exención para evitar doble imposición internacional, la reducción de 'patent box', la reserva de capitalización y la regla general de devengo en el IS."
+    },
+    {
+      "archivo": "IMG_1137.HEIC",
+      "tema": "Tema 2: El impuesto de sociedades (IS). Liquidación y Contabilización",
+      "resumen": "Resume la naturaleza del IS (Ley 27/2014) y describe detalladamente las cinco fases estructurales de su esquema de liquidación."
+    },
+    {
+      "archivo": "IMG_1138.HEIC",
+      "tema": "Sujeto Pasivo, Ámbito Espacial, Exenciones y Exención del 95%",
+      "resumen": "Establece los criterios de residencia fiscal para ser sujeto pasivo del IS, los supuestos de exención total o parcial y la exención limitada al 95% para dividendos."
+    },
+    {
+      "archivo": "IMG_1139.HEIC",
+      "tema": "Práctica: Octubre 2023 Modelo A (No ERD) - Ejercicios 1 a 4",
+      "resumen": "Resolución práctica de los primeros 4 ajustes extracontables de un examen de gran empresa: amortización excepcional, ordenadores, terrenos e insolvencias ordinarias."
+    },
+    {
+      "archivo": "IMG_1140.HEIC",
+      "tema": "Práctica: Octubre 2023 Modelo A (No ERD) - Ejercicios 5 a 8 y Liquidación",
+      "resumen": "Completa el Modelo A analizando el deterioro de saldos con Administraciones Públicas, gastos de representación, e incluye la liquidación definitiva y el registro contable de los impuestos diferidos."
+    },
+    {
+      "archivo": "IMG_1141.HEIC",
+      "tema": "Práctica: Octubre 2023 Modelo B (Si ERD) - Ejercicios 1 a 5",
+      "resumen": "Planteamiento y resolución de los primeros ajustes del Modelo B de examen aplicando los incentivos propios de las pymes (ERD): amortización acelerada x2."
+    },
+    {
+      "archivo": "IMG_1142.HEIC",
+      "tema": "Práctica: Octubre 2023 Modelo B (Si ERD) - Ejercicios 6 a 8 y Liquidación",
+      "resumen": "Finaliza el examen del Modelo B calculando la deducibilidad de provisiones globales por insolvencias, deducciones por I+D, y liquida el IS bajo el régimen simplificado de ERD."
+    }
+  ]
+}
