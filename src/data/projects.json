@@ -60,6 +60,20 @@
     "demo": null
   },
   {
+    "id": "imaging-mp-ugr",
+    "category": "universidad",
+    "categoryLabel": "Universidad (UGR)",
+    "title": "Imaging · Tratamiento Digital de Imágenes en C++ (MP)",
+    "subtitle": "Biblioteca matricial orientada a objetos para análisis, segmentación y filtrado en formato PGM",
+    "description": "Biblioteca modular en C++ para la manipulación y procesamiento digital de imágenes en escala de grises (Netpbm PGM P2/P5). Implementa gestión dinámica de memoria continua en el montículo siguiendo la Regla de los Tres (Rule of Three), análisis tonal mediante histogramas de 256 niveles con mediana de balance, binarización y umbralización adaptativa, segmentación de objetos por tolerancia, recorte de regiones de interés (ROI), composición espacial con fusión alfa ponderada y suite de pruebas unitarias.",
+    "tags": ["C++", "POO / OOP", "Memoria Dinámica", "Formato PGM", "Algoritmia", "Metodología de la Programación", "UGR"],
+    "badge": "Práctica UGR",
+    "icon": "image",
+    "featured": true,
+    "github": "https://github.com/javiercheca10/imaging",
+    "demo": null
+  },
+  {
     "id": "internet-technologies-mytelecom",
     "category": "universidad",
     "categoryLabel": "Universidad (Erasmus)",

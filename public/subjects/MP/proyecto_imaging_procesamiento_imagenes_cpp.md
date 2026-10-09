@@ -34,11 +34,12 @@ El núcleo de la asignatura exige la aplicación rigurosa de las reglas de dise�
 
 ---
 
-## 3. Estructura y Descarga del Proyecto
+## 3. Código Fuente y Repositorio Oficial
 
-En la pestaña de descargas se encuentra disponible el paquete comprimido completo con el código fuente, suite de pruebas unitarias, imágenes de prueba en formato `.pgm` y el archivo `Makefile` de compilación automatizada:
+El código fuente completo de la biblioteca, la batería de pruebas unitarias y de integración, las imágenes de prueba en formato `.pgm` y el archivo `Makefile` de compilación automatizada se encuentran alojados en el repositorio oficial de GitHub:
 
-* `Imaging3_metodologia_programacion.zip` · Archivo comprimido con la solución completa.
-* `Image.h` & `Image.cpp` · Clase principal de gestión de imagen matricial.
-* `Histogram.h` & `Histogram.cpp` · Cálculo y análisis de histogramas.
-* `Byte.h` & `Byte.cpp` · Operaciones a nivel de byte y manipulación de bits.
+* **Repositorio GitHub:** [github.com/javiercheca10/imaging](https://github.com/javiercheca10/imaging)
+* `Image.h` & `Image.cpp` · Clase principal de gestión de imagen matricial, segmentación y operaciones espaciales.
+* `Histogram.h` & `Histogram.cpp` · Cálculo de frecuencias, mediana de balance y umbralización adaptativa.
+* `Byte.h` & `Byte.cpp` · Abstracción de píxel de 8 bits y operaciones a nivel de bit.
+* `Makefile` · Script de compilación automatizado (`make`, `make run`, `make clean`).

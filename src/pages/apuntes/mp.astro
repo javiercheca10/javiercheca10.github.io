@@ -13,30 +13,29 @@ marked.setOptions({
 
 const docs = [
   {
+    id: "mp-imaging-repo",
+    titulo: "Imaging · Repositorio Oficial en GitHub (C++)",
+    tipo: "REPOSITORIO GITHUB",
+    isExternal: true,
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    githubUrl: "https://github.com/javiercheca10/imaging",
+    resumen: "Repositorio oficial con la biblioteca modular completa en C++ para análisis, segmentación y filtrado de imágenes PGM: clases Image, Histogram, Byte, Makefile automatizado, suite de pruebas y ficheros de calibración."
+  },
+  {
     id: "mp-imaging-guia",
-    titulo: "Proyecto Imaging: Procesamiento de Imágenes en C++",
+    titulo: "Memoria Técnica: Tratamiento Digital de Imágenes en C++",
     tipo: "MEMORIA TÉCNICA",
-    isPdf: false,
+    isExternal: false,
     badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
     path: "public/subjects/MP/proyecto_imaging_procesamiento_imagenes_cpp.md",
     downloadUrl: "/subjects/MP/proyecto_imaging_procesamiento_imagenes_cpp.md",
     downloadLabel: "Descargar Memoria (MD)",
     resumen: "Diseño e implementación de biblioteca orientada a objetos en C++ para análisis y manipulación de imágenes en escala de grises PGM: Rule of Three, memoria dinámica, histogramas y operaciones a nivel de bit."
-  },
-  {
-    id: "mp-imaging-zip",
-    titulo: "Imaging3 · Proyecto Completo C++ (.ZIP)",
-    tipo: "PAQUETE FUENTE ZIP",
-    isPdf: true,
-    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
-    downloadUrl: "/subjects/MP/Imaging3_metodologia_programacion.zip",
-    downloadLabel: "Descargar Proyecto (.ZIP 180 KB)",
-    resumen: "Archivo comprimido con la solución completa: clases Image, Histogram, Byte, Makefile, pruebas unitarias y ficheros gráficos de muestra .pgm."
   }
 ];
 
 const renderedDocs = docs.map(doc => {
-  if (doc.isPdf || !doc.path) {
+  if (doc.isExternal || !doc.path) {
     return {
       ...doc,
       html: ""
@@ -109,7 +108,7 @@ const renderedDocs = docs.map(doc => {
           }`}
           data-doc-id={doc.id}
         >
-          <span>{doc.isPdf ? '📦' : '💻'} {doc.titulo.split('·')[0]}</span>
+          <span>{doc.isExternal ? '💻' : '📄'} {doc.titulo.split('·')[0].trim()}</span>
           <span class={`text-[10px] px-1.5 py-0.2 border rounded ${doc.badgeColor}`}>
             {doc.tipo}
           </span>
@@ -136,31 +135,111 @@ const renderedDocs = docs.map(doc => {
             </p>
           </div>
 
-          <a
-            href={doc.downloadUrl}
-            download
-            class="px-4 py-2 border border-[#18181b] bg-[#18181b] text-white hover:bg-[#27272a] transition-colors font-bold whitespace-nowrap flex items-center gap-2 self-start sm:self-auto text-xs shadow-sm"
-          >
-            <span>{doc.downloadLabel || "Descargar Archivo"}</span>
-            <span aria-hidden="true">↓</span>
-          </a>
-        </div>
-
-        {doc.isPdf ? (
-          <div class="border border-[#18181b] bg-[#fafafa] p-8 sm:p-12 text-center my-6">
-            <div class="text-4xl mb-3">📦</div>
-            <h3 class="font-bold text-lg text-[#18181b] mb-2">{doc.titulo}</h3>
-            <p class="text-sm text-[#52525b] max-w-xl mx-auto mb-6">
-              Paquete fuente comprimido que contiene la suite de pruebas, imágenes de prueba (.pgm), Makefile y archivos de cabecera e implementación en C++.
-            </p>
+          {doc.isExternal ? (
+            <a
+              href={doc.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 border border-[#18181b] bg-[#18181b] text-white hover:bg-[#27272a] transition-colors font-bold whitespace-nowrap flex items-center gap-2 self-start sm:self-auto text-xs shadow-sm"
+            >
+              <span>Ver Código en GitHub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
             <a
               href={doc.downloadUrl}
               download
-              class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#18181b] text-white font-mono text-xs font-bold hover:bg-[#27272a] transition-all"
+              class="px-4 py-2 border border-[#18181b] bg-[#18181b] text-white hover:bg-[#27272a] transition-colors font-bold whitespace-nowrap flex items-center gap-2 self-start sm:self-auto text-xs shadow-sm"
             >
-              <span>{doc.downloadLabel || "Descargar Paquete ZIP"}</span>
-              <span>↓</span>
+              <span>{doc.downloadLabel || "Descargar Archivo"}</span>
+              <span aria-hidden="true">↓</span>
             </a>
+          )}
+        </div>
+
+        {doc.isExternal ? (
+          <div class="border border-[#18181b] bg-white p-6 sm:p-10 space-y-6 shadow-sm">
+            <div class="border-b border-[#e4e4e7] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="font-mono text-xs text-[#71717a] uppercase block mb-1">Biblioteca C++ de Tratamiento Digital de Imágenes</span>
+                <h3 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+                  Imaging · Manipulación y Filtrado en Formato PGM
+                </h3>
+                <p class="text-sm text-[#52525b] mt-1">
+                  Desarrollado como proyecto nuclear de Metodología de la Programación (ETSIIT UGR).
+                </p>
+              </div>
+
+              <a
+                href="https://github.com/javiercheca10/imaging"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 bg-[#18181b] text-white hover:bg-[#27272a] font-mono text-xs font-bold transition-all flex items-center gap-2 w-fit shadow-sm"
+              >
+                <span>github.com/javiercheca10/imaging</span>
+                <span>↗</span>
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              <div class="border border-[#e4e4e7] p-5 bg-[#fafafa]">
+                <h4 class="font-bold uppercase font-mono text-xs text-[#09090b] mb-3 border-b border-[#e4e4e7] pb-2">
+                  Arquitectura Modular en C++
+                </h4>
+                <ul class="space-y-2.5 text-xs text-[#3f3f46]">
+                  <li>
+                    <strong>• Módulo Image (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">Image.h / .cpp</code>):</strong> Matriz continua en el montículo (*heap*), implementación estricta de la Regla de los Tres (Rule of Three), constructores profundos y destructor sin fugas de memoria.
+                  </li>
+                  <li>
+                    <strong>• Módulo Histogram (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">Histogram.h / .cpp</code>):</strong> Frecuencias de gris (256 niveles), análisis estadístico y cálculo de mediana de balance para umbralización adaptativa.
+                  </li>
+                  <li>
+                    <strong>• Módulo Byte (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">Byte.h / .cpp</code>):</strong> Píxel de 8 bits con operaciones a nivel de bit, máscaras de bits, desplazamientos lógicos y fusión con alfa blending ponderado.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="border border-[#e4e4e7] p-5 bg-[#fafafa]">
+                <h4 class="font-bold uppercase font-mono text-xs text-[#09090b] mb-3 border-b border-[#e4e4e7] pb-2">
+                  Operaciones & Compilación
+                </h4>
+                <ul class="space-y-2.5 text-xs text-[#3f3f46]">
+                  <li>
+                    <strong>• Entrada / Salida PGM:</strong> Lectura y serialización en formato Netpbm PGM en texto plano (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">P2</code>) y binario (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">P5</code>).
+                  </li>
+                  <li>
+                    <strong>• Segmentación & ROI:</strong> Detección y extracción de objetos conexos por tolerancia de histograma (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">extractObjects</code>) y recorte de áreas (<code class="font-mono bg-white px-1 border border-[#e4e4e7]">copyArea</code>).
+                  </li>
+                  <li>
+                    <strong>• Compilación con GNU Make:</strong>
+                    <div class="mt-2 bg-[#18181b] text-emerald-400 p-2.5 font-mono text-[11px] rounded">
+                      <div>$ git clone https://github.com/javiercheca10/imaging.git</div>
+                      <div>$ cd imaging && make</div>
+                      <div>$ make run</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#e4e4e7] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+              <a
+                href="/proyectos"
+                class="hover:text-black font-bold flex items-center gap-1 text-[#52525b]"
+              >
+                <span>← Ver en Catálogo de Proyectos</span>
+              </a>
+
+              <a
+                href="https://github.com/javiercheca10/imaging"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-all flex items-center gap-2"
+              >
+                <span>Explorar Repositorio en GitHub</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         ) : (
           <article

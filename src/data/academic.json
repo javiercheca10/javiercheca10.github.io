@@ -146,7 +146,7 @@
             "apuntes": "/apuntes/mp",
             "recursos": [
               { "name": "Proyecto Imaging: Procesamiento de Imágenes en C++", "file": "/subjects/MP/proyecto_imaging_procesamiento_imagenes_cpp.md", "tipo": "PROYECTO" },
-              { "name": "Imaging3 · Código Fuente y Pruebas (.ZIP)", "file": "/subjects/MP/Imaging3_metodologia_programacion.zip", "tipo": "ZIP" }
+              { "name": "Repositorio GitHub · Imaging (C++)", "file": "https://github.com/javiercheca10/imaging", "tipo": "PRÁCTICA / GITHUB" }
             ]
           },
           {
