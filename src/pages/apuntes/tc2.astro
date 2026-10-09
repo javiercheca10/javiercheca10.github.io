@@ -1,0 +1,259 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "tc2-tema1",
+    titulo: "Tema 1: Inferencia Estadística & Distribuciones Continuas",
+    tipo: "TEORÍA & FORMULARIOS",
+    isPdf: false,
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    path: "public/subjects/TC2/inferencia_estadistica_distribuciones_continuas.md",
+    downloadUrl: "/subjects/TC2/inferencia_estadistica_distribuciones_continuas.md",
+    downloadLabel: "Descargar Tema 1 (MD)",
+    resumen: "Modelos probabilísticos continuos fundamentales: distribución Uniforme, Beta, Exponencial (carencia de memoria), Gamma y Normal general (tipificación y propiedades de simetría)."
+  },
+  {
+    id: "tc2-docx",
+    titulo: "Tema 1 Original · Apuntes (.DOCX)",
+    tipo: "DOCUMENTO DOCX",
+    isPdf: false,
+    badgeColor: "bg-zinc-200 text-zinc-800 border-zinc-400",
+    downloadUrl: "/subjects/TC2/tc2_tema1_inferencia_estadistica.docx",
+    downloadLabel: "Descargar Documento (.DOCX 7.7 MB)",
+    resumen: "Documento Word original con el desarrollo de funciones de densidad, funciones de distribución acumulada y ejercicios tipo resueltos."
+  },
+  {
+    id: "tc2-excel",
+    titulo: "Práctica 3 · Modelos Cuantitativos (.XLSM)",
+    tipo: "HOJA DE CÁLCULO EXCEL",
+    isPdf: false,
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    downloadUrl: "/subjects/TC2/practica3_modelado_cuantitativo.xlsm",
+    downloadLabel: "Descargar Excel (.XLSM 193 KB)",
+    resumen: "Plantilla de cálculo y modelado cuantitativo en Microsoft Excel para contrastes de hipótesis y resolución numérica."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  if (doc.isPdf || !doc.path) {
+    return {
+      ...doc,
+      html: ""
+    };
+  }
+  const fullPath = path.join(process.cwd(), doc.path);
+  let raw = "";
+  if (fs.existsSync(fullPath)) {
+    raw = fs.readFileSync(fullPath, 'utf-8');
+  } else {
+    raw = `*Generando documento: ${doc.titulo}... Por favor refresca la página.*`;
+  }
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="TC2 · Técnicas Cuantitativas II | Javier Checa"
+  description="Técnicas Cuantitativas II (2º UGR): Inferencia estadística, distribuciones continuas (Uniforme, Beta, Exponencial, Gamma, Normal) y modelos probabilísticos."
+>
+  <Header activeTab="universidad" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>2º CURSO · UGR</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">TC2 · TÉCNICAS CUANTITATIVAS II</span>
+      </div>
+
+      <a
+        href="/universidad#stage-2-curso"
+        class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold w-fit"
+      >
+        ← Volver a Asignaturas
+      </a>
+    </div>
+
+    <!-- Título de la Asignatura -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+        <span>[ RECURSOS ACADÉMICOS · UGR ]</span>
+        <span>•</span>
+        <span class="text-blue-700 font-bold">ESTADÍSTICA MATEMÁTICA</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#09090b] tracking-tight mb-2">
+        Técnicas Cuantitativas II
+      </h1>
+      <p class="text-sm sm:text-base text-[#52525b] max-w-3xl">
+        Inferencia estadística matemática: variables aleatorias unidimensionales y bidimensionales continuas, estimación puntual, intervalos de confianza y contrastes de hipótesis paramétricos y no paramétricos.
+      </p>
+    </div>
+
+    <!-- Selector de Documentos / Pestañas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+      {docs.map((doc, idx) => (
+        <button
+          class={`doc-tab text-left p-4 border transition-all flex flex-col justify-between ${idx === 0 ? 'border-black bg-zinc-50 shadow-sm ring-1 ring-black' : 'border-[#e4e4e7] hover:border-zinc-400 bg-white'}`}
+          data-target={doc.id}
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class={`text-[10px] font-mono px-2 py-0.5 border font-semibold ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+              <span class="text-[11px] font-mono text-[#71717a]">DOC #{idx + 1}</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#09090b] leading-snug mb-1">
+              {doc.titulo}
+            </h3>
+            <p class="text-xs text-[#52525b] line-clamp-2">
+              {doc.resumen}
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-600">
+            <span>{doc.path ? 'Documento Markdown' : 'Descarga Directa'}</span>
+            <span class="font-bold">Ver →</span>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <!-- Visor de Documentos -->
+    <div class="bg-white border border-[#18181b] shadow-sm">
+      {renderedDocs.map((doc, idx) => (
+        <article
+          id={`content-${doc.id}`}
+          class={`doc-content p-6 sm:p-10 ${idx === 0 ? 'block' : 'hidden'}`}
+        >
+          <header class="border-b border-[#e4e4e7] pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class={`inline-block text-[10px] font-mono px-2 py-0.5 border font-semibold mb-2 ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+              <h2 class="text-xl sm:text-2xl font-bold text-[#09090b]">
+                {doc.titulo}
+              </h2>
+              <p class="text-xs text-[#52525b] font-mono mt-1">
+                {doc.resumen}
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              {doc.downloadUrl && (
+                <a
+                  href={doc.downloadUrl}
+                  download
+                  class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-mono text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  {doc.downloadLabel || 'Descargar'}
+                </a>
+              )}
+            </div>
+          </header>
+
+          {doc.path ? (
+            <div class="prose prose-zinc max-w-none text-[#27272a] text-sm leading-relaxed prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-black prose-h1:text-xl prose-h2:text-lg prose-h3:text-base prose-pre:bg-zinc-900 prose-pre:text-zinc-100 prose-table:border prose-table:border-zinc-200">
+              <Fragment set:html={doc.html} />
+            </div>
+          ) : (
+            <div class="p-8 border border-zinc-200 bg-zinc-50 text-center rounded space-y-4">
+              <div class="w-12 h-12 mx-auto bg-blue-100 text-blue-800 rounded-full flex items-center justify-center font-bold text-xl">
+                📊
+              </div>
+              <h3 class="text-base font-bold text-zinc-900">{doc.titulo}</h3>
+              <p class="text-xs text-zinc-600 max-w-md mx-auto">
+                Archivo de trabajo original del curso académico disponible para consulta y descarga.
+              </p>
+              <div>
+                <a
+                  href={doc.downloadUrl}
+                  download
+                  class="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-mono text-xs font-bold inline-flex items-center gap-2 rounded shadow"
+                >
+                  {doc.downloadLabel}
+                </a>
+              </div>
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.doc-tab');
+    const contents = document.querySelectorAll('.doc-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-target');
+
+        tabs.forEach(t => {
+          t.classList.remove('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
+          t.classList.add('border-[#e4e4e7]', 'bg-white');
+        });
+
+        tab.classList.add('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
+        tab.classList.remove('border-[#e4e4e7]', 'bg-white');
+
+        contents.forEach(content => {
+          if (content.id === `content-${targetId}`) {
+            content.classList.remove('hidden');
+            content.classList.add('block');
+          } else {
+            content.classList.remove('block');
+            content.classList.add('hidden');
+          }
+        });
+
+        if (window.renderMathInElement) {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    });
+
+    if (window.renderMathInElement) {
+      window.renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  });
+</script>

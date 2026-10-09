@@ -28,37 +28,60 @@
             "code": "EP",
             "name": "Economía Política",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/economia-politica/guia-docente",
-            "description": ""
+            "description": "Teoría macroeconómica y sector exterior: Balanza de Pagos (cuenta corriente, capital, financiera), tipos de cambio nominal y real, paridad del poder adquisitivo y multiplicador en economía abierta.",
+            "apuntes": "/apuntes/ep",
+            "recursos": [
+              { "name": "Tema: Economía Abierta, Balanza de Pagos & Multiplicador", "file": "/subjects/EP/macroeconomia_abierta_y_balanza_pagos.md", "tipo": "TEORÍA" },
+              { "name": "Capítulo 8 · Economía Abierta (PDF)", "file": "/subjects/EP/capitulo8_economia_abierta.pdf", "tipo": "PDF" },
+              { "name": "Formulario Maestro · Economía Política (PDF)", "file": "/subjects/EP/formulario_economia_politica.pdf", "tipo": "PDF" }
+            ]
           },
           {
             "code": "FFT",
             "name": "Fundamentos Físicos y Tecnológicos",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-fisicos-y-tecnologicos/guia-docente",
-            "description": ""
+            "description": "Fundamentos físicos del hardware y tecnología de semiconductores: análisis circuital en régimen continuo y transitorio, esquemas de simulación de laboratorio.",
+            "recursos": [
+              { "name": "Práctica de Laboratorio 1 · Esquemático FFT (.SCH)", "file": "/subjects/FFT/laboratorio1_fft.sch", "tipo": "SCH" },
+              { "name": "Práctica de Laboratorio 2 · Esquemático FFT (.SCH)", "file": "/subjects/FFT/laboratorio2_fft.sch", "tipo": "SCH" }
+            ]
           },
           {
             "code": "FDAE",
             "name": "Fundamentos de Dirección y Administración de Empresas",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-direccion-y-administracion-empresas/guia-docente",
-            "description": ""
+            "description": "Administración y dirección de empresas: análisis del entorno macroeconómico (PESTEL) y competitivo (5 Fuerzas de Porter), matriz DAFO y modelo de negocio de Xiaomi Corporation.",
+            "apuntes": "/apuntes/fdae",
+            "recursos": [
+              { "name": "Práctica 1: Análisis Estratégico de Xiaomi (PESTEL, Porter & DAFO)", "file": "/subjects/FDAE/analisis_estrategico_xiaomi.md", "tipo": "PRÁCTICA" },
+              { "name": "Práctica 1 Original · Documento (.DOCX 2.0 MB)", "file": "/subjects/FDAE/practica1_xiaomi_analisis_estrategico.docx", "tipo": "DOCX" }
+            ]
           },
           {
             "code": "FP",
             "name": "Fundamentos de Programación",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-programacion/guia-docente",
-            "description": ""
+            "description": "Programación estructurada y modular en C++: tipos de datos, control de flujo condicional e iterativo, validación robusta de entradas, funciones y conversión de formatos numéricos.",
+            "apuntes": "/apuntes/fp",
+            "recursos": [
+              { "name": "Prácticas de Programación Estructurada en C++ (Guía)", "file": "/subjects/FP/ejercicios_fundamentos_programacion_cpp.md", "tipo": "CÓDIGO" },
+              { "name": "calculadora.cpp · Código Fuente C++", "file": "/subjects/FP/calculadora.cpp", "tipo": "CPP" },
+              { "name": "temperaturas_conversor.cpp · Código Fuente C++", "file": "/subjects/FP/temperaturas_conversor.cpp", "tipo": "CPP" },
+              { "name": "sexagesimal_a_grados.cpp · Código Fuente C++", "file": "/subjects/FP/sexagesimal_a_grados.cpp", "tipo": "CPP" }
+            ]
           },
           {
             "code": "TOC",
             "name": "Tecnología y Organización de Computadores",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnologia-y-organizacion-computadores/guia-docente",
-            "description": "Sistemas de numeración y códigos (BCD, Gray, ASCII), Álgebra de Boole, minimización con Mapas de Karnaugh, circuitos combinacionales (sumadores, MSI) y lógica secuencial (latches y flip-flops).",
+            "description": "Sistemas de numeración y códigos (BCD, Gray, ASCII), Álgebra de Boole, minimización con Mapas de Karnaugh, circuitos combinacionales (sumadores, MSI), lógica secuencial (latches y flip-flops) y simulación CAD en CircuitMaker.",
             "apuntes": "/apuntes/toc",
             "recursos": [
               { "name": "Bloque 1: Sistemas de Numeración & Códigos", "file": "/subjects/TOC/bloque1_sistemas_numeracion_y_codigos.md", "tipo": "TEORÍA" },
               { "name": "Bloque 2: Álgebra de Boole & Puertas Lógicas", "file": "/subjects/TOC/bloque2_algebra_boole_y_puertas_logicas.md", "tipo": "TEORÍA" },
               { "name": "Bloque 3: Aritmética & Circuitos Combinacionales", "file": "/subjects/TOC/bloque3_aritmetica_binaria_y_circuitos_combinacionales.md", "tipo": "TEORÍA" },
-              { "name": "Bloque 4: Lógica Secuencial & Biestables", "file": "/subjects/TOC/bloque4_logica_secuencial_latches_y_flip_flops.md", "tipo": "TEORÍA" }
+              { "name": "Bloque 4: Lógica Secuencial & Biestables", "file": "/subjects/TOC/bloque4_logica_secuencial_latches_y_flip_flops.md", "tipo": "TEORÍA" },
+              { "name": "Práctica 1 de Laboratorio: Simulación CAD con CircuitMaker", "file": "/subjects/TOC/practica1_laboratorio_circuitmaker.md", "tipo": "LABORATORIO" }
             ]
           }
         ]
@@ -135,7 +158,20 @@
             "code": "EC",
             "name": "Estructura de Computadores",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/estructura-computadores/guia-docente",
-            "description": ""
+            "description": "Arquitectura de computadores, ensamblador x86, representación de datos en memoria y práctica de ingeniería inversa de la Bomba Digital con depurador GDB.",
+            "apuntes": "/apuntes/ec",
+            "recursos": [
+              {
+                "name": "Práctica 4: Bomba Digital (Ingeniería Inversa & GDB)",
+                "file": "/subjects/EC/practica4_bomba_digital_gdb_ensamblador.md",
+                "tipo": "PRÁCTICA"
+              },
+              {
+                "name": "Guía de Laboratorio Bomba Digital (.ODT)",
+                "file": "/subjects/EC/guia_practica4_bomba_digital.odt",
+                "tipo": "ODT"
+              }
+            ]
           },
           {
             "code": "ED",
@@ -166,13 +202,38 @@
             "code": "IM",
             "name": "Introducción al Márketing",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/introduccion-al-marketing/guia-docente",
-            "description": ""
+            "description": "Decisiones de producto, fijación de precios, canales de distribución y estrategias de comunicación comercial: plan de marketing de LaVinQuePizza (Granada) y análisis de ciclo de vida.",
+            "apuntes": "/apuntes/im",
+            "recursos": [
+              {
+                "name": "Plan Comercial & Marketing: LaVinQuePizza (Diapositivas)",
+                "file": "/subjects/IM/presentacion_lavinquepizza.md",
+                "tipo": "PRESENTACIÓN"
+              },
+              {
+                "name": "Presentación Oficial LaVinQuePizza (PDF 862 KB)",
+                "file": "/subjects/IM/lavinquepizza_presentacion.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Presentación PowerPoint Original (.PPTX 1.1 MB)",
+                "file": "/subjects/IM/lavinquepizza.pptx",
+                "tipo": "PPTX"
+              }
+            ]
           },
           {
             "code": "MACRO",
             "name": "Macroeconomía",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/macroeconomia/guia-docente",
-            "description": ""
+            "description": "Modelos macroeconómicos clásicos y keynesianos, economía abierta, balanza de pagos y análisis de series temporales de tipos de cambio de divisas.",
+            "recursos": [
+              {
+                "name": "Series Temporales de Tipos de Cambio de Divisas (PDF)",
+                "file": "/subjects/MACRO/series_tipos_cambio.pdf",
+                "tipo": "DATOS"
+              }
+            ]
           },
           {
             "code": "SO",
@@ -200,6 +261,11 @@
                 "name": "Tema 4: Sistemas de Archivos, VFS y Ext2",
                 "file": "/subjects/SO/bloque4_sistemas_archivos_y_ext2.md",
                 "tipo": "TEORÍA / ESTRUCTURAS"
+              },
+              {
+                "name": "Guión de Prácticas: Módulo 2 de Sistemas Operativos (PDF)",
+                "file": "/subjects/SO/guion_modulo2_so.pdf",
+                "tipo": "PDF"
               }
             ]
           },
@@ -314,7 +380,25 @@
             "code": "TC2",
             "name": "Técnicas Cuantitativas II",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnicas-cuantitativas-ii/guia-docente",
-            "description": ""
+            "description": "Inferencia estadística matemática: variables aleatorias continuas (Uniforme, Beta, Exponencial, Gamma, Normal general), estimación puntual, contrastes de hipótesis y modelado cuantitativo.",
+            "apuntes": "/apuntes/tc2",
+            "recursos": [
+              {
+                "name": "Tema 1: Inferencia Estadística & Distribuciones Continuas",
+                "file": "/subjects/TC2/inferencia_estadistica_distribuciones_continuas.md",
+                "tipo": "TEORÍA"
+              },
+              {
+                "name": "Tema 1 Original · Apuntes y Ejercicios (.DOCX 7.7 MB)",
+                "file": "/subjects/TC2/tc2_tema1_inferencia_estadistica.docx",
+                "tipo": "DOCX"
+              },
+              {
+                "name": "Práctica 3 · Modelos Cuantitativos (.XLSM 193 KB)",
+                "file": "/subjects/TC2/practica3_modelado_cuantitativo.xlsm",
+                "tipo": "EXCEL"
+              }
+            ]
           }
         ]
       }
@@ -382,7 +466,25 @@
             "code": "DAE",
             "name": "Dirección y Administración de Empresas",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/direccion-y-administracion-empresas/guia-docente",
-            "description": ""
+            "description": "Comportamiento directivo, toma de decisiones y diseño organizativo: habilidades administrativas de Robert L. Katz (conceptual, humana, técnica), roles directivos de Henry Mintzberg y análisis de casos prácticos.",
+            "apuntes": "/apuntes/dae",
+            "recursos": [
+              {
+                "name": "Práctica 1: El Trabajo Directivo (Habilidades de Katz & Roles de Mintzberg)",
+                "file": "/subjects/DAE/practica1_el_trabajo_directivo.md",
+                "tipo": "PRÁCTICA"
+              },
+              {
+                "name": "Práctica 1 Original (PDF 141 KB)",
+                "file": "/subjects/DAE/practica1_el_trabajo_directivo.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Cuaderno Oficial de Casos Prácticos DAE (PDF 416 KB)",
+                "file": "/subjects/DAE/casos_practicos_dae.pdf",
+                "tipo": "PDF"
+              }
+            ]
           },
           {
             "code": "SCD",
@@ -444,8 +546,31 @@
           {
             "code": "FIS",
             "name": "Fundamentos de Ingeniería del Software",
-            "guia": "/Subjects/Third/FIS/Teoria/Ejercicios-Controles/Controles/Guia_Control2/GuiaCompletaC2-FIS.pdf",
-            "description": ""
+            "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-ingenieria-software/guia-docente",
+            "description": "Metodologías de ingeniería del software: especificación de requisitos, modelado funcional con diagramas de casos de uso (UML), modelo conceptual de clases para Sistema de Gestión de Almacenes (SGA) y diseño orientado a objetos de Videoclub.",
+            "apuntes": "/apuntes/fis",
+            "recursos": [
+              {
+                "name": "Guía Técnica: Requisitos, Casos de Uso & Modelos Conceptuales",
+                "file": "/subjects/FIS/ingenieria_software_requisitos_diseno.md",
+                "tipo": "GUÍA"
+              },
+              {
+                "name": "Ejercicio 4 · Especificación de Requisitos (PDF)",
+                "file": "/subjects/FIS/ejercicio4_especificacion_requisitos.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Ejercicio 2 · Modelado de Casos de Uso (PDF)",
+                "file": "/subjects/FIS/ejercicio2_modelado_casos_uso.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Modelo de Diseño · Sistema de Videoclub (PDF)",
+                "file": "/subjects/FIS/modelo_diseno_videoclub.pdf",
+                "tipo": "PDF"
+              }
+            ]
           },
           {
             "code": "IA",
@@ -497,13 +622,49 @@
             "code": "DMCS",
             "name": "Distributed and Multiprocessing Computer Systems",
             "guia": null,
-            "description": "Arquitecturas distribuidas, modelos de computación multiprocesador, paso de mensajes, sincronización distribuida, consistencia de memoria y tolerancia a fallos."
+            "description": "Arquitecturas distribuidas y multiprocesador: paralelismo SIMD con coprocesador vectorial ARM NEON en la FPGA Xilinx Zynq-7000 (Zybo), aceleración de filtros DSP (FIR), intrínsecos de bajo nivel en C y profiling hardware.",
+            "apuntes": "/apuntes/dmcs",
+            "recursos": [
+              {
+                "name": "Memoria del Proyecto: Aceleración con ARM NEON (DSP / Filtro FIR)",
+                "file": "/subjects/DMCS/memoria_arm_neon_simd_dsp.md",
+                "tipo": "PROYECTO"
+              },
+              {
+                "name": "Código Fuente C: Implementación Vectorial NEON (parallel16.c)",
+                "file": "/subjects/DMCS/parallel16.c",
+                "tipo": "CÓDIGO"
+              },
+              {
+                "name": "Guía Oficial del Proyecto ARM NEON (PDF)",
+                "file": "/subjects/DMCS/DMPS-2024-Project-ENGLISH.pdf",
+                "tipo": "PDF"
+              }
+            ]
           },
           {
             "code": "LDDS",
             "name": "Logic Design of Digital Systems",
             "guia": null,
-            "description": "Diseño y síntesis de sistemas lógicos digitales: álgebra booleana, circuitos combinacionales y secuenciales, autómatas finitos (FSM), módulos MSI y descripción hardware."
+            "description": "Diseño y síntesis de sistemas lógicos digitales: álgebra booleana, circuitos combinacionales y secuenciales, autómatas finitos (FSM), contadores síncronos con acarreo Cout y mapas de Karnaugh de 4 variables.",
+            "apuntes": "/apuntes/ldds",
+            "recursos": [
+              {
+                "name": "Ejercicios Resueltos: Contadores Síncronos & Mapas de Karnaugh",
+                "file": "/subjects/LDDS/ejercicios_diseno_logico_digital.md",
+                "tipo": "EJERCICIOS"
+              },
+              {
+                "name": "Exercise 1 · Binary Counters (.DOCX)",
+                "file": "/subjects/LDDS/EXERCISE_1.docx",
+                "tipo": "DOCX"
+              },
+              {
+                "name": "Exercise 2 · Karnaugh Minimization (.DOCX)",
+                "file": "/subjects/LDDS/EXERCISE_2.docx",
+                "tipo": "DOCX"
+              }
+            ]
           },
           {
             "code": "IT",
@@ -569,7 +730,24 @@
             "code": "DB",
             "name": "Databases",
             "guia": null,
-            "description": "Diseño y gestión de bases de datos relacionales: modelo entidad-relación (ER), álgebra relacional, normalización (1FN-BCNF), consultas complejas en SQL, transacciones ACID e integridad."
+            "description": "Diseño y gestión de bases de datos relacionales: modelo entidad-relación (ER), álgebra relacional, normalización (1FN-BCNF), consultas complejas en SQL, transacciones ACID e integridad.",
+            "recursos": [
+              {
+                "name": "Esquema Relacional & Consultas: Base de Datos de Flota Naval",
+                "file": "/subjects/DB/database_vessels_maritime_traffic.md",
+                "tipo": "SQL"
+              },
+              {
+                "name": "Dataset: Buques Mercantes (Vessels.csv)",
+                "file": "/subjects/DB/Vessels.csv",
+                "tipo": "CSV"
+              },
+              {
+                "name": "Dataset: Tipos de Embarcaciones (VesselTypes.csv)",
+                "file": "/subjects/DB/VesselTypes.csv",
+                "tipo": "CSV"
+              }
+            ]
           },
           {
             "code": "VR",
@@ -715,6 +893,176 @@
               {
                 "name": "Cuaderno Completo de Apuntes (PDF 63 Páginas)",
                 "file": "/subjects/GFE/cuaderno_completo_gestion_fiscal.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          },
+          {
+            "code": "PEE",
+            "name": "Planes Estratégicos de las Empresas",
+            "guia": null,
+            "description": "Dirección estratégica corporativa e internacionalización: caso Capstone Hawkers (born-global, modelo D2C, offshoring vs reshoring en Elche), modos de entrada transfronterizos (franquicias, wholesale, retail), Fuyao American Factory y formulación estratégica.",
+            "apuntes": "/apuntes/pee",
+            "recursos": [
+              {
+                "name": "Presentación Ejecutiva: Hawkers Born-Global (Diapositivas)",
+                "file": "/subjects/PEE/presentacion_hawkers_internacionalizacion.md",
+                "tipo": "PRESENTACIÓN"
+              },
+              {
+                "name": "Informe Capstone: Proceso de Internacionalización de Hawkers",
+                "file": "/subjects/PEE/informe_hawkers_internacionalizacion.md",
+                "tipo": "INFORME"
+              },
+              {
+                "name": "Casos Prácticos: Estrategia Global de Multinacionales (Walmart, Fuyao, KFC, Telefónica)",
+                "file": "/subjects/PEE/casos_estrategicos_multinacionales.md",
+                "tipo": "CASOS"
+              },
+              {
+                "name": "Diapositivas Originales Hawkers (PDF 569 KB)",
+                "file": "/subjects/PEE/hawkers_presentacion_estrategica.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Memoria Capstone Hawkers (PDF 337 KB)",
+                "file": "/subjects/PEE/hawkers_informe_internacionalizacion.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Caso FUYAO · American Factory (PDF 9.0 MB)",
+                "file": "/subjects/PEE/american_factory_fuyao_caso.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Popeyes vs. KFC · Franquicias Internacionales (PDF 12.5 MB)",
+                "file": "/subjects/PEE/popeyes_vs_kfc_franquicias.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          },
+          {
+            "code": "ECE",
+            "name": "Emprendedores y Creación de Empresas",
+            "guia": null,
+            "description": "Creación y validación de empresas innovadoras: proyecto BarberCall / Nexu aplicando la metodología de 24 pasos de Bill Aulet (MIT) y Lean Startup, modelo de negocio de plataforma local y análisis de la aceleradora Lanzadera de Marina de Empresas.",
+            "apuntes": "/apuntes/ece",
+            "recursos": [
+              {
+                "name": "Presentación Pitch: BarberCall / Nexu (Diapositivas)",
+                "file": "/subjects/ECE/presentacion_barbercall_pitch.md",
+                "tipo": "PRESENTACIÓN"
+              },
+              {
+                "name": "Memoria del Proyecto: Nexu (Aulet 24 Pasos & Lean Startup)",
+                "file": "/subjects/ECE/memoria_nexu_disciplined_entrepreneurship.md",
+                "tipo": "MEMORIA"
+              },
+              {
+                "name": "Estudio: Ecosistema Lanzadera & Marina de Empresas",
+                "file": "/subjects/ECE/lanzadera_ecosistema_emprendedor.md",
+                "tipo": "ESTUDIO"
+              },
+              {
+                "name": "Pitch Original BarberCall (PDF 6.1 MB)",
+                "file": "/subjects/ECE/barbercall_presentacion_pitch.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Nexu · Trabajo Final Completo (PDF 645 KB)",
+                "file": "/subjects/ECE/nexu_barbercall_trabajo_final.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Lanzadera · Dossier de Investigación (PDF 3.5 MB)",
+                "file": "/subjects/ECE/lanzadera_analisis_ecosistema.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          },
+          {
+            "code": "MESP",
+            "name": "Marketing en Servicios Profesionales",
+            "guia": null,
+            "description": "Marketing de servicios e intangibles profesionales: Plan de Marketing integral para el lanzamiento de ReadyGest (gestoría digital con alma local), estrategia de marca personal para despachos profesionales y resolución de casos consultivos.",
+            "apuntes": "/apuntes/mesp",
+            "recursos": [
+              {
+                "name": "Plan de Marketing Integral: ReadyGest (Memoria Completa)",
+                "file": "/subjects/MESP/plan_marketing_readygest.md",
+                "tipo": "PLAN DE MARKETING"
+              },
+              {
+                "name": "La Marca Personal en Servicios Profesionales & Casos Prácticos",
+                "file": "/subjects/MESP/marca_personal_servicios_profesionales.md",
+                "tipo": "TEORÍA & CASOS"
+              },
+              {
+                "name": "ReadyGest · Plan de Marketing Oficial (PDF 627 KB)",
+                "file": "/subjects/MESP/readygest_plan_de_marketing.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "ReadyGest · Presentación de Lanzamiento (PDF 458 KB)",
+                "file": "/subjects/MESP/readygest_presentacion_marketing.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "La Marca Personal · Dossier (PDF 253 KB)",
+                "file": "/subjects/MESP/la_marca_personal_servicios_profesionales.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          },
+          {
+            "code": "ACC",
+            "name": "Análisis y Consolidación Contable",
+            "guia": null,
+            "description": "Diagnóstico y auditoría económico-financiera: análisis integral de Acerinox Europa S.A.U. (2022-2023), balance ordenado, Fondo de Maniobra, solvencia, liquidez, apalancamiento y rentabilidades ROA y ROE con descomposición de Parés.",
+            "apuntes": "/apuntes/acc",
+            "recursos": [
+              {
+                "name": "Análisis Económico-Financiero: Acerinox Europa (Memoria)",
+                "file": "/subjects/ACC/analisis_financiero_acerinox.md",
+                "tipo": "ANÁLISIS"
+              },
+              {
+                "name": "Acerinox Europa S.A.U. · Informe Oficial (PDF 425 KB)",
+                "file": "/subjects/ACC/analisis_economico_financiero_acerinox.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Modelo Financiero y Ratios · Hoja de Cálculo (.XLSX 121 KB)",
+                "file": "/subjects/ACC/acerinox_modelo_financiero.xlsx",
+                "tipo": "EXCEL"
+              }
+            ]
+          },
+          {
+            "code": "EE",
+            "name": "Economía Española",
+            "guia": null,
+            "description": "Estructura económica de España y sus comunidades autónomas: monografía de la Comunitat Valenciana (PIB, empleo, clústeres industriales, turismo y formación) e informe de negociación de políticas públicas sobre el problema de la vivienda.",
+            "apuntes": "/apuntes/ee",
+            "recursos": [
+              {
+                "name": "Estructura Económica de la Comunitat Valenciana & Vivienda",
+                "file": "/subjects/EE/estructura_economica_comunitat_valenciana.md",
+                "tipo": "INFORME"
+              },
+              {
+                "name": "Ficha Provincial · Comunitat Valenciana (PDF 1.4 MB)",
+                "file": "/subjects/EE/ficha_economica_comunitat_valenciana.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Series Estadísticas Comunitat Valenciana (.XLSX 34 KB)",
+                "file": "/subjects/EE/datos_estadisticos_comunitat_valenciana.xlsx",
+                "tipo": "EXCEL"
+              },
+              {
+                "name": "Negociación: El Problema de la Vivienda en España (PDF 4.0 MB)",
+                "file": "/subjects/EE/negociacion_problema_vivienda_espana.pdf",
                 "tipo": "PDF"
               }
             ]

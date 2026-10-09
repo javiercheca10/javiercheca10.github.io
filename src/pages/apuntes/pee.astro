@@ -1,0 +1,264 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "hawkers-presentacion",
+    titulo: "Presentación Ejecutiva: Hawkers Born-Global (Diapositivas)",
+    tipo: "PRESENTACIÓN DIAPOSITIVAS",
+    isPdf: false,
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    path: "public/subjects/PEE/presentacion_hawkers_internacionalizacion.md",
+    downloadUrl: "/subjects/PEE/presentacion_hawkers_internacionalizacion.md",
+    downloadLabel: "Descargar Diapositivas (MD)",
+    pdfAttachmentUrl: "/subjects/PEE/hawkers_presentacion_estrategica.pdf",
+    pdfAttachmentLabel: "Descargar Diapositivas Originales (PDF 569 KB)",
+    resumen: "Presentación de 20 diapositivas analizando la estrategia internacional de Hawkers: modelo D2C, cronología 2012-2024, reshoring en Elche, filiales en México/Europa y hoja de ruta a 100 M€."
+  },
+  {
+    id: "hawkers-informe",
+    titulo: "Informe Capstone: Proceso de Internacionalización de Hawkers",
+    tipo: "INFORME ESTRATÉGICO",
+    isPdf: false,
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    path: "public/subjects/PEE/informe_hawkers_internacionalizacion.md",
+    downloadUrl: "/subjects/PEE/informe_hawkers_internacionalizacion.md",
+    downloadLabel: "Descargar Informe (MD)",
+    pdfAttachmentUrl: "/subjects/PEE/hawkers_informe_internacionalizacion.pdf",
+    pdfAttachmentLabel: "Descargar Memoria Completa (PDF 337 KB)",
+    resumen: "Memoria técnica analítica de la born-global española: modos de entrada combinados, del offshoring al reshoring en Elche, análisis financiero de Saldum Ventures y expansión por franquicia."
+  },
+  {
+    id: "casos-multinacionales",
+    titulo: "Casos Prácticos: Estrategia Global de Multinacionales",
+    tipo: "CASOS PRÁCTICOS",
+    isPdf: false,
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    path: "public/subjects/PEE/casos_estrategicos_multinacionales.md",
+    downloadUrl: "/subjects/PEE/casos_estrategicos_multinacionales.md",
+    downloadLabel: "Descargar Casos (MD)",
+    resumen: "Compendio de casos reales analizados: Walmart (liderazgo en costes), American Factory Fuyao (choque cultural en manufactura), Popeyes vs KFC (franquicias), Telefónica Plan GPS, Naranjas del Carmen y City Sightseeing."
+  },
+  {
+    id: "fuyao-pdf",
+    titulo: "Caso FUYAO · American Factory (PDF)",
+    tipo: "CASO DE ESTUDIO PDF",
+    isPdf: true,
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
+    downloadUrl: "/subjects/PEE/american_factory_fuyao_caso.pdf",
+    downloadLabel: "Descargar PDF (9.0 MB)",
+    resumen: "Análisis documental de la implantación del fabricante chino Fuyao Glass en Ohio: relaciones laborales, productividad, seguridad en el trabajo y automatización industrial."
+  },
+  {
+    id: "popeyes-pdf",
+    titulo: "Popeyes vs. KFC · Franquicias Internacionales (PDF)",
+    tipo: "CASO DE ESTUDIO PDF",
+    isPdf: true,
+    badgeColor: "bg-rose-100 text-rose-900 border-rose-300",
+    downloadUrl: "/subjects/PEE/popeyes_vs_kfc_franquicias.pdf",
+    downloadLabel: "Descargar PDF (12.5 MB)",
+    resumen: "Estudio comparativo del modelo de negocio en restauración organizada: máster franquicia, expansión geográfica, penetración en mercados emergentes y marketing viral."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  if (doc.isPdf) {
+    return {
+      ...doc,
+      html: ""
+    };
+  }
+  const fullPath = path.join(process.cwd(), doc.path);
+  let raw = "";
+  if (fs.existsSync(fullPath)) {
+    raw = fs.readFileSync(fullPath, 'utf-8');
+  } else {
+    raw = `*Generando documento: ${doc.titulo}... Por favor refresca la página.*`;
+  }
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="PEE · Planes Estratégicos de las Empresas | Javier Checa"
+  description="Planes Estratégicos de las Empresas (SICUE · UPV): Caso Capstone Hawkers, internacionalización born-global, Fuyao, Walmart, franquicias y estrategia corporativa."
+>
+  <Header activeTab="universidad" />
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>SICUE · VALENCIA</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">PEE · PLANES ESTRATÉGICOS DE LAS EMPRESAS</span>
+      </div>
+
+      <a
+        href="/universidad#stage-sicue-valencia"
+        class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold w-fit"
+      >
+        ← Volver a Asignaturas
+      </a>
+    </div>
+
+    <!-- Título de la Asignatura -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+        <span>[ RECURSOS SICUE · UPV ]</span>
+        <span>•</span>
+        <span class="text-emerald-700 font-bold">5º CURSO COMPLETO</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-[#09090b] tracking-tight mb-2">
+        Planes Estratégicos de las Empresas
+      </h1>
+      <p class="text-sm sm:text-base text-[#52525b] max-w-3xl">
+        Análisis integral de dirección estratégica, internacionalización empresarial, modelos de entrada transfronterizos (D2C, retail, wholesale, franquicia), offshoring versus reshoring y formulación de planes estratégicos corporativos.
+      </p>
+    </div>
+
+    <!-- Selector de Documentos / Pestañas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
+      {docs.map((doc, idx) => (
+        <button
+          class={`doc-tab text-left p-4 border transition-all flex flex-col justify-between ${idx === 0 ? 'border-black bg-zinc-50 shadow-sm ring-1 ring-black' : 'border-[#e4e4e7] hover:border-zinc-400 bg-white'}`}
+          data-target={doc.id}
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class={`text-[10px] font-mono px-2 py-0.5 border font-semibold ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+              <span class="text-[11px] font-mono text-[#71717a]">DOC #{idx + 1}</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#09090b] leading-snug mb-1">
+              {doc.titulo}
+            </h3>
+            <p class="text-xs text-[#52525b] line-clamp-2">
+              {doc.resumen}
+            </p>
+          </div>
+          <div class="mt-3 pt-2 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-600">
+            <span>{doc.isPdf ? 'Visor PDF Embebido' : 'Documento Markdown'}</span>
+            <span class="font-bold">Ver →</span>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <!-- Visor de Documentos -->
+    <div class="bg-white border border-[#18181b] shadow-sm">
+      {renderedDocs.map((doc, idx) => (
+        <article
+          id={`content-${doc.id}`}
+          class={`doc-content p-6 sm:p-10 ${idx === 0 ? 'block' : 'hidden'}`}
+        >
+          <header class="border-b border-[#e4e4e7] pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class={`inline-block text-[10px] font-mono px-2 py-0.5 border font-semibold mb-2 ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+              <h2 class="text-xl sm:text-2xl font-bold text-[#09090b]">
+                {doc.titulo}
+              </h2>
+              <p class="text-xs text-[#52525b] font-mono mt-1">
+                {doc.resumen}
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              {doc.downloadUrl && (
+                <a
+                  href={doc.downloadUrl}
+                  download
+                  class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-mono text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  {doc.downloadLabel || 'Descargar'}
+                </a>
+              )}
+              {doc.pdfAttachmentUrl && (
+                <a
+                  href={doc.pdfAttachmentUrl}
+                  download
+                  class="px-3 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-300 transition-colors font-mono text-xs font-bold inline-flex items-center gap-1.5"
+                >
+                  <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                  </svg>
+                  {doc.pdfAttachmentLabel || 'PDF Original'}
+                </a>
+              )}
+            </div>
+          </header>
+
+          {doc.isPdf ? (
+            <div class="space-y-4">
+              <div class="w-full h-[750px] border border-zinc-300 rounded bg-zinc-100 overflow-hidden shadow-inner">
+                <iframe
+                  src={doc.downloadUrl}
+                  class="w-full h-full border-0"
+                  title={doc.titulo}
+                />
+              </div>
+            </div>
+          ) : (
+            <div class="prose prose-zinc max-w-none text-[#27272a] text-sm leading-relaxed prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-black prose-h1:text-xl prose-h2:text-lg prose-h3:text-base prose-pre:bg-zinc-900 prose-pre:text-zinc-100 prose-table:border prose-table:border-zinc-200">
+              <Fragment set:html={doc.html} />
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.doc-tab');
+    const contents = document.querySelectorAll('.doc-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-target');
+
+        tabs.forEach(t => {
+          t.classList.remove('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
+          t.classList.add('border-[#e4e4e7]', 'bg-white');
+        });
+
+        tab.classList.add('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
+        tab.classList.remove('border-[#e4e4e7]', 'bg-white');
+
+        contents.forEach(content => {
+          if (content.id === `content-${targetId}`) {
+            content.classList.remove('hidden');
+            content.classList.add('block');
+          } else {
+            content.classList.remove('block');
+            content.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
