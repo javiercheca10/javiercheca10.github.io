@@ -7,6 +7,18 @@ import academic from '../data/academic.json';
 import projects from '../data/projects.json';
 
 const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g) => gAcc + g.subjects.length, 0), 0);
+
+const tickerItems = [
+  "// INGENIERÍA DEL SOFTWARE",
+  "// GOOGLE OR-TOOLS CP-SAT",
+  "// PYSIDE & QT",
+  "// UGR GRANADA",
+  "// ERASMUS ATENAS",
+  "// SICUE VALENCIA",
+  "// DIRECCIÓN ESTRATÉGICA",
+  "// GUÍAS DOCENTES OFICIALES",
+  "// APUNTES & RECURSOS"
+];
 ---
 
 <Layout>
@@ -78,18 +90,17 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
       </div>
     </section>
 
-    <!-- CINTA TÉCNICA / MARQUEE ESTILO INDUSTRIAL -->
-    <div class="py-2.5 border-b border-[#18181b] bg-[#f4f4f5] overflow-hidden whitespace-nowrap text-[11px] font-mono text-[#52525b]">
-      <div class="flex gap-6 animate-none font-bold">
-        <span>// INGENIERÍA DEL SOFTWARE</span>
-        <span>// GOOGLE OR-TOOLS CP-SAT</span>
-        <span>// PYSIDE & QT</span>
-        <span>// UGR GRANADA</span>
-        <span>// ERASMUS ATENAS</span>
-        <span>// SICUE VALENCIA</span>
-        <span>// DIRECCIÓN ESTRATÉGICA</span>
-        <span>// GUÍAS DOCENTES OFICIALES</span>
-        <span>// APUNTES & RECURSOS</span>
+    <!-- CINTA TÉCNICA / MARQUEE ESTILO INDUSTRIAL (ROTACIÓN CONTINUA SUAVE) -->
+    <div class="py-2.5 border-b border-[#18181b] bg-[#f4f4f5] overflow-hidden whitespace-nowrap text-[11px] font-mono text-[#52525b] select-none">
+      <div class="marquee-track flex">
+        <div class="marquee-group flex gap-8 px-4 font-bold shrink-0 items-center">
+          {tickerItems.map(item => <span>{item}</span>)}
+          {tickerItems.map(item => <span>{item}</span>)}
+        </div>
+        <div class="marquee-group flex gap-8 px-4 font-bold shrink-0 items-center" aria-hidden="true">
+          {tickerItems.map(item => <span>{item}</span>)}
+          {tickerItems.map(item => <span>{item}</span>)}
+        </div>
       </div>
     </div>
 
@@ -332,3 +343,27 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
 
   <Footer />
 </Layout>
+
+<style>
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: marquee-scroll 45s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>
