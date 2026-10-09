@@ -2,7 +2,7 @@
 **Asignatura:** Fundamentos de Ingeniería del Software (FIS)  
 **Etapa:** 3º Curso · Doble Grado Ingeniería Informática + ADE (UGR)  
 **Autor:** Francisco Javier Checa Casas (con Ángel Torres López en ejercicios de equipo)  
-**Documentos Fuente:** `ejercicio4_especificacion_requisitos.pdf`, `ejercicio2_modelado_casos_uso.pdf`, `control_modelo_gestion_almacenes.docx`, `modelo_diseno_videoclub.pdf`  
+**Documentos Fuente:** `ejercicio4_especificacion_requisitos.pdf`, `ejercicio2_modelado_casos_uso.pdf`, `control_modelo_gestion_almacenes.pdf`, `modelo_diseno_videoclub.pdf`  
 
 ---
 

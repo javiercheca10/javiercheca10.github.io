@@ -2,7 +2,7 @@
 **Asignatura:** Fundamentos de Dirección y Administración de Empresas (FDAE)  
 **Etapa:** 1º Curso · Doble Grado Ingeniería Informática + ADE (UGR)  
 **Autor:** Francisco Javier Checa Casas  
-**Documento Fuente:** `practica1_xiaomi_analisis_estrategico.docx`  
+**Documento Fuente:** `practica1_xiaomi_analisis_estrategico.pdf`  
 
 ---
 

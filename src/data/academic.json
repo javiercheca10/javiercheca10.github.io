@@ -54,7 +54,7 @@
             "apuntes": "/apuntes/fdae",
             "recursos": [
               { "name": "Práctica 1: Análisis Estratégico de Xiaomi (PESTEL, Porter & DAFO)", "file": "/subjects/FDAE/analisis_estrategico_xiaomi.md", "tipo": "PRÁCTICA" },
-              { "name": "Práctica 1 Original · Documento (.DOCX 2.0 MB)", "file": "/subjects/FDAE/practica1_xiaomi_analisis_estrategico.docx", "tipo": "DOCX" }
+              { "name": "Práctica 1 Original · Documento Oficial (PDF 320 KB)", "file": "/subjects/FDAE/practica1_xiaomi_analisis_estrategico.pdf", "tipo": "PDF" }
             ]
           },
           {
@@ -389,9 +389,9 @@
                 "tipo": "TEORÍA"
               },
               {
-                "name": "Tema 1 Original · Apuntes y Ejercicios (.DOCX 7.7 MB)",
-                "file": "/subjects/TC2/tc2_tema1_inferencia_estadistica.docx",
-                "tipo": "DOCX"
+                "name": "Tema 1 Original · Apuntes Oficiales (PDF 2.1 MB)",
+                "file": "/subjects/TC2/tc2_tema1_inferencia_estadistica.pdf",
+                "tipo": "PDF"
               },
               {
                 "name": "Práctica 3 · Modelos Cuantitativos (.XLSM 193 KB)",
@@ -569,6 +569,16 @@
                 "name": "Modelo de Diseño · Sistema de Videoclub (PDF)",
                 "file": "/subjects/FIS/modelo_diseno_videoclub.pdf",
                 "tipo": "PDF"
+              },
+              {
+                "name": "Control & Modelo · Gestión de Almacenes (PDF)",
+                "file": "/subjects/FIS/control_modelo_gestion_almacenes.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Guía de Modelado · Casos de Uso (PDF)",
+                "file": "/subjects/FIS/guia_modelado_casos_uso.pdf",
+                "tipo": "PDF"
               }
             ]
           },
@@ -639,6 +649,16 @@
                 "name": "Guía Oficial del Proyecto ARM NEON (PDF)",
                 "file": "/subjects/DMCS/DMPS-2024-Project-ENGLISH.pdf",
                 "tipo": "PDF"
+              },
+              {
+                "name": "Execution Results · Benchmarking (PDF)",
+                "file": "/subjects/DMCS/Execution_results.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Execution Time · Tiempos y Ciclos de Reloj (PDF)",
+                "file": "/subjects/DMCS/Execution_time.pdf",
+                "tipo": "PDF"
               }
             ]
           },
@@ -655,14 +675,14 @@
                 "tipo": "EJERCICIOS"
               },
               {
-                "name": "Exercise 1 · Binary Counters (.DOCX)",
-                "file": "/subjects/LDDS/EXERCISE_1.docx",
-                "tipo": "DOCX"
+                "name": "Exercise 1 · Binary Counters (PDF)",
+                "file": "/subjects/LDDS/EXERCISE_1.pdf",
+                "tipo": "PDF"
               },
               {
-                "name": "Exercise 2 · Karnaugh Minimization (.DOCX)",
-                "file": "/subjects/LDDS/EXERCISE_2.docx",
-                "tipo": "DOCX"
+                "name": "Exercise 2 · Karnaugh Minimization (PDF)",
+                "file": "/subjects/LDDS/EXERCISE_2.pdf",
+                "tipo": "PDF"
               }
             ]
           },

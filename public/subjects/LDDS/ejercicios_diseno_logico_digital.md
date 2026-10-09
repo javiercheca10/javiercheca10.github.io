@@ -2,7 +2,7 @@
 **Asignatura:** Logic Design of Digital Systems (LDDS)  
 **Institución:** University of Piraeus (Atenas) · Erasmus+  
 **Autor:** Francisco Javier Checa Casas  
-**Documentos Fuente:** `EXERCISE_1.docx`, `EXERCISE_2.docx`  
+**Documentos Fuente:** `EXERCISE_1.pdf`, `EXERCISE_2.pdf`  
 
 ---
 

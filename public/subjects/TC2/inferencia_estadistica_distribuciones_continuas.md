@@ -2,7 +2,7 @@
 **Asignatura:** Técnicas Cuantitativas II (TC2)  
 **Etapa:** 2º Curso · Doble Grado Ingeniería Informática + ADE (UGR)  
 **Autor:** Francisco Javier Checa Casas  
-**Documento Fuente:** `tc2_tema1_inferencia_estadistica.docx`, `practica3_modelado_cuantitativo.xlsm`  
+**Documento Fuente:** `tc2_tema1_inferencia_estadistica.pdf`, `practica3_modelado_cuantitativo.xlsm`  
 
 ---
 
