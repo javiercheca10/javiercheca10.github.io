@@ -596,6 +596,16 @@
                 "tipo": "EXAMEN"
               },
               {
+                "name": "Práctica 6: Supuesto IRPF 2024 (Armando Casas)",
+                "file": "/subjects/GFE/practica6_calculo_irpf_armando_casas.md",
+                "tipo": "PRÁCTICA"
+              },
+              {
+                "name": "Borrador Oficial Modelo 100 IRPF 2024 (PDF AEAT)",
+                "file": "/subjects/GFE/practica6_irpf_modelo100_borrador.pdf",
+                "tipo": "PDF"
+              },
+              {
                 "name": "Cuaderno Completo de Apuntes (PDF 63 Páginas)",
                 "file": "/subjects/GFE/cuaderno_completo_gestion_fiscal.pdf",
                 "tipo": "PDF"

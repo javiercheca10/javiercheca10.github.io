@@ -46,6 +46,27 @@ const docs = [
     resumen: "Resolución íntegra de exámenes parciales (Octubre 2023): Modelo A (Gran Empresa / No ERD) y Modelo B (Pymes / Sí ERD). Ajustes por amortizaciones, provisiones no deducibles, criterio de caja en operaciones a plazos, atenciones a clientes (límite 1% INCN), liquidación y asientos contables del PGC."
   },
   {
+    id: "practica6-irpf",
+    titulo: "Práctica 6: Supuesto IRPF 2024 (Armando Casas)",
+    tipo: "CASO PRÁCTICO & SIMULADOR AEAT",
+    isPdf: false,
+    badgeColor: "bg-rose-100 text-rose-900 border-rose-300",
+    path: "public/subjects/GFE/practica6_calculo_irpf_armando_casas.md",
+    downloadUrl: "/subjects/GFE/practica6_calculo_irpf_armando_casas.md",
+    downloadLabel: "Descargar Markdown",
+    resumen: "Resolución del caso práctico de D. Armando Casas (Arquitecto, EDS): ingresos de 267.000 €, dotación máxima de amortizaciones (9.840 €), tratamiento de morosos (art. 30.2.4ª RIRPF), gastos de difícil justificación (tope 2.000 €), ganancia patrimonial de solar en B.I. Ahorro (55.000 €), y conciliación con el Modelo 100 de la AEAT."
+  },
+  {
+    id: "modelo100-pdf",
+    titulo: "Borrador Oficial Modelo 100 IRPF 2024 (PDF AEAT)",
+    tipo: "MODELO OFICIAL AEAT",
+    isPdf: true,
+    badgeColor: "bg-indigo-100 text-indigo-900 border-indigo-300",
+    downloadUrl: "/subjects/GFE/practica6_irpf_modelo100_borrador.pdf",
+    downloadLabel: "Descargar Modelo 100 (172 KB)",
+    resumen: "Documento oficial generado en el simulador Renta WEB de la Agencia Tributaria (AEAT) con el Modelo 100 cumplimentado: casillas 0167 a 0700 con el desglose exacto de la autoliquidación a ingresar de 20.941,65 €."
+  },
+  {
     id: "cuaderno-completo-pdf",
     titulo: "Cuaderno Completo de la Asignatura (PDF 63 Págs)",
     tipo: "CUADERNO DIGITAL ESCANEADO",
@@ -80,7 +101,7 @@ const renderedDocs = docs.map(doc => {
 
 <Layout
   title="GFE · Gestión Fiscal de la Empresa | Javier Checa"
-  description="Cuaderno técnico de Gestión Fiscal de la Empresa (SICUE Valencia): Sistema Tributario, Impuesto sobre Sociedades (IS), IVA e IRPF con supuestos prácticos de examen resueltos y cuaderno completo."
+  description="Cuaderno técnico de Gestión Fiscal de la Empresa (SICUE Valencia): Sistema Tributario, Impuesto sobre Sociedades (IS), IVA e IRPF con supuestos prácticos de examen, práctica oficial del Modelo 100 en simulador AEAT y cuaderno completo."
 >
   <Header activeTab="universidad" />
 
@@ -118,7 +139,7 @@ const renderedDocs = docs.map(doc => {
         Gestión Fiscal de la Empresa (GFE)
       </h1>
       <p class="text-xs sm:text-sm text-[#52525b] mt-2 max-w-3xl leading-relaxed">
-        Cuaderno de estudio y liquidación tributaria empresarial conforme a la Ley General Tributaria (LGT), la Ley del Impuesto sobre Sociedades (Ley 27/2014 LIS), la Ley del IVA y el IRPF: principios constitucionales, ajustes extracontables, amortizaciones deducibles, exámenes prácticos resueltos de examen parcial y cuaderno íntegro de 63 páginas.
+        Cuaderno de estudio y liquidación tributaria empresarial conforme a la Ley General Tributaria (LGT), la Ley del Impuesto sobre Sociedades (Ley 27/2014 LIS), la Ley del IVA y el IRPF: principios constitucionales, ajustes extracontables, amortizaciones deducibles, práctica oficial del Modelo 100 de IRPF con simulador AEAT y cuaderno íntegro de 63 páginas.
       </p>
     </div>
 
@@ -179,14 +200,14 @@ const renderedDocs = docs.map(doc => {
         {doc.isPdf ? (
           <div class="border border-[#18181b] bg-white p-4">
             <div class="mb-4 pb-3 border-b border-[#e4e4e7] flex items-center justify-between font-mono text-xs text-[#52525b]">
-              <span>VISOR INTEGRADO · CUADERNO COMPLETO ESCANEADO (63 PÁGS)</span>
-              <span>FORMATO: PDF / 9.5 MB</span>
+              <span>VISOR INTEGRADO · {doc.titulo.toUpperCase()}</span>
+              <span>FORMATO: PDF / DOCUMENTO ADJUNTO</span>
             </div>
             <div class="w-full bg-[#f4f4f5] border border-[#e4e4e7] overflow-hidden" style="height: 820px;">
               <iframe
                 src={`${doc.downloadUrl}#view=FitH`}
                 class="w-full h-full border-0"
-                title="Cuaderno Completo de Gestión Fiscal de la Empresa"
+                title={doc.titulo}
               >
                 <div class="p-8 text-center font-mono text-xs">
                   <p class="mb-4">Tu navegador no soporta la visualización directa de PDFs.</p>
@@ -195,7 +216,7 @@ const renderedDocs = docs.map(doc => {
                     class="px-4 py-2 bg-[#18181b] text-white font-bold"
                     download
                   >
-                    Descargar Cuaderno Completo PDF (9.5 MB)
+                    Descargar Documento PDF
                   </a>
                 </div>
               </iframe>
