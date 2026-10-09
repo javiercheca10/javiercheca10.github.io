@@ -488,34 +488,22 @@
     "name": "Erasmus · Atenas",
     "location": "Atenas, Grecia",
     "tag": "Erasmus+",
-    "description": "Año de intercambio académico internacional en Atenas, cursando materias de informática y gestión en entorno multicultural.",
+    "description": "Estancia académica internacional en University of Piraeus (Atenas), cursando materias de ingeniería informática y ciencias de la computación íntegramente en inglés.",
     "groups": [
       {
-        "name": "Asignaturas Erasmus",
+        "name": "Asignaturas Erasmus · University of Piraeus",
         "subjects": [
           {
-            "code": "AA",
-            "name": "Applied Algebra",
+            "code": "DMCS",
+            "name": "Distributed and Multiprocessing Computer Systems",
             "guia": null,
-            "description": "Álgebra lineal aplicada y métodos computacionales (VMLS): espacios vectoriales, normas, ortonormalidad, matrices dispersas, transformaciones lineales, inversas y ajuste por mínimos cuadrados (Least Squares).",
-            "apuntes": "/apuntes/aa",
-            "recursos": [
-              {
-                "name": "Bloque 1: Vectores, Funciones Lineales e Independencia (Cap. 1-5)",
-                "file": "/subjects/AA/bloque1_vectores_normas_independencia.md",
-                "tipo": "PROBLEMAS"
-              },
-              {
-                "name": "Bloque 2: Álgebra Matricial, Inversas y Mínimos Cuadrados (Cap. 6-13)",
-                "file": "/subjects/AA/bloque2_matrices_inversas_minimos_cuadrados.md",
-                "tipo": "PROBLEMAS"
-              },
-              {
-                "name": "Portafolio Completo Erasmus (PDF 25 Páginas)",
-                "file": "/subjects/AA/applied_algebra_erasmus_checa.pdf",
-                "tipo": "PDF"
-              }
-            ]
+            "description": "Arquitecturas distribuidas, modelos de computación multiprocesador, paso de mensajes, sincronización distribuida, consistencia de memoria y tolerancia a fallos."
+          },
+          {
+            "code": "LDDS",
+            "name": "Logic Design of Digital Systems",
+            "guia": null,
+            "description": "Diseño y síntesis de sistemas lógicos digitales: álgebra booleana, circuitos combinacionales y secuenciales, autómatas finitos (FSM), módulos MSI y descripción hardware."
           },
           {
             "code": "IT",
@@ -543,10 +531,10 @@
             ]
           },
           {
-            "code": "DM",
-            "name": "Discrete Mathematics",
+            "code": "MCS",
+            "name": "Mathematics for Computer Science",
             "guia": null,
-            "description": "Matemáticas discretas y computación teórica (Rosen): lógica proposicional, tablas de verdad, resolución, teoría de números (algoritmo extendido de Euclides, inversos modulares y teorema de Fermat), inducción y combinatoria avanzada.",
+            "description": "Fundamentos matemáticos para la computación y matemáticas discretas (Rosen): lógica proposicional, equivalencias, resolución, teoría de números (algoritmo de Euclides e inversos modulares), inducción y combinatoria avanzada.",
             "apuntes": "/apuntes/dm",
             "recursos": [
               {
@@ -570,6 +558,78 @@
                 "tipo": "PDF"
               }
             ]
+          },
+          {
+            "code": "IS",
+            "name": "Information Systems",
+            "guia": null,
+            "description": "Análisis, diseño y gestión de sistemas de información empresariales: modelado de procesos de negocio, flujos de datos, ERP, arquitectura de software corporativo y toma de decisiones."
+          },
+          {
+            "code": "DB",
+            "name": "Databases",
+            "guia": null,
+            "description": "Diseño y gestión de bases de datos relacionales: modelo entidad-relación (ER), álgebra relacional, normalización (1FN-BCNF), consultas complejas en SQL, transacciones ACID e integridad."
+          },
+          {
+            "code": "VR",
+            "name": "Virtual Reality",
+            "guia": null,
+            "description": "Fundamentos de realidad virtual y entornos inmersivos: gráficos 3D en tiempo real, interacción espacial, percepción multisensorial, dispositivos de seguimiento y modelado de mundos virtuales."
+          },
+          {
+            "code": "AIES",
+            "name": "Artificial Intelligence and Expert Systems",
+            "guia": null,
+            "description": "Inteligencia artificial simbólica y conexionista: espacios de búsqueda heurística, representación del conocimiento, sistemas expertos basados en reglas y motores de inferencia."
+          },
+          {
+            "code": "CA",
+            "name": "Computer Architecture",
+            "guia": null,
+            "description": "Arquitectura y organización de computadores: repertorio de instrucciones (ISA), segmentación de cauce (pipelining), riesgos estructurales y de datos, jerarquía de memoria caché y buses de E/S."
+          },
+          {
+            "code": "AA",
+            "name": "Applied Algebra",
+            "guia": null,
+            "description": "Álgebra lineal aplicada y métodos computacionales (VMLS): espacios vectoriales, normas, ortonormalidad, matrices dispersas, transformaciones lineales, inversas y ajuste por mínimos cuadrados (Least Squares).",
+            "apuntes": "/apuntes/aa",
+            "recursos": [
+              {
+                "name": "Bloque 1: Vectores, Funciones Lineales e Independencia (Cap. 1-5)",
+                "file": "/subjects/AA/bloque1_vectores_normas_independencia.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Bloque 2: Álgebra Matricial, Inversas y Mínimos Cuadrados (Cap. 6-13)",
+                "file": "/subjects/AA/bloque2_matrices_inversas_minimos_cuadrados.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Portafolio Completo Erasmus (PDF 25 Páginas)",
+                "file": "/subjects/AA/applied_algebra_erasmus_checa.pdf",
+                "tipo": "PDF"
+              }
+            ]
+          },
+          {
+            "code": "OOP",
+            "name": "Object Oriented Programming",
+            "guia": null,
+            "description": "Paradigma de programación orientada a objetos: encapsulamiento, herencia, polimorfismo, interfaces, patrones de diseño de software (GoF), gestión de memoria y manejo de excepciones."
+          },
+          {
+            "code": "PC",
+            "name": "Parallel Computing",
+            "guia": null,
+            "description": "Computación paralela y de alto rendimiento (HPC): arquitecturas de memoria compartida y distribuida, programación multihilo, OpenMP, paso de mensajes con MPI y optimización de rendimiento algorítmico."
+          },
+          {
+            "code": "CN",
+            "name": "Computer Networks",
+            "guia": null,
+            "description": "Redes de computadores y protocolos de comunicación: modelo OSI y pila TCP/IP, capas de transporte (TCP/UDP), encaminamiento IP, control de congestión, conmutación y seguridad en redes."
           }
         ]
       }
