@@ -162,9 +162,7 @@ import profile from '../data/profile.json';
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
               <span>Actualizado Oct 2026</span>
             </span>
-            <a href="#cv-interactive-viewer" class="text-black font-bold hover:underline">
-              Visor embebido ↓
-            </a>
+            <span class="text-[#09090b] font-medium">Formato A4</span>
           </div>
         </div>
       </aside>
@@ -331,86 +329,11 @@ import profile from '../data/profile.json';
           </div>
         </section>
 
-        <!-- BLOQUE 05: VISOR OFICIAL DE CURRICULUM VITAE (ES / EN) -->
-        <section class="border border-[#18181b] bg-white p-6 sm:p-8 space-y-5 shadow-sm scroll-mt-20" id="cv-interactive-viewer">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#18181b] pb-4">
-            <div>
-              <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
-                <span>[05]</span>
-                <span class="uppercase">Curriculum Vitae Oficial</span>
-              </div>
-              <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
-                Visor Interactivo de CV
-              </h2>
-            </div>
-
-            <!-- Selector de Idioma -->
-            <div class="flex items-center gap-2 font-mono text-xs">
-              <button
-                id="btn-cv-es"
-                type="button"
-                class="px-3.5 py-1.5 bg-[#18181b] text-white font-bold border border-[#18181b] transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
-              >
-                <span>🇪🇸</span>
-                <span>Español (ES)</span>
-              </button>
-              <button
-                id="btn-cv-en"
-                type="button"
-                class="px-3.5 py-1.5 bg-white text-[#52525b] hover:text-black font-medium border border-[#d4d4d8] hover:border-black transition-all cursor-pointer flex items-center gap-1.5"
-              >
-                <span>🇬🇧</span>
-                <span>English (EN)</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Barra de Control y Descarga Activa -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#f4f4f5] p-3.5 border border-[#e4e4e7] font-mono text-xs">
-            <div class="flex items-center gap-2 text-[#52525b]">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
-              <span id="cv-status-label">Archivo activo: <strong>CV_Javier_Checa_ES.pdf</strong> (1 página · Formato A4)</span>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <a
-                id="cv-download-btn"
-                href="/docs/CV_Javier_Checa_ES.pdf"
-                download="CV_Javier_Checa_ES.pdf"
-                class="px-3.5 py-1.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1.5 shadow-sm"
-              >
-                <span id="cv-download-text">Descargar PDF</span>
-                <span aria-hidden="true">↓</span>
-              </a>
-              <a
-                id="cv-open-btn"
-                href="/docs/CV_Javier_Checa_ES.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-3.5 py-1.5 bg-white border border-[#18181b] text-[#09090b] font-bold hover:bg-[#fafafa] transition-colors flex items-center gap-1.5"
-              >
-                <span>Abrir en nueva pestaña</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Marco iframe del visor -->
-          <div class="w-full h-[850px] border border-zinc-300 rounded bg-zinc-100 overflow-hidden shadow-inner">
-            <iframe
-              id="cv-iframe"
-              src="/docs/CV_Javier_Checa_ES.pdf"
-              class="w-full h-full border-0"
-              title="Curriculum Vitae de Javier Checa"
-            />
-          </div>
-        </section>
-
-        <!-- BLOQUE 06: SECCIÓN MODULAR (EN DESARROLLO / PRÓXIMAS IMPLEMENTACIONES) -->
+        <!-- BLOQUE 05: SECCIÓN MODULAR (EN DESARROLLO / PRÓXIMAS IMPLEMENTACIONES) -->
         <section class="border border-dashed border-[#18181b] bg-[#fafafa] p-6 sm:p-8 space-y-4">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
-              <span>[06]</span>
+              <span>[05]</span>
               <span class="uppercase">Módulos en Construcción</span>
             </div>
             <span class="font-mono text-[10px] px-2 py-0.5 bg-white border border-[#18181b] text-[#09090b] font-bold">
@@ -436,47 +359,3 @@ import profile from '../data/profile.json';
 
   <Footer />
 </Layout>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btnEs = document.getElementById('btn-cv-es');
-    const btnEn = document.getElementById('btn-cv-en');
-    const iframe = document.getElementById('cv-iframe');
-    const downloadBtn = document.getElementById('cv-download-btn');
-    const downloadText = document.getElementById('cv-download-text');
-    const openBtn = document.getElementById('cv-open-btn');
-    const statusLabel = document.getElementById('cv-status-label');
-
-    if (btnEs && btnEn && iframe && downloadBtn && openBtn && statusLabel) {
-      btnEs.addEventListener('click', () => {
-        iframe.src = '/docs/CV_Javier_Checa_ES.pdf';
-        downloadBtn.href = '/docs/CV_Javier_Checa_ES.pdf';
-        downloadBtn.setAttribute('download', 'CV_Javier_Checa_ES.pdf');
-        if (downloadText) downloadText.textContent = 'Descargar PDF (ES)';
-        openBtn.href = '/docs/CV_Javier_Checa_ES.pdf';
-        statusLabel.innerHTML = 'Archivo activo: <strong>CV_Javier_Checa_ES.pdf</strong> (1 página · Formato A4)';
-
-        btnEs.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
-        btnEs.classList.remove('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
-
-        btnEn.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
-        btnEn.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
-      });
-
-      btnEn.addEventListener('click', () => {
-        iframe.src = '/docs/CV_Javier_Checa_EN.pdf';
-        downloadBtn.href = '/docs/CV_Javier_Checa_EN.pdf';
-        downloadBtn.setAttribute('download', 'CV_Javier_Checa_EN.pdf');
-        if (downloadText) downloadText.textContent = 'Download PDF (EN)';
-        openBtn.href = '/docs/CV_Javier_Checa_EN.pdf';
-        statusLabel.innerHTML = 'Active file: <strong>CV_Javier_Checa_EN.pdf</strong> (1 page · A4 Format)';
-
-        btnEn.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
-        btnEn.classList.remove('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
-
-        btnEs.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]', 'font-bold');
-        btnEs.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]', 'font-medium');
-      });
-    }
-  });
-</script>
