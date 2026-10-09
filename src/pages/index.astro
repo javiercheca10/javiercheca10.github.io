@@ -106,9 +106,18 @@ const tickerItems = [
 
     <!-- SECCIÓN 01: SOBRE MÍ -->
     <section id="sobre-mi" class="py-12 border-b border-[#18181b]">
-      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-2">
-        <span>[01]</span>
-        <span class="uppercase">Perfil Técnico & Trayectoria</span>
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+          <span>[01]</span>
+          <span class="uppercase">Perfil Técnico & Trayectoria</span>
+        </div>
+        <a
+          href="/sobre-mi"
+          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
+        >
+          <span>CONOCE MÁS ACERCA DE MÍ & CV</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
       <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-6">
         Sobre Mí
@@ -125,6 +134,25 @@ const tickerItems = [
           <p>
             Esta web reúne el trabajo de estos años: las asignaturas cursadas entre Granada, Atenas y Valencia, materiales organizados y las herramientas de código que voy construyendo.
           </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-3 font-mono text-xs">
+            <a
+              href="/sobre-mi"
+              class="px-4 py-2 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1.5"
+            >
+              <span>Conoce más acerca de mí</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/docs/CV_Javier_Checa_ES.pdf"
+              target="_blank"
+              download
+              class="px-4 py-2 border border-[#18181b] bg-white text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5"
+            >
+              <span>Descargar CV (PDF)</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
         </div>
 
         <!-- Matriz técnica de competencias -->

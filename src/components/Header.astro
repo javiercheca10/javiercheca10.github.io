@@ -2,7 +2,7 @@
 import profile from '../data/profile.json';
 
 interface Props {
-  activeTab?: 'home' | 'universidad' | 'proyectos';
+  activeTab?: 'home' | 'universidad' | 'proyectos' | 'sobre-mi';
 }
 
 const { activeTab = 'home' } = Astro.props;
@@ -21,7 +21,7 @@ const { activeTab = 'home' } = Astro.props;
     </a>
 
     <!-- Enlaces de navegación industrial -->
-    <nav class="flex items-center gap-4 sm:gap-6 text-xs font-mono">
+    <nav class="flex items-center gap-3 sm:gap-6 text-xs font-mono">
       <a
         href="/universidad"
         class={`transition-colors py-1 ${activeTab === 'universidad' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
@@ -35,8 +35,8 @@ const { activeTab = 'home' } = Astro.props;
         [02] Proyectos
       </a>
       <a
-        href="/#sobre-mi"
-        class="text-[#52525b] hover:text-black hidden md:inline py-1"
+        href="/sobre-mi"
+        class={`transition-colors py-1 ${activeTab === 'sobre-mi' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
       >
         [03] Sobre mí
       </a>

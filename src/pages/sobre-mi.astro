@@ -1,0 +1,328 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import profile from '../data/profile.json';
+---
+
+<Layout
+  title="Sobre Mí · Javier Checa | Perfil Técnico, Trayectoria & CV"
+  description="Perfil profesional y trayectoria académica de Javier Checa: Doble Grado en Ingeniería Informática y ADE (UGR, Atenas, Valencia), competencias técnicas y descarga de Curriculum Vitae."
+>
+  <Header activeTab="sobre-mi" />
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Encabezado técnico -->
+    <div class="border-b border-[#18181b] pb-8 mb-10">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-2">
+        <span>[ ARCHIVO PERSONAL & BIOGRAFÍA ]</span>
+        <span>//</span>
+        <span>FRANCISCO JAVIER CHECA CASAS</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-[#09090b]">
+        Sobre Mí & Trayectoria
+      </h1>
+      <p class="mt-3 text-sm text-[#52525b] max-w-3xl leading-relaxed">
+        Estudiante del Doble Grado en Ingeniería Informática y Administración y Dirección de Empresas (UGR · Atenas · Valencia). Foco en ingeniería de software, modelos matemáticos de optimización, análisis financiero y sistemas de decisión.
+      </p>
+    </div>
+
+    <!-- Layout en dos columnas: Perfil / Foto / CV (Izquierda) + Biografía & Áreas (Derecha) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- COLUMNA LATERAL: Foto, Ficha Técnica y Descarga de CV -->
+      <aside class="lg:col-span-5 space-y-6 lg:sticky lg:top-20">
+        <!-- Tarjeta de Foto y Datos Rápidos -->
+        <div class="border border-[#18181b] bg-white overflow-hidden shadow-sm">
+          <div class="relative bg-[#f4f4f5] border-b border-[#18181b]">
+            <img
+              src="/images/javier_checa.jpg"
+              alt="Javier Checa"
+              class="w-full aspect-[3/4] object-cover object-top filter contrast-[1.02]"
+              loading="eager"
+            />
+            <div class="absolute bottom-3 left-3 bg-[#18181b] text-white text-[10px] font-mono font-bold px-2.5 py-1 tracking-wider uppercase">
+              Javier Checa // UGR · GIIADE
+            </div>
+          </div>
+
+          <div class="p-5 space-y-4">
+            <div>
+              <h2 class="text-xl font-bold uppercase tracking-tight text-[#09090b]">
+                Javier Checa
+              </h2>
+              <p class="text-xs font-semibold text-[#52525b] mt-0.5">
+                Ingeniería Informática & Administración de Empresas
+              </p>
+            </div>
+
+            <div class="border-t border-[#e4e4e7] pt-3 font-mono text-xs space-y-2">
+              <div class="flex justify-between items-baseline py-1 border-b border-[#f4f4f5]">
+                <span class="text-[#71717a] text-[11px] uppercase">Ubicación</span>
+                <span class="font-medium text-[#09090b]">Granada, España</span>
+              </div>
+              <div class="flex justify-between items-baseline py-1 border-b border-[#f4f4f5]">
+                <span class="text-[#71717a] text-[11px] uppercase">Grado Oficial</span>
+                <span class="font-medium text-[#09090b]">GIIADE (UGR)</span>
+              </div>
+              <div class="flex justify-between items-baseline py-1 border-b border-[#f4f4f5]">
+                <span class="text-[#71717a] text-[11px] uppercase">Estancias</span>
+                <span class="font-medium text-[#09090b]">Atenas (Erasmus) · Valencia (SICUE)</span>
+              </div>
+              <div class="flex justify-between items-baseline py-1 border-b border-[#f4f4f5]">
+                <span class="text-[#71717a] text-[11px] uppercase">Idiomas</span>
+                <span class="font-medium text-[#09090b]">Español (Nat.) · Inglés (B2)</span>
+              </div>
+              <div class="flex justify-between items-baseline py-1">
+                <span class="text-[#71717a] text-[11px] uppercase">GitHub</span>
+                <a
+                  href={profile.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-bold text-[#09090b] hover:underline"
+                >
+                  github.com/{profile.handle} ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO DE DESCARGA DE CV -->
+        <div class="border border-[#18181b] bg-white p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-[#18181b]">
+            <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-2">
+              <span class="w-2 h-2 bg-[#18181b] inline-block"></span>
+              <span>Curriculum Vitae</span>
+            </div>
+            <span class="font-mono text-[10px] px-2 py-0.5 bg-[#f4f4f5] border border-[#e4e4e7] text-[#52525b]">
+              PDF OFICIAL
+            </span>
+          </div>
+
+          <p class="text-xs text-[#52525b] leading-relaxed">
+            Descarga mi curriculum vitae con el desglose formal de itinerario curricular, proyectos de ingeniería, competencias técnicas y experiencia académica.
+          </p>
+
+          <div class="space-y-2.5 pt-1">
+            <a
+              href="/docs/CV_Javier_Checa_ES.pdf"
+              target="_blank"
+              download="CV_Javier_Checa_ES.pdf"
+              class="w-full px-4 py-2.5 bg-[#18181b] text-white text-xs font-mono font-bold hover:bg-black transition-colors flex items-center justify-between group"
+            >
+              <span>Descargar CV (Español)</span>
+              <span class="group-hover:translate-y-0.5 transition-transform" aria-hidden="true">↓ PDF</span>
+            </a>
+
+            <a
+              href="/docs/CV_Javier_Checa_EN.pdf"
+              target="_blank"
+              download="CV_Javier_Checa_EN.pdf"
+              class="w-full px-4 py-2.5 border border-[#18181b] bg-white text-[#09090b] text-xs font-mono font-bold hover:bg-[#f4f4f5] transition-colors flex items-center justify-between group"
+            >
+              <span>Download CV (English)</span>
+              <span class="group-hover:translate-y-0.5 transition-transform" aria-hidden="true">↓ PDF</span>
+            </a>
+          </div>
+
+          <div class="pt-2 text-[11px] font-mono text-[#71717a] flex items-center gap-1.5">
+            <span>●</span>
+            <span>Disponible para colaboraciones técnicas y proyectos de desarrollo.</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- COLUMNA PRINCIPAL: Narrativa, Trayectoria Académica y Competencias -->
+      <div class="lg:col-span-7 space-y-10">
+
+        <!-- BLOQUE 01: VISIÓN Y PROPÓSITO -->
+        <section class="border border-[#18181b] bg-white p-6 sm:p-8 space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+            <span>[01]</span>
+            <span class="uppercase">Filosofía & Propósito</span>
+          </div>
+          <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+            Ingeniería Rigurosa y Decisión Estratégica
+          </h2>
+          <div class="text-sm text-[#52525b] space-y-4 leading-relaxed">
+            <p>
+              Me defino como un apasionado de la informática, las finanzas y los sistemas de optimización, con mentalidad analítica, disciplina de trabajo y una clara orientación a resultados tangibles.
+            </p>
+            <p>
+              El Doble Grado me permite tender puentes entre dos disciplinas habitualmente desconectadas: el rigor técnico del software y las matemáticas por un lado, y la lógica directiva, operativa y financiera por el otro. Me interesa comprender tanto la arquitectura interna de un sistema como su impacto económico en la organización.
+            </p>
+            <p>
+              Disfruto resolviendo problemas complejos de asignación y optimización combinatoria, automatizando flujos mediante IA agéntica y desplegando infraestructuras de software independientes en entornos locales y en la nube.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOQUE 02: TRAYECTORIA ACADÉMICA (3 SEDES) -->
+        <section class="space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+            <span>[02]</span>
+            <span class="uppercase">Trayectoria Académica Multisede</span>
+          </div>
+          <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+            Formación Universitaria (Granada · Atenas · Valencia)
+          </h2>
+
+          <div class="border border-[#18181b] bg-white divide-y divide-[#18181b]">
+            <!-- Sede 1: UGR -->
+            <div class="p-6 space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 class="font-bold text-base text-[#09090b] tracking-tight">
+                  Universidad de Granada (UGR)
+                </h3>
+                <span class="font-mono text-xs text-[#71717a]">Granada, España · En curso</span>
+              </div>
+              <div class="font-mono text-xs font-semibold text-[#18181b]">
+                Doble Grado en Ingeniería Informática y Administración de Empresas (GIIADE)
+              </div>
+              <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed pt-1">
+                Formación simultánea en la Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación (ETSIIT) y en la Facultad de Ciencias Económicas y Empresariales (FCEE). Base sólida en algorítmica, estructuras de datos avanzadas, diseño orientado a objetos, sistemas operativos, bases de datos relacionales, inteligencia artificial, microeconomía, finanzas corporativas y dirección estratégica.
+              </p>
+            </div>
+
+            <!-- Sede 2: University of Piraeus -->
+            <div class="p-6 space-y-2 bg-[#fafafa]">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 class="font-bold text-base text-[#09090b] tracking-tight">
+                  University of Piraeus (Πανεπιστήμιο Πειραιώς)
+                </h3>
+                <span class="font-mono text-xs text-[#71717a]">Atenas, Grecia · 2024–2025</span>
+              </div>
+              <div class="font-mono text-xs font-semibold text-[#18181b]">
+                Programa Erasmus+ · Computer Engineering
+              </div>
+              <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed pt-1">
+                Estancia académica internacional cursada íntegramente en inglés. Especialización en desarrollo web cliente-servidor y arquitectura corporativa (<em>Internet Technologies</em>), modelado matricial y optimización por mínimos cuadrados (<em>Applied Algebra</em>) y métodos formales de conteo y teoría de grafos (<em>Discrete Mathematics</em>).
+              </p>
+            </div>
+
+            <!-- Sede 3: UPV -->
+            <div class="p-6 space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <h3 class="font-bold text-base text-[#09090b] tracking-tight">
+                  Universitat Politècnica de València (UPV)
+                </h3>
+                <span class="font-mono text-xs text-[#71717a]">Valencia, España · SICUE</span>
+              </div>
+              <div class="font-mono text-xs font-semibold text-[#18181b]">
+                Programa de Movilidad Nacional SICUE · Administración y Dirección de Empresas
+              </div>
+              <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed pt-1">
+                Inmersión en el marco contable y fiscal corporativo español: constitución de sociedades de capital (SA/SL), primas de emisión, dividendos pasivos y reformas del PGC/LSC en <em>Contabilidad Financiera y de Sociedades</em>, así como liquidación técnica de IRPF (estimación directa/simplificada), Impuesto sobre Sociedades e IVA en <em>Gestión Fiscal de la Empresa</em>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOQUE 03: ÁREAS DE ESPECIALIZACIÓN Y STACK -->
+        <section class="space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+            <span>[03]</span>
+            <span class="uppercase">Capacidades & Stack Técnico</span>
+          </div>
+          <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+            Matriz de Competencias
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Tarjeta 1 -->
+            <div class="border border-[#18181b] bg-white p-5 space-y-2">
+              <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-1.5">
+                <span>[A]</span>
+                <span>Desarrollo de Software</span>
+              </div>
+              <p class="text-xs text-[#52525b] leading-relaxed">
+                Dominio de lenguajes compilados e interpretados: <strong>Python, C++, Java, Ruby, C#, PHP y TypeScript</strong>. Arquitecturas modulares MVC, interfaces de usuario en PySide6/Qt y Swing, y desarrollo web moderno con FastAPI, Astro y Tailwind CSS.
+              </p>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="border border-[#18181b] bg-white p-5 space-y-2">
+              <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-1.5">
+                <span>[B]</span>
+                <span>Optimización & Algoritmia</span>
+              </div>
+              <p class="text-xs text-[#52525b] leading-relaxed">
+                Programación con restricciones mediante <strong>Google OR-Tools CP-SAT</strong> para cuadrantes y recursos, algoritmos de búsqueda heurística informada (<strong>A*</strong>, BFS), divide y vencerás, algoritmos voraces y programación dinámica.
+              </p>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="border border-[#18181b] bg-white p-5 space-y-2">
+              <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-1.5">
+                <span>[C]</span>
+                <span>Sistemas, Docker & Self-Hosted</span>
+              </div>
+              <p class="text-xs text-[#52525b] leading-relaxed">
+                Entornos Linux (Arch/Omarchy), orquestación con <strong>Docker Compose</strong>, contenedores securizados sin privilegios root, integración de bots interactivos (Telegram Bot API) y servidores multimedia HTTP Range Streaming (TorrServer).
+              </p>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="border border-[#18181b] bg-white p-5 space-y-2">
+              <div class="font-mono text-xs font-bold text-[#09090b] uppercase flex items-center gap-1.5">
+                <span>[D]</span>
+                <span>Gestión Empresarial & Finanzas</span>
+              </div>
+              <p class="text-xs text-[#52525b] leading-relaxed">
+                Análisis financiero y contabilidad de sociedades (PGC / LSC), liquidación fiscal tributaria (IRPF, IS, IVA), dirección estratégica, modelado econométrico y gestión de operaciones con orientación analítica a la rentabilidad.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOQUE 04: INTERESES & VISIÓN -->
+        <section class="border border-[#18181b] bg-white p-6 sm:p-8 space-y-4">
+          <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+            <span>[04]</span>
+            <span class="uppercase">Intereses & Seguimiento</span>
+          </div>
+          <h2 class="text-2xl font-bold uppercase tracking-tight text-[#09090b]">
+            Mercados, Tecnología & Aprendizaje Continuo
+          </h2>
+          <div class="text-sm text-[#52525b] space-y-3 leading-relaxed">
+            <p>
+              Más allá del plan de estudios universitario, mantengo un seguimiento regular de la prensa económica nacional e internacional, la evolución de los mercados de activos, la dinámica de creación de empresas y las tendencias de capital riesgo en startups.
+            </p>
+            <p>
+              En el plano tecnológico, dedico tiempo a experimentar con nuevas herramientas de IA agéntica, arquitectura de software y optimización continua de mi entorno de trabajo en Linux, buscando siempre aplicar soluciones prácticas a necesidades reales.
+            </p>
+          </div>
+        </section>
+
+        <!-- BLOQUE 05: SECCIÓN MODULAR (EN DESARROLLO / PRÓXIMAS IMPLEMENTACIONES) -->
+        <section class="border border-dashed border-[#18181b] bg-[#fafafa] p-6 sm:p-8 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
+              <span>[05]</span>
+              <span class="uppercase">Módulos en Construcción</span>
+            </div>
+            <span class="font-mono text-[10px] px-2 py-0.5 bg-white border border-[#18181b] text-[#09090b] font-bold">
+              PRÓXIMAMENTE
+            </span>
+          </div>
+          <h3 class="text-lg font-bold uppercase tracking-tight text-[#09090b]">
+            Bitácora, Lecturas & Recursos
+          </h3>
+          <p class="text-xs sm:text-sm text-[#52525b] leading-relaxed">
+            Este perfil se irá enriqueciendo progresivamente con nuevos bloques:
+          </p>
+          <ul class="font-mono text-xs text-[#52525b] space-y-2 list-disc list-inside">
+            <li><strong>Archivo de Lecturas & Libros:</strong> Obras de referencia sobre economía, finanzas cuantitativas, estrategia y ciencias de la computación.</li>
+            <li><strong>Bitácora de Laboratorio:</strong> Notas técnicas de implementación, arquitectura de servidores y scripts de automatización.</li>
+            <li><strong>Certificaciones & Hitos:</strong> Acreditaciones académicas y profesionales a medida que se completen.</li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
