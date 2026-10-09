@@ -1,0 +1,327 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "eco-estimacion-guia",
+    titulo: "Práctica 1: Estimación e Inferencia en Regresión Lineal con Python",
+    tipo: "GUÍA & NOTEBOOK",
+    isPdf: false,
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    path: "public/subjects/ECO/practica1_estimacion_regresion_lineal_python.md",
+    downloadUrl: "/subjects/ECO/practica1_estimacion_regresion_lineal_python.md",
+    downloadLabel: "Descargar Guía (MD)",
+    resumen: "Estimación por MCO en notación matricial, contrastes t y F, descomposición ANOVA (SCT, SCE, SCR), cálculo de R² y predicción con Statsmodels en Python."
+  },
+  {
+    id: "eco-estimacion-ipynb",
+    titulo: "01_ECO_Estimacion.ipynb · Cuaderno Jupyter",
+    tipo: "JUPYTER NOTEBOOK",
+    isPdf: true,
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    downloadUrl: "/subjects/ECO/01_ECO_Estimacion.ipynb",
+    downloadLabel: "Descargar Notebook (IPYNB 12 KB)",
+    resumen: "Cuaderno interactivo con código ejecutable: modelos ceosal1 y wage1 de Wooldridge, contrastes de hipótesis y validación de residuos."
+  },
+  {
+    id: "eco-intro-ipynb",
+    titulo: "00_ECO_Intro.ipynb · Introducción a Python",
+    tipo: "JUPYTER NOTEBOOK",
+    isPdf: true,
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    downloadUrl: "/subjects/ECO/00_ECO_Intro.ipynb",
+    downloadLabel: "Descargar Intro (IPYNB 7 KB)",
+    resumen: "Guía de sintaxis Python, formato Markdown, ecuaciones LaTeX y uso de NumPy para estudiantes del doble grado."
+  },
+  {
+    id: "eco-stock-xlsx",
+    titulo: "stock.xlsx · Dataset Financiero",
+    tipo: "DATASET EXCEL",
+    isPdf: true,
+    badgeColor: "bg-cyan-100 text-cyan-900 border-cyan-300",
+    downloadUrl: "/subjects/ECO/stock.xlsx",
+    downloadLabel: "Descargar stock.xlsx (57 KB)",
+    resumen: "Series temporales de cotizaciones bursátiles y rendimientos de activos financieros para prácticas econométricas."
+  },
+  {
+    id: "eco-theil-csv",
+    titulo: "Theil.csv & Datasets Complementarios",
+    tipo: "DATASET CSV",
+    isPdf: true,
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
+    downloadUrl: "/subjects/ECO/Theil.csv",
+    downloadLabel: "Descargar Theil.csv",
+    resumen: "Datasets empíricos para contraste de multicolinealidad, heterocedasticidad y regresión multivariable."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  if (doc.isPdf || !doc.path) {
+    return {
+      ...doc,
+      html: ""
+    };
+  }
+  const fullPath = path.join(process.cwd(), doc.path);
+  let raw = "";
+  if (fs.existsSync(fullPath)) {
+    raw = fs.readFileSync(fullPath, 'utf-8');
+  } else {
+    raw = `*Generando documento: ${doc.titulo}... Por favor refresca la página.*`;
+  }
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="Recursos · Econometría (ECO) | Javier Checa"
+  description="Modelos de regresión lineal, contrastes de hipótesis y cuadernos interactivos en Python para Econometría en el Doble Grado Informática + ADE UGR."
+>
+  <Header activeTab="universidad" />
+
+  <!-- Dependencias de KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan y cabecera técnica -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>3º CURSO (UGR)</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">ECO</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 bg-[#f4f4f5] border border-[#d4d4d8] text-[#09090b]">
+          GRADO INFORMÁTICA + ADE
+        </span>
+        <span class="px-2 py-0.5 bg-[#18181b] text-white font-bold">
+          6 ECTS
+        </span>
+      </div>
+    </div>
+
+    <!-- Título principal -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-1 bg-blue-100 text-blue-900 border border-blue-300 font-mono text-xs font-bold">
+          REGRESIÓN LINEAL & PYTHON
+        </span>
+        <span class="text-xs font-mono text-[#71717a]">CÓDIGO: ECO</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#09090b]">
+        Econometría
+      </h1>
+      <p class="text-[#52525b] mt-2 max-w-3xl text-sm sm:text-base leading-relaxed">
+        Modelización econométrica formal: estimación MCO en notación matricial, contrastes de hipótesis (t de Student, F de Fisher), análisis de varianza ANOVA y cuadernos de computación interactiva en Python con Statsmodels.
+      </p>
+    </div>
+
+    <!-- Pestañas de Documentos -->
+    <div class="flex flex-wrap gap-2 mb-6 border-b border-[#e4e4e7] pb-3 font-mono text-xs">
+      {docs.map((doc, idx) => (
+        <button
+          class={`tab-btn px-3 py-1.5 border transition-all flex items-center gap-2 font-medium ${
+            idx === 0
+              ? 'bg-[#18181b] text-white border-[#18181b]'
+              : 'bg-white text-[#52525b] border-[#d4d4d8] hover:border-black'
+          }`}
+          data-doc-id={doc.id}
+        >
+          <span>{doc.isPdf ? '📓' : '📈'} {doc.titulo.split('·')[0]}</span>
+          <span class={`text-[10px] px-1.5 py-0.2 border rounded ${doc.badgeColor}`}>
+            {doc.tipo}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenedores de cada Documento -->
+    {renderedDocs.map((doc, idx) => (
+      <div id={`container-${doc.id}`} class={`doc-container ${idx === 0 ? 'block' : 'hidden'}`}>
+        <!-- Metadatos del documento activo -->
+        <div class="border border-[#18181b] bg-white p-4 sm:p-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs shadow-sm">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class={`px-2 py-0.5 border font-bold text-[11px] rounded ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+              <h2 class="font-bold text-[#09090b] text-sm sm:text-base">
+                {doc.titulo}
+              </h2>
+            </div>
+            <p class="text-[#52525b] mt-1 font-sans text-xs">
+              {doc.resumen}
+            </p>
+          </div>
+
+          <a
+            href={doc.downloadUrl}
+            download
+            class="px-4 py-2 border border-[#18181b] bg-[#18181b] text-white hover:bg-[#27272a] transition-colors font-bold whitespace-nowrap flex items-center gap-2 self-start sm:self-auto text-xs shadow-sm"
+          >
+            <span>{doc.downloadLabel || "Descargar Archivo"}</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        {doc.isPdf ? (
+          <div class="border border-[#18181b] bg-[#fafafa] p-8 sm:p-12 text-center my-6">
+            <div class="text-4xl mb-3">📓</div>
+            <h3 class="font-bold text-lg text-[#18181b] mb-2">{doc.titulo}</h3>
+            <p class="text-sm text-[#52525b] max-w-xl mx-auto mb-6">
+              Este recurso es un archivo técnico ({doc.tipo}) disponible para descarga directa y ejecución en tu entorno Jupyter / Python o software estadístico.
+            </p>
+            <a
+              href={doc.downloadUrl}
+              download
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#18181b] text-white font-mono text-xs font-bold hover:bg-[#27272a] transition-all"
+            >
+              <span>{doc.downloadLabel || "Descargar Recurso"}</span>
+              <span>↓</span>
+            </a>
+          </div>
+        ) : (
+          <article
+            class="math-article prose-custom border border-[#18181b] bg-white p-6 sm:p-10 text-[#09090b] leading-relaxed shadow-sm"
+            set:html={doc.html}
+          />
+        )}
+      </div>
+    ))}
+
+    <!-- Banner inferior de navegación -->
+    <div class="mt-8 pt-4 border-t border-[#18181b] flex items-center justify-between font-mono text-xs text-[#52525b]">
+      <span>Documentación y cuadernos computacionales de Econometría (UGR).</span>
+      <a href="/universidad" class="hover:text-black font-bold">
+        ← Volver al Plan de Estudios
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  function renderKaTeX() {
+    if (typeof renderMathInElement === 'function') {
+      const articles = document.querySelectorAll('.math-article');
+      articles.forEach(article => {
+        renderMathInElement(article, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      });
+    }
+  }
+
+  const tabs = document.querySelectorAll('.tab-btn');
+  const containers = document.querySelectorAll('.doc-container');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const docId = tab.dataset.docId;
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+        t.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]');
+      });
+      tab.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+      tab.classList.remove('bg-white', 'text-[#52525b]');
+
+      containers.forEach(c => {
+        c.classList.add('hidden');
+        c.classList.remove('block');
+      });
+
+      const activeContainer = document.getElementById(`container-${docId}`);
+      if (activeContainer) {
+        activeContainer.classList.remove('hidden');
+        activeContainer.classList.add('block');
+      }
+
+      renderKaTeX();
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', renderKaTeX);
+  window.addEventListener('load', renderKaTeX);
+</script>
+
+<style is:global>
+  .prose-custom h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #18181b;
+  }
+  .prose-custom h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid #e4e4e7;
+  }
+  .prose-custom h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #18181b;
+  }
+  .prose-custom p {
+    margin-bottom: 1rem;
+    font-size: 0.925rem;
+    line-height: 1.7;
+    color: #27272a;
+  }
+  .prose-custom ul, .prose-custom ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    font-size: 0.925rem;
+  }
+  .prose-custom li {
+    margin-bottom: 0.35rem;
+  }
+  .prose-custom strong {
+    color: #09090b;
+    font-weight: 700;
+  }
+  .prose-custom pre {
+    background-color: #18181b;
+    color: #f4f4f5;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  .prose-custom code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85em;
+  }
+</style>

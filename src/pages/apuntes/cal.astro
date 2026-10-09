@@ -52,6 +52,15 @@ const docs = [
     path: "public/subjects/CAL/examenes/examen_ordinaria_enero_2024.md",
     downloadUrl: "/subjects/CAL/examenes/examen_ordinaria_enero_2024.md",
     resumen: "Enunciado oficial de 5 problemas: desigualdades, series numéricas, integrales y optimización."
+  },
+  {
+    id: "laboratorio-maxima",
+    titulo: "Prácticas de Laboratorio & Computación con wxMaxima",
+    tipo: "PRÁCTICAS CAS",
+    path: "public/subjects/CAL/maxima_laboratorio_practicas.md",
+    downloadUrl: "/subjects/CAL/maxima/ChecaCasas-FranciscoJavier-A21.wxmx",
+    downloadLabel: "Descargar Sesión (.WXMX)",
+    resumen: "Cálculo simbólico y numérico: Polinomios de Taylor, algoritmo de Newton-Raphson, cálculo de áreas con romberg y representación 2D con wxdraw."
   }
 ];
 
@@ -149,7 +158,7 @@ const renderedDocs = docs.map(doc => {
             download
             class="px-3.5 py-2 border border-[#18181b] bg-[#f4f4f5] hover:bg-[#18181b] hover:text-white transition-colors font-bold whitespace-nowrap flex items-center gap-1.5 self-start sm:self-auto"
           >
-            <span>Descargar .md</span>
+            <span>{doc.downloadLabel || "Descargar .md"}</span>
             <span aria-hidden="true">↓</span>
           </a>
         </div>

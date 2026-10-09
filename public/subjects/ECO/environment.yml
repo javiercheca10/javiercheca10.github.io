@@ -1,0 +1,13 @@
+name: eco-environment
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - numpy
+  - pip
+  - pip:
+    - statsmodels
+    - matplotlib
+    - pandas
+    - wooldridge
+    - sklearn

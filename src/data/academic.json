@@ -21,7 +21,10 @@
               { "name": "Bloque 2: Sucesiones y Series Numéricas", "file": "/subjects/CAL/bloque2_sucesiones_series.md", "tipo": "APUNTES" },
               { "name": "Bloque 3: Límites y Polinomio de Taylor", "file": "/subjects/CAL/bloque3_limites_taylor.md", "tipo": "APUNTES" },
               { "name": "Examen 1er Parcial (Noviembre 2023)", "file": "/subjects/CAL/examenes/examen_parcial_noviembre_2023.md", "tipo": "EXAMEN" },
-              { "name": "Examen Ordinaria Teoría (Enero 2024)", "file": "/subjects/CAL/examenes/examen_ordinaria_enero_2024.md", "tipo": "EXAMEN" }
+              { "name": "Examen Ordinaria Teoría (Enero 2024)", "file": "/subjects/CAL/examenes/examen_ordinaria_enero_2024.md", "tipo": "EXAMEN" },
+              { "name": "Prácticas de Laboratorio & Computación con wxMaxima", "file": "/subjects/CAL/maxima_laboratorio_practicas.md", "tipo": "PRÁCTICA" },
+              { "name": "Sesión Examen Práctico Maxima · Javier Checa (.WXMX)", "file": "/subjects/CAL/maxima/ChecaCasas-FranciscoJavier-A21.wxmx", "tipo": "WXMX" },
+              { "name": "Examen Segundo Parcial Prácticas D2 & E3 (PDF)", "file": "/subjects/CAL/maxima/Segundo parcial D2.pdf", "tipo": "PDF" }
             ]
           },
           {
@@ -33,15 +36,22 @@
             "recursos": [
               { "name": "Tema: Economía Abierta, Balanza de Pagos & Multiplicador", "file": "/subjects/EP/macroeconomia_abierta_y_balanza_pagos.md", "tipo": "TEORÍA" },
               { "name": "Capítulo 8 · Economía Abierta (PDF)", "file": "/subjects/EP/capitulo8_economia_abierta.pdf", "tipo": "PDF" },
-              { "name": "Formulario Maestro · Economía Política (PDF)", "file": "/subjects/EP/formulario_economia_politica.pdf", "tipo": "PDF" }
+              { "name": "Formulario Maestro · Economía Política (PDF)", "file": "/subjects/EP/formulario_economia_politica.pdf", "tipo": "PDF" },
+              { "name": "Práctica: Desplazamientos de Oferta y Demanda (PDF)", "file": "/subjects/EP/practica_oferta_demanda_desplazamientos.pdf", "tipo": "PDF" },
+              { "name": "Práctica Temas 1 y 2: Escuelas de Pensamiento (PDF)", "file": "/subjects/EP/practica_temas_1_2_escuelas_pensamiento.pdf", "tipo": "PDF" }
             ]
           },
           {
             "code": "FFT",
             "name": "Fundamentos Físicos y Tecnológicos",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-fisicos-y-tecnologicos/guia-docente",
-            "description": "Fundamentos físicos del hardware y tecnología de semiconductores: análisis circuital en régimen continuo y transitorio, esquemas de simulación de laboratorio.",
+            "description": "Fundamentos físicos del hardware y tecnología electrónica: leyes de Kirchhoff, análisis circuital en régimen DC y transitorio, diseño y simulación CAD con CircuitMaker y memorias de laboratorio con divisor de tensión.",
+            "apuntes": "/apuntes/fft",
             "recursos": [
+              { "name": "Práctica de Laboratorio 1: Simulación DC & Divisores de Tensión", "file": "/subjects/FFT/practica1_laboratorio_circuitos_dc.md", "tipo": "GUÍA" },
+              { "name": "Práctica de Laboratorio 1 · Memoria Cumplimentada (PDF)", "file": "/subjects/FFT/laboratoriofft1.pdf", "tipo": "PDF" },
+              { "name": "Guía Oficial de Laboratorio FFT (PDF)", "file": "/subjects/FFT/laboratorioFFT.pdf", "tipo": "PDF" },
+              { "name": "Circuit3.cct · Simulación CAD CircuitMaker", "file": "/subjects/FFT/Circuit3.cct", "tipo": "CCT" },
               { "name": "Práctica de Laboratorio 1 · Esquemático FFT (.SCH)", "file": "/subjects/FFT/laboratorio1_fft.sch", "tipo": "SCH" },
               { "name": "Práctica de Laboratorio 2 · Esquemático FFT (.SCH)", "file": "/subjects/FFT/laboratorio2_fft.sch", "tipo": "SCH" }
             ]
@@ -67,7 +77,8 @@
               { "name": "Prácticas de Programación Estructurada en C++ (Guía)", "file": "/subjects/FP/ejercicios_fundamentos_programacion_cpp.md", "tipo": "CÓDIGO" },
               { "name": "calculadora.cpp · Código Fuente C++", "file": "/subjects/FP/calculadora.cpp", "tipo": "CPP" },
               { "name": "temperaturas_conversor.cpp · Código Fuente C++", "file": "/subjects/FP/temperaturas_conversor.cpp", "tipo": "CPP" },
-              { "name": "sexagesimal_a_grados.cpp · Código Fuente C++", "file": "/subjects/FP/sexagesimal_a_grados.cpp", "tipo": "CPP" }
+              { "name": "sexagesimal_a_grados.cpp · Código Fuente C++", "file": "/subjects/FP/sexagesimal_a_grados.cpp", "tipo": "CPP" },
+              { "name": "bucle_while_resumir.cpp · Muestreo y Costes C++", "file": "/subjects/FP/bucle_while_resumir.cpp", "tipo": "CPP" }
             ]
           },
           {
@@ -93,13 +104,27 @@
             "code": "FS",
             "name": "Fundamentos del Software",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/fundamentos-del-software/guia-docente",
-            "description": ""
+            "description": "Arquitectura y servicios de sistemas operativos tipo UNIX/Linux: llamadas al sistema, administración de archivos e inodos, pipes, redirecciones y shell scripting automatizado en Bash.",
+            "apuntes": "/apuntes/fs",
+            "recursos": [
+              { "name": "Prácticas de Shell Scripting & Administración del Sistema", "file": "/subjects/FS/practicas_shell_bash_scripts.md", "tipo": "GUÍA" },
+              { "name": "guion_practica_bash.sh · Script de Análisis de Directorios", "file": "/subjects/FS/guion_practica_bash.sh", "tipo": "BASH" },
+              { "name": "practica3_4_find_atime.sh · Auditoría de Acceso Temporal", "file": "/subjects/FS/practica3_4_find_atime.sh", "tipo": "BASH" }
+            ]
           },
           {
             "code": "HDM",
             "name": "Historia del Desarrollo Económico Mundial Contemporáneo",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/historia-del-desarrollo-economico-mundial-contemporaneo/guia-docente",
-            "description": ""
+            "description": "Historia económica comparada y globalización: costes de ruptura y deslocalización (Richard Baldwin), cadenas globales de valor, economía del desarrollo (Banerjee y Duflo) y medición multidimensional del bienestar.",
+            "apuntes": "/apuntes/hdm",
+            "recursos": [
+              { "name": "Presentación: La Gran Convergencia (Richard Baldwin)", "file": "/subjects/HDM/presentacion_la_gran_convergencia.md", "tipo": "PRESENTACIÓN" },
+              { "name": "La Gran Convergencia · Presentación Oficial (PDF)", "file": "/subjects/HDM/LaGranCovergenciaFcoJavierChecaCasas.pdf", "tipo": "PDF" },
+              { "name": "Repensar la Pobreza: Análisis Banerjee & Duflo (PDF)", "file": "/subjects/HDM/repensar_la_pobreza_banerjee_duflo.pdf", "tipo": "PDF" },
+              { "name": "El PIB No es una Buena Medida del Bienestar (PDF)", "file": "/subjects/HDM/el_pib_no_es_una_buena_medida_del_bienestar.pdf", "tipo": "PDF" },
+              { "name": "Mapa Mental: Desarrollo Profesional & Globalización (PDF)", "file": "/subjects/HDM/mapa_mental_desarrollo_profesional.pdf", "tipo": "PDF" }
+            ]
           },
           {
             "code": "ID",
@@ -117,7 +142,12 @@
             "code": "MP",
             "name": "Metodología de la Programación",
             "guia": "https://grados.ugr.es/sites/grados/default/public/guias-firmadas/2025-2026/216111B.pdf",
-            "description": ""
+            "description": "Programación orientada a objetos en C++: gestión dinámica de memoria en el heap, punteros, constructores de copia profunda (Rule of Three), sobrecarga de operadores y procesamiento de imágenes matriciales en formato PGM.",
+            "apuntes": "/apuntes/mp",
+            "recursos": [
+              { "name": "Proyecto Imaging: Procesamiento de Imágenes en C++", "file": "/subjects/MP/proyecto_imaging_procesamiento_imagenes_cpp.md", "tipo": "PROYECTO" },
+              { "name": "Imaging3 · Código Fuente y Pruebas (.ZIP)", "file": "/subjects/MP/Imaging3_metodologia_programacion.zip", "tipo": "ZIP" }
+            ]
           },
           {
             "code": "MIC",
@@ -226,13 +256,13 @@
             "code": "MACRO",
             "name": "Macroeconomía",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/macroeconomia/guia-docente",
-            "description": "Modelos macroeconómicos clásicos y keynesianos, economía abierta, balanza de pagos y análisis de series temporales de tipos de cambio de divisas.",
+            "description": "Modelos de equilibrio macroeconómico, política monetaria y fiscal, estabilidad del sistema financiero, impacto del gravamen temporal bancario y series temporales de tipos de cambio.",
+            "apuntes": "/apuntes/macro",
             "recursos": [
-              {
-                "name": "Series Temporales de Tipos de Cambio de Divisas (PDF)",
-                "file": "/subjects/MACRO/series_tipos_cambio.pdf",
-                "tipo": "DATOS"
-              }
+              { "name": "Informe: Estabilidad Financiera, Solvencia & Gravamen Bancario", "file": "/subjects/MACRO/informe_estabilidad_financiera_banca.md", "tipo": "INFORME" },
+              { "name": "Estabilidad Financiera & Solvencia · Memoria Oficial (PDF)", "file": "/subjects/MACRO/estabilidad_financiera_gravamen_bancario.pdf", "tipo": "PDF" },
+              { "name": "Indicadores Macroeconómicos & Series (.XLSX)", "file": "/subjects/MACRO/indicadores_macroeconomicos_series.xlsx", "tipo": "EXCEL" },
+              { "name": "Series Temporales de Tipos de Cambio de Divisas (PDF)", "file": "/subjects/MACRO/series_tipos_cambio.pdf", "tipo": "PDF" }
             ]
           },
           {
@@ -447,6 +477,31 @@
                 "name": "Jerarquía y Taxonomía de Clases en Java (UML)",
                 "file": "/subjects/PDOO/jerarquia_clases_java_uml.md",
                 "tipo": "DIAGRAMAS UML"
+              },
+              {
+                "name": "Relaciones de Problemas Resueltas (1 a 4) & Guía",
+                "file": "/subjects/PDOO/relaciones_problemas_poo_resueltas.md",
+                "tipo": "EJERCICIOS"
+              },
+              {
+                "name": "Relación 1 Resuelta · Objetos & Encapsulamiento (PDF)",
+                "file": "/subjects/PDOO/relacion_1_resuelta_pdoo.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Relación 2 Resuelta · Herencia & Polimorfismo (PDF)",
+                "file": "/subjects/PDOO/relacion_2_resuelta_pdoo.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Relación 3 Resuelta · Interfaces & Excepciones (PDF)",
+                "file": "/subjects/PDOO/relacion_3_resuelta_pdoo.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Relación 4 Resuelta · Colecciones & Patrones MVC (PDF)",
+                "file": "/subjects/PDOO/relacion_4_resuelta_pdoo.pdf",
+                "tipo": "PDF"
               }
             ]
           },
@@ -454,7 +509,15 @@
             "code": "ECO",
             "name": "Econometría",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/econometria/guia-docente",
-            "description": ""
+            "description": "Modelos econométricos lineales: estimación por Mínimos Cuadrados Ordinarios (MCO), inferencia estadística con contrastes t y F, análisis de varianza ANOVA y computación interactiva con Python y Statsmodels.",
+            "apuntes": "/apuntes/eco",
+            "recursos": [
+              { "name": "Práctica 1: Estimación e Inferencia en Regresión Lineal", "file": "/subjects/ECO/practica1_estimacion_regresion_lineal_python.md", "tipo": "GUÍA" },
+              { "name": "01_ECO_Estimacion.ipynb · Cuaderno Jupyter", "file": "/subjects/ECO/01_ECO_Estimacion.ipynb", "tipo": "IPYNB" },
+              { "name": "00_ECO_Intro.ipynb · Introducción a Python", "file": "/subjects/ECO/00_ECO_Intro.ipynb", "tipo": "IPYNB" },
+              { "name": "stock.xlsx · Dataset Financiero", "file": "/subjects/ECO/stock.xlsx", "tipo": "EXCEL" },
+              { "name": "Theil.csv · Dataset Multicolinealidad", "file": "/subjects/ECO/Theil.csv", "tipo": "CSV" }
+            ]
           },
           {
             "code": "CF1",
@@ -482,6 +545,41 @@
               {
                 "name": "Cuaderno Oficial de Casos Prácticos DAE (PDF 416 KB)",
                 "file": "/subjects/DAE/casos_practicos_dae.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 2: Cultura Organizacional (PDF)",
+                "file": "/subjects/DAE/practica2_cultura_organizacional.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 3: Cambio y Toma de Decisiones en Zara (PDF)",
+                "file": "/subjects/DAE/practica3_toma_decisiones_zara.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 4: Planificación en Cooperativa Oleícola (PDF)",
+                "file": "/subjects/DAE/practica4_planificacion_cooperativa.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 5: Control en Jardinería Integral & M. Pitard (PDF)",
+                "file": "/subjects/DAE/practica5_control_jardineria_pitard.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 6: Teorías de la Motivación Humana (PDF)",
+                "file": "/subjects/DAE/practica6_teorias_motivacion.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 8: Grupos de Trabajo y Decisiones Colectivas (PDF)",
+                "file": "/subjects/DAE/practica8_decisiones_en_grupo.pdf",
+                "tipo": "PDF"
+              },
+              {
+                "name": "Práctica 9: Conflicto y Negociación Laboral (PDF)",
+                "file": "/subjects/DAE/practica9_conflicto_negociacion.pdf",
                 "tipo": "PDF"
               }
             ]

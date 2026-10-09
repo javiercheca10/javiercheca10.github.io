@@ -47,6 +47,16 @@ const docs = [
     path: "public/subjects/PDOO/jerarquia_clases_java_uml.md",
     downloadUrl: "/subjects/PDOO/jerarquia_clases_java_uml.md",
     resumen: "Diagrama de clases UML con definiciones técnicas rigurosas de la taxonomía de clases: Clases Abstractas, Clases Concretas, Clases Hoja y Clases No Hoja, analizando sus restricciones de instanciación y herencia."
+  },
+  {
+    id: "relaciones-resueltas",
+    titulo: "Relaciones de Problemas Resueltas (1 a 4) & Prácticas",
+    tipo: "EJERCICIOS RESUELTOS PDF",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    path: "public/subjects/PDOO/relaciones_problemas_poo_resueltas.md",
+    downloadUrl: "/subjects/PDOO/relacion_1_resuelta_pdoo.pdf",
+    downloadLabel: "Descargar Relación 1 (PDF 6.8 MB)",
+    resumen: "Compendio completo de las 4 relaciones oficiales resueltas: objetos, encapsulamiento, herencia, polimorfismo, excepciones, colecciones y patrones de diseño, más guiones de prácticas de laboratorio."
   }
 ];
 
@@ -165,7 +175,7 @@ const renderedDocs = docs.map(doc => {
                 download
                 class="px-3 py-1.5 bg-white border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors font-bold flex items-center gap-1.5"
               >
-                <span>📥 Descargar Markdown</span>
+                <span>📥 {doc.downloadLabel || "Descargar Markdown"}</span>
               </a>
             )}
           </div>
