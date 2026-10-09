@@ -1,0 +1,349 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+
+const docs = [
+  {
+    id: "bloque-1",
+    titulo: "Bloque 1: Sistemas de Numeración & Códigos",
+    tipo: "TEORÍA & CÓDIGOS",
+    badgeColor: "bg-zinc-200 text-zinc-800 border-zinc-400",
+    path: "public/subjects/TOC/bloque1_sistemas_numeracion_y_codigos.md",
+    downloadUrl: "/subjects/TOC/bloque1_sistemas_numeracion_y_codigos.md",
+    resumen: "Bases de numeración posicionales (Binario, Octal, Hexadecimal), conversiones entre bases enteras y fraccionarias, código BCD con corrección (+6), código Gray, estándar ASCII y arquitectura RTL."
+  },
+  {
+    id: "bloque-2",
+    titulo: "Bloque 2: Álgebra de Boole & Puertas Lógicas",
+    tipo: "ÁLGEBRA & PUERTAS",
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    path: "public/subjects/TOC/bloque2_algebra_boole_y_puertas_logicas.md",
+    downloadUrl: "/subjects/TOC/bloque2_algebra_boole_y_puertas_logicas.md",
+    resumen: "Operaciones fundamentales, tablas de verdad, axiomas y teoremas, leyes de De Morgan, formas canónicas (minterms SOP y maxterms POS), catálogo de puertas digitales y familias universales NAND y NOR."
+  },
+  {
+    id: "bloque-3",
+    titulo: "Bloque 3: Aritmética & Circuitos Combinacionales",
+    tipo: "ARITMÉTICA & MSI",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    path: "public/subjects/TOC/bloque3_aritmetica_binaria_y_circuitos_combinacionales.md",
+    downloadUrl: "/subjects/TOC/bloque3_aritmetica_binaria_y_circuitos_combinacionales.md",
+    resumen: "Representación con signo (C1, C2), detección de overflow, minimización por Mapas de Karnaugh con Don't Care, diseño combinacional, semisumador, sumador completo, sumador-restador de 4 bits y módulos MSI."
+  },
+  {
+    id: "bloque-4",
+    titulo: "Bloque 4: Lógica Secuencial & Biestables",
+    tipo: "SECUENCIAL & BIESTABLES",
+    badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
+    path: "public/subjects/TOC/bloque4_logica_secuencial_latches_y_flip_flops.md",
+    downloadUrl: "/subjects/TOC/bloque4_logica_secuencial_latches_y_flip_flops.md",
+    resumen: "Sistemas secuenciales con memoria y realimentación, Latch SR asíncrono y síncrono con Enable, biestables síncronos por flanco (Flip-Flops D, JK y T), ecuaciones características y tablas de excitación."
+  }
+];
+
+const renderedDocs = docs.map(doc => {
+  const fullPath = path.join(process.cwd(), doc.path);
+  let raw = "";
+  if (fs.existsSync(fullPath)) {
+    raw = fs.readFileSync(fullPath, 'utf-8');
+  } else {
+    raw = `*Generando documento: ${doc.titulo}... Por favor refresca la página.*`;
+  }
+  return {
+    ...doc,
+    html: marked.parse(raw)
+  };
+});
+---
+
+<Layout
+  title="Apuntes y Transcripción · Tecnología y Organización de Computadores (TOC) | Javier Checa"
+  description="Cuaderno digitalizado y transcrito de Tecnología y Organización de Computadores (TOC, 1º UGR): Sistemas de numeración, Álgebra de Boole, Circuitos Combinacionales y Lógica Secuencial."
+>
+  <Header activeTab="universidad" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <!-- Migas de pan y cabecera técnica -->
+    <div class="border-b border-[#18181b] pb-4 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+      <div class="flex items-center gap-2 text-[#52525b]">
+        <a href="/universidad" class="hover:text-black font-bold">[UNIVERSIDAD]</a>
+        <span>/</span>
+        <span>1º CURSO</span>
+        <span>/</span>
+        <span class="text-[#09090b] font-bold">TOC · TECNOLOGÍA Y ORGANIZACIÓN DE COMPUTADORES</span>
+      </div>
+
+      <a
+        href="/universidad#stage-1-curso"
+        class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-bold w-fit"
+      >
+        ← Volver a Asignaturas
+      </a>
+    </div>
+
+    <!-- Título de la Asignatura -->
+    <div class="mb-8">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-1">
+        <span>[ ARCHIVO DIGITALIZADO ]</span>
+        <span>//</span>
+        <span>4 BLOQUES TEMÁTICOS TRANSCRITOS</span>
+      </div>
+      <h1 class="text-3xl font-extrabold uppercase tracking-tight text-[#09090b]">
+        Tecnología y Organización de Computadores · Cuaderno Maestro
+      </h1>
+      <p class="text-xs sm:text-sm text-[#52525b] mt-2">
+        Transcripción integral del cuaderno oficial de TOC con fórmulas KaTeX y tablas técnicas: Sistemas de numeración y códigos, Álgebra de Boole y puertas lógicas, Aritmética binaria y circuitos combinacionales, y Lógica secuencial con latches y flip-flops.
+      </p>
+    </div>
+
+    <!-- Selector de Documentos (Pestañas) -->
+    <div class="border border-[#18181b] bg-[#f4f4f5] p-2 mb-8 flex flex-wrap gap-1.5 font-mono text-xs" id="doc-tabs">
+      {renderedDocs.map((doc, idx) => (
+        <button
+          data-doc-id={doc.id}
+          class={`doc-tab px-3 py-2 text-left font-bold border transition-colors flex items-center justify-between gap-3 ${idx === 0 ? 'bg-[#18181b] text-white border-[#18181b]' : 'bg-white text-[#52525b] hover:text-black border-[#d4d4d8] hover:border-[#18181b]'}`}
+        >
+          <span>📁 {doc.titulo}</span>
+          <span class={`text-[10px] px-1.5 py-0.2 border ${doc.badgeColor}`}>
+            {doc.tipo}
+          </span>
+        </button>
+      ))}
+    </div>
+
+    <!-- Contenedores de Documentos -->
+    {renderedDocs.map((doc, idx) => (
+      <div
+        id={`doc-content-${doc.id}`}
+        class={`doc-pane ${idx === 0 ? 'block' : 'hidden'}`}
+      >
+        <!-- Ficha técnica del documento activo -->
+        <div class="border border-[#18181b] bg-[#f4f4f5] p-4 mb-6 font-mono text-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-[#09090b] uppercase">{doc.titulo}</span>
+              <span class={`px-2 py-0.5 border text-[10px] font-bold ${doc.badgeColor}`}>
+                {doc.tipo}
+              </span>
+            </div>
+            <p class="text-[#52525b] max-w-2xl">{doc.resumen}</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <a
+              href={doc.downloadUrl}
+              download
+              class="px-3 py-1.5 bg-white border border-[#18181b] hover:bg-[#18181b] hover:text-white transition-colors font-bold flex items-center gap-1.5"
+            >
+              <span>📥 Descargar Markdown</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Renderizado del Documento con KaTeX y Tipografía Técnica -->
+        <div
+          class="border border-[#18181b] bg-white p-6 sm:p-10 document-body markdown-math"
+          set:html={doc.html}
+        />
+      </div>
+    ))}
+
+    <!-- Banner inferior de navegación -->
+    <div class="mt-12 border-t border-[#18181b] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
+      <span class="text-[#52525b]">
+        Tecnología y Organización de Computadores (TOC) · 1º Curso Doble Grado GIIADE · ETSIIT UGR
+      </span>
+      <a href="/universidad" class="font-bold text-[#09090b] hover:underline">
+        Ver catálogo completo de asignaturas →
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Renderizado de fórmulas KaTeX
+    if (window.renderMathInElement) {
+      document.querySelectorAll('.markdown-math').forEach((el) => {
+        window.renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      });
+    }
+
+    // 2. Sistema de pestañas para cambiar de documento
+    const tabs = document.querySelectorAll('.doc-tab');
+    const panes = document.querySelectorAll('.doc-pane');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-doc-id');
+
+        // Actualizar botones
+        tabs.forEach((t) => {
+          t.classList.remove('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+          t.classList.add('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]');
+        });
+        tab.classList.remove('bg-white', 'text-[#52525b]', 'border-[#d4d4d8]');
+        tab.classList.add('bg-[#18181b]', 'text-white', 'border-[#18181b]');
+
+        // Mostrar panel activo
+        panes.forEach((pane) => {
+          if (pane.id === `doc-content-${targetId}`) {
+            pane.classList.remove('hidden');
+            pane.classList.add('block');
+          } else {
+            pane.classList.add('hidden');
+            pane.classList.remove('block');
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style is:global>
+  /* Tipografía y maquetación editorial para apuntes de TOC */
+  .document-body {
+    color: #18181b;
+    font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .document-body h1 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    border-bottom: 2px solid #18181b;
+    padding-bottom: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .document-body h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid #e4e4e7;
+    padding-bottom: 0.35rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #09090b;
+  }
+
+  .document-body h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #27272a;
+  }
+
+  .document-body p {
+    margin-bottom: 1.15rem;
+  }
+
+  .document-body ul, .document-body ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .document-body ul {
+    list-style-type: disc;
+  }
+
+  .document-body ol {
+    list-style-type: decimal;
+  }
+
+  .document-body li {
+    margin-bottom: 0.35rem;
+  }
+
+  .document-body blockquote {
+    border-left: 3px solid #18181b;
+    padding-left: 1rem;
+    margin: 1.25rem 0;
+    font-style: italic;
+    color: #3f3f46;
+    background: #fafafa;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .document-body pre {
+    background-color: #09090b !important;
+    color: #f4f4f5 !important;
+    padding: 1rem;
+    border: 1px solid #18181b;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.85rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .document-body code:not(pre code) {
+    background-color: #f4f4f5;
+    color: #09090b;
+    padding: 0.15rem 0.35rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.85em;
+    border: 1px solid #e4e4e7;
+  }
+
+  .document-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.825rem;
+  }
+
+  .document-body th, .document-body td {
+    border: 1px solid #18181b;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+
+  .document-body th {
+    background-color: #f4f4f5;
+    font-weight: 700;
+  }
+
+  .document-body hr {
+    border: 0;
+    border-top: 1px dashed #d4d4d8;
+    margin: 2rem 0;
+  }
+
+  .document-body .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+  }
+</style>

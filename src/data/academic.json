@@ -52,7 +52,14 @@
             "code": "TOC",
             "name": "Tecnología y Organización de Computadores",
             "guia": "https://grados.ugr.es/informatica-ade/docencia/plan-estudios/tecnologia-y-organizacion-computadores/guia-docente",
-            "description": ""
+            "description": "Sistemas de numeración y códigos (BCD, Gray, ASCII), Álgebra de Boole, minimización con Mapas de Karnaugh, circuitos combinacionales (sumadores, MSI) y lógica secuencial (latches y flip-flops).",
+            "apuntes": "/apuntes/toc",
+            "recursos": [
+              { "name": "Bloque 1: Sistemas de Numeración & Códigos", "file": "/subjects/TOC/bloque1_sistemas_numeracion_y_codigos.md", "tipo": "TEORÍA" },
+              { "name": "Bloque 2: Álgebra de Boole & Puertas Lógicas", "file": "/subjects/TOC/bloque2_algebra_boole_y_puertas_logicas.md", "tipo": "TEORÍA" },
+              { "name": "Bloque 3: Aritmética & Circuitos Combinacionales", "file": "/subjects/TOC/bloque3_aritmetica_binaria_y_circuitos_combinacionales.md", "tipo": "TEORÍA" },
+              { "name": "Bloque 4: Lógica Secuencial & Biestables", "file": "/subjects/TOC/bloque4_logica_secuencial_latches_y_flip_flops.md", "tipo": "TEORÍA" }
+            ]
           }
         ]
       },
