@@ -533,6 +533,35 @@
                 "tipo": "SQL"
               }
             ]
+          },
+          {
+            "code": "DM",
+            "name": "Discrete Mathematics",
+            "guia": null,
+            "description": "Matemáticas discretas y computación teórica (Rosen): lógica proposicional, tablas de verdad, resolución, teoría de números (algoritmo extendido de Euclides, inversos modulares y teorema de Fermat), inducción y combinatoria avanzada.",
+            "apuntes": "/apuntes/dm",
+            "recursos": [
+              {
+                "name": "Bloque 1: Lógica Proposicional, Equivalencias y Resolución",
+                "file": "/subjects/DM/bloque1_logica_equivalencias_resolucion.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Bloque 2: Teoría de Números, Aritmética Modular e Inducción",
+                "file": "/subjects/DM/bloque2_teoria_numeros_induccion.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Bloque 3: Conteo, Combinatoria Avanzada y Demostraciones",
+                "file": "/subjects/DM/bloque3_combinatoria_conteo_demostraciones.md",
+                "tipo": "PROBLEMAS"
+              },
+              {
+                "name": "Portafolio Manuscrito Completo (PDF 28 Páginas)",
+                "file": "/subjects/DM/discrete_mathematics_erasmus_checa.pdf",
+                "tipo": "PDF"
+              }
+            ]
           }
         ]
       }
