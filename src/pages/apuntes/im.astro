@@ -2,70 +2,16 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import fs from 'node:fs';
-import path from 'node:path';
-import { marked } from 'marked';
 
-marked.setOptions({
-  gfm: true,
-  breaks: true,
-});
-
-const docs = [
-  {
-    id: "lavinquepizza-presentacion",
-    titulo: "Plan Comercial & Marketing: LaVinQuePizza (Diapositivas)",
-    tipo: "PRESENTACIÓN COMERCIAL",
-    isPdf: false,
-    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
-    path: "public/subjects/IM/presentacion_lavinquepizza.md",
-    downloadUrl: "/subjects/IM/presentacion_lavinquepizza.md",
-    downloadLabel: "Descargar Diapositivas (MD)",
-    pdfAttachmentUrl: "/subjects/IM/lavinquepizza_presentacion.pdf",
-    pdfAttachmentLabel: "Descargar Presentación Original (PDF 862 KB)",
-    resumen: "Estudio comercial de LaVinQuePizza en Granada: decisiones de producto (pizza gigante 60x40 cm), fijación de precios, canales de distribución (reparto propio y Just Eat/Uber Eats) y estrategia de comunicación."
-  },
-  {
-    id: "lavinquepizza-pdf",
-    titulo: "LaVinQuePizza · Presentación Oficial (PDF)",
-    tipo: "DIAPOSITIVAS PDF",
-    isPdf: true,
-    badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
-    downloadUrl: "/subjects/IM/lavinquepizza_presentacion.pdf",
-    downloadLabel: "Descargar PDF (862 KB)",
-    resumen: "Diapositivas originales del trabajo comercial y plan de marketing de LaVinQuePizza para la asignatura de Introducción al Márketing."
-  },
-  {
-    id: "lavinquepizza-pptx",
-    titulo: "LaVinQuePizza · Archivo PowerPoint (.PPTX)",
-    tipo: "PRESENTACIÓN PPTX",
-    isPdf: false,
-    badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
-    downloadUrl: "/subjects/IM/lavinquepizza.pptx",
-    downloadLabel: "Descargar PPTX (1.1 MB)",
-    resumen: "Presentación editable en formato Microsoft PowerPoint con las transiciones y diseño original."
-  }
-];
-
-const renderedDocs = docs.map(doc => {
-  if (doc.isPdf || !doc.path) {
-    return {
-      ...doc,
-      html: ""
-    };
-  }
-  const fullPath = path.join(process.cwd(), doc.path);
-  let raw = "";
-  if (fs.existsSync(fullPath)) {
-    raw = fs.readFileSync(fullPath, 'utf-8');
-  } else {
-    raw = `*Generando documento: ${doc.titulo}... Por favor refresca la página.*`;
-  }
-  return {
-    ...doc,
-    html: marked.parse(raw)
-  };
-});
+const doc = {
+  id: "lavinquepizza-pdf",
+  titulo: "Plan Comercial & Marketing: LaVinQuePizza",
+  tipo: "DIAPOSITIVAS PDF",
+  badgeColor: "bg-purple-100 text-purple-900 border-purple-300",
+  downloadUrl: "/subjects/IM/lavinquepizza_presentacion.pdf",
+  downloadLabel: "Descargar Presentación (PDF 862 KB)",
+  resumen: "Estudio comercial y plan de marketing de LaVinQuePizza en Granada: decisiones de producto (pizza gigante 60x40 cm), fijación de precios, canales de distribución (reparto propio y plataformas) y estrategia de comunicación publicitaria."
+};
 ---
 
 <Layout
@@ -108,152 +54,51 @@ const renderedDocs = docs.map(doc => {
       </p>
     </div>
 
-    <!-- Selector de Documentos / Pestañas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
-      {docs.map((doc, idx) => (
-        <button
-          class={`doc-tab text-left p-4 border transition-all flex flex-col justify-between ${idx === 0 ? 'border-black bg-zinc-50 shadow-sm ring-1 ring-black' : 'border-[#e4e4e7] hover:border-zinc-400 bg-white'}`}
-          data-target={doc.id}
-        >
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <span class={`text-[10px] font-mono px-2 py-0.5 border font-semibold ${doc.badgeColor}`}>
-                {doc.tipo}
-              </span>
-              <span class="text-[11px] font-mono text-[#71717a]">DOC #{idx + 1}</span>
-            </div>
-            <h3 class="font-bold text-sm text-[#09090b] leading-snug mb-1">
-              {doc.titulo}
-            </h3>
-            <p class="text-xs text-[#52525b] line-clamp-2">
-              {doc.resumen}
-            </p>
-          </div>
-          <div class="mt-3 pt-2 border-t border-zinc-100 flex items-center justify-between text-[11px] font-mono text-zinc-600">
-            <span>{doc.isPdf ? 'Visor PDF Embebido' : 'Documento / Presentación'}</span>
-            <span class="font-bold">Ver →</span>
-          </div>
-        </button>
-      ))}
+    <!-- Ficha técnica del documento -->
+    <div class="border border-[#18181b] bg-white p-5 sm:p-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs shadow-sm">
+      <div>
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class={`px-2 py-0.5 border font-bold text-[11px] rounded ${doc.badgeColor}`}>
+            {doc.tipo}
+          </span>
+          <h2 class="font-bold text-[#09090b] text-sm sm:text-base">
+            {doc.titulo}
+          </h2>
+        </div>
+        <p class="text-[#52525b] font-sans text-xs max-w-2xl leading-relaxed">
+          {doc.resumen}
+        </p>
+      </div>
+
+      <a
+        href={doc.downloadUrl}
+        download
+        class="px-4 py-2 border border-[#18181b] bg-[#18181b] text-white hover:bg-[#27272a] transition-colors font-bold whitespace-nowrap flex items-center gap-2 self-start sm:self-auto text-xs shadow-sm"
+      >
+        <span>{doc.downloadLabel}</span>
+        <span aria-hidden="true">↓</span>
+      </a>
     </div>
 
-    <!-- Visor de Documentos -->
-    <div class="bg-white border border-[#18181b] shadow-sm">
-      {renderedDocs.map((doc, idx) => (
-        <article
-          id={`content-${doc.id}`}
-          class={`doc-content p-6 sm:p-10 ${idx === 0 ? 'block' : 'hidden'}`}
-        >
-          <header class="border-b border-[#e4e4e7] pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span class={`inline-block text-[10px] font-mono px-2 py-0.5 border font-semibold mb-2 ${doc.badgeColor}`}>
-                {doc.tipo}
-              </span>
-              <h2 class="text-xl sm:text-2xl font-bold text-[#09090b]">
-                {doc.titulo}
-              </h2>
-              <p class="text-xs text-[#52525b] font-mono mt-1">
-                {doc.resumen}
-              </p>
-            </div>
+    <!-- Visor PDF Embebido -->
+    <div class="bg-white border border-[#18181b] p-4 sm:p-6 shadow-sm">
+      <div class="w-full h-[800px] border border-zinc-300 rounded bg-zinc-100 overflow-hidden shadow-inner">
+        <iframe
+          src={doc.downloadUrl}
+          class="w-full h-full border-0"
+          title={doc.titulo}
+        />
+      </div>
+    </div>
 
-            <div class="flex flex-wrap items-center gap-2">
-              {doc.downloadUrl && (
-                <a
-                  href={doc.downloadUrl}
-                  download
-                  class="px-3 py-1.5 bg-[#18181b] text-white hover:bg-black transition-colors font-mono text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
-                >
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  {doc.downloadLabel || 'Descargar'}
-                </a>
-              )}
-              {doc.pdfAttachmentUrl && (
-                <a
-                  href={doc.pdfAttachmentUrl}
-                  download
-                  class="px-3 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-900 border border-zinc-300 transition-colors font-mono text-xs font-bold inline-flex items-center gap-1.5"
-                >
-                  <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
-                  </svg>
-                  {doc.pdfAttachmentLabel || 'PDF Original'}
-                </a>
-              )}
-            </div>
-          </header>
-
-          {doc.isPdf ? (
-            <div class="space-y-4">
-              <div class="w-full h-[750px] border border-zinc-300 rounded bg-zinc-100 overflow-hidden shadow-inner">
-                <iframe
-                  src={doc.downloadUrl}
-                  class="w-full h-full border-0"
-                  title={doc.titulo}
-                />
-              </div>
-            </div>
-          ) : doc.path ? (
-            <div class="prose prose-zinc max-w-none text-[#27272a] text-sm leading-relaxed prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-black prose-h1:text-xl prose-h2:text-lg prose-h3:text-base prose-pre:bg-zinc-900 prose-pre:text-zinc-100 prose-table:border prose-table:border-zinc-200">
-              <Fragment set:html={doc.html} />
-            </div>
-          ) : (
-            <div class="p-8 border border-zinc-200 bg-zinc-50 text-center rounded space-y-4">
-              <div class="w-12 h-12 mx-auto bg-orange-100 text-orange-800 rounded-full flex items-center justify-center font-bold text-xl">
-                📊
-              </div>
-              <h3 class="text-base font-bold text-zinc-900">Presentación PowerPoint Original (.PPTX)</h3>
-              <p class="text-xs text-zinc-600 max-w-md mx-auto">
-                Archivo editable con las diapositivas y formato original de la presentación comercial.
-              </p>
-              <div>
-                <a
-                  href={doc.downloadUrl}
-                  download
-                  class="px-4 py-2 bg-orange-700 hover:bg-orange-800 text-white font-mono text-xs font-bold inline-flex items-center gap-2 rounded shadow"
-                >
-                  Descargar PowerPoint (1.1 MB)
-                </a>
-              </div>
-            </div>
-          )}
-        </article>
-      ))}
+    <!-- Banner inferior de navegación -->
+    <div class="mt-8 pt-4 border-t border-[#18181b] flex items-center justify-between font-mono text-xs text-[#52525b]">
+      <span>Presentación comercial LaVinQuePizza · Grado Informática + ADE (UGR).</span>
+      <a href="/universidad" class="hover:text-black font-bold">
+        ← Volver al Plan de Estudios
+      </a>
     </div>
   </main>
 
   <Footer />
 </Layout>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.doc-tab');
-    const contents = document.querySelectorAll('.doc-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetId = tab.getAttribute('data-target');
-
-        tabs.forEach(t => {
-          t.classList.remove('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
-          t.classList.add('border-[#e4e4e7]', 'bg-white');
-        });
-
-        tab.classList.add('border-black', 'bg-zinc-50', 'shadow-sm', 'ring-1', 'ring-black');
-        tab.classList.remove('border-[#e4e4e7]', 'bg-white');
-
-        contents.forEach(content => {
-          if (content.id === `content-${targetId}`) {
-            content.classList.remove('hidden');
-            content.classList.add('block');
-          } else {
-            content.classList.remove('block');
-            content.classList.add('hidden');
-          }
-        });
-      });
-    });
-  });
-</script>

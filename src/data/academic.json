@@ -236,19 +236,9 @@
             "apuntes": "/apuntes/im",
             "recursos": [
               {
-                "name": "Plan Comercial & Marketing: LaVinQuePizza (Diapositivas)",
-                "file": "/subjects/IM/presentacion_lavinquepizza.md",
-                "tipo": "PRESENTACIÓN"
-              },
-              {
-                "name": "Presentación Oficial LaVinQuePizza (PDF 862 KB)",
+                "name": "Plan Comercial & Marketing: LaVinQuePizza (PDF 862 KB)",
                 "file": "/subjects/IM/lavinquepizza_presentacion.pdf",
                 "tipo": "PDF"
-              },
-              {
-                "name": "Presentación PowerPoint Original (.PPTX 1.1 MB)",
-                "file": "/subjects/IM/lavinquepizza.pptx",
-                "tipo": "PPTX"
               }
             ]
           },
