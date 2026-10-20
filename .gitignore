@@ -25,4 +25,13 @@ pnpm-debug.log*
 
 # memorias y notas locales de trabajo
 MEMORIA_SESION.md
+MEMORIA.md
+
+# tests
+tests/
+test/
+**/tests/
+**/test/
+**/*.test.*
+**/*.spec.*
 
