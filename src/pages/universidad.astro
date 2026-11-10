@@ -183,75 +183,79 @@ const totalSubjects = academic.reduce((acc, c) => acc + c.groups.reduce((gAcc, g
 </Layout>
 
 <script is:inline>
-  const searchInput = document.getElementById('search-input');
-  const filterTags = document.querySelectorAll('.filter-tag');
-  const stageBlocks = document.querySelectorAll('.stage-block');
-  const subjectEntries = document.querySelectorAll('.subject-entry');
-  const noResults = document.getElementById('no-results');
+  function initUniversidadFilters() {
+    const searchInput = document.getElementById('search-input');
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const stageBlocks = document.querySelectorAll('.stage-block');
+    const noResults = document.getElementById('no-results');
 
-  let currentStage = 'all';
+    let currentStage = 'all';
 
-  function filterList() {
-    const query = (searchInput?.value || '').toLowerCase().trim();
-    let totalVisible = 0;
+    function filterList() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
+      let totalVisible = 0;
 
-    stageBlocks.forEach(stage => {
-      const stageId = stage.dataset.stage;
-      const isStageMatch = currentStage === 'all' || currentStage === stageId;
+      stageBlocks.forEach(stage => {
+        const stageId = stage.dataset.stage;
+        const isStageMatch = currentStage === 'all' || currentStage === stageId;
 
-      if (!isStageMatch) {
-        stage.style.display = 'none';
-        return;
-      }
+        if (!isStageMatch) {
+          stage.style.display = 'none';
+          return;
+        }
 
-      let stageCount = 0;
-      const cards = stage.querySelectorAll('.subject-entry');
+        let stageCount = 0;
+        const cards = stage.querySelectorAll('.subject-entry');
 
-      cards.forEach(card => {
-        const code = card.dataset.code || '';
-        const name = card.dataset.name || '';
-        const matchesQuery = !query || code.includes(query) || name.includes(query);
+        cards.forEach(card => {
+          const code = card.dataset.code || '';
+          const name = card.dataset.name || '';
+          const matchesQuery = !query || code.includes(query) || name.includes(query);
 
-        if (matchesQuery) {
-          card.style.display = 'flex';
-          stageCount++;
-          totalVisible++;
+          if (matchesQuery) {
+            card.style.display = 'flex';
+            stageCount++;
+            totalVisible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (stageCount > 0 || (!query && cards.length === 0)) {
+          stage.style.display = 'block';
         } else {
-          card.style.display = 'none';
+          stage.style.display = 'none';
         }
       });
 
-      if (stageCount > 0 || (!query && cards.length === 0)) {
-        stage.style.display = 'block';
-      } else {
-        stage.style.display = 'none';
-      }
-    });
-
-    if (noResults) {
-      if (totalVisible === 0 && query) {
-        noResults.classList.remove('hidden');
-      } else {
-        noResults.classList.add('hidden');
+      if (noResults) {
+        if (totalVisible === 0 && query) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
       }
     }
-  }
 
-  if (searchInput) {
-    searchInput.addEventListener('input', filterList);
-  }
+    if (searchInput) {
+      searchInput.addEventListener('input', filterList);
+    }
 
-  filterTags.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterTags.forEach(b => {
-        b.classList.remove('bg-[#18181b]', 'text-white', 'font-bold');
-        b.classList.add('bg-white', 'text-[#52525b]');
+    filterTags.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterTags.forEach(b => {
+          b.classList.remove('bg-[#18181b]', 'text-white', 'font-bold');
+          b.classList.add('bg-white', 'text-[#52525b]');
+        });
+        btn.classList.add('bg-[#18181b]', 'text-white', 'font-bold');
+        btn.classList.remove('bg-white', 'text-[#52525b]');
+
+        currentStage = btn.dataset.filter || 'all';
+        filterList();
       });
-      btn.classList.add('bg-[#18181b]', 'text-white', 'font-bold');
-      btn.classList.remove('bg-white', 'text-[#52525b]');
-
-      currentStage = btn.dataset.filter || 'all';
-      filterList();
     });
-  });
+  }
+
+  initUniversidadFilters();
+  document.addEventListener('astro:page-load', initUniversidadFilters);
 </script>

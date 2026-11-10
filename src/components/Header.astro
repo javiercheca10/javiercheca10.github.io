@@ -20,32 +20,37 @@ const { activeTab = 'home' } = Astro.props;
       </span>
     </a>
 
-    <!-- Enlaces de navegación industrial -->
-    <nav class="flex items-center gap-3 sm:gap-6 text-xs font-mono">
+    <!-- Enlaces de navegación industrial con indicador deslizante estilo antwi.dev -->
+    <nav id="primary-nav" class="nav-tabs-wrap flex items-center gap-3 sm:gap-6 text-xs font-mono h-full">
       <a
         href="/universidad"
-        class={`transition-colors py-1 ${activeTab === 'universidad' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
+        data-nav-tab="universidad"
+        class={`nav-tab-link transition-colors py-1 relative ${activeTab === 'universidad' ? 'text-black font-bold is-active' : 'text-[#52525b] hover:text-black'}`}
       >
         [01] Universidad
       </a>
       <a
         href="/proyectos"
-        class={`transition-colors py-1 ${activeTab === 'proyectos' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
+        data-nav-tab="proyectos"
+        class={`nav-tab-link transition-colors py-1 relative ${activeTab === 'proyectos' ? 'text-black font-bold is-active' : 'text-[#52525b] hover:text-black'}`}
       >
         [02] Proyectos
       </a>
       <a
         href="/sobre-mi"
-        class={`transition-colors py-1 ${activeTab === 'sobre-mi' ? 'text-black font-bold border-b-2 border-black' : 'text-[#52525b] hover:text-black'}`}
+        data-nav-tab="sobre-mi"
+        class={`nav-tab-link transition-colors py-1 relative ${activeTab === 'sobre-mi' ? 'text-black font-bold is-active' : 'text-[#52525b] hover:text-black'}`}
       >
         [03] Sobre mí
       </a>
       <a
         href="/#contacto"
-        class="text-[#52525b] hover:text-black hidden sm:inline py-1"
+        data-nav-tab="contacto"
+        class="nav-tab-link text-[#52525b] hover:text-black hidden sm:inline py-1 relative"
       >
         [04] Contacto
       </a>
+      <span id="nav-pill" class="nav-pill-indicator opacity-0" aria-hidden="true"></span>
       <a
         href={profile.links.github}
         target="_blank"
@@ -58,3 +63,40 @@ const { activeTab = 'home' } = Astro.props;
     </nav>
   </div>
 </header>
+
+<script>
+  function initNavPill() {
+    const nav = document.getElementById('primary-nav');
+    const pill = document.getElementById('nav-pill');
+    if (!nav || !pill) return;
+
+    const links = Array.from(nav.querySelectorAll<HTMLElement>('.nav-tab-link'));
+    const activeLink = nav.querySelector<HTMLElement>('.nav-tab-link.is-active');
+
+    function movePillTo(el: HTMLElement | null) {
+      if (!el || !nav || !pill) {
+        pill?.classList.add('opacity-0');
+        return;
+      }
+      const navRect = nav.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      const x = elRect.left - navRect.left;
+      const w = elRect.width;
+      nav.style.setProperty('--tab-x', `${x}px`);
+      nav.style.setProperty('--tab-w', `${w}px`);
+      pill.classList.remove('opacity-0');
+    }
+
+    movePillTo(activeLink);
+
+    links.forEach((link) => {
+      link.addEventListener('pointerenter', () => movePillTo(link));
+    });
+
+    nav.addEventListener('pointerleave', () => movePillTo(activeLink));
+    window.addEventListener('resize', () => movePillTo(activeLink), { passive: true });
+  }
+
+  initNavPill();
+  document.addEventListener('astro:page-load', initNavPill);
+</script>

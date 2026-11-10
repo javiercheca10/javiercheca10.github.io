@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TechEmblem from '../components/TechEmblem.astro';
 import projects from '../data/projects.json';
 
 const countAll = projects.length;
@@ -62,13 +63,16 @@ const countPersonal = projects.filter(p => p.category === 'personal').length;
           class="project-item border border-[#18181b] bg-white transition-opacity"
         >
           <div class="p-5 sm:p-6 bg-[#f4f4f5] border-b border-[#18181b] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-              <span class="font-mono text-xs font-bold px-2 py-0.5 bg-[#18181b] text-white">
-                PROYECTO 0{idx + 1}
-              </span>
-              <h2 class="text-xl font-bold uppercase tracking-tight text-[#09090b]">
-                {proj.title}
-              </h2>
+            <div class="flex items-center gap-3.5">
+              <TechEmblem kind={proj.id} size="sm" />
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="font-mono text-xs font-bold px-2 py-0.5 bg-[#18181b] text-white">
+                  PROYECTO 0{idx + 1}
+                </span>
+                <h2 class="text-xl font-bold uppercase tracking-tight text-[#09090b]">
+                  {proj.title}
+                </h2>
+              </div>
             </div>
             <div class="flex items-center gap-2">
               <span class="font-mono text-xs px-2 py-0.5 bg-[#e4e4e7] border border-[#d4d4d8] text-[#52525b] font-bold w-fit">
@@ -144,7 +148,7 @@ const countPersonal = projects.filter(p => p.category === 'personal').length;
 </Layout>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initProjectFilters() {
     const filterButtons = document.querySelectorAll('.project-filter-tag');
     const projectCards = document.querySelectorAll('.project-item');
 
@@ -171,5 +175,8 @@ const countPersonal = projects.filter(p => p.category === 'personal').length;
         });
       });
     });
-  });
+  }
+
+  initProjectFilters();
+  document.addEventListener('astro:page-load', initProjectFilters);
 </script>

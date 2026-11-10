@@ -1,0 +1,1253 @@
+---
+/**
+ * ScrollScene3D.astro
+ * Combina:
+ * 1) El ScrollDriver + corredor arquitectónico 3D + esculturas de nube de puntos por estación de rosalbito.dev
+ * 2) La física de repulsión elástica al ratón y profundidad de campo (DoF) de antwi.dev
+ * Todo adaptado a la paleta industrial/editorial clara (#fbfbfb / #18181b / #52525b).
+ */
+---
+
+<div class="scene-backdrop" aria-hidden="true"></div>
+<div class="scene-scrim" aria-hidden="true"></div>
+
+<div id="scroll-scene-root" class="scroll-scene-container" aria-hidden="true">
+  <canvas id="scroll-scene-canvas"></canvas>
+</div>
+
+<script>
+  interface StopSpec {
+    name: string;
+    z: number;
+    focusX: number;
+    focusY: number;
+    code: string;
+    title: string;
+    subtitle: string;
+  }
+
+  interface Point3D {
+    bx: number;
+    by: number;
+    bz: number;
+    sx: number;
+    sy: number;
+    sz: number;
+    vx: number;
+    vy: number;
+    vz: number;
+    ox: number;
+    oy: number;
+    oz: number;
+    size: number;
+    tone: number; // 0 = dim, 1 = mid, 2 = dark ink
+    part: number;
+  }
+
+  interface Edge3D {
+    a: [number, number, number];
+    b: [number, number, number];
+    part: number;
+  }
+
+  interface Landmark3D {
+    stopName: string;
+    wx: number;
+    wy: number;
+    wz: number;
+    points: Point3D[];
+    edges: Edge3D[];
+    yaw: number;
+    pitch: number;
+    build: number;
+    awake: number;
+    energy: number;
+  }
+
+  interface FloatingMotif {
+    xFrac: number; // 0..1 screen width (concentrated on right stage / margins)
+    yDoc: number;
+    depth: number; // 0.1..0.95 (antwi DoF depth)
+    kind: number;
+    size: number;
+    angle: number;
+    rotSpeed: number;
+    ox: number;
+    oy: number;
+    vx: number;
+    vy: number;
+  }
+
+  const STOPS: StopSpec[] = [
+    {
+      name: 'top',
+      z: 0,
+      focusX: -2.4,
+      focusY: 2.3,
+      code: 'ESTACIÓN [00]',
+      title: 'NÚCLEO GIIADE · POLIEDRO DUAL',
+      subtitle: 'Ingeniería del Software & Optimización'
+    },
+    {
+      name: 'sobre-mi',
+      z: -90,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'ESTACIÓN [01]',
+      title: 'MATRIZ SISTÉMICA · COMPUTACIÓN & ADE',
+      subtitle: 'Modelado CP-SAT, Algoritmia y Dirección'
+    },
+    {
+      name: 'universidad',
+      z: -180,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'ESTACIÓN [02]',
+      title: 'GRAFO CURRICULAR · 6 ETAPAS',
+      subtitle: 'Granada (UGR) · Atenas (Erasmus) · Valencia (SICUE)'
+    },
+    {
+      name: 'proyectos',
+      z: -260,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'ESTACIÓN [03]',
+      title: 'PORTAL DE SOFTWARE & PROYECTOS',
+      subtitle: 'Soluciones y Sistemas'
+    },
+    {
+      name: 'project-homelab-tv-launcher',
+      z: -330,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [01]',
+      title: 'HOMELAB TV LAUNCHER',
+      subtitle: 'Android TV & Jetpack Compose'
+    },
+    {
+      name: 'project-torrent-stream-web',
+      z: -400,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [02]',
+      title: 'TORRENT STREAM WEB',
+      subtitle: 'Servidor Casero VOD & Docker'
+    },
+    {
+      name: 'project-reparto-personal',
+      z: -470,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [03]',
+      title: 'REPARTO PERSONAL (CP-SAT)',
+      subtitle: 'Optimización Matemática de Turnos'
+    },
+    {
+      name: 'project-agente-deliberativo-ia',
+      z: -540,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [04]',
+      title: 'AGENTE AUTÓNOMO DELIBERATIVO',
+      subtitle: 'Simulador de Navegación A* en C++'
+    },
+    {
+      name: 'project-irrgarten-pdoo',
+      z: -610,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [05]',
+      title: 'IRRGARTEN (PDOO)',
+      subtitle: 'Laberinto & OOP en Java/Ruby'
+    },
+    {
+      name: 'project-imaging-mp-ugr',
+      z: -680,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [06]',
+      title: 'IMAGING (MP)',
+      subtitle: 'Tratamiento Digital PGM en C++'
+    },
+    {
+      name: 'project-internet-technologies-mytelecom',
+      z: -750,
+      focusX: -2.6,
+      focusY: 2.2,
+      code: 'PROYECTO [07]',
+      title: 'MYTELECOM',
+      subtitle: 'Telecomunicaciones y Arquitectura Web'
+    },
+    {
+      name: 'contacto',
+      z: -840,
+      focusX: -2.2,
+      focusY: 2.3,
+      code: 'ESTACIÓN [04]',
+      title: 'ESFERA GEODÉSICA · NODO DE ENLACE',
+      subtitle: 'Granada, España · Comunicación Directa'
+    }
+  ];
+
+  // Generador determinista para geometrías limpias
+  function seededRandom(seed: number) {
+    let s = seed;
+    return () => {
+      s = (s * 16807) % 2147483647;
+      return (s - 1) / 2147483646;
+    };
+  }
+
+  function sampleEdgePoints(
+    pts: Point3D[],
+    edges: Edge3D[],
+    a: [number, number, number],
+    b: [number, number, number],
+    count: number,
+    part: number,
+    tone: number,
+    rng: () => number
+  ) {
+    edges.push({ a, b, part });
+    for (let i = 0; i <= count; i++) {
+      const t = i / count;
+      const jx = (rng() - 0.5) * 0.03;
+      const jy = (rng() - 0.5) * 0.03;
+      const jz = (rng() - 0.5) * 0.03;
+      const bx = a[0] + (b[0] - a[0]) * t + jx;
+      const by = a[1] + (b[1] - a[1]) * t + jy;
+      const bz = a[2] + (b[2] - a[2]) * t + jz;
+      pts.push({
+        bx,
+        by,
+        bz,
+        sx: bx + (rng() - 0.5) * 3.5,
+        sy: by + (rng() - 0.5) * 3.5,
+        sz: bz + (rng() - 0.5) * 3.5,
+        vx: 0,
+        vy: 0,
+        vz: 0,
+        ox: 0,
+        oy: 0,
+        oz: 0,
+        size: i === 0 || i === count ? 2.4 : 1.35,
+        tone: i === 0 || i === count ? 2 : tone,
+        part
+      });
+    }
+  }
+
+  function createLandmarks(): Landmark3D[] {
+    const rng = seededRandom(4210);
+
+    return STOPS.map((stop, idx) => {
+      const points: Point3D[] = [];
+      const edges: Edge3D[] = [];
+      const lx = 3.25; // A la derecha de la cámara para lucir en el escenario derecho abierto
+      const ly = 2.45;
+      const lz = stop.z;
+
+      if (stop.name === 'top') {
+        // ESTACIÓN 00: Octaedro de precisión + 2 anillos orbitales
+        const oct: [number, number, number][] = [
+          [0, 1.55, 0],
+          [0, -1.55, 0],
+          [1.35, 0, 0],
+          [-1.35, 0, 0],
+          [0, 0, 1.35],
+          [0, 0, -1.35]
+        ];
+        const octPairs = [
+          [0, 2], [0, 3], [0, 4], [0, 5],
+          [1, 2], [1, 3], [1, 4], [1, 5],
+          [2, 4], [4, 3], [3, 5], [5, 2]
+        ];
+        octPairs.forEach(([i, j]) => {
+          sampleEdgePoints(points, edges, oct[i], oct[j], 18, 0, 2, rng);
+        });
+
+        // Anillos giroscópicos de puntos
+        for (let rIdx = 0; rIdx < 2; rIdx++) {
+          const radius = rIdx === 0 ? 1.85 : 2.25;
+          const tilt = rIdx === 0 ? 0.48 : -0.55;
+          const nPts = 80;
+          for (let i = 0; i < nPts; i++) {
+            const a = (i / nPts) * Math.PI * 2;
+            const x = Math.cos(a) * radius;
+            const y = Math.sin(a) * Math.sin(tilt) * radius;
+            const z = Math.sin(a) * Math.cos(tilt) * radius;
+            points.push({
+              bx: x,
+              by: y,
+              bz: z,
+              sx: x * 2.1,
+              sy: y * 2.1,
+              sz: z * 2.1,
+              vx: 0,
+              vy: 0,
+              vz: 0,
+              ox: 0,
+              oy: 0,
+              oz: 0,
+              size: i % 8 === 0 ? 2.3 : 1.3,
+              tone: i % 8 === 0 ? 2 : 1,
+              part: 1
+            });
+          }
+        }
+      } else if (stop.name === 'sobre-mi') {
+        // ESTACIÓN 01 (Sobre Mí): Dos cubos isométricos entrelazados (Informática + ADE)
+        for (let c = 0; c < 2; c++) {
+          const s = c === 0 ? 1.15 : 0.72;
+          const yOff = c === 0 ? 0.15 : -0.15;
+          const verts: [number, number, number][] = [
+            [-s, -s + yOff, -s], [s, -s + yOff, -s], [s, s + yOff, -s], [-s, s + yOff, -s],
+            [-s, -s + yOff, s], [s, -s + yOff, s], [s, s + yOff, s], [-s, s + yOff, s]
+          ];
+          const cubeEdges = [
+            [0, 1], [1, 2], [2, 3], [3, 0],
+            [4, 5], [5, 6], [6, 7], [7, 4],
+            [0, 4], [1, 5], [2, 6], [3, 7]
+          ];
+          cubeEdges.forEach(([i, j]) => {
+            sampleEdgePoints(points, edges, verts[i], verts[j], 14, c, c === 0 ? 2 : 1, rng);
+          });
+        }
+        for (let i = 0; i < 90; i++) {
+          const theta = rng() * Math.PI * 2;
+          const phi = Math.acos(2 * rng() - 1);
+          const rad = 0.4 + rng() * 1.25;
+          const bx = rad * Math.sin(phi) * Math.cos(theta);
+          const by = rad * Math.cos(phi);
+          const bz = rad * Math.sin(phi) * Math.sin(theta);
+          points.push({
+            bx, by, bz,
+            sx: bx * 2.3, sy: by * 2.3, sz: bz * 2.3,
+            vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+            size: 1.4,
+            tone: i % 3 === 0 ? 2 : 0,
+            part: i % 2
+          });
+        }
+      } else if (stop.name === 'universidad') {
+        // ESTACIÓN 02 (Universidad): Grafo Jerárquico de 6 niveles (las 6 etapas GIIADE)
+        const levels: [number, number, number][][] = [
+          [[0, 1.65, 0]],
+          [[-0.95, 0.75, -0.4], [0.95, 0.75, 0.4]],
+          [[-1.4, -0.1, -0.8], [-0.4, -0.1, 0.6], [0.4, -0.1, -0.6], [1.4, -0.1, 0.8]],
+          [
+            [-1.5, -1.05, -0.8], [-0.9, -1.05, 0.3], [-0.3, -1.05, 0.85],
+            [0.3, -1.05, -0.85], [0.9, -1.05, -0.3], [1.5, -1.05, 0.8]
+          ]
+        ];
+        sampleEdgePoints(points, edges, levels[0][0], levels[1][0], 16, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[0][0], levels[1][1], 16, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[1][0], levels[2][0], 14, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[1][0], levels[2][1], 14, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[1][1], levels[2][2], 14, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[1][1], levels[2][3], 14, 0, 2, rng);
+        sampleEdgePoints(points, edges, levels[2][0], levels[3][0], 12, 1, 1, rng);
+        sampleEdgePoints(points, edges, levels[2][0], levels[3][1], 12, 1, 1, rng);
+        sampleEdgePoints(points, edges, levels[2][1], levels[3][2], 12, 1, 1, rng);
+        sampleEdgePoints(points, edges, levels[2][2], levels[3][3], 12, 1, 1, rng);
+        sampleEdgePoints(points, edges, levels[2][3], levels[3][4], 12, 1, 1, rng);
+        sampleEdgePoints(points, edges, levels[2][3], levels[3][5], 12, 1, 1, rng);
+
+        levels.flat().forEach((node, nIdx) => {
+          for (let k = 0; k < 18; k++) {
+            const a = rng() * Math.PI * 2;
+            const b = Math.acos(2 * rng() - 1);
+            const r = 0.12 + rng() * 0.08;
+            const bx = node[0] + r * Math.sin(b) * Math.cos(a);
+            const by = node[1] + r * Math.cos(b);
+            const bz = node[2] + r * Math.sin(b) * Math.sin(a);
+            points.push({
+              bx, by, bz,
+              sx: bx * 2.3, sy: by * 2.3, sz: bz * 2.3,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: 2.1,
+              tone: 2,
+              part: nIdx % 2
+            });
+          }
+        });
+      } else if (stop.name === 'proyectos') {
+        // Cabecera Proyectos: Portal Arquitectónico con Prisma Hexagonal
+        for (let k = 0; k < 6; k++) {
+          const a1 = (k / 6) * Math.PI * 2;
+          const a2 = ((k + 1) / 6) * Math.PI * 2;
+          const r = 1.45;
+          const h = 1.1;
+          const p1: [number, number, number] = [Math.cos(a1) * r, -h, Math.sin(a1) * r];
+          const p2: [number, number, number] = [Math.cos(a2) * r, -h, Math.sin(a2) * r];
+          const p3: [number, number, number] = [Math.cos(a1) * r, h, Math.sin(a1) * r];
+          const p4: [number, number, number] = [Math.cos(a2) * r, h, Math.sin(a2) * r];
+          sampleEdgePoints(points, edges, p1, p2, 12, 0, 1, rng);
+          sampleEdgePoints(points, edges, p3, p4, 12, 0, 2, rng);
+          sampleEdgePoints(points, edges, p1, p3, 14, 0, 2, rng);
+        }
+        for (let i = 0; i < 45; i++) {
+          const a = rng() * Math.PI * 2;
+          const r = rng() * 1.25;
+          points.push({
+            bx: Math.cos(a) * r, by: (rng() - 0.5) * 1.8, bz: Math.sin(a) * r,
+            sx: Math.cos(a) * r * 2.5, sy: (rng() - 0.5) * 3.5, sz: Math.sin(a) * r * 2.5,
+            vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+            size: 1.5, tone: i % 2 === 0 ? 2 : 1, part: 1
+          });
+        }
+      } else if (stop.name === 'project-homelab-tv-launcher') {
+        // PROYECTO 1: Homelab TV Launcher (Android TV Compose & Media3)
+        // Pantalla panorámica 16:9 flotante
+        const pw = 1.75;
+        const ph = 1.0;
+        const pz = 0;
+        const screenV: [number, number, number][] = [
+          [-pw, -ph, pz], [pw, -ph, pz], [pw, ph, pz], [-pw, ph, pz]
+        ];
+        sampleEdgePoints(points, edges, screenV[0], screenV[1], 16, 0, 2, rng);
+        sampleEdgePoints(points, edges, screenV[1], screenV[2], 12, 0, 2, rng);
+        sampleEdgePoints(points, edges, screenV[2], screenV[3], 16, 0, 2, rng);
+        sampleEdgePoints(points, edges, screenV[3], screenV[0], 12, 0, 2, rng);
+        for (let c = 0; c < 3; c++) {
+          const cx = -1.1 + c * 1.1;
+          const cy = -0.35;
+          const cw = 0.42;
+          const ch = 0.32;
+          const cz = 0.35;
+          const cV: [number, number, number][] = [
+            [cx - cw, cy - ch, cz], [cx + cw, cy - ch, cz],
+            [cx + cw, cy + ch, cz], [cx - cw, cy + ch, cz]
+          ];
+          sampleEdgePoints(points, edges, cV[0], cV[1], 6, 1, 1, rng);
+          sampleEdgePoints(points, edges, cV[1], cV[2], 5, 1, 1, rng);
+          sampleEdgePoints(points, edges, cV[2], cV[3], 6, 1, 2, rng);
+          sampleEdgePoints(points, edges, cV[3], cV[0], 5, 1, 1, rng);
+        }
+        for (let i = 0; i < 30; i++) {
+          const a = (i / 30) * Math.PI * 2;
+          points.push({
+            bx: Math.cos(a) * 0.4, by: 0.35 + Math.sin(a) * 0.25, bz: 0.2,
+            sx: Math.cos(a) * 1.2, sy: 0.35 + Math.sin(a) * 0.8, sz: 1.0,
+            vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+            size: 2.0, tone: 2, part: 1
+          });
+        }
+      } else if (stop.name === 'project-torrent-stream-web') {
+        // PROYECTO 1: Torrent Stream Web · Servidor VOD Docker + Buffer + 2 Anillos Orbitando
+        const s = 0.72;
+        const sh = 1.05;
+        const vServer: [number, number, number][] = [
+          [-s, -sh, -s], [s, -sh, -s], [s, sh, -s], [-s, sh, -s],
+          [-s, -sh, s], [s, -sh, s], [s, sh, s], [-s, sh, s]
+        ];
+        const sEdges = [
+          [0, 1], [1, 2], [2, 3], [3, 0],
+          [4, 5], [5, 6], [6, 7], [7, 4],
+          [0, 4], [1, 5], [2, 6], [3, 7]
+        ];
+        sEdges.forEach(([i, j]) => {
+          sampleEdgePoints(points, edges, vServer[i], vServer[j], 12, 0, 2, rng);
+        });
+        for (let by = -0.55; by <= 0.6; by += 0.38) {
+          sampleEdgePoints(points, edges, [-s, by, s], [s, by, s], 10, 0, 1, rng);
+        }
+        for (let ring = 0; ring < 2; ring++) {
+          const rRad = ring === 0 ? 1.75 : 2.25;
+          const rTilt = ring === 0 ? 0.55 : -0.65;
+          const pCount = 72;
+          for (let p = 0; p < pCount; p++) {
+            const a = (p / pCount) * Math.PI * 2;
+            const px = Math.cos(a) * rRad;
+            const py = Math.sin(a) * Math.sin(rTilt) * rRad;
+            const pz = Math.sin(a) * Math.cos(rTilt) * rRad;
+            const isPacket = p % 9 === 0;
+            points.push({
+              bx: px, by: py, bz: pz,
+              sx: px * 2.4, sy: py * 2.4, sz: pz * 2.4,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: isPacket ? 2.6 : 1.2,
+              tone: isPacket ? 2 : 1,
+              part: 1
+            });
+          }
+        }
+      } else if (stop.name === 'project-reparto-personal') {
+        // PROYECTO 2: RepartoPersonal (OR-Tools CP-SAT) · Red de Restricciones & Asignación
+        const topN: [number, number, number][] = [
+          [-1.2, 0.95, -0.6], [0, 1.4, 0.8], [1.2, 0.95, -0.6]
+        ];
+        const botN: [number, number, number][] = [
+          [-1.4, -0.9, 0.6], [-0.5, -1.2, -0.8], [0.5, -1.2, -0.8], [1.4, -0.9, 0.6]
+        ];
+        topN.forEach(tNode => {
+          botN.forEach(bNode => {
+            if (rng() > 0.32) {
+              sampleEdgePoints(points, edges, tNode, bNode, 14, 0, 1, rng);
+            }
+          });
+        });
+        [...topN, ...botN].forEach((node, nIdx) => {
+          for (let k = 0; k < 16; k++) {
+            const a = rng() * Math.PI * 2;
+            const b = Math.acos(2 * rng() - 1);
+            const r = 0.16;
+            points.push({
+              bx: node[0] + r * Math.sin(b) * Math.cos(a),
+              by: node[1] + r * Math.cos(b),
+              bz: node[2] + r * Math.sin(b) * Math.sin(a),
+              sx: node[0] * 2.3, sy: node[1] * 2.3, sz: node[2] * 2.3,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: 2.2, tone: 2, part: nIdx % 2
+            });
+          }
+        });
+      } else if (stop.name === 'project-agente-deliberativo-ia') {
+        // PROYECTO 3: Agente Autónomo IA (C++) & Búsqueda Heurística A*
+        const rw = 0.85;
+        const rh = 0.65;
+        const rd = 0.85;
+        const yHead = 0.45;
+        const rVerts: [number, number, number][] = [
+          [-rw, yHead - rh, -rd], [rw, yHead - rh, -rd], [rw, yHead + rh, -rd], [-rw, yHead + rh, -rd],
+          [-rw, yHead - rh, rd], [rw, yHead - rh, rd], [rw, yHead + rh, rd], [-rw, yHead + rh, rd]
+        ];
+        const rEdges = [
+          [0, 1], [1, 2], [2, 3], [3, 0],
+          [4, 5], [5, 6], [6, 7], [7, 4],
+          [0, 4], [1, 5], [2, 6], [3, 7]
+        ];
+        rEdges.forEach(([i, j]) => {
+          sampleEdgePoints(points, edges, rVerts[i], rVerts[j], 12, 0, 2, rng);
+        });
+        sampleEdgePoints(points, edges, [0, yHead + rh, 0], [0, yHead + rh + 0.65, 0], 8, 1, 2, rng);
+        for (let l = 0; l < 32; l++) {
+          const a = (l / 32) * Math.PI * 2;
+          points.push({
+            bx: Math.cos(a) * 0.45, by: yHead + rh + 0.65, bz: Math.sin(a) * 0.45,
+            sx: Math.cos(a) * 1.5, sy: yHead + rh + 1.2, sz: Math.sin(a) * 1.5,
+            vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+            size: 2.2, tone: 2, part: 1
+          });
+        }
+        const aStarPath: [number, number, number][] = [
+          [-1.4, -1.1, -1.2], [-0.8, -1.1, -0.6], [0, -1.1, -0.2],
+          [0.6, -1.1, 0.4], [1.3, -1.1, 1.1]
+        ];
+        for (let k = 0; k < aStarPath.length - 1; k++) {
+          sampleEdgePoints(points, edges, aStarPath[k], aStarPath[k + 1], 14, 0, 2, rng);
+        }
+      } else if (stop.name === 'project-irrgarten-pdoo') {
+        // PROYECTO 4: Irrgarten · Laberinto 3D Ortogonal (PDOO)
+        const mazeWalls: [number, number, number][][] = [
+          [[-1.6, 0, -1.6], [1.6, 0, -1.6]],
+          [[1.6, 0, -1.6], [1.6, 0, 1.6]],
+          [[1.6, 0, 1.6], [-0.4, 0, 1.6]],
+          [[-1.6, 0, 1.6], [-1.6, 0, -0.4]],
+          [[-1.0, 0, -0.9], [1.0, 0, -0.9]],
+          [[1.0, 0, -0.9], [1.0, 0, 0.9]],
+          [[-1.0, 0, 0.2], [-1.0, 0, 0.9]],
+          [[-1.0, 0, 0.9], [0.3, 0, 0.9]]
+        ];
+        mazeWalls.forEach(([wStart, wEnd]) => {
+          sampleEdgePoints(points, edges, [wStart[0], -0.6, wStart[2]], [wEnd[0], -0.6, wEnd[2]], 10, 0, 1, rng);
+          sampleEdgePoints(points, edges, [wStart[0], 0.6, wStart[2]], [wEnd[0], 0.6, wEnd[2]], 10, 0, 2, rng);
+          sampleEdgePoints(points, edges, [wStart[0], -0.6, wStart[2]], [wStart[0], 0.6, wStart[2]], 6, 0, 2, rng);
+          sampleEdgePoints(points, edges, [wEnd[0], -0.6, wEnd[2]], [wEnd[0], 0.6, wEnd[2]], 6, 0, 2, rng);
+        });
+        const avVerts: [number, number, number][] = [
+          [0, 0.5, 0], [0, -0.5, 0], [0.35, 0, 0], [-0.35, 0, 0], [0, 0, 0.35], [0, 0, -0.35]
+        ];
+        [[0, 2], [0, 3], [0, 4], [0, 5], [1, 2], [1, 3], [1, 4], [1, 5]].forEach(([i, j]) => {
+          sampleEdgePoints(points, edges, avVerts[i], avVerts[j], 8, 1, 2, rng);
+        });
+      } else if (stop.name === 'project-imaging-mp-ugr') {
+        // PROYECTO 5: Imaging · Relieve 3D de Píxeles PGM & Marco ROI
+        const gridRes = 9;
+        for (let gx = 0; gx < gridRes; gx++) {
+          for (let gz = 0; gz < gridRes; gz++) {
+            const px = (gx / (gridRes - 1) - 0.5) * 2.8;
+            const pz = (gz / (gridRes - 1) - 0.5) * 2.8;
+            const dist = Math.hypot(px, pz);
+            const py = -0.5 + Math.cos(dist * 2.6) * 0.55 + Math.sin(px * 3.2) * 0.25;
+            points.push({
+              bx: px, by: py, bz: pz,
+              sx: px * 2.2, sy: py + (rng() - 0.5) * 2.5, sz: pz * 2.2,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: (gx + gz) % 3 === 0 ? 2.4 : 1.35,
+              tone: py > -0.1 ? 2 : 1,
+              part: 0
+            });
+          }
+        }
+        const roiS = 1.05;
+        const roiH = 0.65;
+        const roiY = 0.45;
+        const roiV: [number, number, number][] = [
+          [-roiS, roiY, -roiS], [roiS, roiY, -roiS], [roiS, roiY, roiS], [-roiS, roiY, roiS],
+          [-roiS, roiY + roiH, -roiS], [roiS, roiY + roiH, -roiS], [roiS, roiY + roiH, roiS], [-roiS, roiY + roiH, roiS]
+        ];
+        [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]].forEach(([i, j]) => {
+          sampleEdgePoints(points, edges, roiV[i], roiV[j], 10, 1, 2, rng);
+        });
+      } else if (stop.name === 'project-internet-technologies-mytelecom') {
+        // PROYECTO 6: MyTelecom · Torre de Telecomunicaciones & Ondas Electromagnéticas
+        const bRad = 1.1;
+        const bY = -1.2;
+        const tY = 1.35;
+        const towerB: [number, number, number][] = [
+          [Math.cos(0) * bRad, bY, Math.sin(0) * bRad],
+          [Math.cos(2.09) * bRad, bY, Math.sin(2.09) * bRad],
+          [Math.cos(4.18) * bRad, bY, Math.sin(4.18) * bRad]
+        ];
+        const towerTop: [number, number, number] = [0, tY, 0];
+        sampleEdgePoints(points, edges, towerB[0], towerB[1], 10, 0, 1, rng);
+        sampleEdgePoints(points, edges, towerB[1], towerB[2], 10, 0, 1, rng);
+        sampleEdgePoints(points, edges, towerB[2], towerB[0], 10, 0, 1, rng);
+        towerB.forEach(bNode => {
+          sampleEdgePoints(points, edges, bNode, towerTop, 16, 0, 2, rng);
+        });
+        sampleEdgePoints(points, edges, towerTop, [0, tY + 0.75, 0], 8, 0, 2, rng);
+        for (let w = 1; w <= 3; w++) {
+          const wRad = w * 0.72;
+          const pNum = 24 * w;
+          for (let p = 0; p < pNum; p++) {
+            const a = (p / pNum) * Math.PI * 2;
+            points.push({
+              bx: Math.cos(a) * wRad, by: tY + 0.75, bz: Math.sin(a) * wRad,
+              sx: Math.cos(a) * wRad * 2.2, sy: tY + 0.75 + (rng() - 0.5), sz: Math.sin(a) * wRad * 2.2,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: 1.8, tone: w === 1 ? 2 : 1, part: 1
+            });
+          }
+        }
+      } else {
+        // ESTACIÓN 04 (Contacto): Esfera Geodésica / Nodo de Enlace Final
+        const latRings = 7;
+        for (let lat = 1; lat < latRings; lat++) {
+          const phi = (lat / latRings) * Math.PI;
+          const r = Math.sin(phi) * 1.55;
+          const y = Math.cos(phi) * 1.55;
+          const count = Math.max(16, Math.round(48 * Math.sin(phi)));
+          for (let i = 0; i < count; i++) {
+            const theta = (i / count) * Math.PI * 2;
+            const bx = Math.cos(theta) * r;
+            const bz = Math.sin(theta) * r;
+            points.push({
+              bx, by: y, bz,
+              sx: bx * 2.3, sy: y * 2.3, sz: bz * 2.3,
+              vx: 0, vy: 0, vz: 0, ox: 0, oy: 0, oz: 0,
+              size: i % 4 === 0 ? 2.0 : 1.3,
+              tone: lat === 3 || lat === 4 ? 2 : 1,
+              part: lat % 2
+            });
+          }
+        }
+      }
+
+      return {
+        stopName: stop.name,
+        wx: lx,
+        wy: ly,
+        wz: lz,
+        points,
+        edges,
+        yaw: idx * 0.7,
+        pitch: 0,
+        build: idx === 0 ? 1 : 0,
+        awake: idx === 0 ? 1 : 0,
+        energy: 0
+      };
+    });
+  }
+
+  function initScrollScene() {
+    const canvas = document.getElementById('scroll-scene-canvas') as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Evitar duplicar loops tras View Transitions
+    if ((window as any).__checaSceneCleanup) {
+      (window as any).__checaSceneCleanup();
+    }
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const landmarks = createLandmarks();
+
+    // Motivos técnicos flotantes con profundidad de campo (DoF) estilo antwi.dev
+    const rng = seededRandom(9001);
+    const floatingMotifs: FloatingMotif[] = Array.from({ length: 22 }, (_, i) => {
+      // Colocados preferentemente en el escenario derecho o márgenes laterales
+      const isRightStage = i % 4 !== 0;
+      const xFrac = isRightStage ? 0.56 + rng() * 0.40 : 0.02 + rng() * 0.12;
+      return {
+        xFrac,
+        yDoc: 80 + i * 210 + rng() * 90,
+        depth: 0.12 + rng() * 0.82,
+        kind: i % 5,
+        size: 10 + rng() * 14,
+        angle: rng() * Math.PI * 2,
+        rotSpeed: (rng() - 0.5) * 0.25,
+        ox: 0,
+        oy: 0,
+        vx: 0,
+        vy: 0
+      };
+    });
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Estado de la cámara 3D (ScrollDriver estilo rosalbito.dev)
+    const cam = {
+      x: -2.0,
+      y: 2.85,
+      z: 15,
+      targetZ: 15,
+      focusX: -2.0,
+      targetFocusX: -2.0,
+      focusY: 2.3,
+      targetFocusY: 2.3,
+      progress: 0
+    };
+
+    // Estado del puntero para repulsión física 3D y 2D
+    const pointer = {
+      x: -9999,
+      y: -9999,
+      vx: 0,
+      vy: 0,
+      nx: 0,
+      ny: 0,
+      active: false
+    };
+
+    let stopAnchors: { y: number; spec: StopSpec }[] = [];
+    let isHomeWithStops = false;
+
+    function measureStops() {
+      const found: { y: number; spec: StopSpec }[] = [];
+      for (const spec of STOPS) {
+        const el = document.querySelector<HTMLElement>(`[data-stop="${spec.name}"]`);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const rawY = rect.top + window.scrollY;
+          // El hero se enfoca en scrollY = 0; las demás estaciones cuando su cabecera entra en vista confortable
+          const y = spec.name === 'top' ? 0 : Math.max(0, rawY - window.innerHeight * 0.22);
+          found.push({ y, spec });
+        }
+      }
+      found.sort((a, b) => a.y - b.y);
+      stopAnchors = found;
+      isHomeWithStops = found.length > 0;
+    }
+
+    function updateScrollTargets() {
+      const scrollY = window.scrollY;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      cam.progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+
+      // En pantallas anchas desplazamos el encuadre para dejar la columna izquierda al texto y la derecha a las esculturas 3D
+      const desktopShift = width >= 1024 ? 1.0 : width >= 768 ? 0.45 : 0.0;
+
+      if (!isHomeWithStops || stopAnchors.length === 0) {
+        cam.targetZ = 15 - cam.progress * 180;
+        cam.targetFocusX = -1.6 * desktopShift;
+        cam.targetFocusY = 2.3;
+        return;
+      }
+
+      if (scrollY <= stopAnchors[0].y) {
+        const s = stopAnchors[0].spec;
+        cam.targetZ = s.z + 15;
+        cam.targetFocusX = s.focusX * desktopShift;
+        cam.targetFocusY = s.focusY;
+        return;
+      }
+
+      const last = stopAnchors[stopAnchors.length - 1];
+      if (scrollY >= last.y) {
+        cam.targetZ = last.spec.z + 15;
+        cam.targetFocusX = last.spec.focusX * desktopShift;
+        cam.targetFocusY = last.spec.focusY;
+        return;
+      }
+
+      for (let i = 0; i < stopAnchors.length - 1; i++) {
+        const a = stopAnchors[i];
+        const b = stopAnchors[i + 1];
+        if (scrollY >= a.y && scrollY <= b.y) {
+          const span = Math.max(1, b.y - a.y);
+          const t = Math.max(0, Math.min(1, (scrollY - a.y) / span));
+          // Suavizado hermite s-curve
+          const s = t * t * (3 - 2 * t);
+          cam.targetZ = (a.spec.z + (b.spec.z - a.spec.z) * s) + 15;
+          cam.targetFocusX = (a.spec.focusX + (b.spec.focusX - a.spec.focusX) * s) * desktopShift;
+          cam.targetFocusY = a.spec.focusY + (b.spec.focusY - a.spec.focusY) * s;
+          break;
+        }
+      }
+    }
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas!.width = Math.floor(width * dpr);
+      canvas!.height = Math.floor(height * dpr);
+      canvas!.style.width = `${width}px`;
+      canvas!.style.height = `${height}px`;
+      measureStops();
+      updateScrollTargets();
+    }
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (pointer.active) {
+        pointer.vx = e.clientX - pointer.x;
+        pointer.vy = e.clientY - pointer.y;
+      }
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      pointer.nx = (e.clientX / Math.max(1, width)) * 2 - 1;
+      pointer.ny = (e.clientY / Math.max(1, height)) * 2 - 1;
+      pointer.active = true;
+    };
+
+    const onPointerLeave = () => {
+      pointer.active = false;
+      pointer.vx = 0;
+      pointer.vy = 0;
+    };
+
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('scroll', updateScrollTargets, { passive: true });
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('pointerleave', onPointerLeave, { passive: true });
+
+    resize();
+    // Sincronizar posición inicial sin salto
+    cam.z = cam.targetZ;
+    cam.focusX = cam.targetFocusX;
+    cam.focusY = cam.targetFocusY;
+
+    // Proyección 3D -> 2D con cámara en perspectiva (fov 34 deg)
+    const fovFactor = () => (height * 0.5) / Math.tan((34 * 0.5 * Math.PI) / 180);
+
+    function project3D(wx: number, wy: number, wz: number, fLen: number): [number, number, number] | null {
+      const rx = wx - cam.x;
+      const ry = wy - cam.y;
+      const rz = wz - cam.z;
+      // Cámara mira hacia -Z
+      const depth = -rz;
+      if (depth < 0.6) return null;
+      const scale = fLen / depth;
+      const sx = width * 0.5 + rx * scale;
+      const sy = height * 0.5 - ry * scale;
+      return [sx, sy, depth];
+    }
+
+    let rafId = 0;
+    let lastTime = performance.now();
+
+    function render(now: number) {
+      const dt = Math.min(0.05, Math.max(0.001, (now - lastTime) / 1000));
+      lastTime = now;
+      const time = now * 0.001;
+
+      // 1. Damping exponencial de la cámara (ScrollDriver estilo rosalbito.dev, reactivo y sin retardo)
+      const damp = reducedMotion ? 1 : 1 - Math.exp(-12 * dt);
+      cam.z += (cam.targetZ - cam.z) * damp;
+      cam.focusX += (cam.targetFocusX - cam.focusX) * damp;
+      cam.focusY += (cam.targetFocusY - cam.focusY) * damp;
+
+      // Sutil balanceo orgánico al caminar + parallax del cursor
+      const walkBob = reducedMotion ? 0 : Math.sin(time * 1.4) * 0.05;
+      const mouseShiftX = pointer.active && !reducedMotion ? pointer.nx * 0.22 : 0;
+      const mouseShiftY = pointer.active && !reducedMotion ? -pointer.ny * 0.14 : 0;
+
+      cam.x = cam.focusX + mouseShiftX;
+      cam.y = 2.65 + walkBob + mouseShiftY;
+
+      pointer.vx *= 0.85;
+      pointer.vy *= 0.85;
+
+      ctx!.save();
+      ctx!.scale(dpr, dpr);
+      ctx!.clearRect(0, 0, width, height);
+
+      const fLen = fovFactor();
+
+      // =======================================================================
+      // CAPA 1: PASARELA ARQUITECTÓNICA 3D, PÓRTICOS Y RETÍCULA DE SUELO
+      // =======================================================================
+      const walkwayX = 3.25; // Alineada con el escenario derecho
+      const zStart = Math.floor(cam.z / 8) * 8 + 8;
+      const zEnd = cam.z - 220;
+
+      // Líneas longitudinales del corredor derecho
+      const railsX = [walkwayX - 6.5, walkwayX - 2.1, walkwayX + 2.1, walkwayX + 6.5];
+      for (const rx of railsX) {
+        const pNear = project3D(rx, 0, zStart, fLen);
+        const pFar = project3D(rx, 0, zEnd, fLen);
+        if (pNear && pFar) {
+          const grad = ctx!.createLinearGradient(pNear[0], pNear[1], pFar[0], pFar[1]);
+          const isInner = Math.abs(rx - walkwayX) < 3;
+          grad.addColorStop(0, isInner ? 'rgba(24, 24, 27, 0.22)' : 'rgba(24, 24, 27, 0.09)');
+          grad.addColorStop(0.65, isInner ? 'rgba(24, 24, 27, 0.08)' : 'rgba(24, 24, 27, 0.03)');
+          grad.addColorStop(1, 'rgba(24, 24, 27, 0)');
+          ctx!.strokeStyle = grad;
+          ctx!.lineWidth = isInner ? 1.1 : 0.7;
+          ctx!.beginPath();
+          ctx!.moveTo(pNear[0], pNear[1]);
+          ctx!.lineTo(pFar[0], pFar[1]);
+          ctx!.stroke();
+        }
+      }
+
+      // Traviesas de la pasarela + Pórticos arquitectónicos cada 32m
+      const waveZ = cam.z - ((time * 28) % 180); // Onda de luz técnica recorriendo el corredor
+      for (let z = zStart; z >= zEnd; z -= 8) {
+        const dist = cam.z - z;
+        if (dist < 1) continue;
+        const fog = Math.max(0, Math.min(1, 1 - dist / 210));
+        const waveBoost = Math.exp(-Math.pow((z - waveZ) / 14, 2));
+
+        // Traviesa de suelo
+        const pL = project3D(walkwayX - 2.1, 0, z, fLen);
+        const pR = project3D(walkwayX + 2.1, 0, z, fLen);
+        if (pL && pR) {
+          const alpha = (0.14 + waveBoost * 0.28) * fog;
+          ctx!.strokeStyle = `rgba(24, 24, 27, ${alpha.toFixed(3)})`;
+          ctx!.lineWidth = waveBoost > 0.3 ? 1.3 : 0.75;
+          ctx!.beginPath();
+          ctx!.moveTo(pL[0], pL[1]);
+          ctx!.lineTo(pR[0], pR[1]);
+          ctx!.stroke();
+        }
+
+        // Pórticos/Monolitos arquitectónicos cada 32 unidades
+        if (Math.abs(z % 32) < 0.1) {
+          const archW = 5.4;
+          const archH = 7.6;
+          const bL = project3D(walkwayX - archW, 0, z, fLen);
+          const tL = project3D(walkwayX - archW, archH, z, fLen);
+          const tR = project3D(walkwayX + archW, archH, z, fLen);
+          const bR = project3D(walkwayX + archW, 0, z, fLen);
+          if (bL && tL && tR && bR) {
+            const archAlpha = (0.12 + waveBoost * 0.18) * fog * fog;
+            ctx!.strokeStyle = `rgba(24, 24, 27, ${archAlpha.toFixed(3)})`;
+            ctx!.lineWidth = 0.9;
+            ctx!.beginPath();
+            ctx!.moveTo(bL[0], bL[1]);
+            ctx!.lineTo(tL[0], tL[1]);
+            ctx!.lineTo(tR[0], tR[1]);
+            ctx!.lineTo(bR[0], bR[1]);
+            ctx!.stroke();
+          }
+        }
+      }
+
+      // =======================================================================
+      // CAPA 2: HITOS 3D DE NUBE DE PUNTOS & WIREFRAME POR ESTACIÓN
+      // =======================================================================
+      for (let lIdx = 0; lIdx < landmarks.length; lIdx++) {
+        const lm = landmarks[lIdx];
+        const distZ = cam.z - lm.wz;
+        if (distZ < 2 || distZ > 175) continue;
+
+        const proximity = Math.max(0, Math.min(1, 1 - Math.abs(distZ - 15) / 55));
+        lm.awake += (proximity - lm.awake) * Math.min(1, dt * 4);
+        const targetBuild = lm.awake > 0.12 ? 1 : 0;
+        lm.build += (targetBuild - lm.build) * Math.min(1, dt * 2.5);
+
+        const fogFade = Math.max(0, Math.min(1, 1 - Math.max(0, distZ - 28) / 135));
+        const visibility = fogFade * (0.25 + 0.75 * lm.awake);
+        if (visibility < 0.02) continue;
+
+        if (!reducedMotion) {
+          lm.yaw += dt * (0.28 + lm.awake * 0.18);
+        }
+
+        const cosY = Math.cos(lm.yaw);
+        const sinY = Math.sin(lm.yaw);
+        const cosY2 = Math.cos(-lm.yaw * 0.75);
+        const sinY2 = Math.sin(-lm.yaw * 0.75);
+
+        // 2A. Pedestal Circular Técnico y Haz Vertical (estilo df de rosalbito.dev)
+        const pedSegs = 36;
+        const pedR = 1.95;
+        ctx!.strokeStyle = `rgba(24, 24, 27, ${(0.22 * visibility).toFixed(3)})`;
+        ctx!.lineWidth = 1;
+        ctx!.beginPath();
+        let startedPed = false;
+        for (let s = 0; s <= pedSegs; s++) {
+          const a = (s / pedSegs) * Math.PI * 2 + time * 0.2;
+          const px = lm.wx + Math.cos(a) * pedR;
+          const pz = lm.wz + Math.sin(a) * pedR;
+          const pr = project3D(px, 0.05, pz, fLen);
+          if (pr) {
+            if (!startedPed) {
+              ctx!.moveTo(pr[0], pr[1]);
+              startedPed = true;
+            } else {
+              ctx!.lineTo(pr[0], pr[1]);
+            }
+          }
+        }
+        ctx!.stroke();
+
+        // Eje central vertical técnico del pedestal
+        const pAxisBot = project3D(lm.wx, 0.05, lm.wz, fLen);
+        const pAxisTop = project3D(lm.wx, 4.9, lm.wz, fLen);
+        if (pAxisBot && pAxisTop) {
+          ctx!.save();
+          ctx!.setLineDash([3, 4]);
+          ctx!.strokeStyle = `rgba(24, 24, 27, ${(0.16 * visibility).toFixed(3)})`;
+          ctx!.beginPath();
+          ctx!.moveTo(pAxisBot[0], pAxisBot[1]);
+          ctx!.lineTo(pAxisTop[0], pAxisTop[1]);
+          ctx!.stroke();
+          ctx!.restore();
+        }
+
+        // 2B. Aristas Wireframe de la Escultura 3D
+        const scatter = (1 - lm.build) * 0.85;
+        if (lm.build > 0.25) {
+          ctx!.strokeStyle = `rgba(24, 24, 27, ${(0.16 * visibility * lm.build).toFixed(3)})`;
+          ctx!.lineWidth = 0.85;
+          ctx!.beginPath();
+          for (const edge of lm.edges) {
+            const c = edge.part === 0 ? cosY : cosY2;
+            const s = edge.part === 0 ? sinY : sinY2;
+            const ax = edge.a[0] * c - edge.a[2] * s + lm.wx;
+            const ay = edge.a[1] + lm.wy;
+            const az = edge.a[0] * s + edge.a[2] * c + lm.wz;
+            const bx = edge.b[0] * c - edge.b[2] * s + lm.wx;
+            const by = edge.b[1] + lm.wy;
+            const bz = edge.b[0] * s + edge.b[2] * c + lm.wz;
+
+            const pa = project3D(ax, ay, az, fLen);
+            const pb = project3D(bx, by, bz, fLen);
+            if (pa && pb) {
+              ctx!.moveTo(pa[0], pa[1]);
+              ctx!.lineTo(pb[0], pb[1]);
+            }
+          }
+          ctx!.stroke();
+        }
+
+        // 2C. Nube de Puntos 3D Interactiva al Ratón (física de repulsión elástica)
+        const repulseRadiusPx = 105;
+        const repulseRadiusSq = repulseRadiusPx * repulseRadiusPx;
+
+        for (let pIdx = 0; pIdx < lm.points.length; pIdx++) {
+          const pt = lm.points[pIdx];
+          const c = pt.part === 0 ? cosY : cosY2;
+          const s = pt.part === 0 ? sinY : sinY2;
+
+          // Interpolación entre estado disperso (scatter) y ensamblado (build)
+          const lx = pt.bx * (1 - scatter) + pt.sx * scatter;
+          let ly = pt.by * (1 - scatter) + pt.sy * scatter;
+          const lz = pt.bz * (1 - scatter) + pt.sz * scatter;
+
+          // Onda viva adicional en la estación de Proyectos (Terreno Topográfico)
+          if (lIdx === 3 && pt.part === 0 && !reducedMotion) {
+            ly += Math.sin(pt.bx * 2.2 + time * 2.0) * 0.12;
+          }
+
+          const wx = lx * c - lz * s + lm.wx + pt.ox;
+          const wy = ly + lm.wy + Math.sin(time * 1.3 + lIdx) * 0.08 + pt.oy;
+          const wz = lx * s + lz * c + lm.wz + pt.oz;
+
+          const pr = project3D(wx, wy, wz, fLen);
+          if (!pr) continue;
+
+          const [sx, sy, depth] = pr;
+
+          // Interacción física con el ratón (repulsión + spring return)
+          let hoverHighlight = 0;
+          if (pointer.active && !reducedMotion) {
+            const dx = sx - pointer.x;
+            const dy = sy - pointer.y;
+            const dSq = dx * dx + dy * dy;
+            if (dSq < repulseRadiusSq && dSq > 0.001) {
+              const d = Math.sqrt(dSq);
+              const force = (1 - d / repulseRadiusPx);
+              hoverHighlight = force;
+              const worldImpulse = force * 0.045;
+              pt.vx += (dx / d) * worldImpulse + pointer.vx * 0.0012;
+              pt.vy += (-dy / d) * worldImpulse - pointer.vy * 0.0012;
+              pt.vz += (Math.sin(pIdx) * worldImpulse * 0.5);
+            }
+          }
+
+          // Integración de resorte amortiguado
+          pt.vx += -pt.ox * 0.12;
+          pt.vy += -pt.oy * 0.12;
+          pt.vz += -pt.oz * 0.12;
+          pt.vx *= 0.84;
+          pt.vy *= 0.84;
+          pt.vz *= 0.84;
+          pt.ox += pt.vx;
+          pt.oy += pt.vy;
+          pt.oz += pt.vz;
+
+          const ptRadius = Math.max(0.85, (pt.size * (fLen / depth)) * 0.022 * (1 + hoverHighlight * 0.45));
+
+          // Paleta industrial monocroma (#09090b / #3f3f46 / #71717a)
+          let alpha = visibility * (pt.tone === 2 ? 0.88 : pt.tone === 1 ? 0.56 : 0.34);
+          if (hoverHighlight > 0.05) {
+            alpha = Math.min(1, alpha + hoverHighlight * 0.35);
+          }
+
+          ctx!.fillStyle =
+            pt.tone === 2 || hoverHighlight > 0.25
+              ? `rgba(9, 9, 11, ${alpha.toFixed(3)})`
+              : pt.tone === 1
+                ? `rgba(63, 63, 70, ${alpha.toFixed(3)})`
+                : `rgba(113, 113, 122, ${alpha.toFixed(3)})`;
+
+          ctx!.beginPath();
+          ctx!.arc(sx, sy, ptRadius, 0, Math.PI * 2);
+          ctx!.fill();
+        }
+      }
+
+      // =======================================================================
+      // CAPA 3: MOTIVOS GEOMÉTRICOS CON PROFUNDIDAD DE CAMPO (ESTILO ANTWI.DEV)
+      // =======================================================================
+      const scrollY = window.scrollY;
+      for (const m of floatingMotifs) {
+        // Parallax por profundidad idéntico a la fórmula de antwi.dev
+        const parallaxFactor = (0.5 - m.depth) * 0.55;
+        const baseScreenX = m.xFrac * width;
+        const rawY = m.yDoc - scrollY * (1 - parallaxFactor);
+        // Envolver suavemente en altura de pantalla para presencia continua
+        const wrappedY = ((rawY % (height + 240)) + (height + 240)) % (height + 240) - 120;
+
+        const swayX = reducedMotion ? 0 : Math.sin(time * 0.8 + m.yDoc) * 6 * m.depth;
+        const swayY = reducedMotion ? 0 : Math.cos(time * 0.65 + m.yDoc) * 5 * m.depth;
+
+        const curX = baseScreenX + swayX + m.ox;
+        const curY = wrappedY + swayY + m.oy;
+
+        // Repulsión elástica al ratón estilo antwi.dev
+        if (pointer.active && !reducedMotion) {
+          const dx = curX - pointer.x;
+          const dy = curY - pointer.y;
+          const dist = Math.hypot(dx, dy);
+          const repulseR = 135;
+          if (dist < repulseR && dist > 1) {
+            const f = Math.pow(1 - dist / repulseR, 2) * (1.2 + m.depth * 1.8);
+            m.vx += (dx / dist) * f;
+            m.vy += (dy / dist) * f;
+          }
+        }
+
+        m.vx += -m.ox * 0.06;
+        m.vy += -m.oy * 0.06;
+        m.vx *= 0.82;
+        m.vy *= 0.82;
+        m.ox += m.vx;
+        m.oy += m.vy;
+        if (!reducedMotion) {
+          m.angle += m.rotSpeed * dt;
+        }
+
+        // Opacidad por profundidad de campo (más nítidos cerca del plano focal 0.7, más suaves al fondo)
+        const dofBlur = Math.abs(m.depth - 0.72);
+        const alpha = Math.max(0.08, 0.28 - dofBlur * 0.24);
+        const s = m.size * (0.65 + m.depth * 0.65);
+
+        ctx!.save();
+        ctx!.translate(curX, curY);
+        ctx!.rotate(m.angle);
+        ctx!.strokeStyle = `rgba(24, 24, 27, ${alpha.toFixed(3)})`;
+        ctx!.fillStyle = `rgba(24, 24, 27, ${(alpha * 0.8).toFixed(3)})`;
+        ctx!.lineWidth = dofBlur > 0.35 ? 1.6 : 1.05;
+
+        if (m.kind === 0) {
+          // Retícula / Crosshair de calibración
+          ctx!.beginPath();
+          ctx!.moveTo(-s * 0.6, 0);
+          ctx!.lineTo(s * 0.6, 0);
+          ctx!.moveTo(0, -s * 0.6);
+          ctx!.lineTo(0, s * 0.6);
+          ctx!.stroke();
+          ctx!.strokeRect(-s * 0.28, -s * 0.28, s * 0.56, s * 0.56);
+        } else if (m.kind === 1) {
+          // Rombo / Octaedro proyectado
+          ctx!.beginPath();
+          ctx!.moveTo(0, -s * 0.7);
+          ctx!.lineTo(s * 0.7, 0);
+          ctx!.lineTo(0, s * 0.7);
+          ctx!.lineTo(-s * 0.7, 0);
+          ctx!.closePath();
+          ctx!.stroke();
+          ctx!.beginPath();
+          ctx!.moveTo(-s * 0.7, 0);
+          ctx!.lineTo(s * 0.7, 0);
+          ctx!.stroke();
+        } else if (m.kind === 2) {
+          // Nodo orbital con satélite
+          ctx!.beginPath();
+          ctx!.arc(0, 0, s * 0.55, 0, Math.PI * 2);
+          ctx!.stroke();
+          ctx!.beginPath();
+          ctx!.arc(0, 0, 1.8, 0, Math.PI * 2);
+          ctx!.fill();
+          ctx!.beginPath();
+          ctx!.arc(s * 0.55, 0, 1.8, 0, Math.PI * 2);
+          ctx!.fill();
+        } else if (m.kind === 3) {
+          // Corchetes técnicos [ ]
+          const w = s * 0.5;
+          const h = s * 0.6;
+          ctx!.beginPath();
+          ctx!.moveTo(-w + 3, -h);
+          ctx!.lineTo(-w, -h);
+          ctx!.lineTo(-w, h);
+          ctx!.lineTo(-w + 3, h);
+          ctx!.moveTo(w - 3, -h);
+          ctx!.lineTo(w, -h);
+          ctx!.lineTo(w, h);
+          ctx!.lineTo(w - 3, h);
+          ctx!.stroke();
+        } else {
+          // Hexágono isométrico con centro
+          ctx!.beginPath();
+          for (let k = 0; k < 6; k++) {
+            const a = (k / 6) * Math.PI * 2;
+            const hx = Math.cos(a) * s * 0.6;
+            const hy = Math.sin(a) * s * 0.6;
+            if (k === 0) ctx!.moveTo(hx, hy);
+            else ctx!.lineTo(hx, hy);
+          }
+          ctx!.closePath();
+          ctx!.stroke();
+        }
+
+        ctx!.restore();
+      }
+
+      ctx!.restore();
+      rafId = requestAnimationFrame(render);
+    }
+
+    rafId = requestAnimationFrame(render);
+
+    (window as any).__checaSceneCleanup = () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('scroll', updateScrollTargets);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerleave', onPointerLeave);
+    };
+  }
+
+  // Inicializar en carga inicial y tras navegaciones con Astro View Transitions
+  initScrollScene();
+  document.addEventListener('astro:page-load', initScrollScene);
+</script>

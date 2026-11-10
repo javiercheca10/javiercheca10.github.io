@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TechEmblem from '../components/TechEmblem.astro';
 import profile from '../data/profile.json';
 import academic from '../data/academic.json';
 import projects from '../data/projects.json';
@@ -21,13 +22,13 @@ const tickerItems = [
 ];
 ---
 
-<Layout>
+<Layout show3d={true}>
   <Header activeTab="home" />
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6">
-    <!-- HERO PRINCIPAL INDUSTRIAL -->
-    <section class="py-12 sm:py-16 border-b border-[#18181b]">
-      <div class="max-w-4xl">
+    <!-- ESTACIÓN 00: HERO PRINCIPAL INDUSTRIAL (Distribución Opción A estilo rosalbito.dev) -->
+    <section data-stop="top" class="station-column py-12 sm:py-16 border-b border-[#18181b]">
+      <div>
         <!-- Kicker técnico -->
         <div class="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-[#52525b] mb-4">
           <span class="inline-block w-2 h-2 bg-[#18181b]"></span>
@@ -40,7 +41,7 @@ const tickerItems = [
         </h1>
 
         <!-- Resumen Lead -->
-        <p class="mt-5 text-sm sm:text-base text-[#52525b] leading-relaxed max-w-3xl">
+        <p class="mt-5 text-sm sm:text-base text-[#52525b] leading-relaxed">
           Plataforma técnica del Doble Grado en Ingeniería Informática y ADE. Recoge el itinerario curricular a lo largo de seis etapas (Granada, Atenas y Valencia), guías docentes, utilidades y proyectos de software. Administrado y mantenido por <strong class="text-[#09090b]">Javier Checa</strong>.
         </p>
 
@@ -48,17 +49,17 @@ const tickerItems = [
         <div class="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs">
           <a
             href="/universidad"
-            class="px-5 py-2.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-2 border border-[#18181b]"
+            class="group px-5 py-2.5 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-2 border border-[#18181b]"
           >
             <span>[01] EXPLORAR ASIGNATURAS</span>
-            <span aria-hidden="true">→</span>
+            <span class="slide-arrow" aria-hidden="true">→</span>
           </a>
           <a
             href="/proyectos"
-            class="px-5 py-2.5 bg-white text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors border border-[#18181b] flex items-center gap-2"
+            class="group px-5 py-2.5 station-surface text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors border border-[#18181b] flex items-center gap-2"
           >
             <span>[02] VER PROYECTOS</span>
-            <span aria-hidden="true">→</span>
+            <span class="slide-arrow" aria-hidden="true">→</span>
           </a>
           <a
             href="#sobre-mi"
@@ -70,7 +71,7 @@ const tickerItems = [
       </div>
 
       <!-- Fila de estadísticas industriales -->
-      <div class="mt-12 pt-8 border-t border-[#e4e4e7] grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-xs">
+      <div class="mt-12 pt-8 border-t border-[#e4e4e7] grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
         <div class="border-l-2 border-[#18181b] pl-3 py-1">
           <div class="text-2xl font-bold text-[#09090b]">06</div>
           <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Etapas Académicas</div>
@@ -88,10 +89,18 @@ const tickerItems = [
           <div class="text-[#71717a] uppercase text-[11px] mt-0.5">Código Abierto</div>
         </div>
       </div>
+
+      <!-- Indicador Scroll estilo rosalbito.dev -->
+      <div class="mt-8 pt-4 flex items-center justify-between">
+        <p class="scroll-cue" aria-hidden="true">
+          <span class="scroll-cue-line"></span>
+          <span>Scroll para recorrer las estaciones</span>
+        </p>
+      </div>
     </section>
 
     <!-- CINTA TÉCNICA / MARQUEE ESTILO INDUSTRIAL (ROTACIÓN CONTINUA SUAVE) -->
-    <div class="py-2.5 border-b border-[#18181b] bg-[#f4f4f5] overflow-hidden whitespace-nowrap text-[11px] font-mono text-[#52525b] select-none">
+    <div class="station-column py-2.5 border-b border-[#18181b] bg-[#f4f4f5]/90 backdrop-blur-sm overflow-hidden whitespace-nowrap text-[11px] font-mono text-[#52525b] select-none">
       <div class="marquee-track flex">
         <div class="marquee-group flex gap-8 px-4 font-bold shrink-0 items-center">
           {tickerItems.map(item => <span>{item}</span>)}
@@ -104,8 +113,8 @@ const tickerItems = [
       </div>
     </div>
 
-    <!-- SECCIÓN 01: SOBRE MÍ -->
-    <section id="sobre-mi" class="py-12 border-b border-[#18181b]">
+    <!-- ESTACIÓN 01: SOBRE MÍ -->
+    <section id="sobre-mi" data-stop="sobre-mi" class="station-column py-14 border-b border-[#18181b]">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
           <span>[01]</span>
@@ -113,18 +122,18 @@ const tickerItems = [
         </div>
         <a
           href="/sobre-mi"
-          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
+          class="group font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
         >
           <span>CONOCE MÁS ACERCA DE MÍ & CV</span>
-          <span aria-hidden="true">→</span>
+          <span class="slide-arrow" aria-hidden="true">→</span>
         </a>
       </div>
       <h2 class="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-[#09090b] mb-6">
         Sobre Mí
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-        <div class="md:col-span-2 space-y-4 text-[#52525b] leading-relaxed">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 text-sm">
+        <div class="md:col-span-7 space-y-4 text-[#52525b] leading-relaxed">
           <p>
             Me llamo <strong class="text-[#09090b]">Javier Checa</strong> y curso el Doble Grado en Ingeniería Informática y Administración y Dirección de Empresas en la Universidad de Granada (UGR).
           </p>
@@ -135,19 +144,19 @@ const tickerItems = [
             Esta web reúne el trabajo de estos años: las asignaturas cursadas entre Granada, Atenas y Valencia, materiales organizados y las herramientas de código que voy construyendo.
           </p>
 
-          <div class="pt-2 flex flex-wrap items-center gap-3 font-mono text-xs">
+          <div class="pt-2 flex flex-wrap items-center gap-2.5 font-mono text-xs">
             <a
               href="/sobre-mi"
-              class="px-4 py-2 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1.5"
+              class="group px-4 py-2 bg-[#18181b] text-white font-bold hover:bg-black transition-colors flex items-center gap-1.5"
             >
               <span>Conoce más acerca de mí</span>
-              <span aria-hidden="true">→</span>
+              <span class="slide-arrow" aria-hidden="true">→</span>
             </a>
             <a
               href="/docs/CVChecaCasasFranciscoJavier_ES.pdf"
               target="_blank"
               download="CVChecaCasasFranciscoJavier.pdf"
-              class="px-3.5 py-2 border border-[#18181b] bg-white text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5 shadow-sm"
+              class="px-3.5 py-2 border border-[#18181b] station-surface text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5 shadow-sm"
               title="Descargar Curriculum Vitae en Español"
             >
               <span>Descargar CV (ES)</span>
@@ -157,7 +166,7 @@ const tickerItems = [
               href="/docs/CVChecaCasasFranciscoJavier_EN.pdf"
               target="_blank"
               download="CVChecaCasasFranciscoJavier_EN.pdf"
-              class="px-3.5 py-2 border border-[#18181b] bg-white text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5 shadow-sm"
+              class="px-3.5 py-2 border border-[#18181b] station-surface text-[#09090b] font-bold hover:bg-[#f4f4f5] transition-colors flex items-center gap-1.5 shadow-sm"
               title="Download Curriculum Vitae in English"
             >
               <span>Download CV (EN)</span>
@@ -167,7 +176,7 @@ const tickerItems = [
         </div>
 
         <!-- Matriz técnica de competencias -->
-        <div class="border border-[#18181b] p-5 bg-white font-mono text-xs">
+        <div class="md:col-span-5 border border-[#18181b] p-5 station-surface font-mono text-xs h-fit">
           <div class="font-bold uppercase pb-2 border-b border-[#e4e4e7] mb-3 text-[#09090b]">
             Competencias Clave
           </div>
@@ -193,8 +202,8 @@ const tickerItems = [
       </div>
     </section>
 
-    <!-- SECCIÓN 02: UNIVERSIDAD (GIIADE) -->
-    <section id="universidad" class="py-12 border-b border-[#18181b]">
+    <!-- ESTACIÓN 02: UNIVERSIDAD (GIIADE) -->
+    <section id="universidad" data-stop="universidad" class="station-column py-14 border-b border-[#18181b]">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
           <span>[02]</span>
@@ -202,10 +211,10 @@ const tickerItems = [
         </div>
         <a
           href="/universidad"
-          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
+          class="group font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
         >
           <span>VER CATÁLOGO COMPLETO</span>
-          <span aria-hidden="true">→</span>
+          <span class="slide-arrow" aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -217,15 +226,15 @@ const tickerItems = [
       </p>
 
       <!-- Tabla técnica de etapas académicas -->
-      <div class="border border-[#18181b] bg-white divide-y divide-[#18181b]">
+      <div class="border border-[#18181b] station-surface divide-y divide-[#18181b]">
         {academic.map(stage => (
-          <div class="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-[#fafafa] transition-colors">
+          <div class="group p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 hover:bg-white transition-colors">
             <div class="flex items-start sm:items-center gap-4">
-              <span class="font-mono text-sm font-bold bg-[#18181b] text-white px-2 py-0.5">
+              <span class="font-mono text-sm font-bold bg-[#18181b] text-white px-2 py-0.5 shrink-0">
                 {stage.num}
               </span>
               <div>
-                <div class="flex items-center gap-2">
+                <div class="flex flex-wrap items-center gap-2">
                   <h3 class="font-bold text-base text-[#09090b] tracking-tight">
                     {stage.name}
                   </h3>
@@ -239,14 +248,14 @@ const tickerItems = [
               </div>
             </div>
 
-            <div class="flex items-center justify-between md:justify-end gap-6 font-mono text-xs text-[#71717a] pt-2 md:pt-0 border-t md:border-t-0 border-[#f4f4f5]">
+            <div class="flex items-center justify-between md:justify-end gap-5 font-mono text-xs text-[#71717a] pt-2 md:pt-0 border-t md:border-t-0 border-[#f4f4f5] shrink-0">
               <span>{stage.groups.reduce((acc, g) => acc + g.subjects.length, 0)} asignaturas</span>
               <a
                 href={`/universidad#stage-${stage.id}`}
                 class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
               >
                 <span>Consultar</span>
-                <span aria-hidden="true">↗</span>
+                <span class="slide-arrow" aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -254,8 +263,8 @@ const tickerItems = [
       </div>
     </section>
 
-    <!-- SECCIÓN 03: PROYECTOS PERSONALES -->
-    <section id="proyectos" class="py-12 border-b border-[#18181b]">
+    <!-- ESTACIÓN 03: PROYECTOS PERSONALES (Con Emblemas Técnicos SVG Animados) -->
+    <section id="proyectos" data-stop="proyectos" class="station-column py-14 border-b border-[#18181b]">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b]">
           <span>[03]</span>
@@ -263,10 +272,10 @@ const tickerItems = [
         </div>
         <a
           href="/proyectos"
-          class="font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
+          class="group font-mono text-xs font-bold text-[#09090b] hover:underline flex items-center gap-1"
         >
           <span>VER TODOS LOS PROYECTOS</span>
-          <span aria-hidden="true">→</span>
+          <span class="slide-arrow" aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -277,62 +286,69 @@ const tickerItems = [
         Soluciones prácticas desarrolladas combinando ingeniería de sistemas, arquitectura self-hosted, modelos matemáticos de optimización y desarrollo de software.
       </p>
 
-      <!-- Lista técnica de proyectos -->
-      <div class="border border-[#18181b] bg-white divide-y divide-[#18181b]">
+      <!-- Lista técnica de proyectos con emblemas SVG animados estilo rosalbito.dev -->
+      <div class="border border-[#18181b] station-surface divide-y divide-[#18181b]">
         {projects.map((proj, idx) => (
-          <div class="p-5 sm:p-6 hover:bg-[#fafafa] transition-colors">
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-2">
-              <div class="flex items-baseline gap-3">
-                <span class="font-mono text-xs text-[#71717a]">0{idx + 1}</span>
-                <h3 class="font-bold text-lg text-[#09090b] tracking-tight">
-                  {proj.title}
-                </h3>
-              </div>
-              <span class="font-mono text-xs px-2 py-0.5 bg-[#f4f4f5] border border-[#e4e4e7] text-[#52525b] w-fit">
-                {proj.badge}
-              </span>
-            </div>
+          <div data-stop={`project-${proj.id}`} class="project-row group p-5 sm:p-6 hover:bg-white transition-colors">
+            <div class="flex items-start gap-4">
+              <!-- Emblema técnico SVG animado en tinta monocroma -->
+              <TechEmblem kind={proj.id} size="md" />
 
-            <p class="text-xs font-semibold text-[#18181b] mt-1">
-              {proj.subtitle}
-            </p>
-
-            <p class="text-xs sm:text-sm text-[#52525b] mt-2 leading-relaxed">
-              {proj.description}
-            </p>
-
-            <div class="mt-4 pt-3 border-t border-[#f4f4f5] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-              <div class="flex flex-wrap gap-1.5">
-                {proj.tags.map(t => (
-                  <span class="px-2 py-0.5 bg-[#f4f4f5] text-[#3f3f46] text-[11px]">
-                    {t}
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-1.5">
+                  <div class="flex items-baseline gap-2.5">
+                    <span class="font-mono text-xs text-[#71717a]">0{idx + 1}</span>
+                    <h3 class="font-bold text-lg text-[#09090b] tracking-tight">
+                      {proj.title}
+                    </h3>
+                  </div>
+                  <span class="font-mono text-xs px-2 py-0.5 bg-[#f4f4f5] border border-[#e4e4e7] text-[#52525b] w-fit shrink-0">
+                    {proj.badge}
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <div class="flex items-center gap-4">
-                {proj.github && (
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
-                  >
-                    <span>Código GitHub</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-                {proj.demo && (
-                  <a
-                    href={proj.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
-                  >
-                    <span>Enlace Web</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
+                <p class="text-xs font-semibold text-[#18181b] mt-0.5">
+                  {proj.subtitle}
+                </p>
+
+                <p class="text-xs sm:text-sm text-[#52525b] mt-2 leading-relaxed">
+                  {proj.description}
+                </p>
+
+                <div class="mt-4 pt-3 border-t border-[#f4f4f5] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <div class="flex flex-wrap gap-1.5">
+                    {proj.tags.map(t => (
+                      <span class="px-2 py-0.5 bg-[#f4f4f5] text-[#3f3f46] text-[11px]">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div class="flex items-center gap-4">
+                    {proj.github && (
+                      <a
+                        href={proj.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+                      >
+                        <span>Código GitHub</span>
+                        <span class="slide-arrow" aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                    {proj.demo && (
+                      <a
+                        href={proj.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-bold text-[#09090b] hover:underline flex items-center gap-1"
+                      >
+                        <span>Enlace Web</span>
+                        <span class="slide-arrow" aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -340,8 +356,8 @@ const tickerItems = [
       </div>
     </section>
 
-    <!-- SECCIÓN 04: CONTACTO -->
-    <section id="contacto" class="py-12">
+    <!-- ESTACIÓN 04: CONTACTO -->
+    <section id="contacto" data-stop="contacto" class="station-column py-14">
       <div class="flex items-center gap-2 text-xs font-mono font-bold text-[#52525b] mb-2">
         <span>[04]</span>
         <span class="uppercase">Comunicación Directa</span>
@@ -350,7 +366,7 @@ const tickerItems = [
         Contacto
       </h2>
 
-      <div class="border border-[#18181b] p-6 sm:p-8 bg-white flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="border border-[#18181b] p-6 sm:p-8 station-surface flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <p class="text-sm text-[#52525b] leading-relaxed max-w-xl">
             Disponible para colaborar en proyectos de desarrollo de software, algoritmos de optimización, resolución de casos de estudio o consultas sobre el Doble Grado.
@@ -360,7 +376,7 @@ const tickerItems = [
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 font-mono text-xs">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 font-mono text-xs shrink-0">
           <a
             href={profile.links.email}
             class="px-5 py-3 bg-[#18181b] text-white text-center font-bold hover:bg-black transition-colors"
@@ -371,7 +387,7 @@ const tickerItems = [
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="px-5 py-3 border border-[#18181b] text-[#09090b] text-center font-bold hover:bg-[#f4f4f5] transition-colors"
+            class="px-5 py-3 border border-[#18181b] bg-white text-[#09090b] text-center font-bold hover:bg-[#f4f4f5] transition-colors"
           >
             github.com/{profile.handle}
           </a>

@@ -1,0 +1,201 @@
+---
+interface Props {
+  kind:
+    | 'torrent-stream-web'
+    | 'reparto-personal'
+    | 'agente-deliberativo-ia'
+    | 'irrgarten-pdoo'
+    | 'imaging-mp-ugr'
+    | 'internet-technologies-mytelecom'
+    | 'stage-ugr'
+    | 'stage-erasmus'
+    | 'stage-sicue'
+    | 'stage-final'
+    | string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { kind, size = 'md' } = Astro.props;
+const uid = `em_${kind.replace(/[^a-z0-9]/gi, '_')}_${Math.random().toString(36).slice(2, 7)}`;
+
+const sizeClass =
+  size === 'lg'
+    ? 'w-20 h-16'
+    : size === 'sm'
+      ? 'w-11 h-10'
+      : 'w-14 h-12';
+
+const pixelRows = [0, 1, 2, 3, 4];
+const pixelCols = [0, 1, 2, 3, 4, 5];
+const orbitDelays = [0, -2.5, -5, -7.5];
+---
+
+<span class={`tech-emblem inline-flex items-center justify-center shrink-0 select-none ${sizeClass}`} aria-hidden="true">
+  {kind === 'homelab-tv-launcher' && (
+    <svg class="em-art w-full h-full" viewBox="18 0 76 63" focusable="false">
+      <rect x="22" y="10" width="68" height="38" rx="3" class="em-void" stroke="#18181b" stroke-width="1.3" />
+      <rect x="26" y="14" width="60" height="30" rx="1.5" fill="rgba(24,24,27,0.04)" stroke="#e4e4e7" stroke-width="0.8" />
+      <rect x="29" y="17" width="22" height="11" rx="1" fill="#18181b">
+        <animate attributeName="opacity" values="0.85;0.4;0.85" dur="3s" repeatCount="indefinite" />
+      </rect>
+      <rect x="29" y="32" width="12" height="8" rx="0.8" fill="rgba(24,24,27,0.2)" />
+      <rect x="44" y="32" width="12" height="8" rx="0.8" fill="rgba(24,24,27,0.2)" />
+      <rect x="59" y="32" width="12" height="8" rx="0.8" fill="rgba(24,24,27,0.2)" />
+      <path class="em-line" d="M50 48 L46 56 H66 L62 48" />
+      <path class="em-base" d="M18 56 H94" />
+    </svg>
+  )}
+
+  {kind === 'torrent-stream-web' && (
+    <svg class="em-art w-full h-full" viewBox="20 0 72 63" focusable="false">
+      <defs>
+        <radialGradient id={`${uid}_dome`} cx="56" cy="60" r="32" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#18181b" stop-opacity="0.16" />
+          <stop offset="0.6" stop-color="#18181b" stop-opacity="0.05" />
+          <stop offset="1" stop-color="#18181b" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <path d="M24 58 Q56 32 88 58Z" fill={`url(#${uid}_dome)`} />
+      <path class="em-line" d="M24 58 Q56 32 88 58" />
+      <path class="em-dim em-dash" id={`${uid}_orbit`} d="M18 50 Q56 10 94 50" />
+      <path class="em-line em-thin" d="M56 16 V46" />
+      <rect x="44" y="6" width="24" height="10" rx="2" class="em-void" stroke="#18181b" stroke-width="1.2" />
+      <circle cx="48.5" cy="11" r="1.2" fill="#18181b">
+        <animate attributeName="opacity" values="1;0.25;1" dur="2.2s" repeatCount="indefinite" />
+      </circle>
+      <path class="em-dim" d="M52 11 H64" />
+      {orbitDelays.map((begin) => (
+        <g>
+          <circle r="2.2" class="em-void" stroke="#18181b" stroke-width="0.9" />
+          <circle r="0.8" fill="#18181b" />
+          <animateMotion dur="10s" begin={`${begin}s`} repeatCount="indefinite">
+            <mpath href={`#${uid}_orbit`} />
+          </animateMotion>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="10s" begin={`${begin}s`} repeatCount="indefinite" />
+        </g>
+      ))}
+      <path class="em-base" d="M20 58 H92" />
+    </svg>
+  )}
+
+  {kind === 'reparto-personal' && (
+    <svg class="em-art w-full h-full" viewBox="22 0 68 63" focusable="false">
+      <path class="em-dim" d="M56 9 L42 24 M56 9 L70 24 M42 24 L35 39 M42 24 L49 39 M70 24 L63 39 M70 24 L77 39" />
+      <path class="em-hot em-tree-pulse" pathLength="1" d="M63 39 L70 24 L56 9 L42 24 L35 39" />
+      <circle class="em-line em-void" cx="56" cy="9" r="3" />
+      <circle cx="56" cy="9" r="1.5" fill="#18181b">
+        <animate attributeName="r" values="1.2;2.1;1.2" dur="3s" repeatCount="indefinite" />
+      </circle>
+      <circle class="em-line em-void" cx="42" cy="24" r="2.4" />
+      <circle class="em-line em-void" cx="70" cy="24" r="2.4" />
+      <rect class="em-line em-void" x="32.6" y="36.6" width="4.8" height="4.8" rx="0.6" />
+      <rect class="em-line em-void" x="46.6" y="36.6" width="4.8" height="4.8" rx="0.6" />
+      <rect class="em-line em-void" x="60.6" y="36.6" width="4.8" height="4.8" rx="0.6" />
+      <rect class="em-line em-void" x="74.6" y="36.6" width="4.8" height="4.8" rx="0.6" />
+      <rect x="61.5" y="37.5" width="3" height="3" fill="#18181b">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="2.8s" repeatCount="indefinite" />
+      </rect>
+      <path class="em-dim" d="M35 41.5 V48 M49 41.5 V48 M63 41.5 V48 M77 41.5 V48" />
+      <path class="em-base" d="M24 50 H88" />
+    </svg>
+  )}
+
+  {kind === 'agente-deliberativo-ia' && (
+    <svg class="em-art w-full h-full" viewBox="20 0 72 63" focusable="false">
+      <circle cx="56" cy="10" r="13" fill="none" stroke="#18181b" stroke-width="0.7" opacity="0">
+        <animate attributeName="r" values="2;15" dur="3.6s" begin="0s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.75;0" dur="3.6s" begin="0s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="56" cy="10" r="13" fill="none" stroke="#18181b" stroke-width="0.7" opacity="0">
+        <animate attributeName="r" values="2;15" dur="3.6s" begin="-1.8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.75;0" dur="3.6s" begin="-1.8s" repeatCount="indefinite" />
+      </circle>
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -1.6;0 0" dur="3s" repeatCount="indefinite" />
+        <path class="em-line em-thin" d="M56 18 V11.5" />
+        <circle cx="56" cy="9.5" r="1.9" fill="#18181b" />
+        <rect class="em-line em-void" x="42" y="18" width="28" height="18" rx="2.5" />
+        <rect x="45.5" y="21.5" width="21" height="11" rx="1.5" fill="#f4f4f5" stroke="#52525b" stroke-width="0.7" />
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="-2.2 0;2.2 0;-2.2 0" dur="4s" repeatCount="indefinite" />
+          <circle cx="51.5" cy="27" r="2" fill="#18181b" />
+          <circle cx="60.5" cy="27" r="2" fill="#18181b" />
+        </g>
+        <path class="em-dim" d="M36 45 L46 39 H66 L76 45 L56 52 Z" fill="rgba(24,24,27,0.05)" />
+        <path class="em-hot em-astar-run" pathLength="1" d="M41 44 L51 42 L56 46 L68 42" />
+      </g>
+      <path class="em-base" d="M22 55 H90" />
+    </svg>
+  )}
+
+  {kind === 'irrgarten-pdoo' && (
+    <svg class="em-art w-full h-full" viewBox="22 0 68 63" focusable="false">
+      <g transform="translate(38 5) scale(0.56)">
+        <path d="M42.5 8.5 L34 0 V34 H0 V68 L17 85 V51 H51 V17 Z" fill="rgba(24,24,27,0.06)" />
+        <path class="em-dim" d="M0 34 V17 H17 V34 M34 51 V68 H51 V51" />
+        <path class="em-line" style="stroke-width:1.8" d="M42.5 8.5 L34 0 V34 H0 V68 L17 85 V51 H51 V17 Z" />
+        <path class="em-hot em-maze-run" style="stroke-width:2.5" pathLength="1" d="M42.5 8.5 L34 0 V34 H0 V68 L17 85 V51 H51 V17 Z" />
+      </g>
+      <path class="em-base" d="M22 56 H90" />
+    </svg>
+  )}
+
+  {kind === 'imaging-mp-ugr' && (
+    <svg class="em-art w-full h-full" viewBox="22 0 68 63" focusable="false">
+      <rect x="36" y="8" width="40" height="38" rx="2" fill="rgba(24,24,27,0.04)" stroke="#18181b" stroke-width="1.2" />
+      {pixelRows.map((row) =>
+        pixelCols.map((col) => {
+          const cx = 42 + col * 5.6;
+          const cy = 14 + row * 6.2;
+          const delay = -((row * 0.25 + col * 0.18).toFixed(2));
+          return (
+            <circle
+              class="em-pixel-dot"
+              cx={cx}
+              cy={cy}
+              r="1.35"
+              style={`--d:${delay}s`}
+            />
+          );
+        })
+      )}
+      <rect x="45" y="16" width="22" height="16" fill="none" stroke="#18181b" stroke-width="1" stroke-dasharray="2.5 1.5">
+        <animate attributeName="x" values="43;48;43" dur="5s" repeatCount="indefinite" />
+      </rect>
+      <path class="em-base" d="M22 53 H90" />
+    </svg>
+  )}
+
+  {kind === 'internet-technologies-mytelecom' && (
+    <svg class="em-art w-full h-full" viewBox="20 0 72 63" focusable="false">
+      <path d="M33 50 A24 24 0 1 1 79 50" fill="none" stroke="#d4d4d8" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M33 50 A24 24 0 1 1 79 50" class="em-hot" stroke-width="2.2" stroke-dasharray="28 120">
+        <animate attributeName="stroke-dashoffset" values="148;0" dur="4.5s" repeatCount="indefinite" />
+      </path>
+      <path class="em-dim" d="M34 44 H37 M37 33 L39.5 34.5 M45 24 L46.5 26.5 M56 21 V24 M67 24 L65.5 26.5 M75 33 L72.5 34.5 M78 44 H75" />
+      <g>
+        <path d="M53 43 L73 42.4 L73 43.6 Z" fill="#18181b" />
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          dur="6s"
+          repeatCount="indefinite"
+          values="195 56 43;250 56 43;235 56 43;345 56 43;210 56 43;195 56 43"
+          keyTimes="0;.25;.45;.7;.9;1"
+        />
+      </g>
+      <circle cx="56" cy="43" r="2.6" class="em-void" stroke="#18181b" stroke-width="1.2" />
+      <path class="em-base" d="M20 55 H92" />
+    </svg>
+  )}
+
+  {(kind === 'stage-ugr' || kind === 'stage-erasmus' || kind === 'stage-sicue' || kind === 'stage-final') && (
+    <svg class="em-art w-full h-full" viewBox="28 8 56 48" focusable="false">
+      <polygon points="56,12 76,23 76,43 56,52 36,43 36,23" fill="rgba(24,24,27,0.04)" stroke="#18181b" stroke-width="1.1" />
+      <path class="em-dim" d="M36 23 L56 33 L76 23 M56 33 V52" />
+      <circle cx="56" cy="33" r="2" fill="#18181b">
+        <animate attributeName="r" values="1.5;2.6;1.5" dur="3.2s" repeatCount="indefinite" />
+      </circle>
+    </svg>
+  )}
+</span>
